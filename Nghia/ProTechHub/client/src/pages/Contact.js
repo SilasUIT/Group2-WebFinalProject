@@ -8,7 +8,7 @@ import {
 
 const Contact = () => {
   return (
-    <Layout>
+    <Layout title="Contact us - ProTechHub">
         <div className='row contactus'>
             <div className='col-md-6'>
                 <img 
@@ -34,7 +34,9 @@ const Contact = () => {
             </div>
         </div>
     </Layout>
-  )
-}
+  );
+};
+
+
 
 export default Contact

@@ -4,7 +4,7 @@ import Layout from '../components/Layout/Layout';
 
 const About = () => {
   return (
-    <Layout>
+    <Layout title="About us - ProTechHub">
         <div className='row contactus'>
             <div className='col-md-6'>
                 <img
