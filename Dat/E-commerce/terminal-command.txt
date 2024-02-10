@@ -1,0 +1,2 @@
+npx create-react-app . //used to create a new React.js application using Create React App (CRA)
+npm install react-router-dom
