@@ -1,7 +1,0 @@
-npx create-react-app . //used to create a new React.js application using Create React App (CRA)
-npm install react-router-dom
-npm install express 
-npm install jsonwebtoken
-npm install mongoose
-npm install multer //handle file upload
-npm install cors //add administrator permission to access the backend
