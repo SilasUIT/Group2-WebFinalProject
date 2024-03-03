@@ -1,0 +1,5 @@
+npx create-next-app --typescript // install nextjs platform
+npx install -D prisma // instal prisma database schedule
+npx prisma init // create a project using prisma
+npx prisma db push //push data to database in schema.prisma file
+npm install next-auth @prisma/client @next-auth/prisma-adapter //authentication using for nextjs and prisma

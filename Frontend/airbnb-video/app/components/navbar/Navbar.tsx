@@ -1,11 +1,20 @@
 import React from 'react'
 
+import { User } from '@prisma/client';
+
 import {Container} from '../Container';
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
 
-export const Navbar = () => {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({
+  currentUser
+}) => {
+  console.log({currentUser});
   return (
     <div className='fixed w-full bg-white z-10 shadow-sm'>
         <div className='
@@ -14,16 +23,16 @@ export const Navbar = () => {
         '>
             <Container>
                 <div className="
-                  flex
-                  flex-row
-                  items-center
+                  flex 
+                  flex-row 
+                  items-center 
                   justify-between
                   gap-3
-                  md: gap-0
+                  md:gap-0
                 ">
                   <Logo />
                   <Search />
-                  <UserMenu />
+                  <UserMenu currentUser = {currentUser}/>
                 </div>
             </Container>
         </div>
