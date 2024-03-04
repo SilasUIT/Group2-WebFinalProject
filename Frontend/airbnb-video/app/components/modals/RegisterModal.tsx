@@ -16,6 +16,7 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -59,7 +60,7 @@ const RegisterModal = () => {
             <Input 
                 id="email"
                 label="Email"
-                disable={isLoading}
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
@@ -67,7 +68,7 @@ const RegisterModal = () => {
             <Input 
                 id="name"
                 label="Name"
-                disable={isLoading}
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
@@ -76,7 +77,7 @@ const RegisterModal = () => {
                 id="password"
                 type="password"
                 label="Password"
-                disable={isLoading}
+                disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
@@ -91,13 +92,13 @@ const RegisterModal = () => {
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
-                onClick={() => {}}
+                onClick={() => signIn('google')}
             />
             <Button 
                 outline
                 label="Continue with Github"
                 icon={AiFillGithub}
-                onClick={() => {}}
+                onClick={() => signIn('github')}
             />
             <div
                 className="
@@ -129,7 +130,7 @@ const RegisterModal = () => {
 
     return ( 
         <Modal 
-            disable={isLoading}
+            disabled={isLoading}
             isOpen={registerModal.isOpen}
             title="Register"
             actionLabel="Continue"
