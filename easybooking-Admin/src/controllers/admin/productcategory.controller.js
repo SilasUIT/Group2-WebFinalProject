@@ -1,5 +1,3 @@
-
-const path=require('path');
 const {
   addItem,
   getItems,
@@ -7,14 +5,13 @@ const {
   getItemById,
   updateItem,
   getStatusCounts,
-} = require("../../services/category.service");
-
-const mainName = 'category';
+} = require("../../services/productcategory.service");
+const mainName = 'productcategory';
 const linkprefix = `/admin/${mainName}/`;
 var express = require("express");
 
 
-class NewsController {
+class productcategoryController {
 
   getAll = async (req, res, next) => {
     let { status } = req.params;
@@ -30,17 +27,17 @@ class NewsController {
     }
     data.sort((a, b) => a.ordering - b.ordering);
 
-    res.render("admin/category", { data, statusfilter: this.getStatusFilter(statusCounts, status), keyword, linkprefix });
+    res.render("admin/productcategory", { data, statusfilter: this.getStatusFilter(statusCounts, status), keyword, linkprefix });
 };
 
 
   getForm = async (req, res, next) => {
     let { id } = req.params;
     if (id == "") {
-      res.render("admin/category/form");
+      res.render("admin/productcategory/form");
     } else {
       let data = await getItemById(id);
-      res.render("admin/category/form", { data });
+      res.render("admin/productcategory/form", { data });
     }
   };
 
@@ -62,10 +59,6 @@ class NewsController {
       res.redirect(`${linkprefix}all`);
     }
   };
-  
-  
- 
- 
   
   deleteItem = async (req, res, next) => {
     let { id } = req.params;
@@ -183,4 +176,4 @@ statusTool = async (req, res, next) => {
 }
 
 
-module.exports = new NewsController();
+module.exports = new productcategoryController();

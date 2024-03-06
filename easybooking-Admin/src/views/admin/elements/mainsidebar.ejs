@@ -2,11 +2,15 @@
     let arrMenu = [
         {parent: false, name: 'Dashboard', icon: 'ion-ios-keypad-outline', link: `admin`},
         {parent: true, child: [
-                                { name: ' News Dashboard', icon: 'ion-clipboard', link: `admin/news/all`},
-                                { name: ' Category', icon: 'ion-clipboard', link: `admin/category/all`},
+                                { name: ' Manage news', icon: 'ion-clipboard', link: `admin/news/all`},
+                                { name: ' Category news', icon: 'ion-clipboard', link: `admin/category/all`},
                               ],
-        name: 'Manage News', icon: 'fas fa-list', link: `admin/news`},
-
+        name: 'News', icon: 'fas fa-list', link: `admin/news`},
+        {parent: true, child: [
+                                { name: ' Manage product', icon: 'ion-clipboard', link: `admin/product/all`},
+                                { name: ' Category product', icon: 'ion-clipboard', link: `admin/productcategory/all`},
+                              ],
+        name: 'Product', icon: 'fas fa-list', link: `admin/news`},
         
     ];
     

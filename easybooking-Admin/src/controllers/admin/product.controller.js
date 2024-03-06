@@ -1,4 +1,4 @@
-
+const multer = require('multer');
 const path=require('path');
 const {
   addItem,
@@ -7,14 +7,17 @@ const {
   getItemById,
   updateItem,
   getStatusCounts,
-} = require("../../services/category.service");
-
-const mainName = 'category';
+} = require("../../services/product.service");
+const { imageHelper } = require("../../helper/news.helper");
+const mainName = 'product';
 const linkprefix = `/admin/${mainName}/`;
 var express = require("express");
 
+// const setFlashMessage = (req, type, message) => {
+//   req.flash(type, message, false);
+// };
 
-class NewsController {
+class productController {
 
   getAll = async (req, res, next) => {
     let { status } = req.params;
@@ -30,17 +33,17 @@ class NewsController {
     }
     data.sort((a, b) => a.ordering - b.ordering);
 
-    res.render("admin/category", { data, statusfilter: this.getStatusFilter(statusCounts, status), keyword, linkprefix });
+    res.render("admin/product", { data, statusfilter: this.getStatusFilter(statusCounts, status), keyword, linkprefix });
 };
 
 
   getForm = async (req, res, next) => {
     let { id } = req.params;
     if (id == "") {
-      res.render("admin/category/form");
+      res.render("admin/product/form");
     } else {
       let data = await getItemById(id);
-      res.render("admin/category/form", { data });
+      res.render("admin/product/form", { data });
     }
   };
 
@@ -64,14 +67,37 @@ class NewsController {
   };
   
   
- 
- 
+  imageUpload = async (req, res, next) => {
+    const { id } = req.params;
   
+    if (!id) {
+      req.flash("danger", "Invalid operation", false);
+      return res.redirect(`${linkprefix}all`);
+    }
+  
+    imageHelper(req, res, async (err) => {
+      try {
+        const filePath = path.join(req.file.filename);
+        req.body.file = filePath;
+  
+        await updateItem(id, { avatar: filePath });
+  
+        req.flash("success", "Update image thành công", false);
+        res.redirect(`${linkprefix}all`);
+      } catch (error) {
+        console.error('Error processing form:', error);
+        req.flash("danger", "An error occurred", false);
+        res.redirect(`${linkprefix}all`);
+      }
+    });
+  };
+  
+
   deleteItem = async (req, res, next) => {
     let { id } = req.params;
     await deleteItem(id);
     req.flash("success", "Delete item thành công", false);
-    res.redirect(`${linkprefix}`);
+    res.redirect(`${linkprefix}all`);
   };
 
 
@@ -135,9 +161,9 @@ console.log(status);
   updateStatus = async (req, res, next) => {
     try {
       const { id, status } = req.params;
-      const newStatus = status === 'active' ? 'inactive' : 'active';
-      await updateItem(id, { status: newStatus });
-      res.status(200).json({ message: 'Successfully updated status', id, status: newStatus });
+      const producttatus = status === 'active' ? 'inactive' : 'active';
+      await updateItem(id, { status: producttatus });
+      res.status(200).json({ message: 'Successfully updated status', id, status: producttatus });
     } catch (error) {
       console.error("Error during status update:", error);
       res.status(500).json({ error: 'Internal Server Error' });
@@ -147,14 +173,14 @@ console.log(status);
 
 statusTool = async (req, res, next) => {
   const { action, selectedItems } = req.body;
-  let newStatus;
+  let producttatus;
   
   switch (action) {
     case 'set_to_active':
-      newStatus = 'active';
+      producttatus = 'active';
       break;
     case 'set_to_inactive':
-      newStatus = 'inactive';
+      producttatus = 'inactive';
       break;
     case 'set_to_delete':
       for (const itemId of selectedItems) {
@@ -167,9 +193,9 @@ statusTool = async (req, res, next) => {
       return res.status(400).json({ error: 'Invalid action' });
   }
 
-  if (newStatus && (newStatus === 'active' || newStatus === 'inactive')) {
+  if (producttatus && (producttatus === 'active' || producttatus === 'inactive')) {
     for (const itemId of selectedItems) {
-      await updateItem(itemId, { status: newStatus });
+      await updateItem(itemId, { status: producttatus });
     }
     // setFlashMessage(req, 'success', 'Update item thành công');
     res.json({ success: true });
@@ -183,4 +209,4 @@ statusTool = async (req, res, next) => {
 }
 
 
-module.exports = new NewsController();
+module.exports = new productController();

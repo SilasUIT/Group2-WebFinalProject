@@ -43,5 +43,4 @@ module.exports = {
   deleteItem,
   getItemById,
   updateItem,
-  getStatusCounts,
 };

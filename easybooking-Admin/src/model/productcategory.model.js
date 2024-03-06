@@ -1,7 +1,6 @@
 const { Schema } = require("mongoose");
-const mongoose = require("mongoose");
-
-const COLLECTION_NAME = "News";
+mongoose = require("mongoose");
+const COLLECTION_NAME = "productcategory";
 
 const newSchema = new Schema(
   {
@@ -20,22 +19,13 @@ const newSchema = new Schema(
       min: 1,
       default: 1,
     },
-    avatar: {
-      type: String,
-    },
-    content:{
-      type: String,
-    },
     slug:{
       type: String,
     },
     special: {
       type: Boolean, 
-      default: false, 
+      default: true, 
     },
-    category: {
-      type: String,
-  },
   },
   {
     timestamps: true,

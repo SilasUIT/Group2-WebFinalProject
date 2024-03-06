@@ -30,7 +30,7 @@ const newSchema = new Schema(
             type: Boolean,
             default: false,
         },
-        type: {
+        category: {
             type: String,
         },
         price: {
