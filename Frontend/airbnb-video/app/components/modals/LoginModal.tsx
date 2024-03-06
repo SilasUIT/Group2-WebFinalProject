@@ -22,8 +22,10 @@ import Button from "../Button";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const { 
@@ -62,7 +64,7 @@ const LoginModal = () => {
     });
   }
 
-  const onToggle = useCallback(() => {
+  const toggle = useCallback(() => {
     loginModal.onClose();
     registerModal.onOpen();
   }, [loginModal, registerModal])
@@ -110,9 +112,9 @@ const LoginModal = () => {
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>First time using EzBooking?
           <span 
-            onClick={onToggle} 
+            onClick={toggle} 
             className="
               text-neutral-800
               cursor-pointer 
