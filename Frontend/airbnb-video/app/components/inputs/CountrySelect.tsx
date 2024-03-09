@@ -59,7 +59,6 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
           }
         })}
       />
-      <Map />
     </div>
    );
 }
