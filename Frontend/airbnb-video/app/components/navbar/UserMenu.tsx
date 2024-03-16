@@ -52,7 +52,7 @@ export const UserMenu: React.FC <UserMenuProps> = ({
                     transition
                     cursor-pointer
             '>
-                Airbnb your home
+                Ezbooking your home
             </div>
             <div
                 onClick={toggleOpen}
