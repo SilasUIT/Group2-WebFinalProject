@@ -30,5 +30,7 @@ npm i -D @types/react-date-range
 npm i react-spinners
 
 Các câu lệnh chạy file:
-cd .\Frontend\airbnb-video\
+
+cd .\Frontend\Ezbooking\
+
 npm run dev
