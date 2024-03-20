@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react'
-import {Container} from '../Container';
+import { Container } from '../client/components/Container'; // Remove the leading slash and provide the correct file path
 import Logo from './Logo';
 import Search from './Search';
 import UserMenu from './UserMenu';
