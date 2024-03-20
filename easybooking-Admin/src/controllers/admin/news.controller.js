@@ -9,14 +9,13 @@ const {
   getStatusCounts,
 } = require("../../services/news.services");
 const { imageHelper } = require("../../helper/news.helper");
+const {upload}=require('../../helper/dropzone.helper');
+const { body, validationResult } = require("express-validator");
 const mainName = 'news';
 const linkprefix = `/admin/${mainName}/`;
-var express = require("express");
-var router = express.Router();
 
-// const setFlashMessage = (req, type, message) => {
-//   req.flash(type, message, false);
-// };
+
+
 
 class NewsController {
 
@@ -50,6 +49,18 @@ class NewsController {
 
   addOrUpdateItem = async (req, res) => {
     const { id } = req.body;
+    let errors = validationResult(req);
+    console.log(errors);
+    let listError = errors.errors;
+  
+    if (listError.length > 0) {
+      let messages = [];
+      listError.map((error) => messages.push(error.msg));
+      req.flash("danger", messages, false);
+      return id
+        ? res.redirect(`${linkprefix}form/${id}`)
+        : res.redirect(`${linkprefix}form/`);
+    }
   
     try {
       if (id) {
@@ -206,6 +217,24 @@ statusTool = async (req, res, next) => {
   // res.redirect(`${linkprefix}`);
 
 };
+dropzoneUpload = async (req, res, next) => {
+  const {id}=req.params;
+  upload(req, res, async (err) => {
+    try {
+      const filePath = path.join(req.file.filename);
+      req.body.file = filePath;
+
+      await updateItem(id, { listImage: filePath });
+
+      req.flash("success", "Update image thành công", false);
+      res.redirect(`${linkprefix}all`);
+    } catch (error) {
+      console.error('Error processing form:', error);
+      req.flash("danger", "An error occurred", false);
+      res.redirect(`${linkprefix}all`);
+    }
+  });
+}
 
 }
 

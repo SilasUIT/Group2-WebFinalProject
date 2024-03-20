@@ -7,11 +7,13 @@ const {
   getItemById,
   updateItem,
   getStatusCounts,
-} = require("../../services/product.service");
+} = require("../../services/product.admin.service");
 const { imageHelper } = require("../../helper/news.helper");
+const { body, validationResult } = require("express-validator");
 const mainName = 'product';
 const linkprefix = `/admin/${mainName}/`;
 var express = require("express");
+var router = express.Router();
 
 // const setFlashMessage = (req, type, message) => {
 //   req.flash(type, message, false);
@@ -49,6 +51,18 @@ class productController {
 
   addOrUpdateItem = async (req, res) => {
     const { id } = req.body;
+    let errors = validationResult(req);
+    console.log(errors);
+    let listError = errors.errors;
+  
+    if (listError.length > 0) {
+      let messages = [];
+      listError.map((error) => messages.push(error.msg));
+      req.flash("danger", messages, false);
+      return id
+        ? res.redirect(`${linkprefix}form/${id}`)
+        : res.redirect(`${linkprefix}form/`);
+    }
   
     try {
       if (id) {

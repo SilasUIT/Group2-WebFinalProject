@@ -1,39 +1,48 @@
 const { Schema } = require("mongoose");
-const mongoose = require("mongoose");
+ mongoose = require("mongoose");
 
-const COLLECTION_NAME = "News";
+const COLLECTION_NAME = "user";
 
+const information = new Schema({
+    name:String,
+    phone:String,
+    address:String,
+    email:String,
+  });
 const newSchema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
-            required: true
-        },
-        address: {
-            type: String,
-            required: true
-        },
-        phone: {
-            type: String,
-            required: true
-        },
-        identity: {
-            type: String,
-            required: true
-        },
-        role: {
-            type: String,
-            required: true
-        }
+  {
+    username:{
+        type: String,
+        required:true,
+        unique:true,
     },
-    {
-        timestamps: true,
-        collection: COLLECTION_NAME,
-    }
+    password:{
+        type:String,
+        required:true,
+    },
+    role:{
+        type:String,
+        default:"user",
+        enum:["user","admin"],
+    },
+    userinformation:{
+        type:[information],
+        default:[],
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now,
+    },
+    status: {
+      type: String,
+      default: "inactive",
+      enum: ["active", "inactive"]
+    },
+  },
+  {
+    timestamps: true,
+    collection: COLLECTION_NAME,
+  }
 );
 
 module.exports = mongoose.model(COLLECTION_NAME, newSchema);

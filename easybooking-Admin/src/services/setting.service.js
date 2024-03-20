@@ -36,11 +36,20 @@ const updateItem = async (id, body) => {
     { $set: body }
   );
 };
-
+const getStatusCounts = async () => {
+  const items = await newsModel.find({});
+  const statusCounts = {
+    All: items.length,
+    Active: items.filter((item) => item.status === 'active').length,
+    Inactive: items.filter((item) => item.status === 'inactive').length,
+  };
+  return statusCounts;
+};
 module.exports = {
   addItem,
   getItems,
   deleteItem,
   getItemById,
   updateItem,
+  getStatusCounts,
 };

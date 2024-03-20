@@ -9,70 +9,70 @@
   <div class="row">
     <div class="col-md-6">
       <!-- Form 1: General Information -->
-    <form method="POST" action="/admin/product/form" >
+      <form method="POST" action="/admin/product/form" >
         <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">General</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                </div>
+          <div class="card-header">
+            <h3 class="card-title">General</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
             </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input name="name" type="text" id="name" class="form-control" value="<%= item.name %>">
-                    <input style="display: none" name="id" type="text" id="id" class="form-control" value="<%= item._id  %>">
-                </div>
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <select name='status' id="status" class="form-control custom-select">
-                        <option selected disabled="">Select one</option>
-                        <option value="active" <%= (item.status == "active") ? 'selected="selected"' : '' %> >Active</option>
-                        <option value="inactive" value="inactive" <%= (item.status == "inactive") ? 'selected="selected"' : '' %>>Inactive</option>
-                    </select>
-                </div>
-                <label for="description">Description</label>
-                <div class="form-group">
-                    <input name="description" placeholder="Description...." type="text" id="description" class="form-control" value="<%= item.description  %>">
-                </div>
-                <label for="content">Content</label>
-                <div class="form-group">
-                    <textarea name="content" id="editor" placeholder="content...." class="form-control"><%= item.content %></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="ordering">Ordering</label>
-                    <input name="ordering" type="number" id="ordering" class="form-control" value="<%= item.ordering  %>">
-                </div>
-                <div class="form-group">
-                    <label for="special">Special</label>
-                    <select name="special" id="special" class="form-control custom-select">
-                        <option value="true" <%= (item.special === true) ? 'selected="selected"' : '' %>>True</option>
-                        <option value="false" <%= (item.special === false) ? 'selected="selected"' : '' %>>False</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                  <label for="category">Category</label>
-                  <select name="category" id="category" class="form-control custom-select">
-                    <option selected disabled>Select one</option>
-                    <% listcategoryproduct.forEach((item) => { %>
-                        <option value="<%= item.name %>" <%= (item.category === item.name) ? 'selected="selected"' : '' %>><%= item.name %></option>
-                      <%  }); %>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input name="price" category="number" id="price" class="form-control" value="<%= item.price %>">
-                </div>
-                <div class="form-group">
-                    <label for="evaluation">Evaluation</label>
-                    <input name="evaluation" type="number" id="evaluation" class="form-control" value="<%= item.evaluation %>">
-                </div>
-                <button type="submit" class="btn btn-primary float-right">Submit General Info</button>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input name="name" type="text" id="name" class="form-control" value="<%= item.name %>">
+              <input style="display: none" name="id" type="text" id="id" class="form-control" value="<%= item._id  %>">
             </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select name='status' id="status" class="form-control custom-select">
+                <option selected disabled="">Select one</option>
+                <option value="active" <%= (item.status == "active") ? 'selected="selected"' : '' %> >Active</option>
+                <option value="inactive" value="inactive" <%= (item.status == "inactive") ? 'selected="selected"' : '' %>>Inactive</option>
+              </select>
+            </div>
+            <label for="description">Description</label>
+            <div class="form-group">
+              <input name="description" placeholder="Description...." type="text" id="description" class="form-control" value="<%= item.description  %>">
+            </div>
+            <label for="content">Content</label>
+            <div class="form-group">
+              <textarea name="content" id="editor" placeholder="content...." class="form-control"><%= item.content %></textarea>
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input name="price" type="number" id="price" class="form-control" value="<%= item.price  %>">
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input name="quantity" type="number" id="quantity" class="form-control" value="<%= item.quantity  %>">
+            </div>
+            <div class="form-group">
+              <label for="ordering">Ordering</label>
+              <input name="ordering" type="number" id="ordering" class="form-control" value="<%= item.ordering  %>">
+            </div>
+            <div class="form-group">
+              <label for="special">Special</label>
+              <select name="special" id="special" class="form-control custom-select">
+                <option value="true" <%= (item.special === true) ? 'selected="selected"' : '' %>>True</option>
+                <option value="false" <%= (item.special === false) ? 'selected="selected"' : '' %>>False</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select name="category" id="category" class="form-control custom-select">
+                <option selected disabled>Select one</option>
+                <% listcategoryProduct.forEach((item) => { %>
+                    <option value="<%= item.name %>" <%= (item.category === item.name) ? 'selected="selected"' : '' %>><%= item.name %></option>
+                  <%  }); %>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Submit General Info</button>
+          </div>
         </div>
-    </form>
+      </form>
     </div>
     <div class="col-md-6">
       <!-- Form 2: Image Upload (Show only if id exists) -->

@@ -35,6 +35,14 @@ const newSchema = new Schema(
     },
     category: {
       type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+  },
+  listImage:{
+    type:Array,
+    default:[],
   },
   },
   {

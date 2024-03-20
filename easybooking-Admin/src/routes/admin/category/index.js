@@ -1,19 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const categoryController = require("../../../controllers/admin/category.controller");
+const newController = require("../../../controllers/admin/category.controller");
+const { handleValidate } = require("../../../validates/news.validate");
 router.use(express.json());
-router.get("/form", categoryController.getForm);
+router.get("/form", newController.getForm);
 router.post(
   "/form",
-  categoryController.addOrUpdateItem
+  handleValidate(["name", "description", "status","ordering"]),
+  newController.addOrUpdateItem
 );
-router.get("/form/:id", categoryController.getForm);
-router.get("/delete/:id", categoryController.deleteItem);
-router.get('/changeStatus/:id/:status', categoryController.updateStatus);
+router.get("/form/:id", newController.getForm);
+router.get("/delete/:id", newController.deleteItem);
+router.get('/changeStatus/:id/:status', newController.updateStatus);
 
-router.get("(/:status)?", categoryController.getAll);  
+router.get("(/:status)?", newController.getAll);  
 
-router.get('(:/status)?',categoryController.statusCount);
+router.get('(:/status)?',newController.statusCount);
 
-router.post("/changeStatusTool", categoryController.statusTool);
+router.post("/changeStatusTool", newController.statusTool);
+router.post("/upload/:id", newController.imageUpload);
 module.exports = router;

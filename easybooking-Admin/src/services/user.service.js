@@ -1,11 +1,8 @@
-const mongoose = require("mongoose");
-const newsModel = require("../model/user.model");
-const path=require('path');
-const mainName='user';
-const linkprefix=`/admin/${mainName}/`;
+const usermodel = require("../model/user.model");
 const addItem = async (body) => {
-   await newsModel.create(body);
+  await usermodel.create(body);
 };
+
 const getItems = async (status, keyword) => {
   let query = {};
   if (status === 'all') {
@@ -14,33 +11,44 @@ const getItems = async (status, keyword) => {
     query.status = status;
   }
   if (keyword) {
-    query.$or = [
-      { name: new RegExp(keyword, 'i') },
-      { description: new RegExp(keyword, 'i') }
-    ];
+    query['userinformation.name'] = new RegExp(keyword, 'i');
   }
-  return await newsModel.find(query);
+  return await usermodel.find(query);
 };
 
+
 const getItemById = async (id) => {
-  return await newsModel.findById(id).exec();
+  return await usermodel.findById(id).exec();
 };
 
 const deleteItem = async (id) => {
-  return await newsModel.deleteOne({ _id: new mongoose.Types.ObjectId(id) });
+  return await usermodel.deleteOne({ _id: id });
 };
 
 const updateItem = async (id, body) => {
-  await newsModel.findByIdAndUpdate(
-    { _id: new mongoose.Types.ObjectId(id) },
-    { $set: body }
-  );
+  try {
+    await usermodel.findByIdAndUpdate(id, { $set: { userinformation: body.userinformation, role: body.role } });
+  } catch (error) {
+    console.error(error);
+    throw new Error('Update failed');
+  }
+};
+
+const getStatusCounts = async () => {
+  const items = await usermodel.find({});
+  const statusCounts = {
+    All: items.length,
+    Active: items.filter((item) => item.status === 'active').length,
+    Inactive: items.filter((item) => item.status === 'inactive').length,
+  };
+  return statusCounts;
 };
 
 module.exports = {
-  addItem,
   getItems,
   deleteItem,
   getItemById,
   updateItem,
+  getStatusCounts,
+  addItem,
 };

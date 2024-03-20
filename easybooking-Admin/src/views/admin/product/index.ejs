@@ -56,15 +56,16 @@
         <table class="table table-striped projects">
           <thead>
             <tr>
-             <th style="width: 10%" ><input type="checkbox" id="selectAllCheckbox">Select all</th>
-              <th style="width: 5%" >ID</th>
-              <th style="width: 10%">Name</th>
-              <th style="width: 10%">Description</th>
-              <th style="width: 10%">Ordering</th>
-              <th style="width: 10%">Avatar</th>
-              <th style="width: 10%" class="text-center">Status</th>
-              <th style="width: 10%" class="text-center">Category</th>
-              <th style="width: 10%">CreatedAt</th>
+            <th style="width: 5%; font: size 5%;" >SelectAll<input type="checkbox" id="selectAllCheckbox"></th>
+              <th style="width: 8%" >ID</th>
+              <th style="width: 8%">Name</th>
+              <th style="width: 8%">Description</th>
+              <th style="width: 8%">Ordering</th>
+              <th style="width: 8%">Avatar</th>
+              <th style="width: 8%" class="text-center">Status</th>
+              <th style="width: 8%">Price</th>
+              <th style="width: 8%">Quantity</th>
+              <th style="width: 8%" class="text-center">Category</th>
             </tr>
           </thead>
         
@@ -85,10 +86,11 @@
                         <span class="badge <%= item.status === 'active' ? 'badge-success' : 'badge-danger' %>"><%= item.status %></span>
                       </a>
                     </td>
+                    <td><%= item.price %></td>
+                    <td><%= item.quantity %></td>
                     <td class="project-state" id="category-<%= item.id %>">
-                        <span class="badge badge-warning"><%= item.category %></span>                 
+                      <span class="badge badge-success"><%= item.category %></span>
                     </td>
-                    <td><%= item.createdAt.toISOString().split('T')[0] %></td>
                     <td class="project-actions text-right text-center">
                       <a class="btn btn-info btn-sm" href="/admin/product/form/<%= item.id %>">
                         <i class="fas fa-pencil-alt"> </i>
@@ -124,4 +126,3 @@
       </div>
     </div>
   </section>
-  

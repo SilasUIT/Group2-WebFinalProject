@@ -63,7 +63,7 @@
             <th style="width: 10%">Ordering</th>
             <th style="width: 10%">Avatar</th>
             <th style="width: 10%" class="text-center">Status</th>
-            <th style="width: 10%" class="text-center">Category</th>
+            <th style="width: 10%" class="text-center">category</th>
           </tr>
         </thead>
       
@@ -76,6 +76,7 @@
                   <td><%= item.name %></td>
                   <td><%= item.description %></td>
                   <td><%= item.ordering %></td>
+                  
                   <td>
                     <img src="/<%= item.avatar %>" alt="Avatar"  class="rounded-circle" style="width: 50px;">
                   </td>               
@@ -85,8 +86,14 @@
                     </a>
                   </td>
                   <td class="project-state" id="category-<%= item.id %>">
-                    <span class="badge badge-warning"><%= item.category %></span>                 
-                </td>
+                    <% if (item.category === 'pirates') { %>
+                      <span class="badge badge-success"><%= item.category %></span>
+                    <% } else if (item.category === 'marines') { %>
+                      <span class="badge badge-warning"><%= item.category %></span>
+                    <% } else { %>
+                      <span class="badge badge-danger"><%= item.category %></span>
+                    <% } %>
+                  </td>
                   <td class="project-actions text-right text-center">
                     <a class="btn btn-info btn-sm" href="/admin/news/form/<%= item.id %>">
                       <i class="fas fa-pencil-alt"> </i>

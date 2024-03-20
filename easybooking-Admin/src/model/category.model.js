@@ -19,6 +19,9 @@ const newSchema = new Schema(
       min: 1,
       default: 1,
     },
+    avatar: {
+      type: String,
+    },
     slug:{
       type: String,
     },

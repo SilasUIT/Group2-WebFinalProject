@@ -107,32 +107,25 @@ jQuery(document).ready(function($)  {
   });
 });
 
-// Dropzone.options.myDropzone = {
-//   autoProcessQueue: false,
-//   uploadMultiple: true,
-//   parallelUploads: 5,
-//   maxFiles: 5,
+Dropzone.options.myDropzone = {
+  url: "/admin/news/dropzone", 
+  paramName: "file", 
+  maxFilesize: 2, 
+  acceptedFiles: ".jpg,.jpeg,.png,.gif", 
+  addRemoveLinks: true, 
+  dictDefaultMessage: "Drop files here or click to upload", 
+  
+  init: function () {
+      var myDropzone = this;
+      
+      this.element.querySelector(".cancel").addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          myDropzone.removeAllFiles(); 
+      });
+  }
+};
 
-//   init() {
-//     const myDropzone = this;
-
-//     document.querySelector(".start").addEventListener("click", () => {
-//       myDropzone.processQueue();
-//     });
-
-//     document.querySelector(".cancel").addEventListener("click", () => {
-//       myDropzone.removeAllFiles(true);
-//     });
-//   }
-// };
-
-// const startUpload = () => {
-//   Dropzone.forElement("#myDropzone").processQueue();
-// };
-
-// const cancelUpload = () => {
-//   Dropzone.forElement("#myDropzone").removeAllFiles(true);
-// };
 
 const fetchDataWithSorting = async (status, keyword, sort) => {
   let query = {};
@@ -199,4 +192,22 @@ document.addEventListener('DOMContentLoaded', function () {
       const editorData = editor.getData();
       console.log('Editor content:', editorData);
   });
+});
+const highlightKeyword = (text, keyword) => {
+  const escapedKeyword = keyword.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+  const regex = new RegExp(escapedKeyword, 'gi');
+  return text.replace(regex, '<span class="highlight">$&</span>');
+};
+
+function calculateExpiryDate() {
+  var createDate = new Date("<%= item.createAt %>");
+  var daysToAdd = parseInt(document.getElementById('expirateDays').value);
+  var expiryDate = new Date(createDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000);
+  var formattedExpiryDate = expiryDate.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+  document.getElementById('calculatedExpiryDate').value = formattedExpiryDate;
+}
+
+// Event listener for input change
+document.getElementById('expirateDays').addEventListener('input', function() {
+  calculateExpiryDate();
 });
