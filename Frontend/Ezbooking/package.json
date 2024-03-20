@@ -13,14 +13,10 @@
     "@prisma/client": "^5.10.2",
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
-<<<<<<< HEAD
-    "next": "^14.1.2",
-=======
     "cloudinary": "^2.0.3",
     "date-fns": "^3.6.0",
     "leaflet": "^1.9.4",
-    "next": "^14.1.0",
->>>>>>> 8a42100cdbf22fe8639ae12854469c3ff61db213
+    "next": "^14.1.4",
     "next-auth": "^4.24.6",
     "next-cloudinary": "^6.2.1",
     "query-string": "^9.0.0",
