@@ -15,7 +15,7 @@ body {
   line-height: 28px;
   color: #6a6a6a;
   font-size: 14px;
-  background-color: #eff2f1; }
+  background-color: #ffffff; }
 
 a {
   text-decoration: none;
@@ -31,7 +31,7 @@ a {
     font-weight: 600; }
 
 .custom-navbar {
-  background: #cfab48 !important;
+  background: #ffffff !important;
   padding-top: 20px;
   padding-bottom: 20px; }
   .custom-navbar .navbar-brand {
@@ -51,7 +51,7 @@ a {
       margin-right: 15px; } }
   .custom-navbar .custom-navbar-nav li a {
     font-weight: 500;
-    color: #ffffff !important;
+    color: #002948 !important;
     opacity: .5;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
@@ -64,7 +64,7 @@ a {
         bottom: 0;
         left: 8px;
         right: 8px;
-        background: #f9bf29;
+        background: #FFA500;
         height: 5px;
         opacity: 1;
         visibility: visible;
@@ -96,7 +96,7 @@ a {
         margin-right: 20px; }
 
 .hero {
-  background: #cfab48;
+  background: #ffffff;
   padding: calc(4rem - 30px) 0 0rem 0; }
   @media (min-width: 768px) {
     .hero {
@@ -112,14 +112,14 @@ a {
         max-width: 450px; } }
   .hero h1 {
     font-weight: 700;
-    color: #ffffff;
+    color: #002948;
     margin-bottom: 30px; }
     @media (min-width: 1400px) {
       .hero h1 {
         font-size: 54px; } }
   .hero p {
-    color: rgba(255, 255, 255, 0.5);
-    margin-botom: 30px; }
+    color: #000000;
+    margin-bottom: 30px; }
   .hero .hero-img-wrap {
     position: relative; }
     .hero .hero-img-wrap img {
@@ -166,9 +166,8 @@ a {
   background: #2f2f2f;
   border-color: #2f2f2f; }
   .btn:hover {
-    color: #ffffff;
-    background: #222222;
-    border-color: #222222; }
+    background: rgba(0, 0, 0, 0.2);
+    border-color: white; }
   .btn:active, .btn:focus {
     outline: none !important;
     -webkit-box-shadow: none;
@@ -184,15 +183,18 @@ a {
     background: #f9bf29;
     border-color: #f9bf29; }
     .btn.btn-secondary:hover {
-      background: #f8b810;
-      border-color: #f8b810; }
+      background: rgba(0, 0, 0, 0.2);
+      border-color: white; 
+      color: white;
+    }
   .btn.btn-white-outline {
-    background: transparent;
+    background: #2f2f2f;
     border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.3); }
+    }
     .btn.btn-white-outline:hover {
+      background: rgba(0, 0, 0, 0.2);
       border-color: white;
-      color: #ffffff; }
+    }
 
 .section-title {
   color: #2f2f2f; }
