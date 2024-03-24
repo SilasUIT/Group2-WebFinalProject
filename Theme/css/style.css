@@ -207,6 +207,9 @@ a {
     display: block;
     position: relative;
     padding-bottom: 50px;
+    border: 1px solid #cce7d0;
+    border-radius: 20px;
+    margin: 15px 0;
     cursor: pointer; }
     .product-section .product-item .product-thumbnail {
       margin-bottom: 30px;
