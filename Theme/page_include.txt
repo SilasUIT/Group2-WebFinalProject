@@ -4,3 +4,7 @@ register.html - Trang đăng ký ---> Done
 product-detail - Xem chi tiết thông tin phương tiện 
 sell - Trang đăng cho thuê 
 sellerhome - Trang home của người dùng
+shop - Trang cho thuê ---> done
+home page - trang chủ ---> done
+detail product  - Trang chi tiết sản phẩm 
+
