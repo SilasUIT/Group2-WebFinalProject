@@ -1,0 +1,3 @@
+profile.html - Trang thông tin cá nhân của người dùng ---> Done
+login.html - Trang đăng nhập ---> Done
+register.html - Trang đăng ký ---> Done
