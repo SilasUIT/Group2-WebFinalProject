@@ -23,79 +23,97 @@
 		<link href="css/style.css" rel="stylesheet">
 		<style>
 			.product-section {
-  padding: 7rem 0; }
-  .product-section .product-item {
-    text-align: start;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    padding: 0px 0px 50px 20px;
-    border: 1px solid #cce7d0;
-    border-radius: 20px;
-    margin: 15px 0;
-    cursor: pointer; }
-    .product-section .product-item .product-thumbnail {
-      margin-bottom: 30px;
-      position: relative;
-      top: 0;
-      -webkit-transition: .3s all ease;
-      -o-transition: .3s all ease;
-      transition: .3s all ease; }
-    .product-section .product-item h3 {
-      font-weight: 600;
-      font-size: 16px; }
-    .product-section .product-item strong {
-      font-weight: 800 !important;
-      font-size: 18px !important; }
-    .product-section .product-item h3, .product-section .product-item strong {
-      color: #2f2f2f;
-      text-decoration: none; }
-    .product-section .product-item .icon-cross {
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      display: inline-block;
-      background: #2f2f2f;
-      bottom: 15px;
-      left: 50%;
-      -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%);
-      margin-bottom: -17.5px;
-      border-radius: 50%;
-      opacity: 0;
-      visibility: hidden;
-      -webkit-transition: .3s all ease;
-      -o-transition: .3s all ease;
-      transition: .3s all ease; }
-      .product-section .product-item .icon-cross img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%); }
-    .product-section .product-item:before {
-      bottom: 0;
-      left: 0;
-      right: 0;
-      position: absolute;
-      content: "";
-      background: #dce5e4;
-      height: 0%;
-      z-index: -1;
-      border-radius: 10px;
-      -webkit-transition: .3s all ease;
-      -o-transition: .3s all ease;
-      transition: .3s all ease; }
-    .product-section .product-item:hover .product-thumbnail {
-      top: -25px; }
-    .product-section .product-item:hover .icon-cross {
-      bottom: 0;
-      opacity: 1;
-      visibility: visible; }
-    .product-section .product-item:hover:before {
-      height: 70%; }
+ 				padding: 7rem 0; 
+			}
+  			.product-section .product-item {
+				text-align: start;
+				text-decoration: none;
+				display: block;
+				position: relative;
+				padding: 0px 0px 50px 20px;
+				border: 1px solid #cce7d0;
+				border-radius: 20px;
+				margin: 15px 0;
+				cursor: pointer; 
+			}
+    		.product-section .product-item .product-thumbnail {
+				margin-bottom: 30px;
+				position: relative;
+				top: 0;
+				-webkit-transition: .3s all ease;
+				-o-transition: .3s all ease;
+				transition: .3s all ease;
+			}
+    		.product-section .product-item h3 {
+				font-weight: 600;
+				font-size: 16px;
+			}
+    		.product-section .product-item strong {
+				font-weight: 800 !important;
+				font-size: 18px !important;
+			}
+    		.product-section .product-item h3, .product-section .product-item strong {
+				color: #2f2f2f;
+				text-decoration: none; 
+			}
+    		.product-section .product-item .icon-cross {
+				position: absolute;
+				width: 35px;
+				height: 35px;
+				display: inline-block;
+				background: #2f2f2f;
+				bottom: 15px;
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				margin-bottom: -17.5px;
+				border-radius: 50%;
+				opacity: 0;
+				visibility: hidden;
+				-webkit-transition: .3s all ease;
+				-o-transition: .3s all ease;
+				transition: .3s all ease; 
+			}
+			.product-section .product-item .icon-cross img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%); 
+			}
+			.product-section .product-item:before {
+				bottom: 0;
+				left: 0;
+				right: 0;
+				position: absolute;
+				content: "";
+				background: #dce5e4;
+				height: 0%;
+				z-index: -1;
+				border-radius: 10px;
+				-webkit-transition: .3s all ease;
+				-o-transition: .3s all ease;
+				transition: .3s all ease; 
+			}
+			.product-section .product-item:hover .product-thumbnail {
+				top: -25px; 
+			}
+			.product-section .product-item:hover .icon-cross {
+				bottom: 0;
+				opacity: 1;
+				visibility: visible; 
+			}
+			.product-section .product-item:hover:before {
+				height: 70%; 
+			}
+			.product-section .product-item .btn{
+				color: white;
+			}
+			.product-section .product-item .star{
+				color: rgb(243, 181, 25);
+			}
 		</style>
 		<title>Ezbooking</title>
 
@@ -107,7 +125,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+				<a class="navbar-brand" href="index.html">Ezbooking<span>.</span></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -159,12 +177,11 @@
 		      	<div class="row">
 
 		      		<!-- Start Column 1 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="col-12 col-md-4 col-lg-4 mb-5">
 						<a class="product-item" href="#">
 							<img src="anotherimages/product-2.png" class="img-fluid product-thumbnail">
 							<span>Honda</span>
 							<h3 class="product-title">Wave</h3>
-							<strong class="product-price">50.000₫/ 1 ngày</strong>
 							<div class="star">
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
@@ -172,37 +189,91 @@
 								<i class="fas fa-star"></i>
 								<i class="fas fa-star"></i>
 							</div>
-							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
-							</span>
+							<div class="d-flex justify-content-center mb-4">
+								<div class="px-2">
+									<i class="fa fa-solid fa-motorcycle text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">2019</span>
+								</div>
+								<div class="px-2 border-left border-right">
+									<i class="fa fa-cogs text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">Xe số</span>
+								</div>
+								<div class="px-2">
+									<i class="fa fa-road text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">3000km</span>
+								</div>
+							</div>							
+							<div class="text-center">
+								<strong class="product-price btn btn-primary px-3">50.000₫/ 1 ngày</strong>
+							</div>
 						</a>
 					</div> 
 					<!-- End Column 1 -->
 						
 					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="col-8 col-md-4 col-lg-4 mb-5">
 						<a class="product-item" href="#">
 							<img src="anotherimages/product-3.png" class="img-fluid product-thumbnail">
+							<span>Honda</span>
 							<h3 class="product-title">Dream</h3>
-							<strong class="product-price">100.000₫/ 1 ngày</strong>
-
-							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
-							</span>
+							<div class="star">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<div class="d-flex justify-content-center mb-4">
+								<div class="px-2">
+									<i class="fa fa-solid fa-motorcycle text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">2016</span>
+								</div>
+								<div class="px-2 border-left border-right">
+									<i class="fa fa-cogs text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">Xe số</span>
+								</div>
+								<div class="px-2">
+									<i class="fa fa-road text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">1000km</span>
+								</div>
+							</div>							
+							<div class="text-center">
+							<strong class="product-price btn btn-primary px-3">100.000₫/ 1 ngày</strong>
+							</div>
 						</a>
 					</div> 
 					<!-- End Column 2 -->
 
 					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="col-12 col-md-4 col-lg-4 mb-5">
 						<a class="product-item" href="#">
 							<img src="anotherimages/product-4.png" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Yamaha</h3>
-							<strong class="product-price">150.000₫/ 1 ngày</strong>
-
-							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
-							</span>
+							<span>Yamaha</span>
+							<h3 class="product-title">Motor Version</h3>
+							<div class="star">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</div>
+							<div class="d-flex justify-content-center mb-4">
+								<div class="px-2">
+									<i class="fa fa-solid fa-motorcycle text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">2017</span>
+								</div>
+								<div class="px-2 border-left border-right">
+									<i class="fa fa-cogs text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">Xe côn</span>
+								</div>
+								<div class="px-2">
+									<i class="fa fa-road text-primary mr-1" style="font-size: 20px;"></i>
+									<span style="font-size: 20px;">10000km</span>
+								</div>
+							</div>							
+							<div class="text-center">
+								<strong class="product-price btn btn-primary px-3">150.000₫/ 1 ngày</strong>
+							</div>
 						</a>
 					</div>
 					<!-- End Column 3 -->
