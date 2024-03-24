@@ -8,3 +8,4 @@ shop - Trang cho thuê ---> done
 home page - trang chủ ---> done
 detail product  - Trang chi tiết sản phẩm 
 contract.html - Xem danh sách các hợp đồng thuê
+order-detail.html - Xem chi tiết hợp đồng
