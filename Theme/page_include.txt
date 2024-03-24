@@ -1,3 +1,6 @@
 profile.html - Trang thông tin cá nhân của người dùng ---> Done
 login.html - Trang đăng nhập ---> Done
 register.html - Trang đăng ký ---> Done
+product-detail - Xem chi tiết thông tin phương tiện 
+sell - Trang đăng cho thuê 
+sellerhome - Trang home của người dùng
