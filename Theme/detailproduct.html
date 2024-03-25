@@ -23,17 +23,237 @@
 	<link href="css/tiny-slider.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-	crossorigin=""/>
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 	<style>
 		#map {
 			height: 400px;
 			width: 100%;
 		}
+
+		.calendar {
+			height: max-content;
+			width: 100%;
+			background-color: #fdfdfd;
+			border-radius: 30px;
+			padding: 20px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.calendar-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 25px;
+			font-weight: 600;
+			color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+			padding: 10px;
+		}
+
+		.calendar-body {
+			padding: 10px;
+		}
+
+		.calendar-week-day {
+			height: 50px;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			font-weight: 600;
+		}
+
+		.calendar-week-day div {
+			display: grid;
+			place-items: center;
+			color: #c3c2c8;
+		}
+
+		.calendar-days {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 2px;
+			color: #151426;
+		}
+
+		.calendar-days div {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			position: relative;
+			cursor: pointer;
+			animation: to-top 1s forwards;
+			/* border-radius: 50%; */
+		}
+
+		.calendar-days div span {
+			position: absolute;
+		}
+
+		.calendar-days div:hover span {
+			transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+		}
+
+		.calendar-days div span:nth-child(1),
+		.calendar-days div span:nth-child(3) {
+			width: 2px;
+			height: 0;
+			background-color: #151426;
+		}
+
+		.calendar-days div:hover span:nth-child(1),
+		.calendar-days div:hover span:nth-child(3) {
+			height: 100%;
+		}
+
+		.calendar-days div span:nth-child(1) {
+			bottom: 0;
+			left: 0;
+		}
+
+		.calendar-days div span:nth-child(3) {
+			top: 0;
+			right: 0;
+		}
+
+		.calendar-days div span:nth-child(2),
+		.calendar-days div span:nth-child(4) {
+			width: 0;
+			height: 2px;
+			background-color: #151426;
+		}
+
+		.calendar-days div:hover span:nth-child(2),
+		.calendar-days div:hover span:nth-child(4) {
+			width: 100%;
+		}
+
+		.calendar-days div span:nth-child(2) {
+			top: 0;
+			left: 0;
+		}
+
+		.calendar-days div span:nth-child(4) {
+			bottom: 0;
+			right: 0;
+		}
+
+		.calendar-days div:hover span:nth-child(2) {
+			transition-delay: 0.2s;
+		}
+
+		.calendar-days div:hover span:nth-child(3) {
+			transition-delay: 0.4s;
+		}
+
+		.calendar-days div:hover span:nth-child(4) {
+			transition-delay: 0.6s;
+		}
+
+		.calendar-days div.curr-date,
+		.calendar-days div.curr-date:hover {
+			background-color: orange;
+			color: white;
+			border-radius: 50%;
+		}
+
+		.calendar-days div.curr-date span {
+			display: none;
+		}
+
+		.month-picker {
+			padding: 5px 10px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.month-picker:hover {
+			background-color: #edf0f5;
+		}
+
+		.year-picker {
+			display: flex;
+			align-items: center;
+		}
+
+		.year-change {
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			display: grid;
+			place-items: center;
+			margin: 0 10px;
+			cursor: pointer;
+		}
+
+		.year-change:hover {
+			background-color: #edf0f5;
+		}
+
+		.calendar-footer {
+			padding: 10px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		.toggle {
+			display: flex;
+		}
+
+		.toggle span {
+			margin-right: 10px;
+			color: #151426;
+		}
+
+		.month-list {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: #fdfdfd;
+			padding: 20px;
+			grid-template-columns: repeat(3, auto);
+			gap: 5px;
+			display: grid;
+			transform: scale(1.5);
+			visibility: hidden;
+			pointer-events: none;
+		}
+
+		.month-list.show {
+			transform: scale(1);
+			visibility: visible;
+			pointer-events: visible;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.month-list>div {
+			display: grid;
+			place-items: center;
+		}
+
+		.month-list>div>div {
+			width: 100%;
+			padding: 5px 20px;
+			border-radius: 10px;
+			text-align: center;
+			cursor: pointer;
+			color: #151426;
+		}
+
+		.month-list>div>div:hover {
+			background-color: #edf0f5;
+		}
+
+		.calendar .btn {
+			width: 100%;
+		}
 	</style>
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-	crossorigin=""></script>
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 	<title>Ezbooking</title>
 
 </head>
@@ -73,7 +293,7 @@
 	<!-- End Header/Navigation -->
 
 	<!-- Start Product Detail -->
-	<div class="container" style="padding: 7%;">
+	<div class="container pt-4">
 		<div class="mb-4">
 			<h1>Yamaha</h1>
 			<span>Motor Version</span>
@@ -88,7 +308,7 @@
 			<div class="row">
 				<div class="col-12 col-md-8">
 					<div class="d-flex gap-2">
-						<h3>Được đăng bởi</h3>
+						<h2>Được đăng bởi</h2>
 						<img src="anotherimages/avatar.jpg" class="img-fluid" alt="testavatar"
 							style="width: 30px; height: 30px;">
 					</div>
@@ -96,29 +316,29 @@
 						<span>Vào lúc 7:00 PM ngày 20/11/2023</span>
 					</div>
 					<div class="flex">
-						<div class="d-flex mt-3 mb-3 gap-3">
+						<div class="d-flex mt-3 mb-3 gap-5">
 							<div class="px-2">
-								<i class="fa fa-solid fa-motorcycle text-primary mr-1" style="font-size: 15px;"></i>
-								<span style="font-size: 15px;">Mua từ năm 2017</span>
+								<i class="fa fa-solid fa-motorcycle text-primary mr-1" style="font-size: 20px;"></i>
+								<span style="font-size: 20px;">Mua từ năm 2017</span>
 							</div>
 							<div class="px-2">
-								<i class="fa fa-cogs text-primary mr-1" style="font-size: 15px;"></i>
-								<span style="font-size: 15px;">Dòng xe tay côn</span>
+								<i class="fa fa-cogs text-primary mr-1" style="font-size: 20px;"></i>
+								<span style="font-size: 20px;">Dòng xe tay côn</span>
 							</div>
 							<div class="px-2">
-								<i class="fa fa-road text-primary mr-1" style="font-size: 15px;"></i>
-								<span style="font-size: 15px;">Đã đi được 10000km</span>
+								<i class="fa fa-road text-primary mr-1" style="font-size: 20px;"></i>
+								<span style="font-size: 20px;">Đã đi được 10000km</span>
 							</div>
 						</div>
 						<div class="px-2 mb-3">
-							<i class="fa-solid fa-location-dot text-primary mr-1" style="font-size: 15px;"></i>
-							<span style="font-size: 15px;">số 10 thôn Tân Lâm, xã Đạ Đờn, huyện Lâm Hà, Tỉnh Lâm
+							<i class="fa-solid fa-location-dot text-primary mr-1" style="font-size: 20px;"></i>
+							<span style="font-size: 20px;">số 10 thôn Tân Lâm, xã Đạ Đờn, huyện Lâm Hà, Tỉnh Lâm
 								Đồng</span>
 						</div>
 					</div>
 					<hr>
 					<div>
-						<h3>Đánh giá từ người dùng</h3>
+						<h2>Đánh giá từ người dùng</h2>
 						<div class="star">
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
@@ -137,8 +357,42 @@
 					<hr>
 					<div id="map"></div>
 				</div>
-				<div class="col-12 col-md-4 order-first order-md-last">
-					Calendar nhưng chưa xong, buồn ngủ quá, bye bye
+				<div class="col-12 col-md-4">
+					<div class="calendar" style="background-color: #f3f8fe;">
+						<div class="flex flex-row items-center gap-1 b" style="color: orange;">
+							<h4>150.000₫/ 1 ngày</h4>
+						</div>
+						<hr>
+						<div class="calendar-header">
+							<span class="month-picker" id="month-picker">February</span>
+							<div class="year-picker">
+								<span class="year-change" id="prev-year">
+									<pre><</pre>
+								</span>
+								<span id="year">2021</span>
+								<span class="year-change" id="next-year">
+									<pre>></pre>
+								</span>
+							</div>
+						</div>
+						<div class="calendar-body">
+							<div class="calendar-week-day">
+								<div>Sun</div>
+								<div>Mon</div>
+								<div>Tue</div>
+								<div>Wed</div>
+								<div>Thu</div>
+								<div>Fri</div>
+								<div>Sat</div>
+							</div>
+							<div class="calendar-days"></div>
+						</div>
+						<div class="month-list"></div>
+						<hr>
+						<div class="p-4">
+							<div class="btn btn-block">Đặt xe ngay</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -298,7 +552,6 @@
 							<li><a href="#">Chính sách bảo mật</a></li>
 						</ul>
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -309,7 +562,7 @@
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/tiny-slider.js"></script>
 	<script src="js/custom.js"></script>
-	
+	<script src="js/app.js"></script>
 	<script>
 		var map = L.map('map').setView([0, 0], 1);
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -323,9 +576,9 @@
 			fillOpacity: 0.5,
 			radius: 500
 		}).addTo(map);
-		
+
 	</script>
-	
+
 </body>
 
 </html>
