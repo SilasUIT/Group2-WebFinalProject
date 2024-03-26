@@ -2,6 +2,14 @@ let calendar = document.querySelector('.calendar')
 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+let currDate = new Date()
+
+let curr_month = {value: currDate.getMonth()}
+let curr_year = {value: currDate.getFullYear()}
+
+let startDate = null;
+let endDate = null;
+
 isLeapYear = (year) => {
     return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
 }
@@ -11,7 +19,6 @@ getFebDays = (year) => {
 }
 
 generateCalendar = (month, year) => {
-
     let calendar_days = calendar.querySelector('.calendar-days')
     let calendar_header_year = calendar.querySelector('#year')
 
@@ -19,31 +26,67 @@ generateCalendar = (month, year) => {
 
     calendar_days.innerHTML = ''
 
-    let currDate = new Date()
-    if (!month) month = currDate.getMonth()
-    if (!year) year = currDate.getFullYear()
-
-    let curr_month = `${month_names[month]}`
-    month_picker.innerHTML = curr_month
+    let curr_month_name = `${month_names[month]}`
+    month_picker.innerHTML = curr_month_name
     calendar_header_year.innerHTML = year
 
     // get first day of month
-    
     let first_day = new Date(year, month, 1)
+    let last_day = new Date(year, month + 1, 0)
 
-    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+    // generate days for the previous month
+    for (let i = 0; i < first_day.getDay(); i++) {
         let day = document.createElement('div')
-        if (i >= first_day.getDay()) {
-            day.classList.add('calendar-day-hover')
-            day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`
-            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
-                day.classList.add('curr-date')
-            }
+        day.classList.add('calendar-day-hover', 'prev-month')
+        day.innerHTML = new Date(year, month, i - first_day.getDay() + 1).getDate()
+        calendar_days.appendChild(day)
+    }
+
+    // generate days for the current month
+    for (let i = 1; i <= days_of_month[month]; i++) {
+        let day = document.createElement('div');
+        day.classList.add('calendar-day-hover');
+        day.innerHTML = i;
+        day.dataset.date = new Date(year, month, i).getTime();
+        if (new Date(year, month, i) < new Date(currDate.getFullYear(), currDate.getMonth(), currDate.getDate())) {
+            day.classList.add('past-date');
         }
+        if (i === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
+            day.classList.add('curr-date');
+        }
+        day.addEventListener('click', function() {
+            if (!startDate) {
+                startDate = new Date(year, month, i);
+                this.classList.add('selected');
+            } else if (!endDate) {
+                endDate = new Date(year, month, i);
+                this.classList.add('selected');
+                selectRange();
+            }
+        });
+        calendar_days.appendChild(day);
+    }
+
+    // generate days for the next month
+    for (let i = 1; i < 7 - last_day.getDay(); i++) {
+        let day = document.createElement('div')
+        day.classList.add('calendar-day-hover', 'next-month')
+        day.innerHTML = i
+        day.dataset.date = new Date(year, month + 1, i).getTime(); 
+        day.addEventListener('click', function() {
+            if (!startDate) {
+                startDate = new Date(year, month + 1, i);
+                this.classList.add('selected');
+            } else if (!endDate) {
+                endDate = new Date(year, month + 1, i);
+                this.classList.add('selected');
+                selectRange();
+            } else if (startDate && endDate) {
+                clearSelection();
+                startDate = new Date(year, month + 1, i);
+                this.classList.add('selected');
+            }
+        });
         calendar_days.appendChild(day)
     }
 }
@@ -56,7 +99,7 @@ month_names.forEach((e, index) => {
     month.querySelector('div').onclick = () => {
         month_list.classList.remove('show')
         curr_month.value = index
-        generateCalendar(index, curr_year.value)
+        generateCalendar(curr_month.value, curr_year.value)
     }
     month_list.appendChild(month)
 })
@@ -66,11 +109,6 @@ let month_picker = calendar.querySelector('#month-picker')
 month_picker.onclick = () => {
     month_list.classList.add('show')
 }
-
-let currDate = new Date()
-
-let curr_month = {value: currDate.getMonth()}
-let curr_year = {value: currDate.getFullYear()}
 
 generateCalendar(curr_month.value, curr_year.value)
 
@@ -84,3 +122,29 @@ document.querySelector('#next-year').onclick = () => {
     generateCalendar(curr_month.value, curr_year.value)
 }
 
+function selectRange() {
+    let days = document.querySelectorAll('.calendar-day-hover');
+    let startSelecting = false;
+    for (let day of days) {
+        let date = new Date(Number(day.dataset.date)); 
+        
+        if (date.getTime() === startDate.getTime()) {
+            startSelecting = true;
+        }
+        if (startSelecting) {
+            day.classList.add('selected');
+        }
+        if (date.getTime() === endDate.getTime()) {
+            startSelecting = false;
+        }
+    }
+}
+
+function clearSelection() {
+    let days = document.querySelectorAll('.calendar-day-hover');
+    for (let day of days) {
+        day.classList.remove('selected');
+    }
+    startDate = null;
+    endDate = null;
+}
