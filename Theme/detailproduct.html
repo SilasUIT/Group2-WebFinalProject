@@ -29,7 +29,11 @@
 			height: 400px;
 			width: 100%;
 		}
-
+		.img-thumbnail {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
 		.calendar {
 			height: max-content;
 			width: 100%;
@@ -265,7 +269,7 @@
 		<div class="container">
 			<!-- <a class="navbar-brand" href="index.html">EzBooking</a> -->
 
-			<img src="anotherimages/logo.png" alt="Furni" class="img-fluid" style="width: 20%; height: auto;">
+			<img src="images/logo.png" alt="Furni" class="img-fluid" style="width: 20%; height: auto;">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
 				aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -298,31 +302,41 @@
 			<h1>Yamaha</h1>
 			<span>Motor Version</span>
 		</div>
-		<div class="container-fluid justify-center mb-4">
-			<div class="col-12 col-md-6 w-100">
-				<img src="anotherimages/test.jpeg" alt="test" class="img-fluid h-60vh" style="border-radius: 2%;">
+
+		<div class="container mb-4">
+			<div class="row">
+				<div class="col-12 col-md-10">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+				</div>
+				<div class="col-12 col-md-2" style="justify-items: center !important;">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+					<img src="images/test.jpeg" alt="test" class="img-thumbnail">
+				</div>
 			</div>
 		</div>
 
-		<div class="container mt-6">
+		<div class="container m">
 			<div class="row">
-				<div class="col-12 col-md-8 row">
+				<div class="col-md-8">
 					<div class="d-flex gap-2">
 						<h2>Được đăng bởi</h2>
-						<img src="anotherimages/avatar.jpg" class="img-fluid" alt="testavatar"
+						<img src="images/avatar.jpg" class="img-fluid" alt="testavatar"
 							style="width: 30px; height: 30px;">
 					</div>
 					<div class="flex">
 						<span>Vào lúc 7:00 PM ngày 20/11/2023</span>
 					</div>
-					<div class="flex text-primary" >
+					<div class="flex text-primary">
 						<div class="d-flex mt-3 mb-3 gap-5">
 							<div class="px-2">
-								<i class="fa fa-solid fa-motorcycle text-primary mr-1"></i>
+								<i class="fa fa-solid fa-credit-card text-primary mr-1"></i>
 								<span>Mua từ năm 2017</span>
 							</div>
 							<div class="px-2">
-								<i class="fa fa-cogs text-primary mr-1"></i>
+								<i class="fa fa-motorcycle text-primary mr-1"></i>
 								<span>Dòng xe tay côn</span>
 							</div>
 							<div class="px-2">
@@ -339,19 +353,25 @@
 					<div>
 						<h2>Chi tiết sản phẩm</h2>
 						<div>
-							<span>
-								<span>Odo &gt; 30.000km</span> <br>
-								<span>Màu sơn cũ, có nhiều vết trầy, móp, hư hỏng bên ngoài</span> <br>
-								<span>Vận hành ổn định</span> <br>
-							</span>
-							
+							<div class="px-2">
+								<i class="fa fa-solid fa-brush text-primary mr-1"></i>
+								<span>Màu sơn còn đẹp</span>
+							</div>
+							<div class="px-2">
+								<i class="fa fa-shield-virus text-primary mr-1"></i>
+								<span>Có vài vết móp</span>
+							</div>
+							<div class="px-2">
+								<i class="fa fa-cogs text-primary mr-1"></i>
+								<span>Vận hành tốt</span>
+							</div>
+
 						</div>
-							
 					</div>
 					<hr>
 					<div id="map"></div>
 				</div>
-				<div class="col-12 col-md-4">
+				<div class="col-md-4">
 					<div class="calendar" style="background-color: #f3f8fe;">
 						<div class="flex flex-row items-center gap-1 b" style="color: orange;">
 							<h4>150.000₫/ 1 ngày</h4>
@@ -398,8 +418,11 @@
 							<i class="fas fa-star"></i>
 							<span> / 150 tr lượt đánh giá</span>
 						</div>
-						<span>Một số bình luận: </span>
-						<div class="px-2">
+					</div>
+					<hr>
+					<div class="mt-4">
+						<h2>Một số bình luận: </h2>
+						<div>
 							<p>Tuyệt vời</p>
 							<p>Rất tuyệt vời</p>
 							<p>Chắc là tuyệt vời</p>
@@ -419,7 +442,7 @@
 				<!-- Start Column 2 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 					<a class="product-item" href="cart.html">
-						<img src="anotherimages/product-2.png" class="img-fluid product-thumbnail">
+						<img src="images/product-2.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Wave</h3>
 						<strong class="product-price">50.000₫/ 1 ngày</strong>
 
@@ -433,7 +456,7 @@
 				<!-- Start Column 3 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 					<a class="product-item" href="cart.html">
-						<img src="anotherimages/product-3.png" class="img-fluid product-thumbnail">
+						<img src="images/product-3.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Dream</h3>
 						<strong class="product-price">100.000₫/ 1 ngày</strong>
 
@@ -447,7 +470,7 @@
 				<!-- Start Column 4 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 					<a class="product-item" href="cart.html">
-						<img src="anotherimages/product-4.png" class="img-fluid product-thumbnail">
+						<img src="images/product-4.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Yamaha</h3>
 						<strong class="product-price">150.000₫/ 1 ngày</strong>
 
@@ -469,7 +492,7 @@
 		<div class="container relative">
 
 			<div class="sofa-img">
-				<img src="anotherimages/product-5.png" alt="Image" class="img-fluid">
+				<img src="images/product-5.png" alt="Image" class="img-fluid">
 			</div>
 
 			<div class="row">

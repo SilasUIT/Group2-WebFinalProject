@@ -1022,3 +1022,10 @@ textarea {
   background: rgba(59, 93, 80, 0.2);
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown .dropdown-toggle:active {
+  pointer-events: none;
+}   
