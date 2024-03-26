@@ -1,10 +1,10 @@
 index.html - Trang chủ --> Done
 profile.html - Trang quản lý thông tin cá nhân của người dùng ---> Done
+lease.html - Trang đăng cho thuê ---> Done
 
 login.html - Trang đăng nhập ---> Done
 register.html - Trang đăng ký ---> Done
 product-detail - Xem chi tiết thông tin phương tiện 
-sell - Trang đăng cho thuê 
 sellerhome - Trang home của người dùng --> Bỏ
 shop - Trang cho thuê ---> done
 home page - trang chủ ---> done
