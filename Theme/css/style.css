@@ -55,6 +55,8 @@ a.more {
 
 .custom-navbar .navbar-toggler {
   border-color: transparent;
+  background-color: gray;
+  opacity: 0.5;
 }
 
 .custom-navbar .navbar-toggler:active,
