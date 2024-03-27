@@ -1,268 +1,262 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Untree.co">
+		<meta name="keywords" content="bootstrap, bootstrap4" />
+		<meta name="description" content="" />
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="css/tiny-slider.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+		<link rel="shortcut icon" href="favicon.png">
+		
+		<title>EZB | Chi tiết xe</title>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
+		<style>
+			#map {
+				height: 400px;
+				width: 100%;
+			}
 
-	<meta name="description" content="" />
-	<meta name="keywords" content="bootstrap, bootstrap4" />
+			.imagemain {
+				height: 600px;
+				overflow: hidden;
+			}
 
-	<!-- Bootstrap CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link href="css/tiny-slider.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<style>
-		#map {
-			height: 400px;
-			width: 100%;
-		}
+			.imagemain .img-thumbnail {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				position: relative;
+			}
 
-		.imagemain {
-			height: 600px;
-			overflow: hidden;
-		}
+			.imagelist {
+				overflow: hidden;
+			}
 
-		.imagemain .img-thumbnail {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			position: relative;
-		}
+			.imagelist .img-thumbnail {
+				width: 100%;
+				height: 25%;
+				cursor: pointer;
+				object-fit: cover;
+			}
 
-		.imagelist {
-			overflow: hidden;
-			/*giúp những phần tràn ra không hiển thị*/
-		}
+			.calendar {
+				height: max-content;
+				width: 100%;
+				background-color: #fdfdfd;
+				border-radius: 30px;
+				padding: 20px;
+				position: relative;
+				overflow: hidden;
+			}
 
-		.imagelist .img-thumbnail {
-			width: 100%;
-			height: 25%;
-			cursor: pointer;
-			object-fit: cover;
-		}
+			.calendar-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 25px;
+				font-weight: 600;
+				color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+			}
 
-		.calendar {
-			height: max-content;
-			width: 100%;
-			background-color: #fdfdfd;
-			border-radius: 30px;
-			padding: 20px;
-			position: relative;
-			overflow: hidden;
-		}
+			.calendar-week-day {
+				height: 50px;
+				display: grid;
+				grid-template-columns: repeat(7, 1fr);
+				font-weight: 600;
+			}
 
-		.calendar-header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			font-size: 25px;
-			font-weight: 600;
-			color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-		}
+			.calendar-week-day div {
+				display: grid;
+				place-items: center;
+				color: #151426;
+			}
 
-		.calendar-week-day {
-			height: 50px;
-			display: grid;
-			grid-template-columns: repeat(7, 1fr);
-			font-weight: 600;
-		}
+			.calendar-days {
+				display: grid;
+				grid-template-columns: repeat(7, 1fr);
+				gap: 2px;
+				color: #151426;
+			}
 
-		.calendar-week-day div {
-			display: grid;
-			place-items: center;
-			color: #151426;
-		}
+			.calendar-days div {
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 5px;
+				position: relative;
+				cursor: pointer;
+				animation: to-top 1s forwards;
+			}
 
-		.calendar-days {
-			display: grid;
-			grid-template-columns: repeat(7, 1fr);
-			gap: 2px;
-			color: #151426;
-		}
+			.calendar-days div span {
+				position: absolute;
+			}
 
-		.calendar-days div {
-			width: 50px;
-			height: 50px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 5px;
-			position: relative;
-			cursor: pointer;
-			animation: to-top 1s forwards;
-		}
+			.calendar-days div:hover {
+				border-radius: 50%;
+				background-color: #eee; 
+			}
 
-		.calendar-days div span {
-			position: absolute;
-		}
+			.calendar-days div.curr-date,
+			.calendar-days div.curr-date:hover {
+				background-color: orange;
+				color: white;
+				border-radius: 50%;
+			}
 
-		.calendar-days div:hover {
-			border-radius: 50%;
-			background-color: #eee; /* or any color you prefer */
-		}
+			.calendar-days div.curr-date span {
+				display: none;
+			}
 
-		.calendar-days div.curr-date,
-		.calendar-days div.curr-date:hover {
-			background-color: orange;
-			color: white;
-			border-radius: 50%;
-		}
+			.month-picker {
+				padding: 5px 10px;
+				border-radius: 10px;
+				cursor: pointer;
+			}
 
-		.calendar-days div.curr-date span {
-			display: none;
-		}
+			.month-picker:hover {
+				background-color: #edf0f5;
+			}
 
-		.month-picker {
-			padding: 5px 10px;
-			border-radius: 10px;
-			cursor: pointer;
-		}
+			.year-picker {
+				display: flex;
+				align-items: center;
+			}
 
-		.month-picker:hover {
-			background-color: #edf0f5;
-		}
+			.year-change {
+				height: 40px;
+				width: 40px;
+				border-radius: 50%;
+				display: grid;
+				place-items: center;
+				margin: 0 10px;
+				cursor: pointer;
+			}
 
-		.year-picker {
-			display: flex;
-			align-items: center;
-		}
+			.year-change:hover {
+				background-color: #edf0f5;
+			}
 
-		.year-change {
-			height: 40px;
-			width: 40px;
-			border-radius: 50%;
-			display: grid;
-			place-items: center;
-			margin: 0 10px;
-			cursor: pointer;
-		}
+			.calendar-footer {
+				padding: 10px;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
 
-		.year-change:hover {
-			background-color: #edf0f5;
-		}
+			.toggle {
+				display: flex;
+			}
 
-		.calendar-footer {
-			padding: 10px;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-		}
+			.toggle span {
+				margin-right: 10px;
+				color: #151426;
+			}
 
-		.toggle {
-			display: flex;
-		}
+			.calendar-frame {
+				position: relative;
+			}
 
-		.toggle span {
-			margin-right: 10px;
-			color: #151426;
-		}
+			.month-list {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: #fdfdfd;
+				padding: 20px;
+				grid-template-columns: repeat(3, auto);
+				gap: 5px;
+				display: grid;
+				transform: scale(1.5);
+				visibility: hidden;
+				pointer-events: none;
+				border-radius: 30px;
+			}
 
-		.calendar-frame {
-			position: relative;
-		}
+			.month-list.show {
+				transform: scale(1);
+				visibility: visible;
+				pointer-events: visible;
+				transition: all 0.2s ease-in-out;
+			}
 
-		.month-list {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			background-color: #fdfdfd;
-			padding: 20px;
-			grid-template-columns: repeat(3, auto);
-			gap: 5px;
-			display: grid;
-			transform: scale(1.5);
-			visibility: hidden;
-			pointer-events: none;
-			border-radius: 30px;
-		}
+			.month-list>div {
+				display: grid;
+				place-items: center;
+			}
 
-		.month-list.show {
-			transform: scale(1);
-			visibility: visible;
-			pointer-events: visible;
-			transition: all 0.2s ease-in-out;
-		}
+			.month-list>div>div {
+				width: 100%;
+				padding: 5px 10px;
+				border-radius: 10px;
+				text-align: center;
+				cursor: pointer;
+				color: #151426;
+			}
 
-		.month-list>div {
-			display: grid;
-			place-items: center;
-		}
+			.month-list>div>div:hover {
+				color: white;
+				background-color: orange;
+			}
 
-		.month-list>div>div {
-			width: 100%;
-			padding: 5px 10px;
-			border-radius: 10px;
-			text-align: center;
-			cursor: pointer;
-			color: #151426;
-		}
+			.calendar .btn {
+				width: 100%;
+			}
+			.past-date, .prev-month {
+				opacity: 0.5;
+				pointer-events: none;
+			}
+			.selected {
+				background-color: orange; /* or any color you prefer */
+			}
 
-		.month-list>div>div:hover {
-			color: white;
-			background-color: orange;
-		}
+		</style>
 
-		.calendar .btn {
-			width: 100%;
-		}
-		.past-date, .prev-month {
-			opacity: 0.5;
-			pointer-events: none;
-		}
-		.selected {
-			background-color: orange; /* or any color you prefer */
-		}
-
-	</style>
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-	<title>Ezbooking</title>
-
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
-
 	<!-- Start Header/Navigation -->
-	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
+		arial-label="EzBooking navigation bar">
 		<div class="container">
 			<!-- <a class="navbar-brand" href="index.html">EzBooking</a> -->
-
-			<img src="images/logo.png" alt="Furni" class="img-fluid" style="width: 20%; height: auto;">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
-				aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="images/logo.png" alt="Logo" class="img-fluid" style="width: 20%; height: auto;">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsEzBooking"
+				aria-controls="navbarsEzBooking" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div class="collapse navbar-collapse" id="navbarsFurni">
+			<div class="collapse navbar-collapse" id="navbarsEzBooking">
 				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-					<li class="nav-item">
-						<a class="nav-link" href="index.html">Trang chủ</a>
-					</li>
-					<li class="active"><a class="nav-link" href="shop.html">Cho thuê</a></li>
+					<li><a class="nav-link" href="index.html">Trang chủ</a></li>
 					<li><a class="nav-link" href="about.html">Về chúng tôi</a></li>
-					<li><a class="nav-link" href="services.html">Dịch vụ</a></li>
+					<li><a class="nav-link" href="contact.html">Liên hệ</a></li>
+					<li class="nav-item active">
+						<a class="nav-link" href="shop.html">Cho thuê</a>
+					</li>
 					<li><a class="nav-link" href="blog.html">Bài Đăng</a></li>
-					<li><a class="nav-link" href="contact.html">Cách liên lạc</a></li>
-				</ul>
-
-				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-					<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-					<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+					<li class="dropdown">
+						<a class=" nav-link"><img src="images/user.svg"></a>
+						<ul class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="lease.html">Đăng bài cho thuê</a></li>
+                                <li><a class="dropdown-item" href="vehicle.html">Quản lí xe cho thuê</a></li>
+                                <li><a class="dropdown-item" href="contract.html">Lịch sử họp đồng</a></li>
+                                <li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="index.html">Đăng xuất</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -294,7 +288,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="d-flex gap-2 align-items-center">
-						<img src="images/avatar.jpg" class="mt-1" alt="testavatar"
+						<img src="images/Dat.png" class="mt-1" alt="testavatar"
 						style="width: 40px; height: 40px;">
 						<div>
 							<b><span>Ezbooking</span></b> <br>
@@ -307,21 +301,24 @@
 								<i class="fa fa-solid fa-credit-card text-primary mr-1"></i>
 								<span>Mua từ năm 2017</span>
 							</div>
+
 							<div class="px-2">
 								<i class="fa fa-motorcycle text-primary mr-1"></i>
 								<span>Dòng xe tay côn</span>
 							</div>
+
 							<div class="px-2">
 								<i class="fa fa-road text-primary mr-1"></i>
 								<span>Đã đi được 10000km</span>
 							</div>
 						</div>
+						
 						<div class="px-2 mb-3">
 							<i class="fa-solid fa-location-dot text-primary mr-1"></i>
 							<span>số 10 thôn Tân Lâm, xã Đạ Đờn, huyện Lâm Hà, Tỉnh Lâm Đồng</span>
 						</div>
-					</div>
-					<hr>
+					</div><hr>
+					
 					<div>
 						<h2>Chi tiết sản phẩm</h2>
 						<div>
@@ -329,26 +326,29 @@
 								<i class="fa fa-solid fa-brush text-primary mr-1"></i>
 								<span>Màu sơn còn đẹp</span>
 							</div>
+
 							<div class="px-2">
 								<i class="fa fa-shield-virus text-primary mr-1"></i>
 								<span>Có vài vết móp</span>
 							</div>
+
 							<div class="px-2">
 								<i class="fa fa-cogs text-primary mr-1"></i>
 								<span>Vận hành tốt</span>
 							</div>
 
 						</div>
-					</div>
-					<hr>
+					</div><hr>
+					
 					<div id="map"></div>
 				</div>
+
 				<div class="col-md-4">
 					<div class="calendar" style="background-color: #f3f8fe;">
 						<div class="flex flex-row items-center gap-1 b" style="color: orange;">
 							<h4>150.000₫/ 1 ngày</h4>
-						</div>
-						<hr>
+						</div><hr>
+
 						<div class="calendar-frame">
 							<div class="calendar-header">
 								<span class="month-picker" id="month-picker">February</span>
@@ -356,12 +356,15 @@
 									<span class="year-change" id="prev-year">
 										<pre><</pre>
 									</span>
+
 									<span id="year">2021</span>
+
 									<span class="year-change" id="next-year">
 										<pre>></pre>
 									</span>
 								</div>
 							</div>
+							
 							<div class="mt-5">
 								<div class="calendar-week-day">
 									<div>Sun</div>
@@ -372,8 +375,10 @@
 									<div>Fri</div>
 									<div>Sat</div>
 								</div>
+
 								<div class="calendar-days"></div>
 							</div>
+
 							<div class="month-list"></div>
 						</div>
 
@@ -381,22 +386,25 @@
 						<div class="p-4">
 							<div class="btn btn-block">Đặt xe ngay</div>
 						</div>
-					</div>
-					<hr>
+					</div><hr>
+					
 					<div class="mt-4">
 						<h2>Đánh giá từ người dùng</h2>
+
 						<div class="star">
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
+							
 							<span> / 150 tr lượt đánh giá</span>
 						</div>
-					</div>
-					<hr>
+					</div><hr>
+					
 					<div class="mt-4">
 						<h2>Một số bình luận: </h2>
+
 						<div>
 							<p>Tuyệt vời</p>
 							<p>Rất tuyệt vời</p>
@@ -416,7 +424,7 @@
 				<h2 class="mb-4 section-title" style="text-align: center;">Các sản phẩm liên quan</h2>
 				<!-- Start Column 2 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-					<a class="product-item" href="cart.html">
+					<a class="product-item" href="detailproduct.html">
 						<img src="images/product-2.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Wave</h3>
 						<strong class="product-price">50.000₫/ 1 ngày</strong>
@@ -430,7 +438,7 @@
 
 				<!-- Start Column 3 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-					<a class="product-item" href="cart.html">
+					<a class="product-item" href="detailproduct.html">
 						<img src="images/product-3.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Dream</h3>
 						<strong class="product-price">100.000₫/ 1 ngày</strong>
@@ -444,7 +452,7 @@
 
 				<!-- Start Column 4 -->
 				<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-					<a class="product-item" href="cart.html">
+					<a class="product-item" href="detailproduct.html">
 						<img src="images/product-4.png" class="img-fluid product-thumbnail">
 						<h3 class="product-title">Yamaha</h3>
 						<strong class="product-price">150.000₫/ 1 ngày</strong>
@@ -595,5 +603,4 @@
 	</script>
 
 </body>
-
 </html>

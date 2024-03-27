@@ -1,62 +1,53 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Untree.co">
+		<meta name="keywords" content="bootstrap, bootstrap4" />
+		<meta name="description" content="" />
 
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap4" />
-
-		<!-- Bootstrap CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="css/tiny-slider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<link rel="shortcut icon" href="favicon.png">
+				
+		<title>EZB | Contract</title>
 	</head>
 
 	<body>
-
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="EzBooking navigation bar">
 			<div class="container">
-				<!-- <a class="navbar-brand" href="index.html">EzBooking</a> -->
-
-				<img src="anotherimages/logo.png" alt="Furni" class="img-fluid" style="width: 20%; height: auto;">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<img src="images/logo.png" alt="Logo" class="img-fluid" style="width: 20%; height: auto;">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsEzBooking"
+					aria-controls="navbarsEzBooking" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
+				<div class="collapse navbar-collapse" id="navbarsEzBooking">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li><a class="nav-link" href="shop.html">Trang chủ</a></li>
-						<li><a class="nav-link" href="shop.html">Cho thuê</a></li>
-						<li><a class="nav-link" href="about.html">Về chúng tôi</a></li>
-						<li><a class="nav-link" href="services.html">Dịch vụ</a></li>
-						<li><a class="nav-link" href="blog.html">Bài Đăng</a></li>
-						<li><a class="nav-link" href="contact.html">Cách liên lạc</a></li>
-						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Hợp đồng</a>
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Trang chủ</a>
 						</li>
-					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
+						<li><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+						<li><a class="nav-link" href="contact.html">Liên hệ</a></li>
+						<li><a class="nav-link" href="shop.html">Cho thuê</a></li>
+						<li><a class="nav-link" href="blog.html">Bài Đăng</a></li>
+						<li class="dropdown">
+							<a class=" nav-link"><img src="images/user.svg"></a>
+							<ul class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<li><a class="dropdown-item" href="lease.html">Đăng bài cho thuê</a></li>
+                                <li><a class="dropdown-item" href="vehicle.html">Quản lí xe cho thuê</a></li>
+                                <li><a class="dropdown-item" href="contract.html">Lịch sử họp đồng</a></li>
+                                <li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="index.html">Đăng xuất</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
-				
 		</nav>
 		<!-- End Header/Navigation -->
 
@@ -71,15 +62,13 @@
 					</div>
 					<div class="col-lg-7">
 						<div class="hero-img-wrap">
-							<img src="./anotherimages/motorlogo.png" class="img-fluid">
+							<img src="./images/motorlogo.png" class="img-fluid">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	<!-- End Hero Section -->
-
-		
+		<!-- End Hero Section -->
 
 		<div class="untree_co-section before-footer-section">
             <div class="container">
@@ -99,15 +88,16 @@
                           <th class="product-total">Trạng thái</th>
                         </tr>
                       </thead>
+
                       <tbody>
                         <tr>
-							<td>1</td>
+							<td><a href="contractdetail.html" style="text-decoration: none; color: blue;">1</a></td>
 							<td>Xe số</td>
 							<td class="product-name">
 								<h2 class="h5 text-black">Wave RSX</h2>
 							  </td>
                           <td class="product-thumbnail">
-                            <img src="./anotherimages/product-2.png" alt="Image" class="img-fluid">
+                            <img src="./images/product-2.png" alt="Image" class="img-fluid">
                           </td>
                           <td>1/1/2024</td>
                           <td>1/2/2024</td>
@@ -116,13 +106,13 @@
                         </tr>
         
                         <tr>
-							<td>2</td>
+							<td><a href="contractdetail.html" style="text-decoration: none; color: blue;">2</a></td>
 							<td>Tay ga</td>
 							<td class="product-name">
 								<h2 class="h5 text-black">Click</h2>
 							  </td>
                           <td class="product-thumbnail">
-                            <img src="./anotherimages/test5.jpg" alt="Image" class="img-fluid">
+                            <img src="./images/test5.jpg" alt="Image" class="img-fluid">
                           </td>
                           <td>1/2/2023</td>
                           <td>10/2/2023</td>
@@ -131,13 +121,13 @@
                         </tr>
 
 						<tr>
-							<td>3</td>
+							<td><a href="contractdetail.html" style="text-decoration: none; color: blue;">3</a></td>
 							<td>Tay côn</td>
 							<td class="product-name">
 								<h2 class="h5 text-black">R15</h2>
 							  </td>
                           <td class="product-thumbnail">
-                            <img src="./anotherimages/product-4.png" alt="Image" class="img-fluid">
+                            <img src="./images/product-4.png" alt="Image" class="img-fluid">
                           </td>
                           <td>4/5/2022</td>
                           <td>3/5/2022</td>
@@ -149,89 +139,65 @@
                   </div>
                 </form>
               </div>
-         </div>
-            </div>
-          </div>
-		
+         	</div>
+        </div>
 
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
 			<div class="container relative">
-
-				<div class="sofa-img">
-					<img src="anotherimages/product-5.png" alt="Image" class="img-fluid">
-				</div>
-
-				
-
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Liên kết mạng xã hội<span>.</span></a></div>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Liên kết mạng xã
+								hội<span>.</span></a></div>
 						<p class="mb-4">Giúp bạn có cái nhìn nhiều khía cạnh hơn về dịch vụ của chúng tôi.</p>
-
+	
 						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+							<li><a href="https://www.facebook.com/"><span class="fa fa-brands fa-facebook-f"></span></a>
+							</li>
+							<li><a href="https://twitter.com/"><span class="fa fa-brands fa-twitter"></span></a></li>
+							<li><a href="https://www.instagram.com/"><span class="fa fa-brands fa-instagram"></span></a>
+							</li>
+							<li><a href="https://www.google.com/"><span class="fa fa-brands fa-google"></span></a></li>
 						</ul>
 					</div>
-
+	
 					<div class="col-lg-8">
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Về chúng tôi</a></li>
-									<li><a href="#">Dịch vụ</a></li>
-									<li><a href="#">Bài đăng</a></li>
-									<li><a href="#">Liên hệ</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Hỗ trợ</a></li>
-									<li><a href="#">Nhắn tin trực tiếp</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Tìm kiểm việc làm</a></li>
-									<li><a href="#">Quy định làm việc</a></li>
-									<li><a href="#">Điều kiện ứng tuyển</a></li>
+									<li><a href="contact.html">Liên hệ</a></li>
 								</ul>
 							</div>
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Danh sách thành viên</a></li>
-									<li><a href="#">Trải nghiệm khách hàng</a></li>
+									<li><a href="blog.html">Bài đăng</a></li>
 								</ul>
 							</div>
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="about.html">Về chúng tôi</a></li>
+								</ul>
+							</div>
+	
 						</div>
 					</div>
-
+	
 				</div>
-
+	
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. <br />Giao diện hỗ trợ <a href="https://untree.co">Untree.co</a> được chế tác lại bởi <a hreff="https://themewagon.com">Nhóm 2</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. <br />Giao
+								diện hỗ trợ <a href="https://untree.co">EzBooking</a> được chế tác bởi <a
+									href="https://themewagon.com">Nhóm 2</a>
+							</p>
 						</div>
-
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Điều khoản &amp; dịch vụ</a></li>
-								<li><a href="#">Chính sách bảo mật</a></li>
-							</ul>
-						</div>
-
 					</div>
 				</div>
 			</div>
 		</footer>
-		<!-- End Footer Section -->	
+		<!-- End Footer Section -->
 
 
 		<script src="js/bootstrap.bundle.min.js"></script>

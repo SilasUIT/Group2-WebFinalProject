@@ -1,10 +1,3 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,36 +20,40 @@
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
+	arial-label="EzBooking navigation bar">
+	<div class="container">
+		<!-- <a class="navbar-brand" href="index.html">EzBooking</a> -->
+		<img src="images/logo.png" alt="Logo" class="img-fluid" style="width: 20%; height: auto;">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsEzBooking"
+			aria-controls="navbarsEzBooking" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<div class="container">
-				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li class="active"><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
+		<div class="collapse navbar-collapse" id="navbarsEzBooking">
+			<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+				<li><a class="nav-link" href="index.html">Trang chủ</a></li>
+				<li><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+				<li><a class="nav-link" href="contact.html">Liên hệ</a></li>
+				<li><a class="nav-link" href="shop.html">Cho thuê</a></li>
+				<li class="nav-item active">
+					<a class="nav-link" href="blog.html">Bài đăng</a>
+				</li>
+				<li class="dropdown">
+					<a class=" nav-link"><img src="images/user.svg"></a>
+					<ul class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<li><a class="dropdown-item" href="lease.html">Đăng bài cho thuê</a></li>
+							<li><a class="dropdown-item" href="vehicle.html">Quản lí xe cho thuê</a></li>
+							<li><a class="dropdown-item" href="contract.html">Lịch sử họp đồng</a></li>
+							<li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
+							<li><a class="dropdown-item" href="index.html">Đăng xuất</a></li>
 					</ul>
-
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>
-				
-		</nav>
-		<!-- End Header/Navigation -->
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
 			<div class="hero">
@@ -71,7 +68,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="images/couch.png" class="img-fluid">
+								<img src="images/motorlogo.png" class="img-fluid">
 							</div>
 						</div>
 					</div>
@@ -89,7 +86,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-1.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/product-1.png" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">First Time Home Owner Ideas</a></h3>
 								<div class="meta">
@@ -101,7 +98,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-2.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/product-2.png" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
 								<div class="meta">
@@ -113,7 +110,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-3.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/product-3.png" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
 								<div class="meta">
@@ -125,7 +122,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-1.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/product-4.png" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">First Time Home Owner Ideas</a></h3>
 								<div class="meta">
@@ -137,7 +134,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-2.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/test.jpeg" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
 								<div class="meta">
@@ -149,7 +146,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-3.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/test2.jpg" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
 								<div class="meta">
@@ -161,7 +158,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-1.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/test3.jpg" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">First Time Home Owner Ideas</a></h3>
 								<div class="meta">
@@ -173,7 +170,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-2.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/test4.jpg" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
 								<div class="meta">
@@ -185,7 +182,7 @@
 
 					<div class="col-12 col-sm-6 col-md-4 mb-5">
 						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="images/post-3.jpg" alt="Image" class="img-fluid"></a>
+							<a href="#" class="post-thumbnail"><img src="images/test5.jpg" alt="Image" class="img-fluid"></a>
 							<div class="post-content-entry">
 								<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
 								<div class="meta">
@@ -233,7 +230,7 @@
 
 												<div class="author-info">
 													<div class="author-pic">
-														<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
+														<img src="images/person-2.png" alt="Maria Jones" class="img-fluid">
 													</div>
 													<h3 class="font-weight-bold">Maria Jones</h3>
 													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
@@ -256,7 +253,7 @@
 
 												<div class="author-info">
 													<div class="author-pic">
-														<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
+														<img src="images/person-4.png" alt="Maria Jones" class="img-fluid">
 													</div>
 													<h3 class="font-weight-bold">Maria Jones</h3>
 													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
@@ -305,44 +302,17 @@
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
 			<div class="container relative">
-
-				<div class="sofa-img">
-					<img src="images/sofa.png" alt="Image" class="img-fluid">
-				</div>
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
-
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Liên kết mạng xã
+								hội<span>.</span></a></div>
+						<p class="mb-4">Giúp bạn có cái nhìn nhiều khía cạnh hơn về dịch vụ của chúng tôi.</p>
 
 						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+							<li><a href="https://www.facebook.com/"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+							<li><a href="https://twitter.com/"><span class="fa fa-brands fa-twitter"></span></a></li>
+							<li><a href="https://www.instagram.com/"><span class="fa fa-brands fa-instagram"></span></a></li>
+							<li><a href="https://www.google.com/"><span class="fa fa-brands fa-google"></span></a></li>
 						</ul>
 					</div>
 
@@ -350,37 +320,20 @@
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
+									<li><a href="contact.html">Liên hệ</a></li>
+								</ul>
+							</div>
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="blog.html">Bài đăng</a></li>
+								</ul>
+							</div>
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="about.html">Về chúng tôi</a></li>
 								</ul>
 							</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 
@@ -389,23 +342,17 @@
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. <br />Giao
+								diện hỗ trợ <a href="https://untree.co">EzBooking</a> được chế tác bởi <a
+									hreff="https://themewagon.com">Nhóm 2</a>
+							</p>
 						</div>
-
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
 					</div>
 				</div>
-
 			</div>
 		</footer>
-		<!-- End Footer Section -->	
+		<!-- End Footer Section -->
 
 
 		<script src="js/bootstrap.bundle.min.js"></script>
