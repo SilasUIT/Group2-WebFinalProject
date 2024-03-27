@@ -194,10 +194,16 @@ a.more {
   top: 0px;
   right: 0px;
   z-index: 2;
-  max-width: 780px;
+  width: 100%;
   left: -20px;
 }
 
+@media (min-width: 768px) {
+  .hero .hero-img-wrap img {
+    right: 0px;
+    left: -100px;
+  }
+}
 @media (min-width: 768px) {
   .hero .hero-img-wrap img {
     right: 0px;
@@ -230,7 +236,7 @@ a.more {
   background-image: url("../images/dots-light.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  right: -100px;
+  right: -50px;
   top: -0px;
 }
 
@@ -390,6 +396,7 @@ a.more {
 
 .why-choose-section .img-wrap {
   position: relative;
+  margin-top: 30px;
 }
 
 .why-choose-section .img-wrap:before {
@@ -449,7 +456,7 @@ a.more {
 .we-help-section .imgs-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[27];
+  -ms-grid-columns: 1fr;
   grid-template-columns: repeat(27, 1fr);
   position: relative;
 }
