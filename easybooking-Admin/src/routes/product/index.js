@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use((req,res,next)=>{
-    req.app.set('layout','admin');
+    req.app.set('layout','product');
     next();
 })
 router.use('/',require('./home'));
