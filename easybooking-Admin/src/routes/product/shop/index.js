@@ -3,4 +3,5 @@ const shopController = require('../../../controllers/product/shop.controller');
 const router = express.Router();
 router.get('/', shopController.getAll);
 router.get('/detail', shopController.getForm);
+router.get('/page',shopController.getPage);
 module.exports = router;
