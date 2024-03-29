@@ -2,24 +2,27 @@
 <html lang="en">
 
 <head>
-	<%- include('./elements/head.ejs'); %>
-
+  <%- include('./elements/head.ejs');%>
 </head>
 
 <body>
 	<!-- Start Header/Navigation -->
-	<%- include('./elements/navbar.ejs'); %>
+	<%- include('./elements/nav.ejs')%>
 	<!-- End Header/Navigation -->
 
 	<!-- Start Hero Section -->
+	<%- include('./elements/heroSection.ejs')%>
+	<!-- End Hero Section -->
+
 	<%- body%>
-	<!-- End Blog Section -->
 
 	<!-- Start Footer Section -->
-	<%- include('./elements/footer.ejs'); %>
-
+	<footer class="footer-section">
+	<%- include('./elements/footer.ejs')%>
+	</footer>
 	<!-- End Footer Section -->
-	<%- include('./elements/script.ejs'); %>
+	<%- include('./elements/script.ejs')%>
+
 </body>
 
 </html>

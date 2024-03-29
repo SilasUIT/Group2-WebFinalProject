@@ -1,5 +1,7 @@
-const express=require('express');
-const router=express.Router();
-const profileController = require('../../../controllers/product/profile.controller')
-router.get('' , profileController.getAll);
+const express = require('express');
+const router = express.Router();
+
+router.use('/contract',require('./contract'));
+router.use('/least',require('./least'));
+
 module.exports = router;
