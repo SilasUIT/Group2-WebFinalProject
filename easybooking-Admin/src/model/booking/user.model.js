@@ -6,9 +6,24 @@ const COLLECTION_NAME="user";
 const list=new Schema({
     name:String,
     phone:String,
-    address:String,
     email:String,
+    birthday:Date,
+    cccd:String,
+    date:Date,
+    place:String,
 });
+const location=new Schema({
+    city:String,
+    district:String,
+    ward:String,
+    Street:String,
+})
+const social=new Schema({
+    facebook:String,
+    instagram:String,
+    twitter:String,
+    chotot:String,
+})
 
 const newSchema=new Schema({
    username:{
@@ -39,6 +54,20 @@ const newSchema=new Schema({
     createdAt:{
         type:Date,
         default:Date.now,
+    },
+    address:{
+        type:[location],
+        default:[],
+    },
+    imagecccd:{
+        type:String,
+    },
+    certificate:{
+        type:String,
+    },
+    link:{
+        type:[social],
+        default:[],
     },
 },
 {

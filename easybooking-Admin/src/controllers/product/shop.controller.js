@@ -1,12 +1,9 @@
 class shopController{
     getAll=async(req,res)=>{
-       return res.render('shop');
+       return res.render('shop/view');
     }
     getForm=async(req,res)=>{
-        return res.render('product/shop/form');
-    }
-    getPage=async(req,res)=>{
-        return res.render('product/shop/page');
+        return res.render('shop/detail');
     }
 }
 module.exports=new shopController();
