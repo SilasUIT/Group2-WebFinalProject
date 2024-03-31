@@ -1,6 +1,6 @@
 class homeController{
     getAll=async(req,res)=>{
-       return res.render('product/home');
+       return res.render('home');
     }
 }
 module.exports=new homeController();
