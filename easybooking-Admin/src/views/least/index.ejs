@@ -370,8 +370,8 @@
                                                             <div class="col-lg-3 col-sm-6">
                                                                 <div data-bs-toggle="collapse">
                                                                     <label class="card-radio-label">
-                                                                        <input type="radio" name="pay-method"
-                                                                            id="pay-methodoption1"
+                                                                        <input type="radio" name="loaixe"
+                                                                            id="loaixe1"
                                                                             class="card-radio-input">
                                                                         <span
                                                                             class="card-radio py-3 text-center text-truncate">
@@ -386,8 +386,8 @@
                                                             <div class="col-lg-3 col-sm-6">
                                                                 <div>
                                                                     <label class="card-radio-label">
-                                                                        <input type="radio" name="pay-method"
-                                                                            id="pay-methodoption2"
+                                                                        <input type="radio" name="loaixe"
+                                                                            id="loaixe2"
                                                                             class="card-radio-input">
                                                                         <span
                                                                             class="card-radio py-3 text-center text-truncate">
@@ -402,8 +402,8 @@
                                                             <div class="col-lg-3 col-sm-6">
                                                                 <div>
                                                                     <label class="card-radio-label">
-                                                                        <input type="radio" name="pay-method"
-                                                                            id="pay-methodoption3"
+                                                                        <input type="radio" name="loaixe"
+                                                                            id="loaixe3"
                                                                             class="card-radio-input" checked>
                                                                         <span
                                                                             class="card-radio py-3 text-center text-truncate">
@@ -418,8 +418,8 @@
                                                             <div class="col-lg-3 col-sm-6">
                                                                 <div>
                                                                     <label class="card-radio-label">
-                                                                        <input type="radio" name="pay-method"
-                                                                            id="pay-methodoption3"
+                                                                        <input type="radio" name="loaixe"
+                                                                            id="loaixe4"
                                                                             class="card-radio-input" checked>
                                                                         <span
                                                                             class="card-radio py-3 text-center text-truncate">
@@ -541,7 +541,7 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="address" id="info-address1"
+                                                            <input type="radio" name="status" id="status1"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
@@ -561,7 +561,7 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="address" id="info-address1"
+                                                            <input type="radio" name="status" id="status2"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
@@ -582,7 +582,7 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="address" id="info-address1"
+                                                            <input type="radio" name="status" id="status3"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
@@ -603,7 +603,7 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div>
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="address" id="info-address2"
+                                                            <input type="radio" name="status" id="status4"
                                                                 class="card-radio-input">
 
                                                             <div class="card-radio text-truncate p-3">
@@ -932,6 +932,29 @@
         var slider = document.getElementById('myRange');
         var output = document.getElementById('Gia_Sum');
         var output2 = document.getElementById('sliderValue');
+        var loai = document.getElementsByName('loaixe');
+        var select = document.getElementById('Hang');
+        var trangthai = document.querySelectorAll('input[type=radio][name="status"]');
+
+        trangthai.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.getElementById('list[state]').value = this.nextElementSibling.textContent.trim();
+            });
+        });
+
+        select.addEventListener('change', function() {
+            document.getElementById('list[brand]').value = this.value;
+        }); 
+        
+        for (var i = 0; i < loai.length; i++) {
+            loai[i].addEventListener('change', function() {
+                document.getElementById('category').value = this.value;
+            });
+        }
+
+        document.getElementById('MauXe').addEventListener('input', function (e) {
+            document.getElementById('MauXe_Sum').innerText = e.target.value;
+        });
 
         document.getElementById('MauXe').addEventListener('input', function (e) {
             document.getElementById('MauXe_Sum').innerText = e.target.value;
