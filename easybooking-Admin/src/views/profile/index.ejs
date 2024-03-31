@@ -246,6 +246,7 @@
     </head>
 
     <body>
+    
         <!-- Start Header/Navigation -->
         <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
             arial-label="EzBooking navigation bar" style="background: #f1f3f7 !important;">
@@ -332,11 +333,6 @@
                                         <label class="form-label">Email: </label>
                                         <input type="text" class="form-control mb-1" name="userinformation[email]" readonly value="<%= user.userinformation[0].email%>">
                                     </div>
-
-                                    <div class="form-group">
-                                        <label class="form-label">Địa chỉ làm việc: </label>
-                                        <input type="text" class="form-control" name="userinformation[address]" value="<%= user.userinformation[0].address%>">
-                                    </div>
                                 </div>
                             </div>
 
@@ -366,22 +362,22 @@
                                     
                                     <div class="form-group">
                                         <label for="birthdate">Ngày sinh:</label>
-                                        <input type="date" id="list[birthday]" name="list[birthday]">
+                                        <input type="date" id="userinformation[birthday]" name="userinformation[birthday]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Số CCCD: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập cccd" id="list[cccd]" name="list[cccd]">
+                                        <input type="text" class="form-control" value placeholder="Nhập cccd" id="userinformation[cccd]" name="userinformation[cccd]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Ngày cấp: </label>
-                                        <input type="date" id="list[data]" name="list[date]">
+                                        <input type="date" id="userinformation[data]" name="userinformation[date]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Nơi cấp: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập nơi cấp CCCD" id="list[place]" name="list[place]">
+                                        <input type="text" class="form-control" value placeholder="Nhập nơi cấp CCCD" id="userinformation[place]" name="userinformation[place]">
                                     </div>
 
                                     <div class="form-group">
@@ -477,22 +473,22 @@
                                     
                                     <div class="form-group">
                                         <label class="form-label">Tỉnh/ Thành Phố: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập tỉnh/ thành phố theo CCCD" id="location[city]" name="location[city]">
+                                        <input type="text" class="form-control" value placeholder="Nhập tỉnh/ thành phố theo CCCD" id="address[city]" name="address[city]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Quận/ Huyện: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập quận/huyện theo CCCD" id="location[district]" name="location[district]">
+                                        <input type="text" class="form-control" value placeholder="Nhập quận/huyện theo CCCD" id="address[district]" name="address[district]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Phường/ Xã: </label >
-                                        <input type="text" class="form-control" value placeholder="Nhập xã/ phường theo CCCD" id="location[ward]" name="location[ward]">
+                                        <input type="text" class="form-control" value placeholder="Nhập xã/ phường theo CCCD" id="address[ward]" name="address[ward]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Địa chỉ cụ thể: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập số nhà/ tòa, tên đường" id="location[street]" name="location[street]">
+                                        <input type="text" class="form-control" value placeholder="Nhập số nhà/ tòa, tên đường" id="address[street]" name="address[street]">
                                     </div>
                                 </div>
 
@@ -501,7 +497,7 @@
                                     <h6 class="mb-4" style="font-size: 20px;"><strong>Thông tin liên lạc: </strong></h6>
                                     <div class="form-group">
                                         <label class="form-label">Số điện thoại: </label>
-                                        <input type="text" class="form-control" value="<%= user.userinformation[0].phone%>" id="list[phone]" name="list[phone]">
+                                        <input type="text" class="form-control" value="<%= user.userinformation[0].phone%>" id="userinformation[phone]" name="userinformation[phone]">
                                     </div>
                                 </div>
                             </div>
@@ -510,22 +506,22 @@
                                 <div class="card-body pb-2">
                                     <div class="form-group">
                                         <label class="form-label">Twitter</label>
-                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Twitter của bạn" id="social[twitter]" name="social[twitter]">
+                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Twitter của bạn" id="link[twitter]" name="link[twitter]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Facebook</label>
-                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Facebook của bạn"id="social[facebook]" name="social[facebook]">
+                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Facebook của bạn"id="link[facebook]" name="link[facebook]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Instagram</label>
-                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Instagram của bạn"id="social[instagram]" name="social[instagram]">
+                                        <input type="text" class="form-control" value="" placeholder="Nhập liên kết đến tài khoản Instagram của bạn"id="link[instagram]" name="link[instagram]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Chợ tốt: </label>
-                                        <input type="text" class="form-control" value placeholder="Nhập liên kết đến tài khoản Chợ tốt của bạn"id="social[chotot]" name="social[chotot]">
+                                        <input type="text" class="form-control" value placeholder="Nhập liên kết đến tài khoản Chợ tốt của bạn"id="link[chotot]" name="link[chotot]">
                                     </div>
                                 </div>
                             </div>
