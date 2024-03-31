@@ -9,14 +9,14 @@
                   <img src="/product/images/logo.png" width="180" alt="">
                 </a>
                 <p class="text-center">Thuê xe thuận tiện</p>
-                <form>
+                <form method="post" action="/login">
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Tài khoản: </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="username" class="form-control" id="username" name="username" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Mật khẩu: </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="password" name="password">
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
@@ -27,7 +27,7 @@
                     </div>
                     <a class="text-primary fw-bold" href="./index.html">Quên mật khẩu ?</a>
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 fs-4 mb-4 rounded-2">Đăng nhập</a>
+                  <button class="btn btn-primary w-100 fs-4 mb-4 rounded-2" type="submit">Login</button>
 
                   <a href="https://www.google.com/" class="btn btn-light w-100 fs-4 mb-4 rounded-2">
                     <i class="fab fa-google"></i> Đăng nhập bằng Google
@@ -37,7 +37,7 @@
                   </a>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Lần đầu đến với EzBooking?</p>
-                    <a class="text-primary fw-bold ms-2" href="./register.html">Tạo tài khoản mới</a>
+                    <a class="text-primary fw-bold ms-2" href="/login/add">Tạo tài khoản mới</a>
                   </div>
                 </form>
               </div>
@@ -47,5 +47,3 @@
       </div>
     </div>
   </div>
-  <script src="/product/Spike Free_files/jquery.min.js.download"></script>
-  <script src="/product/Spike Free_files/bootstrap.bundle.min.js.download"></script>

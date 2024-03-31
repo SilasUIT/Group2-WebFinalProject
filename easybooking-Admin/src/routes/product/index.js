@@ -1,15 +1,34 @@
 const express = require('express');
 const router = express.Router();
 
-router.use((req,res,next)=>{
-    req.app.set('layout','product');
+router.use('/home',(req,res,next)=>{
+    req.app.set('layout','home');
     next();
-})
-router.use('/',require('./home'));
-router.use('/home',require('./home'));
-router.use('/about',require('./about'));
-router.use('/contact',require('./contact'));
-router.use('/login',require('./login'));
-router.use('/profile',require('./profile'));
-router.use('/shop',require('./shop'));
+},require('./home'));
+
+router.use('/about',(req,res,next)=>{
+    req.app.set('layout','about');
+    next();
+},require('./about'));
+
+router.use('/contact',(req,res,next)=>{
+    req.app.set('layout','contact');
+    next();
+},require('./contact'));
+
+router.use('/login',(req, res, next)=>{
+    req.app.set('layout','login');
+    next();
+},require('./login'));
+
+router.use('/profile',(req,res,next)=>{
+    req.app.set('layout','profile');
+    next();
+},require('./profile'));
+
+router.use('/shop',(req,res,next)=>{
+    req.app.set('layout','shop');
+    next();
+},require('./shop'));
+
 module.exports = router;    
