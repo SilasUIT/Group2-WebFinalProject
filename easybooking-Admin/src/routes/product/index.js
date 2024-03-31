@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 router.use((req,res,next)=>{
     if(req.user){
         const user=req.user;
-        console.log(user);
+      //  console.log(user);
             if(user){
                 res.locals.user=user;
             }else{

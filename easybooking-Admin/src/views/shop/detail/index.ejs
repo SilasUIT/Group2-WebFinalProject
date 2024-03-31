@@ -256,8 +256,8 @@ arial-label="EzBooking navigation bar">
 <!-- Start Product Detail -->
 <div class="container pt-4">
 <div class="mb-4">
-    <h1>Yamaha</h1>
-    <span>Motor Version</span>
+    <h1><%= data.productinformation[0].brand%></h1>
+    <span> by <%= saler.userinformation[0].name%></span>
 </div>
 
 <div class="container mb-4">
@@ -281,31 +281,31 @@ arial-label="EzBooking navigation bar">
                 <img src="/product/images/Dat.png" class="mt-1" alt="testavatar"
                 style="width: 40px; height: 40px; border-radius: 50%;">
                 <div>
-                    <b><span>Ezbooking</span></b> <br>
-                    <span>Vào lúc 7:00 PM ngày 20/11/2023</span>
+                    <b><span><%= saler.userinformation[0].name%></span></b> <br>
+                    <span><%= data.createdAt.toISOString().split('T')[0]%></span>
                 </div>
             </div>
             <div class="flex text-primary">
                 <div class="d-flex mt-3 mb-3 gap-5">
                     <div class="px-2">
                         <i class="fa fa-solid fa-credit-card text-primary mr-1"></i>
-                        <span>Mua từ năm 2017</span>
+                        <span><%= data.productinformation[0].year%></span>
                     </div>
 
                     <div class="px-2">
                         <i class="fa fa-motorcycle text-primary mr-1"></i>
-                        <span>Dòng xe tay côn</span>
+                        <span><%= data.category%></span>
                     </div>
 
                     <div class="px-2">
                         <i class="fa fa-road text-primary mr-1"></i>
-                        <span>Đã đi được 10000km</span>
+                        <span><%= data.productinformation[0].odo%>km</span>
                     </div>
                 </div>
                 
                 <div class="px-2 mb-3">
                     <i class="fa-solid fa-location-dot text-primary mr-1"></i>
-                    <span>số 10 thôn Tân Lâm, xã Đạ Đờn, huyện Lâm Hà, Tỉnh Lâm Đồng</span>
+                    <span><%= data.address[0].street%>,<%= data.address[0].ward%>,<%= data.address[0].district%>,<%= data.address[0].city%>,</span>
                 </div>
             </div><hr>
             
@@ -314,17 +314,7 @@ arial-label="EzBooking navigation bar">
                 <div>
                     <div class="px-2">
                         <i class="fa fa-solid fa-brush text-primary mr-1"></i>
-                        <span>Màu sơn còn đẹp</span>
-                    </div>
-
-                    <div class="px-2">
-                        <i class="fa fa-shield-virus text-primary mr-1"></i>
-                        <span>Có vài vết móp</span>
-                    </div>
-
-                    <div class="px-2">
-                        <i class="fa fa-cogs text-primary mr-1"></i>
-                        <span>Vận hành tốt</span>
+                        <span><%= data.description%></span>
                     </div>
 
                 </div>
@@ -336,7 +326,7 @@ arial-label="EzBooking navigation bar">
         <div class="col-md-4">
             <div class="calendar" style="background-color: #f3f8fe;">
                 <div class="flex flex-row items-center gap-1 b" style="color: orange;">
-                    <h4>150.000₫/ 1 ngày</h4>
+                    <h4><%= data.price%>₫/ 1 ngày</h4>
                 </div><hr>
 
                 <div class="calendar-frame">
