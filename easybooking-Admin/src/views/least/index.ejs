@@ -373,12 +373,14 @@
                                                                         <input type="radio" name="loaixe"
                                                                             id="loaixe1"
                                                                             class="card-radio-input">
-                                                                        <span
+                                                                        <div>
+                                                                            <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-bicycle d-block h2 mb-3"></i>
                                                                             Xe số
-                                                                        </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -389,12 +391,14 @@
                                                                         <input type="radio" name="loaixe"
                                                                             id="loaixe2"
                                                                             class="card-radio-input">
-                                                                        <span
+                                                                        <div>
+                                                                            <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-motorcycle d-block h2 mb-3"></i>
                                                                             Tay ga
-                                                                        </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -405,12 +409,14 @@
                                                                         <input type="radio" name="loaixe"
                                                                             id="loaixe3"
                                                                             class="card-radio-input" checked>
-                                                                        <span
+                                                                        <div>
+                                                                            <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-person-biking d-block h2 mb-3"></i>
                                                                             <span>Côn tay</span>
-                                                                        </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -421,12 +427,14 @@
                                                                         <input type="radio" name="loaixe"
                                                                             id="loaixe4"
                                                                             class="card-radio-input" checked>
-                                                                        <span
+                                                                        <div>
+                                                                            <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-bolt d-block h2 mb-3"></i>
                                                                             <span>Xe điện</span>
-                                                                        </span>
+                                                                            </span>
+                                                                        </div>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -510,6 +518,94 @@
                                                         </div>
                                                     </div>
 
+                                                    <div>
+                                                        <div>
+                                                            <p class="text-muted text-truncate">Chứng nhận đăng ký xe</p>
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <input type="file" id="fileUpload" style="display: none;">
+                                                                        <input type="radio" name="pay-method" id="pay-methodoption1"
+                                                                            class="card-radio-input">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span class="card-radio py-3 text-center text-truncate"
+                                                                                onclick="event.stopPropagation(); document.getElementById('fileUpload').click();">
+                                                                                <i class="bx bx-image-add d-block h2 mb-3"></i>
+                                                                                Thêm hình ảnh
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                    
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span id="Hinh"
+                                                                                class="card-radio py-3 text-center text-truncate"
+                                                                                style="background-image: url('./images/product-1.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                                <br><br><br>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                    
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span class="card-radio py-3 text-center text-truncate"
+                                                                                style="background-image: url('./images/product-2.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                                <br><br><br>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+    
+                                                        <div>
+                                                            <p class="text-muted text-truncate mt-3">Bảo hiểm xe</p>
+                                                            <div class="row">
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <input type="file" id="fileUpload" style="display: none;">
+                                                                        <input type="radio" name="pay-method" id="pay-methodoption1"
+                                                                            class="card-radio-input">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span class="card-radio py-3 text-center text-truncate"
+                                                                                onclick="event.stopPropagation(); document.getElementById('fileUpload').click();">
+                                                                                <i class="bx bx-image-add d-block h2 mb-3"></i>
+                                                                                Thêm hình ảnh
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                    
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span id="Hinh"
+                                                                                class="card-radio py-3 text-center text-truncate"
+                                                                                style="background-image: url('./images/product-1.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                                <br><br><br>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                    
+                                                                <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                    <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                        <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                            <span class="card-radio py-3 text-center text-truncate"
+                                                                                style="background-image: url('./images/product-2.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                                <br><br><br>
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="mb-3">
                                                         <label class="form-label" for="Info">Thông tin mô tả</label>
                                                         <textarea class="form-control" id="description" rows="3" name="description"
@@ -545,7 +641,7 @@
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong>90 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="status">90 -
                                                                         100%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le; 5000km</span>
                                                                 <span
@@ -565,7 +661,7 @@
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong>75 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="status">75 -
                                                                         90%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le;
                                                                     13.000km</span>
@@ -586,7 +682,7 @@
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong>60 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="status">60 -
                                                                         75%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le;
                                                                     30.000km</span>
@@ -608,7 +704,7 @@
 
                                                             <div class="card-radio text-truncate p-3">
                                                                 <span
-                                                                    class="fs-14 mb-4 d-block"><strong>>50%</strong></span>
+                                                                    class="fs-14 mb-4 d-block"><strong id="status">>50%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &gt;
                                                                     30.000km</span>
                                                                 <span
@@ -931,25 +1027,29 @@
         var slider = document.getElementById('myRange');
         var output = document.getElementById('Gia_Sum');
         var output2 = document.getElementById('sliderValue');
-        var loai = document.getElementsByName('loaixe');
         var select = document.getElementById('Hang');
-        var trangthai = document.querySelectorAll('input[type=radio][name="status"]');
+        var trangthai = document.querySelectorAll('input[type="radio"][name="status"]');
+        var radios = document.querySelectorAll('input[type="radio"][name="loaixe"]');
+
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                // Lấy tên loại xe từ element con có tag là 'span'
+                var typeName = this.nextElementSibling.querySelector('span').innerText.trim();
+                // Gán giá trị cho input hidden
+                document.getElementById('category').value = typeName;
+            });
+        });
 
         trangthai.forEach(function(radio) {
             radio.addEventListener('change', function() {
-                document.getElementById('list[state]').value = this.nextElementSibling.textContent.trim();
+                var percentage = this.nextElementSibling.querySelector('#status').innerText.trim();
+                document.getElementById('list[state]').value = percentage;
             });
         });
 
         select.addEventListener('change', function() {
             document.getElementById('list[brand]').value = this.value;
         }); 
-        
-        for (var i = 0; i < loai.length; i++) {
-            loai[i].addEventListener('change', function() {
-                document.getElementById('category').value = this.value;
-            });
-        }
 
         document.getElementById('MauXe').addEventListener('input', function (e) {
             document.getElementById('MauXe_Sum').innerText = e.target.value;
