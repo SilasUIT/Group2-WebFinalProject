@@ -303,9 +303,6 @@ a.more {
   color: #2f2f2f;
 }
 
-.product-section {
-  padding: 7rem 0; 
-}
  .product-section .product-item {
  text-align: start;
  text-decoration: none;
@@ -716,9 +713,6 @@ a.more {
   background-color: #3b5d50;
 }
 
-.before-footer-section {
-  padding: 7rem 0 12rem 0 !important;
-}
 
 .blog-section {
   padding: 7rem 0 12rem 0;
@@ -902,11 +896,6 @@ a.more {
 .footer-section .border-top.copyright {
   font-size: 14px !important;
 }
-
-.untree_co-section {
-  padding: 7rem 0;
-}
-
 .form-control {
   height: 50px;
   border-radius: 10px;
