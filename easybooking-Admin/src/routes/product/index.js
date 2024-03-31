@@ -30,5 +30,16 @@ router.use('/shop',(req,res,next)=>{
     req.app.set('layout','shop');
     next();
 },require('./shop'));
-
+router.use('/contract',(req,res,next)=>{
+    req.app.set('layout','contract');
+    next();
+},require('./contract'));
+router.use('/vehicle',(req,res,next)=>{
+    req.app.set('layout','vehicle');
+    next();
+},require('./vehicle'));
+router.use('/least',(req,res,next)=>{
+    req.app.set('layout','least');
+    next();
+},require('./least'));
 module.exports = router;    
