@@ -1,9 +1,20 @@
 const {
     updateuser,
+    getuserbyid,
 }=require('../../services/admin/user.service');
 class profileController{
     getAll=async(req,res)=>{
-       return res.render('profile');
+      // const {_id}=req.user._id;
+       console.log(req.user._id);
+         const data=await getuserbyid(req.user._id);
+         console.log(data);
+
+         if(data){
+                return res.render('profile',{data});
+         }
+         else{
+                return res.redirect('/profile');
+         }
     }
     updateprofile=async(req,res)=>{
         const {id}=req.params;
