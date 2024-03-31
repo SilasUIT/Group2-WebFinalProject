@@ -474,8 +474,8 @@
                                                     <div class="row" style="margin-top: 20px;">
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
-                                                                <label class="form-label" for="Nam">Năm sản xuất</label>
-                                                                <input type="email" class="form-control" id="list[year]" name="list[year]"
+                                                                <label class="form-label" for="Odo">Năm sản xuất</label>
+                                                                <input type="text" class="form-control" id="list[year]" name="list[year]"
                                                                     placeholder="Nhập năm sản xuất">
                                                             </div>
                                                         </div>
@@ -1033,9 +1033,7 @@
 
         radios.forEach(function(radio) {
             radio.addEventListener('change', function() {
-                // Lấy tên loại xe từ element con có tag là 'span'
                 var typeName = this.nextElementSibling.querySelector('span').innerText.trim();
-                // Gán giá trị cho input hidden
                 document.getElementById('category').value = typeName;
             });
         });
