@@ -10,7 +10,15 @@ const list=new Schema({
     year:Number,
     odo:Number,
     license:String,
+    state:String,
 }); 
+
+const location=new Schema({
+    city:String,
+    district:String,
+    ward:String,
+    street:String,
+})
 
 const newSchema=new Schema({
    name:{
@@ -20,8 +28,9 @@ const newSchema=new Schema({
    description:{
        type:String,
    },
-   location:{
-       type:String,
+   address:{
+       type:[location],
+       default:[],
    },
    productinformation:{
     type:[list],
@@ -51,6 +60,15 @@ const newSchema=new Schema({
     category:{
         type:String,
        // required:true,
+    },
+    vrcertificate:{
+        type:String,
+    },
+    minsurance:{
+        type:String,
+    },
+    price:{
+        type:Number,
     },
 },
 {

@@ -342,6 +342,7 @@
 
     <div class="container">
         <div class="row">
+           <form action="/least" method="post" >
             <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
@@ -430,6 +431,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" id="category" name="category">
                                                     </div>
 
                                                     <div class="row" style="margin-top: 20px;">
@@ -448,14 +450,16 @@
                                                                     <option value="Khác">Khác</option>
                                                                 </select>
                                                             </div>
+                                                            <input type="hidden" id="list[brand]" name="list[brand]">
                                                         </div>
 
                                                         <div class="col-lg-4">
                                                             <div class="mb-4 mb-lg-0">
                                                                 <label class="form-label" for="MauXe">Mẫu xe</label>
-                                                                <input type="text" class="form-control" id="MauXe"
+                                                                <input type="text" class="form-control" id="name" name="name"
                                                                     placeholder="Nhập tên mẫu xe">
                                                             </div>
+                                                            
                                                         </div>
                                                     </div>
 
@@ -463,7 +467,7 @@
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="Nam">Năm sản xuất</label>
-                                                                <input type="email" class="form-control" id="Nam"
+                                                                <input type="email" class="form-control" id="list[year]" name="list[year]"
                                                                     placeholder="Nhập năm sản xuất">
                                                             </div>
                                                         </div>
@@ -471,7 +475,7 @@
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="Odo">Odo hiện tại</label>
-                                                                <input type="text" class="form-control" id="Odo"
+                                                                <input type="text" class="form-control" id="list[odo]" name="list[odo]"
                                                                     placeholder="Nhập số Km đã đi">
                                                             </div>
                                                         </div>
@@ -480,7 +484,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="card">Biển số xe</label>
-                                                            <input type="text" class="form-control" id="card"
+                                                            <input type="text" class="form-control" id="list[license]" name="list[license]"
                                                                 placeholder="Nhập biển số xe">
                                                         </div>
                                                     </div>
@@ -491,7 +495,7 @@
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="Khung">Số
                                                                         khung</label>
-                                                                    <input type="text" class="form-control" id="Khung"
+                                                                    <input type="text" class="form-control" id="list[frame]" name="list[frame]"
                                                                         placeholder="Nhập số khung">
                                                                 </div>
                                                             </div>
@@ -499,7 +503,7 @@
                                                             <div class="col-lg-4">
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="May">Số máy</label>
-                                                                    <input type="text" class="form-control" id="May"
+                                                                    <input type="text" class="form-control" id="list[machine]" name="list[machine]"
                                                                         placeholder="Nhập số máy">
                                                                 </div>
                                                             </div>
@@ -508,7 +512,7 @@
 
                                                     <div class="mb-3">
                                                         <label class="form-label" for="Info">Thông tin mô tả</label>
-                                                        <textarea class="form-control" id="Info" rows="3"
+                                                        <textarea class="form-control" id="description" rows="3" name="description"
                                                             placeholder="Nhập thông tin mô tả chi tiết về xe của bạn"></textarea>
                                                     </div>
 
@@ -619,6 +623,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <input type="hidden" id="list[state]" name="list[state]">
                                     </div>
                                 </div>
                             </li>
@@ -702,7 +707,7 @@
                                         <h5 class="font-size-16 mb-1">Giá cho thuê</h5>
                                         <p class="text-muted text-truncate mb-4">Giá theo VNĐ / ngày</p>
                                         <input type="range" min="10000" max="1000000" value="10000" class="slider"
-                                            id="myRange">
+                                            id="price" name="price" >
                                         <div class="slider-value" id="sliderValue">10.000 / ngày</div>
                                     </div>
                                 </div>
@@ -725,7 +730,7 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Tinh">Tỉnh / Thành phố</label>
-                                                    <input type="text" class="form-control" id="Tinh"
+                                                    <input type="text" class="form-control" id="city" name="city"
                                                         placeholder="Nhập tỉnh/ thành phố">
                                                 </div>
                                             </div>
@@ -733,7 +738,7 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Quan">Quận / Huyện</label>
-                                                    <input type="text" class="form-control" id="Quan"
+                                                    <input type="text" class="form-control" id="district" name="district"
                                                         placeholder="Nhập quận/ huyện">
                                                 </div>
                                             </div>
@@ -741,14 +746,14 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Phuong">Phường / Xã</label>
-                                                    <input type="text" class="form-control" id="Phuong"
+                                                    <input type="text" class="form-control" id="ward" name="ward"
                                                         placeholder="Nhập phường/ xã">
                                                 </div>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label class="form-label" for="ViTri">Vị trí chính xác</label>
-                                                <textarea class="form-control" id="ViTri" rows="3"
+                                                <textarea class="form-control" id="street" name="street" rows="3"
                                                     placeholder="Nhập số nhà, tên đường"></textarea>
                                             </div>
                                             <div id="map"></div>
@@ -764,11 +769,12 @@
                     <div class="col">
                         <div class="text-end mt-2 mt-sm-0">
                             <a href="shop.html" class="btn btn-success">
-                                <i class="bx bx-receipt me-1"></i>Đăng bài cho thuê</a>
+                                <button class="bx bx-receipt me-1">Đăng bài cho thuê</button>
                         </div>
                     </div>
                 </div>
             </div>
+           </form>
 
             <div class="col-xl-4">
                 <div class="card checkout-order-summary">
