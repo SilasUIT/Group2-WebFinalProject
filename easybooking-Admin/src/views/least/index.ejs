@@ -376,7 +376,7 @@
                                                                         <div>
                                                                             <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i id="loai"
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-bicycle d-block h2 mb-3"></i>
                                                                             Xe số
                                                                             </span>
@@ -394,7 +394,7 @@
                                                                         <div>
                                                                             <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i id="loai"
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-motorcycle d-block h2 mb-3"></i>
                                                                             Tay ga
                                                                             </span>
@@ -412,7 +412,7 @@
                                                                         <div>
                                                                             <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i id="loai"
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-person-biking d-block h2 mb-3"></i>
                                                                             <span>Côn tay</span>
                                                                             </span>
@@ -430,7 +430,7 @@
                                                                         <div>
                                                                             <span
                                                                             class="card-radio py-3 text-center text-truncate">
-                                                                            <i id="loai"
+                                                                            <i id="loaixe"
                                                                                 class="fa-solid fa-bolt d-block h2 mb-3"></i>
                                                                             <span>Xe điện</span>
                                                                             </span>
@@ -1027,9 +1027,18 @@
         var slider = document.getElementById('myRange');
         var output = document.getElementById('Gia_Sum');
         var output2 = document.getElementById('sliderValue');
-        var loai = document.querySelectorAll('input[type="radio"][name="loaixe"]');
         var select = document.getElementById('Hang');
         var trangthai = document.querySelectorAll('input[type="radio"][name="status"]');
+        var radios = document.querySelectorAll('input[type="radio"][name="loaixe"]');
+
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                // Lấy tên loại xe từ element con có tag là 'span'
+                var typeName = this.nextElementSibling.querySelector('span').innerText.trim();
+                // Gán giá trị cho input hidden
+                document.getElementById('category').value = typeName;
+            });
+        });
 
         trangthai.forEach(function(radio) {
             radio.addEventListener('change', function() {
@@ -1041,13 +1050,6 @@
         select.addEventListener('change', function() {
             document.getElementById('list[brand]').value = this.value;
         }); 
-        
-        loai.forEach(function(radio2) {
-            radio2.addEventListener('change', function() {
-                var typeName = this.nextElementSibling.querySelector('#loaixe').innerText.trim();
-                document.getElementById('category').value = typeName;
-            });
-        });
 
         document.getElementById('MauXe').addEventListener('input', function (e) {
             document.getElementById('MauXe_Sum').innerText = e.target.value;
