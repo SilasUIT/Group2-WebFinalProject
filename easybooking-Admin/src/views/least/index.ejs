@@ -458,7 +458,7 @@
                                                                     <option value="Khác">Khác</option>
                                                                 </select>
                                                             </div>
-                                                            <input type="hidden" id="list[brand]" name="list[brand]">
+                                                            <input type="hidden" id="productinformation[brand]" name="productinformation[brand]">
                                                         </div>
 
                                                         <div class="col-lg-4">
@@ -475,7 +475,7 @@
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="Odo">Năm sản xuất</label>
-                                                                <input type="text" class="form-control" id="list[year]" name="list[year]"
+                                                                <input type="text" class="form-control" id="productinformation[year]" name="productinformation[year]"
                                                                     placeholder="Nhập năm sản xuất">
                                                             </div>
                                                         </div>
@@ -483,7 +483,7 @@
                                                         <div class="col-lg-4">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="Odo">Odo hiện tại</label>
-                                                                <input type="text" class="form-control" id="list[odo]" name="list[odo]"
+                                                                <input type="text" class="form-control" id="productinformation[odo]" name="productinformation[odo]"
                                                                     placeholder="Nhập số Km đã đi">
                                                             </div>
                                                         </div>
@@ -492,7 +492,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="card">Biển số xe</label>
-                                                            <input type="text" class="form-control" id="list[license]" name="list[license]"
+                                                            <input type="text" class="form-control" id="productinformation[license]" name="productinformation[license]"
                                                                 placeholder="Nhập biển số xe">
                                                         </div>
                                                     </div>
@@ -503,7 +503,7 @@
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="Khung">Số
                                                                         khung</label>
-                                                                    <input type="text" class="form-control" id="list[frame]" name="list[frame]"
+                                                                    <input type="text" class="form-control" id="productinformation[frame]" name="productinformation[frame]"
                                                                         placeholder="Nhập số khung">
                                                                 </div>
                                                             </div>
@@ -511,7 +511,7 @@
                                                             <div class="col-lg-4">
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="May">Số máy</label>
-                                                                    <input type="text" class="form-control" id="list[machine]" name="list[machine]"
+                                                                    <input type="text" class="form-control" id="productinformation[machine]" name="productinformation[machine]"
                                                                         placeholder="Nhập số máy">
                                                                 </div>
                                                             </div>
@@ -719,7 +719,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="hidden" id="list[state]" name="list[state]">
+                                        <input type="hidden" id="productinformation[state]" name="productinformation[state]">
                                     </div>
                                 </div>
                             </li>
@@ -826,7 +826,7 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Tinh">Tỉnh / Thành phố</label>
-                                                    <input type="text" class="form-control" id="city" name="city"
+                                                    <input type="text" class="form-control" id="address[city]" name="address[city]"
                                                         placeholder="Nhập tỉnh/ thành phố">
                                                 </div>
                                             </div>
@@ -834,7 +834,7 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Quan">Quận / Huyện</label>
-                                                    <input type="text" class="form-control" id="district" name="district"
+                                                    <input type="text" class="form-control" id="address[district]" name="address[district]"
                                                         placeholder="Nhập quận/ huyện">
                                                 </div>
                                             </div>
@@ -842,14 +842,14 @@
                                             <div class="col-lg-4">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Phuong">Phường / Xã</label>
-                                                    <input type="text" class="form-control" id="ward" name="ward"
+                                                    <input type="text" class="form-control" id="address[ward]" name="address[ward]"
                                                         placeholder="Nhập phường/ xã">
                                                 </div>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label class="form-label" for="ViTri">Vị trí chính xác</label>
-                                                <textarea class="form-control" id="street" name="street" rows="3"
+                                                <textarea class="form-control" id="address[street]" name="address[street]" rows="3"
                                                     placeholder="Nhập số nhà, tên đường"></textarea>
                                             </div>
                                             <div id="map"></div>
@@ -1041,12 +1041,12 @@
         trangthai.forEach(function(radio) {
             radio.addEventListener('change', function() {
                 var percentage = this.nextElementSibling.querySelector('#status').innerText.trim();
-                document.getElementById('list[state]').value = percentage;
+                document.getElementById('productinformation[state]').value = percentage;
             });
         });
 
         select.addEventListener('change', function() {
-            document.getElementById('list[brand]').value = this.value;
+            document.getElementById('productinformation[brand]').value = this.value;
         }); 
 
         document.getElementById('MauXe').addEventListener('input', function (e) {

@@ -16,20 +16,19 @@ class leastController{
     }
     addOrUpdateItem = async (req, res) => {
         const { id } = req.body;
-        console.table(req.body);
-        return;
+        console.log(req.body);
              try {
           if (id) {
             await updateproduct(id, req.body);
-            req.flash("success", "Update item thành công", false);
+        //    req.flash("success", "Update item thành công", false);
           } else {
             await addproduct(req.body);
-            req.flash("success", "Add item thành công", false);
+       //     req.flash("success", "Add item thành công", false);
           }
           res.redirect(`${linkprefix}`);
         } catch (error) {
           console.error('Error processing form:', error);
-          req.flash("danger", "An error occurred", false);
+       //   req.flash("danger", "An error occurred", false);
           res.redirect(`${linkprefix}`);
         }
       };

@@ -52,11 +52,11 @@ const newSchema=new Schema({
    image:{
        type:String,
    },
-    status:{
-         type:String,
-         default:"inactive",
-         enum:["active","inactive"],
-    },
+    // status:{
+    //      type:String,
+    //      default:"inactive",
+    //      enum:["active","inactive"],
+    // },
     category:{
         type:String,
        // required:true,
