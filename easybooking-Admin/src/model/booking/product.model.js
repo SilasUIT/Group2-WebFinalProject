@@ -38,7 +38,7 @@ const newSchema=new Schema({
    },
    salerID:{
        type:String,
-       required:true,
+      // required:true,
    },
    image:{
        type:String,
@@ -47,6 +47,10 @@ const newSchema=new Schema({
          type:String,
          default:"inactive",
          enum:["active","inactive"],
+    },
+    category:{
+        type:String,
+       // required:true,
     },
 },
 {

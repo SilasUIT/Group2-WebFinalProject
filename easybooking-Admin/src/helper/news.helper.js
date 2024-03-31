@@ -15,7 +15,7 @@ const imageHelper = multer({
   limits: {
     fileSize: 8 * 1024 * 1024, 
   },
-}).single('avatar');
+}).single('image');
 
 module.exports = {
   imageHelper,
