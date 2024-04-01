@@ -54,16 +54,6 @@ generateCalendar = (month, year) => {
         if (i === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
             day.classList.add('curr-date');
         }
-        day.addEventListener('click', function() {
-            if (!startDate) {
-                startDate = new Date(year, month, i);
-                this.classList.add('selected');
-            } else if (!endDate) {
-                endDate = new Date(year, month, i);
-                this.classList.add('selected');
-                selectRange();
-            }
-        });
         calendar_days.appendChild(day);
     }
 
@@ -73,20 +63,10 @@ generateCalendar = (month, year) => {
         day.classList.add('calendar-day-hover', 'next-month')
         day.innerHTML = i
         day.dataset.date = new Date(year, month + 1, i).getTime(); 
-        day.addEventListener('click', function() {
-            if (!startDate) {
-                startDate = new Date(year, month + 1, i);
-                this.classList.add('selected');
-            } else if (!endDate) {
-                endDate = new Date(year, month + 1, i);
-                this.classList.add('selected');
-                selectRange();
-            } else if (startDate && endDate) {
-                clearSelection();
-                startDate = new Date(year, month + 1, i);
-                this.classList.add('selected');
-            }
-        });
+         // Check if the next month's day is in the past
+        if (new Date(year, month + 1, i) < new Date(currDate.getFullYear(), currDate.getMonth(), currDate.getDate())) {
+            day.classList.add('past-date');
+        }
         calendar_days.appendChild(day)
     }
 }
@@ -120,31 +100,4 @@ document.querySelector('#prev-year').onclick = () => {
 document.querySelector('#next-year').onclick = () => {
     ++curr_year.value
     generateCalendar(curr_month.value, curr_year.value)
-}
-
-function selectRange() {
-    let days = document.querySelectorAll('.calendar-day-hover');
-    let startSelecting = false;
-    for (let day of days) {
-        let date = new Date(Number(day.dataset.date)); 
-        
-        if (date.getTime() === startDate.getTime()) {
-            startSelecting = true;
-        }
-        if (startSelecting) {
-            day.classList.add('selected');
-        }
-        if (date.getTime() === endDate.getTime()) {
-            startSelecting = false;
-        }
-    }
-}
-
-function clearSelection() {
-    let days = document.querySelectorAll('.calendar-day-hover');
-    for (let day of days) {
-        day.classList.remove('selected');
-    }
-    startDate = null;
-    endDate = null;
 }

@@ -1,242 +1,285 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="author" content="Untree.co">
-		<meta name="keywords" content="bootstrap, bootstrap4" />
-		<meta name="description" content="" />
-		
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-		<link rel="shortcut icon" href="favicon.png">
-		
-		<title>EZB | Chi tiết xe</title>
 
-		<style>
-			#map {
-				height: 400px;
-				width: 100%;
-			}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Untree.co">
+	<meta name="keywords" content="bootstrap, bootstrap4" />
+	<meta name="description" content="" />
 
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link href="css/tiny-slider.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="shortcut icon" href="favicon.png">
+
+	<title>EZB | Chi tiết xe</title>
+
+	<style>
+		#map {
+			height: 400px;
+			width: 100%;
+		}
+
+		.imagemain {
+			height: 600px;
+			overflow: hidden;
+		}
+
+		.imagemain .img-thumbnail {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: relative;
+		}
+
+		.imagelist {
+			overflow: hidden;
+		}
+
+		.imagelist .img-thumbnail {
+			width: 100%;
+			height: 25%;
+			cursor: pointer;
+			object-fit: cover;
+		}
+
+		@media (max-width: 768px) {
 			.imagemain {
-				height: 600px;
-				overflow: hidden;
-			}
-
-			.imagemain .img-thumbnail {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				position: relative;
+				height: 300px;
 			}
 
 			.imagelist {
-				overflow: hidden;
+				display: flex;
 			}
 
 			.imagelist .img-thumbnail {
-				width: 100%;
-				height: 25%;
-				cursor: pointer;
-				object-fit: cover;
+				width: 25%;
+				height: 100%;
 			}
+		}
 
-			@media (max-width: 768px) {
-				.imagemain {
-					height: 300px;
-				}
-				.imagelist{
-					display: flex;
-				}
-				.imagelist .img-thumbnail {
-					width: 25%;
-					height: 100%;
-				}
-			}
+		.calendar {
+			height: max-content;
+			width: 100%;
+			background-color: #fdfdfd;
+			border-radius: 30px;
+			padding: 20px;
+			position: relative;
+			overflow: hidden;
+		}
 
+		.calendar-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 25px;
+			font-weight: 600;
+			color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		}
+
+		.calendar-week-day {
+			height: 50px;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			font-weight: 600;
+		}
+
+		.calendar-week-day div {
+			display: grid;
+			place-items: center;
+			color: #151426;
+		}
+
+		.calendar-days {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 2px;
+			color: #151426;
+		}
+
+		.calendar-days div {
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+			position: relative;
+			cursor: pointer;
+			animation: to-top 1s forwards;
+		}
+
+		.calendar-days div span {
+			position: absolute;
+		}
+
+		.calendar-days div:hover {
+			border-radius: 50%;
+			background-color: #eee;
+		}
+
+		.calendar-days div.curr-date,
+		.calendar-days div.curr-date:hover {
+			background-color: orange;
+			color: white;
+			border-radius: 50%;
+		}
+
+		.calendar-days div.curr-date span {
+			display: none;
+		}
+
+		.month-picker {
+			padding: 5px 10px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.month-picker:hover {
+			background-color: #edf0f5;
+		}
+
+		.year-picker {
+			display: flex;
+			align-items: center;
+		}
+
+		.year-change {
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			display: grid;
+			place-items: center;
+			margin: 0 10px;
+			cursor: pointer;
+		}
+
+		.year-change pre {
+			margin: 0;
+		}
+
+		.year-change:hover {
+			background-color: #edf0f5;
+		}
+
+		.calendar-footer {
+			padding: 10px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		.toggle {
+			display: flex;
+		}
+
+		.toggle span {
+			margin-right: 10px;
+			color: #151426;
+		}
+
+		.calendar-frame {
+			position: relative;
+		}
+
+		.month-list {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: #fdfdfd;
+			padding: 20px;
+			grid-template-columns: repeat(3, auto);
+			gap: 5px;
+			display: grid;
+			transform: scale(1.5);
+			visibility: hidden;
+			pointer-events: none;
+			border-radius: 30px;
+		}
+
+		.month-list.show {
+			transform: scale(1);
+			visibility: visible;
+			pointer-events: visible;
+			transition: all 0.2s ease-in-out;
+		}
+
+		.month-list>div {
+			display: grid;
+			place-items: center;
+		}
+
+		.month-list>div>div {
+			width: 100%;
+			padding: 5px 10px;
+			border-radius: 10px;
+			text-align: center;
+			cursor: pointer;
+			color: #151426;
+		}
+
+		.month-list>div>div:hover {
+			color: white;
+			background-color: orange;
+		}
+
+		.calendar .btn {
+			width: 100%;
+		}
+
+		.past-date,
+		.prev-month,
+		.past-year {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		@media (max-width: 1000px) {
 			.calendar {
-				height: max-content;
-				width: 100%;
-				background-color: #fdfdfd;
-				border-radius: 30px;
-				padding: 20px;
-				position: relative;
-				overflow: hidden;
+				border-radius: 15px;
 			}
 
 			.calendar-header {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				font-size: 25px;
-				font-weight: 600;
-				color: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+				font-size: 20px;
 			}
 
 			.calendar-week-day {
-				height: 50px;
-				display: grid;
-				grid-template-columns: repeat(7, 1fr);
-				font-weight: 600;
-			}
-
-			.calendar-week-day div {
-				display: grid;
-				place-items: center;
-				color: #151426;
-			}
-
-			.calendar-days {
-				display: grid;
-				grid-template-columns: repeat(7, 1fr);
-				gap: 2px;
-				color: #151426;
+				height: 40px;
 			}
 
 			.calendar-days div {
-				width: 50px;
-				height: 50px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 5px;
-				position: relative;
-				cursor: pointer;
-				animation: to-top 1s forwards;
-			}
-
-			.calendar-days div span {
-				position: absolute;
-			}
-
-			.calendar-days div:hover {
-				border-radius: 50%;
-				background-color: #eee; 
-			}
-
-			.calendar-days div.curr-date,
-			.calendar-days div.curr-date:hover {
-				background-color: orange;
-				color: white;
-				border-radius: 50%;
-			}
-
-			.calendar-days div.curr-date span {
-				display: none;
-			}
-
-			.month-picker {
-				padding: 5px 10px;
-				border-radius: 10px;
-				cursor: pointer;
-			}
-
-			.month-picker:hover {
-				background-color: #edf0f5;
-			}
-
-			.year-picker {
-				display: flex;
-				align-items: center;
+				width: 40px;
+				height: 40px;
 			}
 
 			.year-change {
-				height: 40px;
-				width: 40px;
-				border-radius: 50%;
-				display: grid;
-				place-items: center;
-				margin: 0 10px;
-				cursor: pointer;
+				height: 30px;
+				width: 30px;
 			}
 
-			.year-change:hover {
-				background-color: #edf0f5;
-			}
-
-			.calendar-footer {
-				padding: 10px;
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-			}
-
-			.toggle {
-				display: flex;
-			}
-
-			.toggle span {
-				margin-right: 10px;
-				color: #151426;
-			}
-
-			.calendar-frame {
-				position: relative;
+			.month-picker,
+			.year-change {
+				padding: 3px 5px;
 			}
 
 			.month-list {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				background-color: #fdfdfd;
-				padding: 20px;
-				grid-template-columns: repeat(3, auto);
-				gap: 5px;
-				display: grid;
-				transform: scale(1.5);
-				visibility: hidden;
-				pointer-events: none;
-				border-radius: 30px;
-			}
-
-			.month-list.show {
-				transform: scale(1);
-				visibility: visible;
-				pointer-events: visible;
-				transition: all 0.2s ease-in-out;
-			}
-
-			.month-list>div {
-				display: grid;
-				place-items: center;
+				padding: 10px;
 			}
 
 			.month-list>div>div {
-				width: 100%;
-				padding: 5px 10px;
-				border-radius: 10px;
-				text-align: center;
-				cursor: pointer;
-				color: #151426;
+				padding: 3px 5px;
 			}
+		}
+	</style>
 
-			.month-list>div>div:hover {
-				color: white;
-				background-color: orange;
-			}
-
-			.calendar .btn {
-				width: 100%;
-			}
-			.past-date, .prev-month {
-				opacity: 0.5;
-				pointer-events: none;
-			}
-			.selected {
-				background-color: orange; /* or any color you prefer */
-			}
-
-		</style>
-
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -264,10 +307,10 @@
 						<a class=" nav-link"><img src="images/user.svg"></a>
 						<ul class=" dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<li><a class="dropdown-item" href="lease.html">Đăng bài cho thuê</a></li>
-                                <li><a class="dropdown-item" href="vehicle.html">Quản lí xe cho thuê</a></li>
-                                <li><a class="dropdown-item" href="contract.html">Lịch sử họp đồng</a></li>
-                                <li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
-                                <li><a class="dropdown-item" href="index.html">Đăng xuất</a></li>
+							<li><a class="dropdown-item" href="vehicle.html">Quản lí xe cho thuê</a></li>
+							<li><a class="dropdown-item" href="contract.html">Lịch sử họp đồng</a></li>
+							<li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
+							<li><a class="dropdown-item" href="index.html">Đăng xuất</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -302,7 +345,7 @@
 				<div class="col-md-8">
 					<div class="d-flex gap-2 align-items-center">
 						<img src="images/Dat.png" class="mt-1" alt="testavatar"
-						style="width: 40px; height: 40px; border-radius: 50%;">
+							style="width: 40px; height: 40px; border-radius: 50%;">
 						<div>
 							<b><span>Ezbooking</span></b> <br>
 							<span>Vào lúc 7:00 PM ngày 20/11/2023</span>
@@ -325,13 +368,14 @@
 								<span>Đã đi được 10000km</span>
 							</div>
 						</div>
-						
+
 						<div class="px-2 mb-3">
 							<i class="fa-solid fa-location-dot text-primary mr-1"></i>
 							<span>số 10 thôn Tân Lâm, xã Đạ Đờn, huyện Lâm Hà, Tỉnh Lâm Đồng</span>
 						</div>
-					</div><hr>
-					
+					</div>
+					<hr>
+
 					<div>
 						<h2>Chi tiết sản phẩm</h2>
 						<div>
@@ -351,16 +395,18 @@
 							</div>
 
 						</div>
-					</div><hr>
-					
+					</div>
+					<hr>
+
 					<div id="map"></div>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-sm-4">
 					<div class="calendar" style="background-color: #f3f8fe;">
 						<div class="flex flex-row items-center gap-1 b" style="color: orange;">
 							<h4>150.000₫/ 1 ngày</h4>
-						</div><hr>
+						</div>
+						<hr>
 
 						<div class="calendar-frame">
 							<div class="calendar-header">
@@ -369,15 +415,13 @@
 									<span class="year-change" id="prev-year">
 										<pre><</pre>
 									</span>
-
 									<span id="year">2021</span>
-
 									<span class="year-change" id="next-year">
 										<pre>></pre>
 									</span>
 								</div>
 							</div>
-							
+
 							<div class="mt-5">
 								<div class="calendar-week-day">
 									<div>Sun</div>
@@ -399,8 +443,9 @@
 						<div class="p-4">
 							<div class="btn btn-block">Đặt xe ngay</div>
 						</div>
-					</div><hr>
-					
+					</div>
+					<hr>
+
 					<div class="mt-4">
 						<h2>Đánh giá từ người dùng</h2>
 
@@ -410,11 +455,12 @@
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
-							
+
 							<span> / 150 tr lượt đánh giá</span>
 						</div>
-					</div><hr>
-					
+					</div>
+					<hr>
+
 					<div class="mt-4">
 						<h2>Một số bình luận: </h2>
 
@@ -616,4 +662,5 @@
 	</script>
 
 </body>
+
 </html>
