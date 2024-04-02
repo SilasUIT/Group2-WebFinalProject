@@ -23,16 +23,16 @@
 <br/>
 -Trang trưng bày sản phẩm
 <br/>
-![Shop page](demo/shop_page.png)
+![Shop page](Demo/shop_page.png)
 <br/>
 -Trang chi tiết sản phẩm
 <br/>
-![Detail page](demo/detail_product_page.png)
+![Detail page](Demo/detail_product_page.png)
 <br/>
 -Trang đăng bài cho thuê
 <br/>
-![Lease page](demo/lease_page.png)
+![Lease page](Demo/lease_page.png)
 <br/>
 -Trang quản lý cho thuê
 <br/>
-![Main page](demo/mange_page_for_landlord.png)
+![Main page](Demo/mange_page_for_landlord.png)
