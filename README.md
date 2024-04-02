@@ -1,36 +1,19 @@
-# WebFinalProject
-Các package cần thiết:
+# Đồ án web cuối kỳ nhóm 2 - Ezbooking - Trang web cho thuê xe máy
 
-npx create-next-app --typescript // install nextjs platform
+## Các chức năng chính của trang web:
 
-npx install -D prisma // instal prisma database schedule
+-Đăng nhập đăng ký
+<br/>
+-Đăng bài cho thuê
+<br/>
+-Thuê xe 
+<br/>
+-Đánh giá, bình luận xe đã thuê
+<br/>
+-Thanh toán (thông qua bên thứ 3)
+<br/>
+-Tìm kiếm thông tin cho thuê
+<br/>
+-In hợp đồng giữa người cho thuê và người thuê
 
-npx prisma init // create a project using prisma
-
-npx prisma db push //push data to database in schema.prisma file
-
-npm install next-auth @prisma/client @next-auth/prisma-adapter //authentication using for nextjs and prisma
-
-npm install bcrypt //crypt the data
-
-npm install -D @types/bcrypt
-
-npm i leaflet
-
-npm i query-string
-
-npm i next-cloudinary
-
-npm i date-fns
-
-npm i react-date-range
-
-npm i -D @types/react-date-range
-
-npm i react-spinners
-
-Các câu lệnh chạy file:
-
-cd .\Frontend\Ezbooking\
-
-npm run dev
+## Hình ảnh webiste
