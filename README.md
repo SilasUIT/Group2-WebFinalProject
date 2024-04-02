@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ thuê xe linh hoạt và tiện lợi cho người dùng. Trang web được phát triển bởi nhóm 2 trong đồ án cuối kỳ.
+Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ cho thuê và đăng bài cho thuê linh hoạt. Trang web được phát triển bởi nhóm 2 lập trình ứng dụng Web - NT208.O21.ANTT.
 
 ## Các chức năng chính của trang web:
 
