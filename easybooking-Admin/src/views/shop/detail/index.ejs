@@ -263,13 +263,14 @@ arial-label="EzBooking navigation bar">
 <div class="container mb-4">
     <div class="row">
         <div class="imagemain col-12 col-md-10">
-            <img src="/product/images/test5.jpg" alt="test" class="img-thumbnail" id="mainImage">
+            <img src="/<%= data.image%>" alt="test" class="img-thumbnail" id="mainImage">
         </div>
         <div class="imagelist col-12 col-md-2">
-            <img src="/product/images/test1.jpg" alt="test" class="img-thumbnail" onclick="changeImage(this)">
-            <img src="/product/images/test2.jpg" alt="test" class="img-thumbnail" onclick="changeImage(this)">
-            <img src="/product/images/test3.jpg" alt="test" class="img-thumbnail" onclick="changeImage(this)">
-            <img src="/product/images/test4.jpg" alt="test" class="img-thumbnail" onclick="changeImage(this)">
+            <% if(data && data.List && data.List.length > 0) { %>
+                <% for(let i = 0; i < data.List.length; i++) { %>
+                         <img src="/<%= data.List[i].Image %>" alt="test" class="img-thumbnail" onclick="changeImage(this)">
+                    <% } %>
+           <% } %>
         </div>
     </div>
 </div>

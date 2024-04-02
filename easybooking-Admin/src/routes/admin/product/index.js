@@ -1,5 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const multer = require('multer');
+const randomstring = require('randomstring');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+        const uniqueFileName = randomstring.generate(10) + file.originalname;
+        cb(null, uniqueFileName);
+    },
+});
+
+const upload = multer({ storage: storage });
 const productController = require("../../../controllers/admin/product.controller");
 
 router.use(express.json());
@@ -18,4 +31,7 @@ router.get('(/:status)?',productController.statusCount);
 
 router.post("/changeStatusTool", productController.statusTool);
 router.post("/upload/:id", productController.imageUpload);
+router.post("/dropzone/:id", upload.array('filepond', 3), productController.dropzoneUpload);
+
+router.post('/deleteImage/:itemId/:imageId', productController.deleteImage);
 module.exports = router;

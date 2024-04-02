@@ -20,6 +20,13 @@ const location=new Schema({
     street:String,
 })
 
+
+const Listimage=new Schema({
+    Image:{
+      type:String,
+    }
+  })
+
 const newSchema=new Schema({
    name:{
        type:String,
@@ -70,6 +77,10 @@ const newSchema=new Schema({
     price:{
         type:Number,
     },
+    List:{
+        type: [Listimage],
+        default:[],
+       },
 },
 {
     timestamps:true,

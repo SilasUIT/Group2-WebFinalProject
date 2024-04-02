@@ -39,30 +39,7 @@ const handleUpdateStatus = (id, status,type) => {
     }
   });
 };
-// const nonhandleUpdateStatus = (id, status) => {
-  
-//   $.ajax({
-//     type: "GET",
-//     url: `/admin/category/changeStatus/${id}/${status}`,
-//     dataType: "json",
-//     success: function (response) {
-//       const newStatus = response.status;
-//       const newStatusClass = newStatus === 'active' ? 'badge-success' : 'badge-danger';
 
-     
-//       $(`#status-${id}`).html(`
-//         <a href="/changeStatus/${id}/${newStatus}">
-//           <span class="badge ${newStatusClass}">${newStatus}</span>
-//         </a>
-//       `);
-//     },
-//     error: function (error) {
-//       console.error('Error updating status:', error);
-      
-//       $(`#status-${id}`).html(`<span class="badge badge-danger">Error updating status</span>`);
-//     }
-//   });
-// };
 jQuery(document).ready(function($)  {
   $('#selectAllCheckbox').change(() => {  
     $('input[name="selectedItems"]').prop('checked', $('#selectAllCheckbox').prop('checked'));
@@ -107,24 +84,7 @@ jQuery(document).ready(function($)  {
   });
 });
 
-Dropzone.options.myDropzone = {
-  url: "/admin/news/dropzone", 
-  paramName: "file", 
-  maxFilesize: 2, 
-  acceptedFiles: ".jpg,.jpeg,.png,.gif", 
-  addRemoveLinks: true, 
-  dictDefaultMessage: "Drop files here or click to upload", 
-  
-  init: function () {
-      var myDropzone = this;
-      
-      this.element.querySelector(".cancel").addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          myDropzone.removeAllFiles(); 
-      });
-  }
-};
+
 
 
 const fetchDataWithSorting = async (status, keyword, sort) => {
@@ -166,16 +126,7 @@ const previewImage = (input) => {
     preview.src = '';
   }
 };
-// document.addEventListener('DOMContentLoaded', function () {
-//   const ckeditorForm = async () => {
-//       ClassicEditor
-//           .create(document.querySelector('#editor'))
-//           .catch(error => {
-//               console.error(error);
-//           });
-//   };
-//   ckeditorForm();
-// });
+
 document.addEventListener('DOMContentLoaded', function () {
   let editor;
 
@@ -207,7 +158,75 @@ function calculateExpiryDate() {
   document.getElementById('calculatedExpiryDate').value = formattedExpiryDate;
 }
 
-// Event listener for input change
 document.getElementById('expirateDays').addEventListener('input', function() {
   calculateExpiryDate();
 });
+
+var previewNode = document.querySelector("#template");
+previewNode.id = "";
+var previewTemplate = previewNode.parentNode.innerHTML;
+previewNode.parentNode.removeChild(previewNode);
+
+FilePond.registerPlugin(
+  FilePondPluginFileEncode,
+	FilePondPluginFileValidateSize,
+	FilePondPluginImageExifOrientation,
+  FilePondPluginImagePreview
+);
+
+// Select the file input and use create() to turn it into a pond
+FilePond.create(
+	document.querySelector('input')
+);
+
+const pond = FilePond.create(document.querySelector('.filepond'), {
+  allowMultiple: true, 
+  maxFiles: 3,
+  labelIdle: 'Drag & Drop your files or <span class="filepond--label-action">Browse</span>',
+  server: {
+      url: '/admin/news/dropzone/<%= item._id%>',
+      process: {
+          method: 'POST'
+      }
+  },
+  onaddfile: (error, file) => {
+    console.log('onaddfile called')
+    if (error) {
+        console.error('An error occurred while adding the file:', error);
+        return;
+    }
+    renderSelectedImages();
+}
+});
+
+pond.on('addfile', () => {
+  renderSelectedImages();
+});
+
+function renderSelectedImages() {
+  console.log('render called');
+  const container = document.getElementById('selected-images-container');
+  container.innerHTML = '';
+
+  const files = pond.getFiles();
+  if (files.length > 0) {
+      files.forEach(file => {
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(file.file);
+          img.classList.add('selected-images');
+          container.appendChild(img);
+      });
+  }
+}
+
+
+const form = document.getElementById('upload-form');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  try {
+      await pond.processFiles(); 
+  } catch (error) {
+      console.error('Error uploading files:', error);
+  }
+});
+ 
