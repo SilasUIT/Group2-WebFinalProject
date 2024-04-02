@@ -17,31 +17,31 @@
 -In hợp đồng giữa người cho thuê và người thuê
 
 ## Hình ảnh webiste
-### -Giao diện chính của trang web
+-Giao diện chính của trang web
 <br/>
 <br/>
 ![Main page](Demo/main_page.png)
 <br/>
 <br/>
-### -Trang trưng bày sản phẩm
+-Trang trưng bày sản phẩm
 <br/>
 <br/>
 ![Shop page](Demo/shop_page.png)
 <br/>
 <br/>
-### -Trang chi tiết sản phẩm
+-Trang chi tiết sản phẩm
 <br/>
 <br/>
 ![Detail page](Demo/detail_product_page.png)
 <br/>
 <br/>
-### -Trang đăng bài cho thuê
+-Trang đăng bài cho thuê
 <br/>
 <br/>
 ![Lease page](Demo/lease_page.png)
 <br/>
 <br/>
-### -Trang quản lý cho thuê
+-Trang quản lý cho thuê
 <br/>
 <br/>
-![Main page](Demo/mange_page_for_landlord.png)
+![Manage page](Demo/mange_page_for_landlord.png)
