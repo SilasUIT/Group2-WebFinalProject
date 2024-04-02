@@ -20,28 +20,28 @@
 ### -Giao diện chính của trang web
 <br/>
 <br/>
-![Main page](demo/main_page.png)
+![Main page](Demo/main_page.png)
 <br/>
 <br/>
 ### -Trang trưng bày sản phẩm
 <br/>
 <br/>
-![Shop page](demo/shop_page.png)
+![Shop page](Demo/shop_page.png)
 <br/>
 <br/>
 ### -Trang chi tiết sản phẩm
 <br/>
 <br/>
-![Detail page](demo/detail_product_page.png)
+![Detail page](Demo/detail_product_page.png)
 <br/>
 <br/>
 ### -Trang đăng bài cho thuê
 <br/>
 <br/>
-![Lease page](demo/lease_page.png)
+![Lease page](Demo/lease_page.png)
 <br/>
 <br/>
 ### -Trang quản lý cho thuê
 <br/>
 <br/>
-![Main page](demo/mange_page_for_landlord.png)
+![Main page](Demo/mange_page_for_landlord.png)
