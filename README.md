@@ -19,7 +19,7 @@
 ## Hình ảnh webiste
 -Giao diện chính của trang web
 <br/>
-![Main page](demo/main_page.png)
+![Main page](Demo/main_page.png)
 <br/>
 -Trang trưng bày sản phẩm
 <br/>
