@@ -20,6 +20,14 @@ Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ cho
 
 7. **In hợp đồng:** Cho phép in hợp đồng giữa người cho thuê và người thuê để bảo đảm sự minh bạch và công bằng trong giao dịch.
 
+## Các mô hình sử dụng
+
+1. Frontend: HTML, CSS
+
+2. Backend: NodeJS
+
+3. Database: MongoDB
+ 
 ## Hình ảnh trang web:
 
 ### Giao diện chính của trang web:
