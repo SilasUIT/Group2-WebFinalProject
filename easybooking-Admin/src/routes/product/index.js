@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const role=require('../../middleware/role');
 const {
     verifyToken,
 }=require('../../helper/jwt.helper');
@@ -29,7 +30,11 @@ router.use((req,res,next)=>{
         next();
     }
 });
-
+router.use('/login',(req, res, next)=>{
+    req.app.set('layout','login');
+    next();
+},require('./login'));
+router.use(role);
 router.use('/home',(req,res,next)=>{
     req.app.set('layout','home');
     next();
@@ -44,11 +49,6 @@ router.use('/contact',(req,res,next)=>{
     req.app.set('layout','contact');
     next();
 },require('./contact'));
-
-router.use('/login',(req, res, next)=>{
-    req.app.set('layout','login');
-    next();
-},require('./login'));
 
 router.use('/profile',(req,res,next)=>{
     req.app.set('layout','profile');
