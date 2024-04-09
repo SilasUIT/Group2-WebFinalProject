@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export default function DashboardPage() {
+  console.log("Hello server");
   const [name, setName] = useState("");
 
   return (

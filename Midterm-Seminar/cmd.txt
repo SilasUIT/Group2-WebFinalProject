@@ -3,17 +3,21 @@ npx creat-next-app@latest
 -> create a folder with your project name and install the required dependencies.
 
 
-the flow of work: 
+the flow of work:
+
+-------------------------route-------------------------
+ 
 app, about, blog -> normal route
 blog/first, blog/second -> nested routing
 products/[productId] -> dynamic routing
 reviews/[reviewsId] -> nested dynamic routing
-docs\[...slug] -> catch all segemnts
+docs/[...slug] -> catch all segemnts
 _lib -> private folder
 (auth) -> route group
 activelink -> layout in (auth)
 home -> layout
 
+-------------------------render-------------------------
 
 
  
