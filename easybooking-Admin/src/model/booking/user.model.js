@@ -16,7 +16,7 @@ const location=new Schema({
     city:String,
     district:String,
     ward:String,
-    Street:String,
+    street:String,
 })
 const social=new Schema({
     facebook:String,

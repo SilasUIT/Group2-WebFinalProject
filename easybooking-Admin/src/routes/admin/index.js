@@ -6,6 +6,8 @@ router.use((req,res,next)=>{
     next();
 });
 
+
+
 // router.use('/',require('./dashboard'));
 // router.use('/dashboard',require('./dashboard'));
 router.use('/user',require('./user'));

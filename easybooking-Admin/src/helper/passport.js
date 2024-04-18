@@ -15,7 +15,10 @@ passport.use(new LocalStrategy(
   async (username, password, done) => {
     try {
       const user = await User.findOne({ username });
+    //  console.log(user);
+     // return;
       if (!user || !await verifyPassword(password,user)) {
+        console.log('error 1');
         return done(null, false, { message: 'Incorrect username or password' });
       }
      // console.log(user);

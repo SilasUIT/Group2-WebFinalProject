@@ -71,3 +71,22 @@
 
 
 })()
+
+
+	const previewImage = (input)=> {
+		console.log('previewImage called');
+		const preview = document.getElementById('avatarPreview');
+		const file = input.files[0];
+
+		if (file) {
+			const reader = new FileReader();
+
+			reader.onload = (e) => {
+				preview.src = e.target.result;
+			};
+
+			reader.readAsDataURL(file);
+		} else {
+			preview.src = '';
+		}
+	};

@@ -19,6 +19,9 @@ const getproduct=async(keyword)=>{
 //    }
    return await productmodel.find();
 }
+const getproductbysalerID=async(ID)=>{
+    return await productmodel.find({salerID:ID}).exec();
+}
 const getproductbyid=async(id)=>{
     return await productmodel.findById(id).exec();
 }
@@ -47,4 +50,5 @@ const getStatusCounts = async () => {
         deteleproduct,
         updateproduct,
         getStatusCounts,
+        getproductbysalerID,
   }

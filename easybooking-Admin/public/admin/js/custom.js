@@ -111,6 +111,7 @@ const fetchDataWithSorting = async (status, keyword, sort) => {
   return await newsModel.find(query).sort(sortOption);
 };
 const previewImage = (input) => {
+  console.log('previewImage called');
   const preview = document.getElementById('avatarPreview');
   const file = input.files[0];
 

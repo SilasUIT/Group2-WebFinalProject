@@ -16,7 +16,6 @@ class leastController{
     }
     addOrUpdateItem = async (req, res) => {
         const { id } = req.body;
-        console.log(req.body);
              try {
           if (id) {
             await updateproduct(id, req.body);

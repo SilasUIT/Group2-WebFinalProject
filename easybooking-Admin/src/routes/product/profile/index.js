@@ -4,5 +4,6 @@ const profileController = require('../../../controllers/product/profile.controll
 
 router.get('/', profileController.getAll);
 router.post('/update/:id', profileController.updateprofile);
+router.post('/upload/:id', profileController.imageUpload);
 module.exports = router;
 

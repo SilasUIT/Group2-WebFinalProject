@@ -1,4 +1,4 @@
-const multer = require('multer');
+
 const path=require('path');
 const {
   addproduct,
@@ -124,7 +124,12 @@ class productController {
         res.redirect(`${linkprefix}all`);
     }
   };
-  
+  deleteItem = async (req, res, next) => {
+    let { id } = req.params;
+    await deleteproduct(id);
+    req.flash("success", "Delete item thành công", false);
+    res.redirect(`${linkprefix}all`);
+  };
   deleteImage = async (req, res, next) => {
     try {
         const { itemId, imageId } = req.params;
@@ -153,7 +158,7 @@ class productController {
 
   deleteItem = async (req, res, next) => {
     let { id } = req.params;
-    await deleteproduct(id);
+    await deteleproduct(id);
     req.flash("success", "Delete item thành công", false);
     res.redirect(`${linkprefix}all`);
   };

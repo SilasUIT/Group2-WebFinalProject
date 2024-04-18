@@ -32,6 +32,7 @@ class loginController{
         try {
             passport.authenticate('local', (err, user) => {
                 if (err) {
+                    console.log('error 1');
                     req.flash('error', err.message);
                     return res.render('login/formlogin');
                 }
@@ -41,16 +42,19 @@ class loginController{
                 }
                 req.login(user, async (err) => {
                     if (err) {
+                        console.log('error 2');
                         req.flash('error', err.message);
                         return res.render('login/formlogin');
                     }
                     try {
+                    
                         const token = await loginService(req, req.body);
                       //  console.log(req.body);
                         res.cookie('jwt', token, { httpOnly: true });
                       //  console.log(token);
                         return res.redirect('/home');
                     } catch (error) {
+                        console.log('error 4');
                         req.flash('error', error.message);
                         return res.render('login/formlogin');
                     }

@@ -348,6 +348,7 @@
         <div class="row">
            <form action="/least" method="post" >
             <input type="hidden" id="salerID" name="salerID" value="<%= user._id%>">
+            <input type="hidden" id="status" name="status" value="inactive">
             <div class="col-xl-8">
                 <div class="card">
                     <div class="card-body">
@@ -642,11 +643,11 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="status" id="status1"
+                                                            <input type="radio" name="state" id="status1"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong id="status">90 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="state">90 -
                                                                         100%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le; 5000km</span>
                                                                 <span
@@ -662,11 +663,11 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="status" id="status2"
+                                                            <input type="radio" name="state" id="status2"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong id="status">75 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="state">75 -
                                                                         90%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le;
                                                                     13.000km</span>
@@ -683,11 +684,11 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div data-bs-toggle="collapse">
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="status" id="status3"
+                                                            <input type="radio" name="state" id="status3"
                                                                 class="card-radio-input" checked>
 
                                                             <div class="card-radio text-truncate p-3">
-                                                                <span class="fs-14 mb-4 d-block"><strong id="status">60 -
+                                                                <span class="fs-14 mb-4 d-block"><strong id="state">60 -
                                                                         75%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &le;
                                                                     30.000km</span>
@@ -704,12 +705,12 @@
                                                 <div class="col-lg-4 col-sm-6">
                                                     <div>
                                                         <label class="card-radio-label mb-0">
-                                                            <input type="radio" name="status" id="status4"
+                                                            <input type="radio" name="state" id="status4"
                                                                 class="card-radio-input">
 
                                                             <div class="card-radio text-truncate p-3">
                                                                 <span
-                                                                    class="fs-14 mb-4 d-block"><strong id="status">>50%</strong></span>
+                                                                    class="fs-14 mb-4 d-block"><strong id="state">>50%</strong></span>
                                                                 <span class="fs-14 mb-2 d-block">Odo &gt;
                                                                     30.000km</span>
                                                                 <span
@@ -1003,7 +1004,7 @@
             });
         });
         
-        var trangthai = document.querySelectorAll('input[type="radio"][name="status"]');
+        var trangthai = document.querySelectorAll('input[type="radio"][name="state"]');
         trangthai.forEach(function(radio) {
             radio.addEventListener('change', function() {
                 var percentage = this.nextElementSibling.querySelector('#status').innerText.trim();
