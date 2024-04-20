@@ -2,7 +2,8 @@ const mongoose=require('mongoose');
 const productmodel=require('../../model/booking/product.model');
 
 const addproduct=async(body)=>{
-    return await productmodel.create(body);
+  const product= await productmodel.create(body);
+   return product._id;
 }
 const getproduct=async(keyword)=>{
 //    let query={};

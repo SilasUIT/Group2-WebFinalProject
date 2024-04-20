@@ -12,6 +12,7 @@ const fieldimage1s = 'avatar';
 class profileController {
   getAll = async (req, res) => {
       const auth = await getuserbyid(req.user._id);
+      console.log(auth);
       return res.render('profile', { auth: auth });
   }
 
