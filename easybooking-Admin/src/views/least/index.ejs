@@ -356,6 +356,79 @@
                             <li class="checkout-item">
                                 <div class="avatar checkout-icon p-1">
                                     <div class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bx-image text-white font-size-20"></i>
+                                    </div>
+                                </div>
+
+                                <div class="feed-item-list">
+                                    <div>
+                                        <h5 class="font-size-16 mb-1">Cập nhật hình ảnh xe</h5>
+                                        <p class="text-muted text-truncate mb-4">Tối đa 3 tấm</p>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                    <input type="file" id="fileUploadimage" name="filepond"  style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="3" onchange="previewArrayimg(this, 'preview')">
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadimage').click();">
+                                                            <i class="bx bx-image-add d-block h2 mb-3"></i>
+                                                            Thêm hình ảnh
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <div id="preview1" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <div id="preview2" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <div id="preview3" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>         
+                                    </div>
+                                    <div>
+                                        <p class="text-muted text-truncate">Hình đại diện cho sản phẩm</p>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                    <input type="file" id="fileUploadimagee" name="image" style="display: none;" onchange="previewImage(this, 'image')">
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadimagee').click();">
+                                                            <i class="bx bx-image-add d-block h2 mb-3"></i>
+                                                            Thêm hình ảnh
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                        <img id="imagePreview" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </li>
+                            <li class="checkout-item">
+                                <div class="avatar checkout-icon p-1">
+                                    <div class="avatar-title rounded-circle bg-primary">
                                         <i class="bx bxs-receipt text-white font-size-20"></i>
                                     </div>
                                 </div>
@@ -587,6 +660,7 @@
                                     </div>
                                 </div>
                             </li>
+                           
 
                             <li class="checkout-item">
                                 <div class="avatar checkout-icon p-1">
@@ -693,55 +767,7 @@
                                 </div>
                             </li>
 
-                            <li class="checkout-item">
-                                <div class="avatar checkout-icon p-1">
-                                    <div class="avatar-title rounded-circle bg-primary">
-                                        <i class="bx bx-image text-white font-size-20"></i>
-                                    </div>
-                                </div>
-
-                                <div class="feed-item-list">
-                                    <div>
-                                        <h5 class="font-size-16 mb-1">Cập nhật hình ảnh xe</h5>
-                                        <p class="text-muted text-truncate mb-4">Tối đa 3 tấm</p>
-
-                                        <div class="row">
-                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                    <input type="file" id="fileUploadimage"   style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="3" onchange="previewArrayimg(this, 'preview')">
-                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadimage').click();">
-                                                            <i class="bx bx-image-add d-block h2 mb-3"></i>
-                                                            Thêm hình ảnh
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div> 
-                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
-                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <div id="preview1" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
-                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <div id="preview2" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
-                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <div id="preview3" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>         
-                                    </div>
-                                </div>
-                            </li>
+                           
 
                             <li class="checkout-item">
                                 <div class="avatar checkout-icon p-1">

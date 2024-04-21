@@ -72,7 +72,7 @@ class productController {
       return res.redirect(`${linkprefix}all`);
     }
   
-    imageHelper(req, res, async (err) => {
+    imageHelper('image')(req, res, async (err) => {
       try {
         const filePath = path.join(req.file.filename);
         req.body.file = filePath;

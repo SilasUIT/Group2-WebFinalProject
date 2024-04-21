@@ -16,30 +16,42 @@ class leastController{
     getForm=async(req,res)=>{
         return res.render('least/form');
     }
+    
     addOrUpdateItem = async (req, res) => {
-      try {
-          imageHelper(['vrcertificate', 'minsurance'])(req, res, async (err) => {
-              if (err) {
-                  console.error('Error processing form:', err);
-                  return res.status(500).send('Error processing form');
-              }
-  
-              const productID = await addproduct(req.body);
-              console.log(productID);
-  
-              const filePaths = {
-                  vrcertificate: path.join(req.files['vrcertificate'][0].filename),
-                  minsurance: path.join(req.files['minsurance'][0].filename),
-              };
-              console.log(filePaths);
-  
-              await updateproduct(productID, filePaths);
-              res.redirect(`${linkprefix}`);
-          });
-      } catch (error) {
-          console.error('Error processing form:', error);
-          res.status(500).send('Error processing form');
-      }
-  };
+        //console.log('flag 1');
+        try {
+            const productID = await addproduct(req.body);
+            console.log(productID);
+    
+            const filePaths = {
+                vrcertificate: path.join(req.files['vrcertificate'][0].filename),
+                minsurance: path.join(req.files['minsurance'][0].filename),
+                image: path.join(req.files['image'][0].filename),
+            };
+            console.log(filePaths);
+    
+            await updateproduct(productID, filePaths);
+    
+            if (!req.files.filepond || req.files.filepond.length === 0) {
+                console.log("error list file");
+                return res.redirect(`${linkprefix}`);
+            }
+    
+           // console.log('flag 2');
+            for (const file of req.files.filepond) {
+                const nonfilePath = path.join(file.filename);
+                console.log(nonfilePath);
+                const newListImage = { Image: nonfilePath };
+                const item = await getproductbyid(productID);
+                item.List.push(newListImage);
+                await item.save();
+            }
+    
+            res.redirect(`${linkprefix}`);
+        } catch (error) {
+            console.error('Error processing form:', error);
+            res.status(500).send('Error processing form');
+        }
+    };
 }
 module.exports=new leastController();
