@@ -8,7 +8,8 @@ const {
 const path = require('path');
 
 const fieldimage1s = 'avatar';
-
+const mainName = 'profile';
+const linkprefix = `/${mainName}`;
 class profileController {
   getAll = async (req, res) => {
       const auth = await getuserbyid(req.user._id);
@@ -41,25 +42,32 @@ class profileController {
           console.log('id not found');
           return res.redirect(`/profile`);
       }
-
-      try {
-          // Call imageHelper with the dynamic field name
-          imageHelper(fieldimage1s)(req, res, async (err) => {
-              if (err) {
-                  console.error('Error processing form:', err);
-                  return res.redirect(`/profile`);
-              }
-
-              const filePath = path.join(req.file.filename);
-              req.body.file = filePath;
-              console.log(filePath);
-              await updateuser(id, { avatar: filePath });
-              return res.redirect(`/profile`);
-          });
-      } catch (error) {
-          console.error('Error processing form:', error);
-          return res.redirect(`/profile`);
-      }
+    try{
+        if(!req.files.imagecccd||req.files.imagecccd.length===0){
+            console.log("error imagecccd file");
+           } else{
+            for(const file of req.files.imagecccd){
+                const filepath=path.join(file.name);
+                const newlist={Image:filepath};
+                user.imagecccd.push(newlist);
+                await user.save();
+               }
+           }
+           if(!req.files.certificate||req.files.certificate.length===0){
+            console.log("error certificate file");
+           }else{
+            for(const file of req.files.certificate){
+                const filepath=path.join(file.name);
+                const newlist={Image:filepath};
+                user.certificate.push(newlist);
+                await user.save();
+               }
+           }     
+           return res.redirect(`/profile`);
+    }catch(error){
+        console.error('Error processing form:', error);
+        return res.redirect(`/profile`);
+    }
   };
 }
 

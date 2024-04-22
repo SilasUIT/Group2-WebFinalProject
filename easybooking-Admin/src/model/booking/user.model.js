@@ -2,7 +2,6 @@ const {Schema}=require("mongoose");
 const mongoose=require("mongoose");
 
 const COLLECTION_NAME="user";
-
 const list=new Schema({
     name:{
         type:String,
@@ -69,7 +68,12 @@ const social=new Schema({
         default:'none',
     },
 })
-
+const Listimage=new Schema({
+    Image:{
+      type:String,
+      default:'none',
+    }
+  })
 const newSchema=new Schema({
    username:{
          type:String,
@@ -90,7 +94,7 @@ const newSchema=new Schema({
     },
     avatar:{
         type:String,
-        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
+        default:'none'
     },
     status:{
         type:String,
@@ -106,12 +110,12 @@ const newSchema=new Schema({
         default: ()=>([{}]),
     },
     imagecccd:{
-        type:String,
-        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
+        type:[Listimage],
+        default:()=>([{}]),
     },
     certificate:{
-        type:String,
-        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
+        type:[Listimage],
+        default:()=>([{}]),
     },
     link:{
         type:[social],

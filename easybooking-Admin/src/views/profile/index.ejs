@@ -386,12 +386,10 @@
                                         <div class="row">
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                    <input type="file" id="fileUpload" style="display: none;">
-                                                    <input type="radio" name="pay-method" id="pay-methodoption1"
-                                                        class="card-radio-input">
+                                                    <input type="file" id="fileUploadimage" name="imagecccd"  style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="2" onchange="previewArrayimg(this, 'preview')">
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
                                                         <span class="card-radio py-3 text-center text-truncate"
-                                                            onclick="event.stopPropagation(); document.getElementById('fileUpload').click();">
+                                                            onclick="event.stopPropagation(); document.getElementById('fileUploadimage').click();">
                                                             <i class="bx bx-image-add d-block h2 mb-3"></i>
                                                             Thêm hình ảnh
                                                         </span>
@@ -400,24 +398,16 @@
                                             </div>
 
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <span id="Hinh"
-                                                            class="card-radio py-3 text-center text-truncate"
-                                                            style="background-image: url('/product/images/product-1.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
-                                                            <br><br><br>
-                                                        </span>
+                                                        <div id="preview1" alt="Avatar Preview" style="background-image: url('/product/images/default-image.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
                                                     </label>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <span class="card-radio py-3 text-center text-truncate"
-                                                            style="background-image: url('/product/images/product-2.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
-                                                            <br><br><br>
-                                                        </span>
+                                                        <div id="preview2" alt="Avatar Preview" style="background-image: url('/product/images/default-image.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
                                                     </label>
                                                 </div>
                                             </div>
@@ -429,12 +419,10 @@
                                         <div class="row">
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                    <input type="file" id="fileUpload" style="display: none;">
-                                                    <input type="radio" name="pay-method" id="pay-methodoption1"
-                                                        class="card-radio-input">
+                                                    <input type="file" id="fileUploadcertificate" name="certificate"  style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="2" onchange="previewArrayimg(this, 'review')">
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
                                                         <span class="card-radio py-3 text-center text-truncate"
-                                                            onclick="event.stopPropagation(); document.getElementById('fileUpload').click();">
+                                                            onclick="event.stopPropagation(); document.getElementById('fileUploadcertificate').click();">
                                                             <i class="bx bx-image-add d-block h2 mb-3"></i>
                                                             Thêm hình ảnh
                                                         </span>
@@ -443,24 +431,16 @@
                                             </div>
 
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <span id="Hinh"
-                                                            class="card-radio py-3 text-center text-truncate"
-                                                            style="background-image: url('/product/images/product-1.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
-                                                            <br><br><br>
-                                                        </span>
+                                                        <div id="review1" alt="Avatar Preview" style="background-image: url('/product/images/default-image.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
                                                     </label>
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
-                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                        <span class="card-radio py-3 text-center text-truncate"
-                                                            style="background-image: url('/product/images/product-2.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
-                                                            <br><br><br>
-                                                        </span>
+                                                        <div id="review2" alt="Avatar Preview" style="background-image: url('/product/images/default-image.png'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>       
                                                     </label>
                                                 </div>
                                             </div>
