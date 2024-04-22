@@ -20,7 +20,7 @@ class loginController{
                 req.flash('error', err.message);
                 return res.render('login/formlogin');
             }
-            return res.redirect('/home'); 
+            return res.render('login/formlogin');
         });
         } catch (err) {
             req.flash('error', err.message);

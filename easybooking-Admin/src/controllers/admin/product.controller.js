@@ -4,7 +4,7 @@ const {
   addproduct,
   getproduct,
   getproductbyid,
-  deteleproduct,
+  deleteproduct,
   updateproduct,
   getStatusCounts,
 } = require("../../services/admin/product.service");

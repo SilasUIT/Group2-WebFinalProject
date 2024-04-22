@@ -26,7 +26,7 @@ const getproductbysalerID=async(ID)=>{
 const getproductbyid=async(id)=>{
     return await productmodel.findById(id).exec();
 }
-const deteleproduct=async(id)=>{
+const deleteproduct=async(id)=>{
     return await productmodel.deleteOne({_id: new mongoose.Types.ObjectId(id)});
 }
 const updateproduct=async(id,body)=>{
@@ -48,7 +48,7 @@ const getStatusCounts = async () => {
         addproduct,
         getproduct,
         getproductbyid,
-        deteleproduct,
+        deleteproduct,
         updateproduct,
         getStatusCounts,
         getproductbysalerID,

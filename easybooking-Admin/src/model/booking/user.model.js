@@ -4,25 +4,70 @@ const mongoose=require("mongoose");
 const COLLECTION_NAME="user";
 
 const list=new Schema({
-    name:String,
-    phone:String,
-    email:String,
-    birthday:Date,
-    cccd:String,
-    date:Date,
-    place:String,
+    name:{
+        type:String,
+        default:'none',
+    },
+    phone:{
+        type:String,
+        default:'none',
+    },
+    email:{
+        type:String,
+        default:'none',
+    },
+    birthday:{
+        type:Date,
+        default: Date.now(),
+    },
+    cccd:{
+        type:String,
+        default:'none',
+    },
+    date:{
+        type:Date,
+        default:Date.now(),
+    },
+    place:{
+        type:String,
+        default:'none',
+    },
 });
 const location=new Schema({
-    city:String,
-    district:String,
-    ward:String,
-    street:String,
+    city:{
+        type:String,
+        default:'none',
+    },
+    district:{
+        type:String,
+        default:'none',
+    },
+    ward:{
+        type:String,
+        default:'none',
+    },
+    street:{
+        type:String,
+        default:'none',
+    },
 })
 const social=new Schema({
-    facebook:String,
-    instagram:String,
-    twitter:String,
-    chotot:String,
+    facebook:{
+        type:String,
+        default:'none',
+    },
+    instagram:{
+        type:String,
+        default:'none',
+    },
+    twitter:{
+        type:String,
+        default:'none',
+    },
+    chotot:{
+        type:String,
+        default:'none',
+    },
 })
 
 const newSchema=new Schema({
@@ -41,10 +86,11 @@ const newSchema=new Schema({
     },
     userinformation:{
         type:[list],
-        default:[],
+        default: ()=>([{}]),
     },
     avatar:{
         type:String,
+        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
     },
     status:{
         type:String,
@@ -53,21 +99,23 @@ const newSchema=new Schema({
     },
     createdAt:{
         type:Date,
-        default:Date.now,
+        default:Date.now(),
     },
     address:{
         type:[location],
-        default:[],
+        default: ()=>([{}]),
     },
     imagecccd:{
         type:String,
+        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
     },
     certificate:{
         type:String,
+        default:'https://e7.pngegg.com/pngimages/922/865/png-clipart-discord-pepe-the-frog-video-games-pepe-thumbnail.png'
     },
     link:{
         type:[social],
-        default:[],
+        default:()=>([{}]),
     },
 },
 {

@@ -13,7 +13,11 @@ class profileController {
   getAll = async (req, res) => {
       const auth = await getuserbyid(req.user._id);
       console.log(auth);
-      return res.render('profile', { auth: auth });
+     // return res.redirect('/home');
+      if(auth){
+        return res.render('profile', { auth: auth });
+      }
+     
   }
 
   updateprofile = async (req, res) => {

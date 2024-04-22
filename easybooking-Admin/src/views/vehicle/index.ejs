@@ -104,8 +104,8 @@
 								<td><%= item.category %></td>
 								<td class="product-name"><%= item.name%></td>
 								<td class="product-thumbnail"><img src="/<%= item.image%>" alt="Image" class="img-fluid" width="25%" height="auto"></td>
-								<td style="color: orange;"><strong>Đang cho thuê</strong></td>
-								<td><a href="#" class="btn btn-black btn-sm" style="opacity: 0.3;" onclick="event.preventDefault();">X</a></td>
+								<td style="color: orange;"><strong><%= item.status === 'active' ? 'Đang cho thuê' : 'Chưa được duyệt' %></strong></td>
+								<td><a href="/delete/<%=item._id%>" class="btn btn-black btn-sm" style="opacity: 0.3;" >X</a></td>
 							</tr>
 						<% }); %>
 					<% } else { %>
