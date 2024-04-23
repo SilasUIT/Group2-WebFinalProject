@@ -245,7 +245,6 @@
         <script type="text/javascript"></script>
         <script src="/product/js/custom.js"></script>
     </head>
-
     <body>
         <!-- Start Header/Navigation -->
         <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
@@ -268,7 +267,7 @@
                         <li><a class="nav-link" href="/shop">Cho thuê</a></li>
                         <li><a class="nav-link" href="/blog">Bài Đăng</a></li>
                         <li class="dropdown">
-                            <a class="nav-link"><img src="/product/images/user.svg"></a>
+                           <a class="nav-link"><img src="/<%= auth.avatar%>" width="50px" height="auto" ></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <li><a class="dropdown-item" href="/least">Đăng bài cho thuê</a></li>
                               <li><a class="dropdown-item" href="/vehicle">Quản lí xe cho thuê</a></li>
@@ -307,7 +306,7 @@
                             <div class="tab-pane fade active show" id="account-general">
                                 <div class="card-body media align-items-center">
                                     <form action="/profile/upload/<%= user._id%>" method="post" enctype="multipart/form-data">
-                                        <img id="avatarPreview" src="/<%= user.avatar  %>" alt="Avatar Preview" style="max-width: 500px; margin-top: 10px;">
+                                        <img id="avatarPreview" src="/<%= auth.avatar  %>" alt="Avatar Preview" style="max-width: 500px; margin-top: 10px;">
                                     <div class="media-body ml-4">
                                         <label class="btn btn-outline-primary">
                                             Thêm ảnh
@@ -322,17 +321,17 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="form-label">Tài khoản: </label>
-                                        <input type="text" class="form-control mb-1" name="username" value="<%= user.username%>" readonly>
+                                        <input type="text" class="form-control mb-1" name="username" value="<%= auth.username%>" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Họ và tên: </label>
-                                        <input type="text" class="form-control" name="userinformation[name]" value="<%= user.userinformation[0].name%>">
+                                        <input type="text" class="form-control" name="userinformation[name]" value="<%= auth.userinformation[0].name%>">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Email: </label>
-                                        <input type="text" class="form-control mb-1" name="userinformation[email]" readonly value="<%= user.userinformation[0].email%>">
+                                        <input type="text" class="form-control mb-1" name="userinformation[email]" readonly value="<%= auth.userinformation[0].email%>">
                                     </div>
                                 </div>
                             </div>
@@ -363,22 +362,22 @@
                                     
                                     <div class="form-group">
                                         <label for="birthdate">Ngày sinh:</label>
-                                        <input type="date" id="userinformation[birthday]" name="userinformation[birthday]" value="<%user.userinformation[0].birthday%> >">
+                                        <input type="date" id="userinformation[birthday]" name="userinformation[birthday]" value="<%auth.userinformation[0].birthday%> >">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Số CCCD: </label>
-                                        <input type="text" class="form-control"  placeholder="Nhập cccd" id="userinformation[cccd]" name="userinformation[cccd]" value="<%=user.userinformation[0].cccd%>">
+                                        <input type="text" class="form-control"  placeholder="Nhập cccd" id="userinformation[cccd]" name="userinformation[cccd]" value="<%=auth.userinformation[0].cccd%>">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Ngày cấp: </label>
-                                        <input type="date" id="userinformation[date]" name="userinformation[date]"value="<% user.userinformation[0].date%>">
+                                        <input type="date" id="userinformation[date]" name="userinformation[date]"value="<% auth.userinformation[0].date%>">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Nơi cấp: </label>
-                                        <input type="text" class="form-control"  placeholder="Nhập nơi cấp CCCD" id="userinformation[place]" name="userinformation[place]" value="<%= user.userinformation[0].place%>">
+                                        <input type="text" class="form-control"  placeholder="Nhập nơi cấp CCCD" id="userinformation[place]" name="userinformation[place]" value="<%= auth.userinformation[0].place%>">
                                     </div>
 
                                     <div class="form-group">
@@ -454,22 +453,22 @@
                                     
                                     <div class="form-group">
                                         <label class="form-label">Tỉnh/ Thành Phố: </label>
-                                        <input type="text" class="form-control" value="<%= user.address[0].city%>" placeholder="Nhập tỉnh/ thành phố theo CCCD" id="address[city]" name="address[city]">
+                                        <input type="text" class="form-control" value="<%= auth.address[0].city%>" placeholder="Nhập tỉnh/ thành phố theo CCCD" id="address[city]" name="address[city]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Quận/ Huyện: </label>
-                                        <input type="text" class="form-control" value="<%= user.address[0].district%>" placeholder="Nhập quận/huyện theo CCCD" id="address[district]" name="address[district]">
+                                        <input type="text" class="form-control" value="<%= auth.address[0].district%>" placeholder="Nhập quận/huyện theo CCCD" id="address[district]" name="address[district]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Phường/ Xã: </label >
-                                        <input type="text" class="form-control" value="<%= user.address[0].ward%>" placeholder="Nhập xã/ phường theo CCCD" id="address[ward]" name="address[ward]">
+                                        <input type="text" class="form-control" value="<%= auth.address[0].ward%>" placeholder="Nhập xã/ phường theo CCCD" id="address[ward]" name="address[ward]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Địa chỉ cụ thể: </label>
-                                        <input type="text" class="form-control" value="<%= user.address[0].street%>" placeholder="Nhập số nhà/ tòa, tên đường" id="address[street]" name="address[street]">
+                                        <input type="text" class="form-control" value="<%= auth.address[0].street%>" placeholder="Nhập số nhà/ tòa, tên đường" id="address[street]" name="address[street]">
                                     </div>
                                 </div>
 
@@ -478,7 +477,7 @@
                                     <h6 class="mb-4" style="font-size: 20px;"><strong>Thông tin liên lạc: </strong></h6>
                                     <div class="form-group">
                                         <label class="form-label">Số điện thoại: </label>
-                                        <input type="text" class="form-control" value="<%= user.userinformation[0].phone%>" id="userinformation[phone]" name="userinformation[phone]">
+                                        <input type="text" class="form-control" value="<%= auth.userinformation[0].phone%>" id="userinformation[phone]" name="userinformation[phone]">
                                     </div>
                                 </div>
                             </div>
@@ -487,22 +486,22 @@
                                 <div class="card-body pb-2">
                                     <div class="form-group">
                                         <label class="form-label">Twitter</label>
-                                        <input type="text" class="form-control" value="<%= user.link[0].twitter%>" placeholder="Nhập liên kết đến tài khoản Twitter của bạn" id="link[twitter]" name="link[twitter]">
+                                        <input type="text" class="form-control" value="<%= auth.link[0].twitter%>" placeholder="Nhập liên kết đến tài khoản Twitter của bạn" id="link[twitter]" name="link[twitter]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Facebook</label>
-                                        <input type="text" class="form-control" value="<%= user.link[0].facebook%>" placeholder="Nhập liên kết đến tài khoản Facebook của bạn"id="link[facebook]" name="link[facebook]">
+                                        <input type="text" class="form-control" value="<%= auth.link[0].facebook%>" placeholder="Nhập liên kết đến tài khoản Facebook của bạn"id="link[facebook]" name="link[facebook]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Instagram</label>
-                                        <input type="text" class="form-control" value="<%= user.link[0].instagram%>" placeholder="Nhập liên kết đến tài khoản Instagram của bạn"id="link[instagram]" name="link[instagram]">
+                                        <input type="text" class="form-control" value="<%= auth.link[0].instagram%>" placeholder="Nhập liên kết đến tài khoản Instagram của bạn"id="link[instagram]" name="link[instagram]">
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Chợ tốt: </label>
-                                        <input type="text" class="form-control" value="<%= user.link[0].chotot%>" placeholder="Nhập liên kết đến tài khoản Chợ tốt của bạn"id="link[chotot]" name="link[chotot]">
+                                        <input type="text" class="form-control" value="<%= auth.link[0].chotot%>" placeholder="Nhập liên kết đến tài khoản Chợ tốt của bạn"id="link[chotot]" name="link[chotot]">
                                     </div>
                                 </div>
                             </div>

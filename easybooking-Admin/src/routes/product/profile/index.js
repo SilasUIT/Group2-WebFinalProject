@@ -18,8 +18,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', profileController.getAll);
-router.post('/update/:id', profileController.updateprofile);
-router.post('/upload/:id', 
+router.post('/update/:id', 
 upload.fields([
   { name: 'imagecccd', maxCount: 2 }, 
   { name: 'certificate', maxCount: 2 },
@@ -30,6 +29,7 @@ upload.fields([
     return res.status(500).send('Error uploading file');
   }
   next();
-},  profileController.imageUpload);
+}, profileController.updateprofile);
+router.post('/upload/:id',  profileController.imageUpload);
 module.exports = router;
 
