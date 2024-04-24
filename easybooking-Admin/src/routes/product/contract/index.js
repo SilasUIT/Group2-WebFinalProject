@@ -1,6 +1,9 @@
 const express = require('express');
 const contractController = require('../../../controllers/product/contract.controller');
 const router = express.Router();
-router.get('/', contractController.getAll);
-router.get('/detail', contractController.getForm);
+
+const {catchAsync}=require('../../../apps/utils/catchAsync');
+
+router.get('/', catchAsync(contractController.getAll));
+router.get('/detail', catchAsync(contractController.getForm));
 module.exports = router;

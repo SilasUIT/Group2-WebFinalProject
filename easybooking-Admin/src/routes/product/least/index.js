@@ -2,6 +2,7 @@ const express = require('express');
 const leastController = require('../../../controllers/product/least.controller');
 const router = express.Router();
 
+const {catchAsync}=require('../../../apps/utils/catchAsync');
 
 const multer = require('multer');
 const randomstring = require('randomstring');
@@ -18,8 +19,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-router.get('/', leastController.getAll);
-router.get('/detail', leastController.getForm);
+router.get('/', catchAsync(leastController.getAll));
+router.get('/detail', catchAsync(leastController.getForm));
 router.post('/', 
   upload.fields([
     { name: 'filepond', maxCount: 3 }, 
@@ -34,6 +35,6 @@ router.post('/',
     }
     next();
   }, 
-  leastController.addOrUpdateItem
+  catchAsync(leastController.addOrUpdateItem)
 );
 module.exports = router;    

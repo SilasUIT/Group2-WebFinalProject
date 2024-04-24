@@ -6,10 +6,11 @@ const {
     getuserbyid,
 }=require('../../services/admin/user.service');
 class shopController{
-    getAll=async(req,res)=>{
-        const data=await getproduct();
-       return res.render('shop/view',{data});
-    }
+    getAll = async(req, res) => {
+        let data = await getproduct();
+        data = data.filter(product => product.status === 'active');
+        return res.render('shop/view', { data });
+      }
     getForm=async(req,res)=>{
         const{id, salerID}=req.params;
         if(id){
