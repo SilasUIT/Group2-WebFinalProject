@@ -6,16 +6,124 @@
 	<meta name="description" content="" />
 	<meta name="author" content="Untree.co">
 	<meta name="keywords" content="bootstrap, bootstrap4" />
-	
+
 	<link href="/product/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link href="/product/css/tiny-slider.css" rel="stylesheet">
 	<link href="/product/css/style.css" rel="stylesheet">
-	<link rel="shortcut icon" href="/product/images/favicon.png">
-	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="shortcut icon" href="favicon.png">
+
 	<title>EZB | Cho thuê</title>
-	
-	
+
+	<style>
+		.advance-search h2 {
+			font-size: 20px;
+			text-align: center;
+		}
+
+		.advance-search legend {
+			font-size: 18px;
+		}
+
+		.advance-search span {
+			font-size: 16px;
+		}
+
+		.advance-search .form-check {
+			font-size: 16px;
+		}
+
+		.figures i {
+			font-size: 16px;
+		}
+
+		.figures span {
+			font-size: 16px;
+		}
+
+		.product-section .product-item .btn {
+			color: white;
+		}
+
+		.product-section .product-item .star {
+			color: rgb(243, 181, 25);
+			font-size: 20px;
+		}
+
+		.btn.dropdown-toggle::after {
+			content: none;
+		}
+
+		.apply{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		@media (max-width: 800px) {
+			#search-focus {
+				display: none;
+			}
+
+			.button-text {
+				display: none;
+			}
+
+			.advance-search>*:not(.filter) {
+				display: none;
+			}
+
+			.advance-search>.filter {
+				cursor: pointer;
+			}
+		}
+
+		.advance-search {
+			text-align: start;
+			text-decoration: none;
+			display: block;
+			padding: 10px;
+			border: 1px solid #cce7d0;
+			border-radius: 20px;
+			border-width: 3px;
+			margin: 15px 0;
+		}
+
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			height: 15px;
+			border-radius: 5px;
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3b5d50;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3b5d50;
+			cursor: pointer;
+		}
+	</style>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -81,6 +189,27 @@
 	<script src="/product/js/bootstrap.bundle.min.js"></script>
 	<script src="/product/js/tiny-slider.js"></script>
 	<script src="/product/js/custom.js"></script>
+	<script src="/product/js/app.js"></script>
+	<script>
+		var map = L.map('map').setView([0, 0], 1);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+		var marker = L.marker([51.5, -0.09]).addTo(map);
+		var circle = L.circle([51.508, -0.11], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5,
+			radius: 500
+		}).addTo(map);
+	</script>
+	<script>
+		function changeImage(clickedImage) {
+			var mainImage = document.getElementById("mainImage");
+			mainImage.src = clickedImage.src;
+		}
+	</script>
 </body>
 
 </html>
