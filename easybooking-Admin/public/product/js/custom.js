@@ -1,20 +1,38 @@
-const previewImage = (input) => {
-	console.log('previewImage called');
-	const preview = document.getElementById('avatarPreview');
-	const file = input.files[0];
-  
-	if (file) {
-	  const reader = new FileReader();
-  
-	  reader.onload = (e) => {
-		preview.src = e.target.result;
-	  };
-  
-	  reader.readAsDataURL(file);
-	} else {
-	  preview.src = '';
-	}
-  };
+const previewImage = (input, name) => {
+    console.log('Preview image function called');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            document.getElementById(`${name}Preview`).src = e.target.result;
+        }
+
+        reader.readAsDataURL(input.files[0]); 
+    }
+};
+
+const previewArrayimg = (input, name) => {
+    console.log('Preview array image function called');
+    if (input.files && input.files.length > 0) {
+        let count = 0; // Counter to track the number of images rendered
+        for (let i = 0; i < input.files.length; i++) {
+            if (count >= 3) break; // Stop the loop if three images are already rendered
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const image = document.createElement('img');
+                image.src = e.target.result;
+                image.classList.add('preview-image');
+				image.style.width = '100%'; // Set the width to 50px
+                image.style.height = 'auto'; // Automatically adjust the height based on the aspect ratio
+                document.getElementById(`${name}${count + 1}`).innerHTML = ''; // Clear previous content
+                document.getElementById(`${name}${count + 1}`).appendChild(image); // Append image to the corresponding container
+                count++; // Increment the counter
+            }
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+};
+
 
 (function() {
 	'use strict';
