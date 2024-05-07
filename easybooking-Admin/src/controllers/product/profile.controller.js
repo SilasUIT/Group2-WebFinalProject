@@ -13,7 +13,7 @@ const linkprefix = `/${mainName}`;
 class profileController {
   getAll = async (req, res) => {
     try {
-      const account = await getuserbyid(req.user._id);
+      let account = await getuserbyid(req.user._id);
       return account ? res.render('profile', { account }) : res.redirect('/home');
     } catch (error) {
       console.error('Error fetching user:', error);
