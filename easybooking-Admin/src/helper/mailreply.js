@@ -3,9 +3,6 @@
 const mailreply = () => {
 
     const message = `
-    Thank you for your feedback!
-
-
         I hope this email finds you well. I wanted to take a moment to express my sincere gratitude for your feedback about my website. Your input is incredibly valuable to me, and I truly appreciate the time and effort you took to provide it.
 
         Your feedback has helped me identify areas for improvement and make necessary changes to enhance the user experience on my website. I am committed to delivering the best possible experience to my visitors, and your feedback has played a crucial role in achieving that goal.
@@ -20,7 +17,7 @@ const mailreply = () => {
 
     return message;
 };
-const invoice = (user, purchasedItems, totalAmount, shippingAddress,code) => {
+const contract = (user, purchasedItems, totalAmount, shippingAddress,code) => {
     const message = `
     <html>
     <body>
@@ -45,5 +42,5 @@ const invoice = (user, purchasedItems, totalAmount, shippingAddress,code) => {
 
 module.exports = {
     mailreply,
-    invoice,
+    contract,
 }
