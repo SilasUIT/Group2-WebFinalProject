@@ -6,22 +6,26 @@ const list=new Schema({
     name:{
         type:String,
         default:'none',
+        required:true,
     },
     phone:{
         type:String,
         default:'none',
+        required:true,
     },
     email:{
         type:String,
         default:'none',
+        required:true,
     },
     birthday:{
         type:Date,
         default: Date.now(),
     },
     cccd:{
-        type:String,
+        type:Number,
         default:'none',
+        required:true,
     },
     date:{
         type:Date,
@@ -52,19 +56,19 @@ const location=new Schema({
 })
 const social=new Schema({
     facebook:{
-        type:String,
+        type:URLString,
         default:'none',
     },
     instagram:{
-        type:String,
+        type:URLString,
         default:'none',
     },
     twitter:{
-        type:String,
+        type:URLString,
         default:'none',
     },
     chotot:{
-        type:String,
+        type:URLString,
         default:'none',
     },
 })
