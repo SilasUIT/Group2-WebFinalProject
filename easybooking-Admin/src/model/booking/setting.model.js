@@ -3,11 +3,11 @@ const mongoose=require("mongoose");
 
 const COLLECTION_NAME="setting";
 
-const list=new Schema({
-    facebook:String,
-    twitter:String,
-    instagram:String,
-    youtube:String,
+const social=new Schema({
+    facebook:URLString,
+    twitter:URLString,
+    instagram:URLString,
+    youtube:URLString,
 });
 
 const newSchema=new Schema({
@@ -16,7 +16,7 @@ const newSchema=new Schema({
          required:true,
     },
    email:{
-        type:String,
+        type:emailAddress,
         required:true,
     },
     phone:{
@@ -24,8 +24,9 @@ const newSchema=new Schema({
         required:true,
     },
     Social:{
-        type:[list],
+        type:[social],
         default:[],
+        required:false,
     },
     logo:{
         type:String,
