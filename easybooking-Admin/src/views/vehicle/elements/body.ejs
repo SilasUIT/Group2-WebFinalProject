@@ -16,7 +16,7 @@
     </div>
 </div>
 <!-- End Hero Section -->
-
+<%- locals.flash %>
 <div class="untree_co-section before-footer-section">
 <div class="container">
   <div class="row mb-5">
@@ -43,7 +43,7 @@
                     <td class="product-name"><%= item.name%></td>
                     <td class="product-thumbnail"><img src="/<%= item.image%>" alt="Image" class="img-fluid" width="25%" height="auto"></td>
                     <td style="color: orange;"><strong><%= item.status === 'active' ? 'Đang cho thuê' : 'Chưa được duyệt' %></strong></td>
-                    <td><a href="/delete/<%=item._id%>" class="btn btn-black btn-sm" style="opacity: 0.3;" >X</a></td>
+                    <td><a href="javascript:handleDelete('/vehicle/delete/<%=item._id%>')" class="btn btn-black btn-sm" style="opacity: 0.3;" >X</a></td>
                 </tr>
             <% }); %>
         <% } else { %>

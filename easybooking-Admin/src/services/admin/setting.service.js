@@ -25,6 +25,5 @@ const updatesetting=async(id,body)=>{
         getsetting,
         getsettingbyid,
         detelesetting,
-        updatesetting,
-       
+        updatesetting,    
   }

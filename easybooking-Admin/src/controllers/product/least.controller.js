@@ -46,9 +46,10 @@ class leastController{
                 item.List.push(newListImage);
                 await item.save();
             }
-    
+            req.flash("success", "Tạo item thành công", false);
             res.redirect(`${linkprefix}`);
         } catch (error) {
+            req.flash("warning", "Tạo item thất bại", false);
             console.error('Error processing form:', error);
             res.status(500).send('Error processing form');
         }

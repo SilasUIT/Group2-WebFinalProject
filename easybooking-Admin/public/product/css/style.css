@@ -286,7 +286,7 @@ a.more {
 .btn.btn-secondary:hover {
   background: rgba(0, 0, 0, 0.2);
   border-color: white;
-  color: white;
+  color: rgb(14, 147, 229);
 }
 
 .btn.btn-white-outline {
