@@ -6,7 +6,7 @@ const {
   imageHelper,
 } = require('../../helper/news.helper');
 const path = require('path');
-
+const cloudinary = require('cloudinary').v2;
 const fieldimage1s = 'avatar';
 const mainName = 'profile';
 const linkprefix = `/${mainName}`;
@@ -78,6 +78,27 @@ class profileController {
         }
       });
   };
+
+  cloudinaryImage=async(req,res,next)=>{
+    const { id } = req.params;
+    if (!id) {
+        console.log('id not found');
+        return res.redirect(`/profile`);
+    }
+    try {
+        if (!req.file) {
+            console.log('No file uploaded');
+            return res.redirect(`/profile`);
+        }
+        const result = await cloudinary.uploader.upload(req.file.path);
+        await updateuser(id, { avatar: result.secure_url });
+        const account = await getuserbyid(req.user._id);
+        return res.render('profile', { account });
+    } catch (error) {
+        console.error('Error processing form:', error);
+        return res.redirect(`/profile`);
+    }
+  }
 }
 
 module.exports = new profileController();
