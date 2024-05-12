@@ -56,19 +56,19 @@ const location=new Schema({
 })
 const social=new Schema({
     facebook:{
-        type:URLString,
+        type:URL,
         default:'none',
     },
     instagram:{
-        type:URLString,
+        type:URL,
         default:'none',
     },
     twitter:{
-        type:URLString,
+        type:URL,
         default:'none',
     },
     chotot:{
-        type:URLString,
+        type:URL,
         default:'none',
     },
 })
