@@ -14,8 +14,6 @@ class shopController {
     
         let data = await getproduct('active').skip(skip).limit(limit).exec(); 
     
-        console.log(`Data: ${JSON.stringify(data, null, 2)}`); // print the result
-    
         let totalProducts = await getproduct('active').countDocuments(); 
         let pages = Math.ceil(totalProducts / limit); 
     
@@ -26,7 +24,6 @@ class shopController {
         const { id, salerID } = req.params;
         if (id) {
             const data = await getproductbyid(id);
-            console.log(data);
             const saler = await getuserbyid(salerID);
             return res.render('shop/detail', { data, saler });
         }

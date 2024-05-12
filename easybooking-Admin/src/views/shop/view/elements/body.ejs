@@ -5,15 +5,14 @@
             <div class="search-bar col-5 position-relative mr-3" data-mdb-ripple-init="">
                 <!-- Adjust this value based on your design -->
                 <input id="search-focus" type="search" id="form1" class="form-control" placeholder="Tìm kiếm" />
-                <button type="button" class="btn btn-primary position-absolute top-0 end-0" data-mdb-ripple-init=""
-                    style="border-radius: 10px;">
+                <button type="button" class="btn btn-primary position-absolute top-0 end-0" style="border-radius: 10px; height: 50px;">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
             <div class="sortby col-auto">
                 <!-- Adjust this value based on your design -->
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                    data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px;">
                     <span class="button-text">Sắp xếp </span>
                     <i class="fa-solid fa-arrow-down-short-wide"></i>
                 </button>
@@ -85,6 +84,10 @@
                             <input class="form-check-input" type="checkbox" id="xeSo">
                             <label class="form-check-label" for="ducati">Ducati</label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="xeSo">
+                            <label class="form-check-label" for="ducati">Datbike</label>
+                        </div>
                     </fieldset>
                     <hr>
                     <fieldset class="place">
@@ -109,13 +112,16 @@
                             <input class="form-check-input" type="checkbox" id="xeSo">
                             <label class="form-check-label" for="dl">TP. Đà Lạt</label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="xeSo">
+                            <label class="form-check-label" for="dl">Nơi khác</label>
+                        </div>
                     </fieldset>
                     <hr>
                     <fieldset class="price">
                         <legend class="mb-2"><b>Khoàng Giá</b></legend>
                         <div class="slidecontainer">
-                            <input type="range" min="10" max="1000" value="10" class="slider" id="myRange"
-                                step="10">
+                            <input type="range" min="10" max="1000" value="10" class="slider" id="myRange" step="10">
                         </div>
                         <label id="myPrice" for="price">Từ: 10.000₫</label>
                     </fieldset>
@@ -125,57 +131,72 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-10">
                 <div class="product-section before-footer-section">
                     <div class="row">
-                        <!-- Start Column 1 -->
-                        <% let itemsPerPage = 9; %>
-                        <% let startIdx = (currentPage - 1) * itemsPerPage; %>
-                        <% let endIdx = startIdx + itemsPerPage; %>
-                        <% listProducts.slice(startIdx, endIdx).forEach((item) => { %>
-                            <div class="col-12 col-md-4 col-lg-4 mb-5">
-                                <a class="product-item" href="/shop/detail/<%= item._id%>/<%= item.salerID%>">
-                                    <img src="<%= item.image%>" class="img-fluid product-thumbnail">
-                                    <span><%= item.productinformation[0].brand%></span>
-                                    <h3 class="product-title"><%= item.name%></h3>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="figures d-flex justify-content-center mt-3 mb-3 gap-3">
-                                        <div class="px-2">
-                                            <i class="fa fa-solid fa-motorcycle text-primary mr-1"></i>
-                                            <span><%= item.productinformation[0].year%></span>
+                        <!-- Start Column -->
+                        <% let itemsPerPage=9; %>
+                            <% let startIdx=(currentPage - 1) * itemsPerPage; %>
+                                <% let endIdx=startIdx + itemsPerPage; %>
+                                    <% listProducts.slice(startIdx, endIdx).forEach((item)=> { %>
+                                        <div class="col-12 col-md-4 col-lg-4 mb-5">
+                                            <a class="product-item"
+                                                href="/shop/detail/<%= item._id%>/<%= item.salerID%>">
+                                                <img src="<%= item.image%>" class="img-fluid product-thumbnail">
+                                                <span>
+                                                    <%= item.productinformation[0].brand%>
+                                                </span>
+                                                <h3 class="product-title">
+                                                    <%= item.name%>
+                                                </h3>
+                                                <div class="star">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="figures d-flex justify-content-center mt-3 mb-3 gap-3">
+                                                    <div class="px-2">
+                                                        <i class="fa fa-solid fa-motorcycle text-primary mr-1"></i>
+                                                        <span>
+                                                            <%= item.productinformation[0].year%>
+                                                        </span>
+                                                    </div>
+                                                    <div class="px-2">
+                                                        <i class="fa fa-cogs text-primary mr-1"></i>
+                                                        <span>
+                                                            <%= item.category%>
+                                                        </span>
+                                                    </div>
+                                                    <div class="px-2">
+                                                        <i class="fa fa-road text-primary mr-1"></i>
+                                                        <span>
+                                                            <%= item.productinformation[0].odo%>km
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="px-2 mb-3"
+                                                    style="align-items: center; display: flex; justify-content: center;">
+                                                    <i class="fa-solid fa-location-dot text-primary mr-1"></i>
+                                                    <span>
+                                                        <%= item.address[0].city%>
+                                                    </span>
+                                                </div>
+                                                <div class="text-center">
+                                                    <strong class="product-price btn btn-primary px-3">
+                                                        <%= item.price%>₫/ 1 ngày
+                                                    </strong>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <div class="px-2">
-                                            <i class="fa fa-cogs text-primary mr-1"></i>
-                                            <span><%= item.category%></span>
-                                        </div>
-                                        <div class="px-2">
-                                            <i class="fa fa-road text-primary mr-1"></i>
-                                            <span><%= item.productinformation[0].odo%>km</span>
-                                        </div>
-                                    </div>
-                                    <div class="px-2 mb-3"
-                                        style="align-items: center; display: flex; justify-content: center;">
-                                        <i class="fa-solid fa-location-dot text-primary mr-1"></i>
-                                        <span><%= item.address[0].city%></span>
-                                    </div>
-                                    <div class="text-center">
-                                        <strong class="product-price btn btn-primary px-3"><%= item.price%>₫/ 1 ngày</strong>
-                                    </div>
-                                </a>
-                            </div>
-                        <% });  %>
-                        <!-- End Column 1 -->
+                                        <% }); %>
+                                            <!-- End Column -->
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -187,11 +208,13 @@
         <div class="col-12">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                    <% for(let i = 1; i <= pages; i++) { %>
+                    <% for(let i=1; i <=pages; i++) { %>
                         <li class="page-item <%= i === currentPage ? 'active' : '' %>">
-                            <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                            <a class="page-link" href="?page=<%= i %>">
+                                <%= i %>
+                            </a>
                         </li>
-                    <% } %>
+                        <% } %>
                 </ul>
             </nav>
         </div>

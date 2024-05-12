@@ -101,4 +101,35 @@
         background: #3b5d50;
         cursor: pointer;
     }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .pagination .page-item {
+        margin: 0 0.25rem;
+    }
+
+    .pagination .page-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #3b5d50;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        text-decoration: none;
+    }
+
+    .pagination .page-item.active .page-link {
+        color: #fff;
+        background-color: #3b5d50;
+        border-color: #3b5d50;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #e9ecef;
+        border-color: #dee2e6;
+    }
 </style>
