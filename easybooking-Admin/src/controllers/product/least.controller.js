@@ -9,6 +9,7 @@ const mainName = 'least';
 const linkprefix = `/${mainName}`;
 const {imageHelper}=require('../../helper/image.helper');
 const path = require('path');
+const cloudinary = require('cloudinary').v2;
 class leastController{
     getAll=async(req,res)=>{
        return res.render('least');
@@ -18,15 +19,20 @@ class leastController{
     }
     
     addOrUpdateItem = async (req, res) => {
-        //console.log('flag 1');
         try {
             const productID = await addproduct(req.body);
             console.log(productID);
     
+            const uploadedFiles = await Promise.all([
+                cloudinary.uploader.upload(req.files['vrcertificate'][0].path),
+                cloudinary.uploader.upload(req.files['minsurance'][0].path),
+                cloudinary.uploader.upload(req.files['image'][0].path)
+            ]);
+    
             const filePaths = {
-                vrcertificate: path.join(req.files['vrcertificate'][0].filename),
-                minsurance: path.join(req.files['minsurance'][0].filename),
-                image: path.join(req.files['image'][0].filename),
+                vrcertificate: uploadedFiles[0].secure_url,
+                minsurance: uploadedFiles[1].secure_url,
+                image: uploadedFiles[2].secure_url,
             };
             console.log(filePaths);
     
@@ -37,15 +43,15 @@ class leastController{
                 return res.redirect(`${linkprefix}`);
             }
     
-           // console.log('flag 2');
-            for (const file of req.files.filepond) {
-                const nonfilePath = path.join(file.filename);
-                console.log(nonfilePath);
-                const newListImage = { Image: nonfilePath };
+            const filepondUploads = await Promise.all(req.files.filepond.map(file => cloudinary.uploader.upload(file.path)));
+    
+            for (const file of filepondUploads) {
+                const newListImage = { Image: file.secure_url };
                 const item = await getproductbyid(productID);
                 item.List.push(newListImage);
                 await item.save();
             }
+    
             req.flash("success", "Tạo item thành công", false);
             res.redirect(`${linkprefix}`);
         } catch (error) {
@@ -54,5 +60,6 @@ class leastController{
             res.status(500).send('Error processing form');
         }
     };
+    
 }
 module.exports=new leastController();
