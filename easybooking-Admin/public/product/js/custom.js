@@ -41,6 +41,7 @@ const handleDelete = (link) => {
 		confirmButtonColor: "#3085d6",
 		cancelButtonColor: "#d33",
 		confirmButtonText: "Vâng, xóa đi!",
+		cancelButtonText: "Hủy",
 	}).then((result) => {
 	  if (result.isConfirmed) {
 		document.location.href = link;
