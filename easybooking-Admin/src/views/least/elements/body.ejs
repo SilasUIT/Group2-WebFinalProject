@@ -53,7 +53,24 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>         
+                                    </div>  
+                                    <script>
+                                        var currentPreview = 1;
+                                        
+                                        function previewArrayimg(input) {
+                                            if (input.files) {
+                                                var filesAmount = input.files.length;
+                                                for (let i = 0; i < filesAmount; i++) {
+                                                    var reader = new FileReader();
+                                                    reader.onload = function(event) {
+                                                        document.getElementById(`preview${currentPreview}`).style.backgroundImage = `url(${event.target.result})`;
+                                                        currentPreview++;
+                                                    }
+                                                    reader.readAsDataURL(input.files[i]);
+                                                }
+                                            }
+                                        }
+                                        </script>
                                 </div>
                                 <div>
                                     <p class="text-muted text-truncate">Hình đại diện cho sản phẩm</p>
@@ -68,6 +85,7 @@
                                                     </span>
                                                 </label>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                             <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
