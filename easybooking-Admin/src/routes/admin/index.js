@@ -14,7 +14,7 @@ router.use('/user',require('./user'));
 router.use('/product',require('./product'));
 router.use('/setting',require('./setting'));
 // router.use('/contact',require('./contact'));    
-// router.use('/contract',require('./contract'));
+router.use('/contract',require('./contract'));
 // router.use('/account',require('./account'));
 // router.use('/least',require('./least'));
 module.exports = router;
