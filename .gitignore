@@ -1,6 +1,7 @@
+# Visual Studio and Visual Studio code 
 .vscode/
 .vs/
-./node_modules/
+easybooking-Admin/node_modules/
 
 # Visual Studio profiler
 *.psess
