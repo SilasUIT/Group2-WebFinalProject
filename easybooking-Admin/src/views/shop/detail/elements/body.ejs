@@ -1,4 +1,4 @@
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!-- Start Product Detail -->
 	<div class="container pt-4">
 		<div class="mb-4">
@@ -121,8 +121,112 @@
 						</div>
 
 						<hr>
+						
 						<div class="p-4">
-							<div class="btn btn-block">Đặt xe ngay</div>
+							<div id="myBtn" class="btn btn-block">Đặt xe ngay</div>
+						  </div>
+						<div>
+							<!-- The Modal -->
+							<div class="modal" id="myModal">
+								<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+							
+									<!-- Modal Header -->
+									<div class="modal-header">
+									<h4 class="modal-title">Hợp đồng thuê</h4>
+									<button type="button" class="close" data-dismiss="modal">Hủy</button>
+									</div>
+							
+									<!-- Modal body -->
+									<div class="modal-body">
+									<div class="row">
+										<div class="col-sm-12">
+										<p><strong>Số hợp đồng:</strong> #1</p>
+										<p><strong>Ngày tạo hợp đồng:</strong> 1/1/2024 - 12:00</p>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-6">
+										<h5>Bên cho thuê:</h5>
+										<hr>
+										<p><strong>Tên:</strong> Nguyễn Thị B</p>
+										<p><strong>Địa chỉ:</strong> 2222 Design Studio, Đông Hòa, Dĩ An, Bình Dương</p>
+										<p><strong>Số điện thoại:</strong> 0915.679.346</p>
+										<p><strong>Email:</strong> nguyenthib@gmail.com</p>
+										</div>
+							
+										<div class="col-sm-6">
+										<h5>Bên thuê:</h5>
+										<hr>
+										<p><strong>Tên:</strong> Nguyễn Văn A</p>
+										<p><strong>Địa chỉ:</strong> 162, đường số 18, Linh Trung, Thủ Đức, Tp.HCM</p>
+										<p><strong>Số điện thoại:</strong> 0915.679.346</p>
+										<p><strong>Email:</strong> nguyenvana@gmail.com</p>
+										</div>
+									</div><hr>
+									
+									<div class="row">
+										<div class="col-sm-12"><h5>Thông tin phương tiện:</h5></div>
+										<hr>
+										<div class="col-sm-6"><p><strong>Loại xe:</strong> Xe máy</p></div>
+										<div class="col-sm-6"><p><strong>Hãng xe:</strong> Honda</p></div>
+										<div class="col-sm-6"><p><strong>Tên xe:</strong> Wave RSX</p></div>
+										<div class="col-sm-6"><p><strong>Năm sản xuất:</strong> 2022</p></div>
+										<div class="col-sm-6"><p><strong>Odo hiện tại:</strong> 10.00m km</p></div>
+										<div class="col-sm-6"><p><strong>Biển số:</strong> 71-H1 012.45</p></div>            
+										<div class="col-sm-6"><p><strong>Số khung:</strong> 123456789ABCDEFGH</p></div>
+										<div class="col-sm-6"><p><strong>Số máy:</strong> 123456789ABCDEFGH</p></div>
+										<div class="col-sm-6"><p><strong>Tình trạng xe:</strong> 50%</p></div>
+										<div class="col-sm-6"><p><strong>Giá thuê / ngày:</strong> 100.000</p></div>
+										<div class="col-sm-6"><p><strong>Vị trí cho thuê:</strong> 150, Linh Trung, Thủ Đức, Tp.HCM</p></div>
+									</div><hr>
+									
+									<div class="row">
+										<div class="col-sm-12"><h5>Ngày thuê:</h5></div>
+										<hr>
+										<div class="col-sm-6"><p><strong>Từ:</strong> 1/1/2025</p></div>
+										<div class="col-sm-6"><p><strong>Đến:</strong> 1/2/2025</p></div>
+										<div class="col-sm-6"><p><strong>Giá:</strong> 3.000.000</p></div>
+										<div class="col-sm-6"><p><strong>Phí hợp đồng:</strong> 300.000</p></div>
+										<div class="col-sm-6"><p><strong>Tổng cộng:</strong> 3.300.000</p></div>
+									</div>
+									</div>
+														<!-- Modal footer -->
+														<div class="modal-footer">
+															<button type="button" class="btn btn-primary" onclick="window.location.href='/contract/detail'">Xác nhận thuê</button> <!-- Redirect button -->
+														  </div>
+
+
+												<script>
+													// Get the modal
+													var modal = document.getElementById("myModal");
+													
+													// Get the button that opens the modal
+													var btn = document.getElementById("myBtn");
+													
+													// Get the <span> element that closes the modal
+													var span = document.getElementsByClassName("close")[0];
+													
+													// When the user clicks the button, open the modal 
+													btn.onclick = function() {
+													modal.style.display = "block";
+													}
+													
+													// When the user clicks on <span> (x), close the modal
+													span.onclick = function() {
+													modal.style.display = "none";
+													}
+													
+													// When the user clicks anywhere outside of the modal, close it
+													window.onclick = function(event) {
+													if (event.target == modal) {
+														modal.style.display = "none";
+													}
+													}
+													</script>
+													</div>
+													</div>
 						</div>
 					</div>
 					<hr>
@@ -156,6 +260,7 @@
 		</div>
 	</div>
 	<!-- End Product Detail -->
+	
 
 	<!-- Start Product Related -->
 	<div class="product-section">
@@ -208,3 +313,5 @@
 		</div>
 	</div>
 	<!-- End Product Related -->
+	
+	
