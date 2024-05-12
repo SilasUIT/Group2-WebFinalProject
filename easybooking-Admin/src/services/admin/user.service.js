@@ -4,9 +4,18 @@ const usermodel=require('../../model/booking/user.model');
 const adduser=async(body)=>{
     return await usermodel.create(body);
 }
-const getuser=async()=>{ 
-   return await usermodel.find();
-}
+const getuser = async (status, keyword) => {
+    let query = {};
+    if (status === 'all') {
+      query = {};
+    } else if (status) {
+      query.status = status;
+    }
+    if (keyword) {
+      query['userinformation.name'] = new RegExp(keyword, 'i');
+    }
+    return await usermodel.find(query);
+  };
 const getuserbyid=async(id)=>{
     return await usermodel.findById(id).exec();
 }

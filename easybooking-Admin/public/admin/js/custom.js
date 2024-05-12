@@ -1,5 +1,4 @@
 
-
 const handleDelete = (link) => {
   Swal.fire({
     title: "Are you sure?",
@@ -41,6 +40,8 @@ const handleUpdateStatus = (id, status,type) => {
 };
 
 jQuery(document).ready(function($)  {
+  var element=document.getElementById('textside');
+  var text=element.innerText;
   $('#selectAllCheckbox').change(() => {  
     $('input[name="selectedItems"]').prop('checked', $('#selectAllCheckbox').prop('checked'));
   });
@@ -65,7 +66,7 @@ jQuery(document).ready(function($)  {
 
       $.ajax({
         type: "post",
-        url: "/admin/news/changeStatusTool",
+        url: `/admin/${text}/changeStatusTool`,
         contentType: "application/json", 
         data: JSON.stringify({
             action: action,
@@ -111,7 +112,6 @@ const fetchDataWithSorting = async (status, keyword, sort) => {
   return await newsModel.find(query).sort(sortOption);
 };
 const previewImage = (input) => {
-  console.log('previewImage called');
   const preview = document.getElementById('avatarPreview');
   const file = input.files[0];
 
@@ -127,7 +127,16 @@ const previewImage = (input) => {
     preview.src = '';
   }
 };
-
+// document.addEventListener('DOMContentLoaded', function () {
+//   const ckeditorForm = async () => {
+//       ClassicEditor
+//           .create(document.querySelector('#editor'))
+//           .catch(error => {
+//               console.error(error);
+//           });
+//   };
+//   ckeditorForm();
+// });
 document.addEventListener('DOMContentLoaded', function () {
   let editor;
 

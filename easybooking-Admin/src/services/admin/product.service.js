@@ -5,20 +5,21 @@ const addproduct=async(body)=>{
   const product= await productmodel.create(body);
    return product._id;
 }
-const getproduct=async(keyword)=>{
-//    let query={};
-//    console.log(keyword);
-//    if(keyword){
-//     query.$or=[
-//         {
-//             name: new RegExp(keyword, 'i'),
-//         },
-//         {
-//             description: new RegExp(keyword, 'i'),
-//         },
-//     ];
-//    }
-   return await productmodel.find();
+const getproduct=async(status,keyword)=>{
+    let query = {};
+    console.log(keyword);
+    if (status === 'all') {
+        query = {};
+      } else if (status) {
+        query.status = status;
+      }
+    if (keyword) {
+      query.$or = [
+        { name: new RegExp(keyword, 'i') },
+        { description: new RegExp(keyword, 'i') }
+      ];
+    }
+   return await productmodel.find(query);
 }
 const getproductbysalerID=async(ID)=>{
     return await productmodel.find({salerID:ID}).exec();
@@ -44,6 +45,8 @@ const getStatusCounts = async () => {
     };
     return statusCounts;
   };
+
+  
   module.exports={
         addproduct,
         getproduct,

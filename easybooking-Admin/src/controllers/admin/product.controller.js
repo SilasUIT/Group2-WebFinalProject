@@ -18,12 +18,13 @@ class productController {
   getAll = async (req, res, next) => {
     let { status } = req.params;
     let keyword = req.query.keywords;
-
+    console.log(status);
     let data;
     const statusCounts = await getStatusCounts();
 
     if (status) {
       data = await getproduct(status, keyword);
+      console.log(data);
     } else {
       data = await getproduct();
     }
@@ -124,12 +125,7 @@ class productController {
         res.redirect(`${linkprefix}all`);
     }
   };
-  deleteItem = async (req, res, next) => {
-    let { id } = req.params;
-    await deleteproduct(id);
-    req.flash("success", "Delete item thành công", false);
-    res.redirect(`${linkprefix}all`);
-  };
+  
   deleteImage = async (req, res, next) => {
     try {
         const { itemId, imageId } = req.params;
@@ -157,10 +153,18 @@ class productController {
   };
 
   deleteItem = async (req, res, next) => {
-    let { id } = req.params;
-    await deteleproduct(id);
-    req.flash("success", "Delete item thành công", false);
-    res.redirect(`${linkprefix}all`);
+    try {
+      let { id } = req.params;
+      console.log('deleteItem', id);
+      // return;
+      await deleteproduct(id);
+      req.flash("success", "Delete item thành công", false);
+      res.redirect(`${linkprefix}all`);
+    } catch (error) {
+      console.error('Error deleting item:', error);
+      req.flash("danger", "An error occurred while deleting the item", false);
+      res.redirect(`${linkprefix}all`);
+    }
   };
 
 
