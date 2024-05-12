@@ -23,7 +23,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                             <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                <input type="file" id="fileUploadimage" name="filepond"  style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="3" onchange="previewArrayimg(this, 'preview')">
+                                                <input type="file" id="fileUploadimage" name="filepond"  style="display: none;" multiple data-allow-reorder="true" data-max-file-size="10MB" data-max-files="3" onchange="previewArrayimg(this, 'preview')" required>
                                                 <label class="card-radio-label" style="height: 100%; width: 100%;">
                                                     <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadimage').click();">
                                                         <i class="bx bx-image-add d-block h2 mb-3"></i>
@@ -31,7 +31,7 @@
                                                     </span>
                                                 </label>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                             <div data-bs-toggle="collapse" style="height: 100%; width: 100%;" >
                                                 <label class="card-radio-label" style="height: 100%; width: 100%;">
@@ -72,12 +72,13 @@
                                         }
                                         </script>
                                 </div>
+
                                 <div>
                                     <p class="text-muted text-truncate">Hình đại diện cho sản phẩm</p>
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                             <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                <input type="file" id="fileUploadimagee" name="image" style="display: none;" onchange="previewImage(this, 'image')">
+                                                <input type="file" id="fileUploadimagee" name="image" style="display: none;" onchange="previewImage(this, 'imagePreview')" required>
                                                 <label class="card-radio-label" style="height: 100%; width: 100%;">
                                                     <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadimagee').click();">
                                                         <i class="bx bx-image-add d-block h2 mb-3"></i>
@@ -127,89 +128,74 @@
                                             <div>
                                                 <div>
                                                     <label class="form-label">Loại xe</label>
-
+                                                
                                                     <div class="row">
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div data-bs-toggle="collapse">
                                                                 <label class="card-radio-label">
-                                                                    <input type="radio" name="loaixe"
-                                                                        id="loaixe1"
-                                                                        class="card-radio-input">
+                                                                    <input type="radio" name="loaixe" id="loaixe1" class="card-radio-input" required>
                                                                     <div>
-                                                                        <span
-                                                                        class="card-radio py-3 text-center text-truncate">
-                                                                        <i id="loaixe"
-                                                                            class="fa-solid fa-bicycle d-block h2 mb-3"></i>
-                                                                        Xe số
+                                                                        <span class="card-radio py-3 text-center text-truncate">
+                                                                            <i id="loaixe" class="fa-solid fa-bicycle d-block h2 mb-3"></i>
+                                                                            Xe số
                                                                         </span>
                                                                     </div>
                                                                 </label>
                                                             </div>
                                                         </div>
-
+                                                
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
                                                                 <label class="card-radio-label">
-                                                                    <input type="radio" name="loaixe"
-                                                                        id="loaixe2"
-                                                                        class="card-radio-input">
+                                                                    <input type="radio" name="loaixe" id="loaixe2" class="card-radio-input">
                                                                     <div>
-                                                                        <span
-                                                                        class="card-radio py-3 text-center text-truncate">
-                                                                        <i id="loaixe"
-                                                                            class="fa-solid fa-motorcycle d-block h2 mb-3"></i>
-                                                                        Tay ga
+                                                                        <span class="card-radio py-3 text-center text-truncate">
+                                                                            <i id="loaixe" class="fa-solid fa-motorcycle d-block h2 mb-3"></i>
+                                                                            Tay ga
                                                                         </span>
                                                                     </div>
                                                                 </label>
                                                             </div>
                                                         </div>
-
+                                                
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
                                                                 <label class="card-radio-label">
-                                                                    <input type="radio" name="loaixe"
-                                                                        id="loaixe3"
-                                                                        class="card-radio-input" checked>
+                                                                    <input type="radio" name="loaixe" id="loaixe3" class="card-radio-input" checked>
                                                                     <div>
-                                                                        <span
-                                                                        class="card-radio py-3 text-center text-truncate">
-                                                                        <i id="loaixe"
-                                                                            class="fa-solid fa-person-biking d-block h2 mb-3"></i>
-                                                                        <span>Côn tay</span>
+                                                                        <span class="card-radio py-3 text-center text-truncate">
+                                                                            <i id="loaixe" class="fa-solid fa-person-biking d-block h2 mb-3"></i>
+                                                                            <span>Côn tay</span>
                                                                         </span>
                                                                     </div>
                                                                 </label>
                                                             </div>
                                                         </div>
-
+                                                
                                                         <div class="col-lg-3 col-sm-6">
                                                             <div>
                                                                 <label class="card-radio-label">
-                                                                    <input type="radio" name="loaixe"
-                                                                        id="loaixe4"
-                                                                        class="card-radio-input" checked>
+                                                                    <input type="radio" name="loaixe" id="loaixe4" class="card-radio-input">
                                                                     <div>
-                                                                        <span
-                                                                        class="card-radio py-3 text-center text-truncate">
-                                                                        <i id="loaixe"
-                                                                            class="fa-solid fa-bolt d-block h2 mb-3"></i>
-                                                                        <span>Xe điện</span>
+                                                                        <span class="card-radio py-3 text-center text-truncate">
+                                                                            <i id="loaixe" class="fa-solid fa-bolt d-block h2 mb-3"></i>
+                                                                            <span>Xe điện</span>
                                                                         </span>
                                                                     </div>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" id="category" name="category">
+                                                    <input type="hidden" id="category" name="category" value="Xe số">
                                                 </div>
+                                                
 
                                                 <div class="row" style="margin-top: 20px;">
                                                     <div class="col-lg-4">
                                                         <div class="mb-4 mb-lg-0">
                                                             <label class="form-label">Hãng sản xuất</label>
                                                             <select class="form-control form-select" title="HangXe"
-                                                                id="Hang">
+                                                                id="Hang" required>
                                                                 <option value="0">Chọn hãng xe</option>
                                                                 <option value="Honda">Honda</option>
                                                                 <option value="Yamaha">Yamaha</option>
@@ -227,7 +213,7 @@
                                                         <div class="mb-4 mb-lg-0">
                                                             <label class="form-label" for="MauXe">Mẫu xe</label>
                                                             <input type="text" class="form-control" id="name" name="name"
-                                                                placeholder="Nhập tên mẫu xe">
+                                                                placeholder="Nhập tên mẫu xe"  required>
                                                         </div>
                                                         
                                                     </div>
@@ -238,7 +224,7 @@
                                                         <div class="mb-3">
                                                             <label class="form-label" for="Odo">Năm sản xuất</label>
                                                             <input type="number" class="form-control" id="productinformation[year]" name="productinformation[year]"
-                                                                placeholder="Nhập năm sản xuất">
+                                                                placeholder="Nhập năm sản xuất" required>
                                                         </div>
                                                     </div>
 
@@ -246,7 +232,7 @@
                                                         <div class="mb-3">
                                                             <label class="form-label" for="Odo">Odo hiện tại</label>
                                                             <input type="number" class="form-control" id="productinformation[odo]" name="productinformation[odo]"
-                                                                placeholder="Nhập số Km đã đi">
+                                                                placeholder="Nhập số Km đã đi" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -255,7 +241,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="card">Biển số xe</label>
                                                         <input type="text" class="form-control" id="productinformation[license]" name="productinformation[license]"
-                                                            placeholder="Nhập biển số xe">
+                                                            placeholder="Nhập biển số xe" required>
                                                     </div>
                                                 </div>
 
@@ -266,7 +252,7 @@
                                                                 <label class="form-label" for="Khung">Số
                                                                     khung</label>
                                                                 <input type="text" class="form-control" id="productinformation[frame]" name="productinformation[frame]"
-                                                                    placeholder="Nhập số khung">
+                                                                    placeholder="Nhập số khung" required>
                                                             </div>
                                                         </div>
 
@@ -274,21 +260,37 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="May">Số máy</label>
                                                                 <input type="text" class="form-control" id="productinformation[machine]" name="productinformation[machine]"
-                                                                    placeholder="Nhập số máy">
+                                                                    placeholder="Nhập số máy" required>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div>
+
                                                     <div>
+                                                        <script>
+                                                            function previewImage(input, previewId) {
+                                                                if (input.files && input.files[0]) {
+                                                                    var reader = new FileReader();
+                                                                    
+                                                                    reader.onload = function(e) {
+                                                                        document.getElementById(previewId).src = e.target.result;
+                                                                    }
+                                                                    
+                                                                    reader.readAsDataURL(input.files[0]); // convert to base64 string
+                                                                }
+                                                            }
+                                                        </script>
+
                                                         <p class="text-muted text-truncate">Chứng nhận đăng ký xe</p>
                                                         <div class="row">
+                                                            <!-- Input and preview for first image -->
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                                    <input type="file" id="fileUploadCertificate" name="vrcertificate" style="display: none;" onchange="previewImage(this, 'certificate')">
+                                                                    <input type="file" id="fileUploadCertificate1" name="vrcertificate1" style="display: none;" onchange="previewImage(this, 'certificatePreview1')" required>
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadCertificate').click();">
+                                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadCertificate1').click();">
                                                                             <i class="bx bx-image-add d-block h2 mb-3"></i>
                                                                             Thêm hình ảnh
                                                                         </span>
@@ -298,7 +300,27 @@
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                                        <img id="certificatePreview"  style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                        <img id="certificatePreview1" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <!-- Input and preview for second image -->
+                                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                    <input type="file" id="fileUploadCertificate2" name="vrcertificate2" style="display: none;" onchange="previewImage(this, 'certificatePreview2')" required>
+                                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                        <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadCertificate2').click();">
+                                                                            <i class="bx bx-image-add d-block h2 mb-3"></i>
+                                                                            Thêm hình ảnh
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
+                                                                <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
+                                                                    <label class="card-radio-label" style="height: 100%; width: 100%;">
+                                                                        <img id="certificatePreview2" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -310,7 +332,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
-                                                                    <input type="file" id="fileUploadInsurance" name="minsurance" style="display: none;" onchange="previewImage(this, 'insurance')">
+                                                                    <input type="file" id="fileUploadInsurance" name="minsurance" style="display: none;" onchange="previewImage(this, 'insurance')" required>
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
                                                                         <span class="card-radio py-3 text-center text-truncate" onclick="event.stopPropagation(); document.getElementById('fileUploadInsurance').click();">
                                                                             <i class="bx bx-image-add d-block h2 mb-3"></i>
@@ -322,19 +344,20 @@
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                                        <img id="insurancePreview"  style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                        <img id="insurance"  style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                                 
 
                                                 <div class="mb-3">
                                                     <label class="form-label" for="Info">Thông tin mô tả</label>
                                                     <textarea class="form-control" id="description" rows="3" name="description"
-                                                        placeholder="Nhập thông tin mô tả chi tiết về xe của bạn"></textarea>
+                                                        placeholder="Nhập thông tin mô tả chi tiết về xe của bạn" required></textarea>
                                                 </div>
 
                                             </div>
@@ -489,7 +512,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="Tinh">Tỉnh / Thành phố</label>
                                                 <input type="text" class="form-control" id="address[city]" name="address[city]"
-                                                    placeholder="Nhập tỉnh/ thành phố">
+                                                    placeholder="Nhập tỉnh/ thành phố" required>
                                             </div>
                                         </div>
 
@@ -497,7 +520,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="Quan">Quận / Huyện</label>
                                                 <input type="text" class="form-control" id="address[district]" name="address[district]"
-                                                    placeholder="Nhập quận/ huyện">
+                                                    placeholder="Nhập quận/ huyện" required>
                                             </div>
                                         </div>
 
@@ -505,14 +528,14 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="Phuong">Phường / Xã</label>
                                                 <input type="text" class="form-control" id="address[ward]" name="address[ward]"
-                                                    placeholder="Nhập phường/ xã">
+                                                    placeholder="Nhập phường/ xã" required>
                                             </div>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="ViTri">Vị trí chính xác</label>
                                             <textarea class="form-control" id="address[street]" name="address[street]" rows="3"
-                                                placeholder="Nhập số nhà, tên đường"></textarea>
+                                                placeholder="Nhập số nhà, tên đường" required></textarea>
                                         </div>
                                         <div id="map"></div>
                                     </div>
