@@ -85,15 +85,25 @@
                                                     </span>
                                                 </label>
                                             </div>
-                                            
                                         </div>
                                         <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                             <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
                                                 <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                    <img id="imagePreview" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                    <img id="imagePreview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
                                                 </label>
                                             </div>
                                         </div>
+                                        <script>
+                                            function previewImage(input, previewId) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        document.getElementById(previewId + 'Preview').style.backgroundImage = `url(${e.target.result})`;
+                                                    }
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+                                            </script>
                                     </div>
                                 </div>
                             
@@ -227,7 +237,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="Odo">Năm sản xuất</label>
-                                                            <input type="text" class="form-control" id="productinformation[year]" name="productinformation[year]"
+                                                            <input type="number" class="form-control" id="productinformation[year]" name="productinformation[year]"
                                                                 placeholder="Nhập năm sản xuất">
                                                         </div>
                                                     </div>
@@ -235,7 +245,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="Odo">Odo hiện tại</label>
-                                                            <input type="text" class="form-control" id="productinformation[odo]" name="productinformation[odo]"
+                                                            <input type="number" class="form-control" id="productinformation[odo]" name="productinformation[odo]"
                                                                 placeholder="Nhập số Km đã đi">
                                                         </div>
                                                     </div>
@@ -288,7 +298,7 @@
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                                        <img id="certificatePreview" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                        <img id="certificatePreview"  style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -312,7 +322,7 @@
                                                             <div class="col-lg-3 col-sm-6" style="height: 120px; width: 180px;">
                                                                 <div data-bs-toggle="collapse" style="height: 100%; width: 100%;">
                                                                     <label class="card-radio-label" style="height: 100%; width: 100%;">
-                                                                        <img id="insurancePreview" alt="Avatar Preview" style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                                                                        <img id="insurancePreview"  style="background-image: url('/product/images/bycicle.png'); background-size: cover; background-position: center; width: 100%; height: 100%;">
                                                                     </label>
                                                                 </div>
                                                             </div>
