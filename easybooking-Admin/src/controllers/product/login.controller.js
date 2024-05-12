@@ -63,7 +63,7 @@ class loginController{
                 if (err) {
                     return next(err); 
                 }
-                return res.redirect('/home');
+                return res.render('login/formlogin');
             });
         } catch (err) {
             next(err);

@@ -167,7 +167,9 @@ class usercontroller{
     };
     
     statusTool = async (req, res, next) => {
+      console.log("status tool called");
       const { action, selectedItems } = req.body;
+      console.log(selectedItems);
       let usertatus;
       
       switch (action) {
@@ -182,9 +184,10 @@ class usercontroller{
             await deleteuser(itemId);
           }
           res.json({ success: true });
-          return;
+          return res.redirect(`${linkprefix}all`);
         default:
-          return res.status(400).json({ error: 'Invalid action' });
+          req.flash("danger", "Invalid operation", false);
+          return res.redirect(`${linkprefix}all`);
       }
     
       if (usertatus && (usertatus === 'active' || usertatus === 'inactive')) {
@@ -192,10 +195,10 @@ class usercontroller{
           await updateuser(itemId, { status: usertatus });
         }
         res.json({ success: true });
-        return;
+        return res.redirect(`${linkprefix}all`);
       }
 
-    
+      return res.redirect(`${linkprefix}all`);
     };
 
 

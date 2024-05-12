@@ -8,8 +8,8 @@ router.use((req,res,next)=>{
 
 
 
-// router.use('/',require('./dashboard'));
-// router.use('/dashboard',require('./dashboard'));
+router.use('/',require('./dashboard'));
+router.use('/dashboard',require('./dashboard'));
 router.use('/user',require('./user'));
 router.use('/product',require('./product'));
 router.use('/setting',require('./setting'));
