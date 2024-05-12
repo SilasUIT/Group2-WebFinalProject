@@ -48,7 +48,7 @@ class usercontroller{
           return res.redirect(`${linkprefix}all`);
         }
       
-        imageHelper(req, res, async (err) => {
+        imageHelper('avatar')(req, res, async (err) => {
           try {
             const filePath = path.join(req.file.filename);
             req.body.file = filePath;
@@ -67,6 +67,8 @@ class usercontroller{
     
       addOrUpdateItem = async (req, res) => {
         const { id } = req.body;
+        console.log(req.body);
+       // return;
         try {
           if (id) {
             await updateuser(id, req.body);

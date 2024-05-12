@@ -9,7 +9,7 @@ const {catchAsync}=require('../../../apps/utils/catchAsync');
 router.get("/form", catchAsync(userController.getForm));
 router.post(
   "/form",
-  catchAsync(userController.getForm)
+  catchAsync(userController.addOrUpdateItem)
 );
 router.get("/form/:id", catchAsync(userController.getForm));
 router.get("/delete/:id", catchAsync(userController.deleteItem));

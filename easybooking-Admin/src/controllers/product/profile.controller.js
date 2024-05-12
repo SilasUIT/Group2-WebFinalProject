@@ -12,12 +12,13 @@ const mainName = 'profile';
 const linkprefix = `/${mainName}`;
 class profileController {
   getAll = async (req, res) => {
-      const auth = await getuserbyid(req.user._id);
-      console.log(auth);
-      if(auth){
-        return res.render('profile', { auth: auth });
-      }
-     
+    try {
+      let account = await getuserbyid(req.user._id);
+      return account ? res.render('profile', { account }) : res.redirect('/home');
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      return res.redirect('/home');
+    }
   }
 
   updateprofile = async (req, res) => {
@@ -25,6 +26,7 @@ class profileController {
     console.log(req.body);
     try {
       await updateuser(id, req.body);
+      
   
       if (!req.files.imagecccd || req.files.imagecccd.length === 0) {
         console.log("error imagecccd file");
@@ -47,8 +49,8 @@ class profileController {
           await user.save();
         }
       }
-  
-      return res.redirect(`/profile`);
+      const account = await getuserbyid(req.user._id);
+      return res.render('profile', { account });
     } catch (error) {
       console.error('Error processing form:', error);
       return res.redirect(`/profile`);
@@ -62,12 +64,14 @@ class profileController {
           console.log('id not found');
           return res.redirect(`/profile`);
       }
+     
       imageHelper('avatar')(req,res,async(err)=>{
         try {
           const filePath = path.join(req.file.filename);
           req.body.file = filePath;
           await updateuser(id, { avatar: filePath });
-          return res.redirect('/profile');
+          const account = await getuserbyid(req.user._id);
+          return res.render('profile', { account })
         } catch (error) {
           console.error('Error processing form:', error);
           return res.redirect(`/profile`);
