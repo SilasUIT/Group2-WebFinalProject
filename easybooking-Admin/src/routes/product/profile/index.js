@@ -3,7 +3,7 @@ const router = express.Router();
 const profileController = require('../../../controllers/product/profile.controller');
 
 const {catchAsync}=require('../../../apps/utils/catchAsync');
-
+const {cloudinaryHelper}=require('../../../helper/cloudinary.helper');
 const multer = require('multer');
 const randomstring = require('randomstring');
 const storage = multer.diskStorage({
@@ -31,6 +31,6 @@ upload.fields([
   }
   next();
 }, catchAsync(profileController.updateprofile));
-router.post('/upload/:id', catchAsync( profileController.imageUpload));
+router.post('/upload/:id', cloudinaryHelper.single('avatar'),catchAsync( profileController.cloudinaryImage));
 module.exports = router;
 
