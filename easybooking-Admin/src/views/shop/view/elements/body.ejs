@@ -133,7 +133,7 @@
                         <% listProducts.forEach((item) => { %>
                         <div class="col-12 col-md-4 col-lg-4 mb-5">
                             <a class="product-item" href="/shop/detail/<%= item._id%>/<%= item.salerID%>">
-                                <img src="/<%= item.image%>" class="img-fluid product-thumbnail">
+                                <img src="<%= item.image%>" class="img-fluid product-thumbnail">
                                 <span><%= item.productinformation[0].brand%></span>
                                 <h3 class="product-title"><%= item.name%></h3>
                                 <div class="star">
