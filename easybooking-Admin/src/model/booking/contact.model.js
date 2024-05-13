@@ -5,20 +5,20 @@ const COLLECTION_NAME = "contact";
 
 const newSchema = new Schema(
   {
-    title: {
+    Name: {
       type: String,
         required: true,
     },
     status: {
       type: String,
-      default: "active",
+      default: "inactive",
       enum: ["active", "inactive"],
     },
-    email: {
+    Email: {
         type: String,
         required: true,
     },
-    message:{
+    Message:{
       type: String,
       default: "null",
     },

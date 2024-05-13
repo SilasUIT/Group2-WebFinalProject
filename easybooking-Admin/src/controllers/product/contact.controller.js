@@ -3,13 +3,25 @@ const {
     mailreply,
     contract,
 }= require('../../helper/mailreply');
+const contactModel=require('../../model/booking/contact.model');
+const {
+    addcontact,
+    getcontact,
+    getcontactbyid,
+    detelecontact, 
+    getStatusCounts,
+}=require('../../services/admin/contact.service');
+
+const dotenv = require('dotenv');
+dotenv.config();
+
 class contactController{
     constructor() {
         this.transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'mrtaivietbac@gmail.com',
-                pass: 'wxuh ffky dcfo edqh'
+                user: process.env.GOOGLE_MAIL_USER ,
+                pass: process.env.GOOGLE_MAIL_PASSWORDS
             }
         });
     }
@@ -17,16 +29,19 @@ class contactController{
        return res.render('contact');
     }
     sendContactMail = async (req, res, next) => {
+        console.log(req.body + req.user._id);
+        //return;
         try {
             const { Name, Email, Message } = req.body;
             const replyContent = mailreply();        
             const mailOptions = {
-                from: 'mrtaivietbac@gmail.com',
+                from: process.env.GOOGLE_MAIL_USER,
                 to: Email,
                 subject: `Thank you for your feedback, ${Name}!`, 
                 html: `<p>Dear ${Name},</p><p>${replyContent}</p>`, 
             };
             await this.transporter.sendMail(mailOptions);
+            await addcontact({ Name, Email, Message, userID: req.user._id });
             res.redirect('/home');
         } catch (error) {
             console.error('Error sending email:', error);

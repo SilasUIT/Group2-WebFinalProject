@@ -1,7 +1,9 @@
 const mongoose=require('mongoose');
 const contactmodel=require('../../model/booking/contact.model');
 
-
+const addcontact=async(body)=>{
+    return await contactmodel.create(body);
+}
 const getcontact=async()=>{ 
    return await contactmodel.find();
 }
@@ -22,6 +24,7 @@ const getStatusCounts = async () => {
     return statusCounts;
   };
   module.exports={
+        addcontact,
         getcontact,
         getcontactbyid,
         detelecontact, 
