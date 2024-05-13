@@ -77,7 +77,7 @@
                     <td><%= item.description %></td>
                     <td><%= item.ordering %></td>
                     <td>
-                      <img src="/<%= item.image %>" alt="Avatar"  class="rounded-circle" style="width: 50px;">
+                      <img src="<%= item.image %>" alt="Avatar"  class="rounded-circle" style="width: 50px;">
                     </td>               
                     <td class="project-state" id="status-<%= item.id %>">
                       <a href="/changeStatus/<%= item.id %>/<%= item.status %>" onclick="handleUpdateStatus('<%= item.id %>', '<%= item.status %>','product'); return false;">

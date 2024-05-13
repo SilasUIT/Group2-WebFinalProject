@@ -24,15 +24,17 @@ class leastController{
             console.log(productID);
     
             const uploadedFiles = await Promise.all([
-                cloudinary.uploader.upload(req.files['vrcertificate'][0].path),
+                cloudinary.uploader.upload(req.files['vrcertificateFront'][0].path),
+                cloudinary.uploader.upload(req.files['vrcertificateRear'][0].path),
                 cloudinary.uploader.upload(req.files['minsurance'][0].path),
                 cloudinary.uploader.upload(req.files['image'][0].path)
             ]);
     
             const filePaths = {
-                vrcertificate: uploadedFiles[0].secure_url,
-                minsurance: uploadedFiles[1].secure_url,
-                image: uploadedFiles[2].secure_url,
+                vrcertificateFront: uploadedFiles[0].secure_url,
+                vrcertificateRear: uploadedFiles[1].secure_url,
+                minsurance: uploadedFiles[2].secure_url,
+                image: uploadedFiles[3].secure_url,
             };
             console.log(filePaths);
     

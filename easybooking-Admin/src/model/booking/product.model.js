@@ -68,7 +68,10 @@ const newSchema=new Schema({
         type:String,
        // required:true,
     },
-    vrcertificate:{
+    vrcertificateFront:{
+        type:String,
+    },
+    vrcertificateRear:{
         type:String,
     },
     minsurance:{

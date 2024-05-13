@@ -10,7 +10,8 @@ router.get('/detail', catchAsync(leastController.getForm));
 router.post('/', 
   cloudinaryHelper.fields([
     { name: 'filepond', maxCount: 3 }, 
-    { name: 'vrcertificate', maxCount: 1 },
+    { name: 'vrcertificateFront', maxCount: 1 },
+    { name: 'vrcertificateRear', maxCount: 1 },
     { name: 'minsurance', maxCount: 1 },
     { name: 'image', maxCount: 1},
   ]),
