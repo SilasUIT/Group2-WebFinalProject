@@ -42,27 +42,39 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><input type="checkbox" name="selectedItems"></td>
-            <td>Contract_ID</td>
-            <td>Lessor_Name</td>
-            <td>Renter_Name</td>
-            <td>Date</td>
-            <td class="project-state">
-              <a href="#">
-                <span class="badge badge-success">Paid</span>
-              </a>
-            </td>
-            <td class="project-actions text-right text-center">
-              <a class="btn btn-info btn-sm viewButton" href="#" data-toggle="modal" data-target="#myModal">
-                <i class="fas fa-eye"></i>
-                View
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="6">No data available</td>
-          </tr>
+          <% data.forEach((item) => { %>
+            <tr>
+              <!-- Checkbox for selecting items -->
+              <td><input type="checkbox" name="selectedItems"></td>
+              
+              <!-- Item ID -->
+              <td><%= item._id %></td>
+              
+              <!-- Seller's name -->
+              <td><%= item.saler.userinformation[0].name %></td>
+              
+              <!-- Customer's name -->
+              <td><%= item.customer.userinformation[0].name %></td>
+              
+              <!-- Creation date in YYYY-MM-DD format -->
+              <td><%= item.createdAt.toISOString().split('T')[0] %></td>
+              
+              <!-- Payment status badge -->
+              <td class="project-state">
+                <a href="#">
+                  <span class="badge badge-success">Paid</span>
+                </a>
+              </td>
+              
+              <!-- Action button for viewing details -->
+              <td class="project-actions text-right text-center">
+                <a class="btn btn-info btn-sm viewButton" href="#" data-toggle="modal" data-target="#myModal">
+                  <i class="fas fa-eye"></i> View
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+          
         </tbody>
         <div class="input-group-prepend">
           <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
