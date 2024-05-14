@@ -9,7 +9,6 @@
   <div class="row">
     <div class="col-md-6">
       <!-- Form 1: General Information -->
-      <form method="POST" action="/admin/product/form" >
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">General</h3>
@@ -44,66 +43,108 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                   <label for="Brand">Brand</label>
-                  <input name="Brand" type="text" id="Brand" class="form-control" value="Honda" readonly>
+                  <input name="Brand" type="text" id="Brand" class="form-control" value="<%= item.productinformation[0].brand%>" readonly>
               </div>
               <div class="form-group col-md-6">
                 <label for="YearManufacture">Year Manufacture</label>
-                <input name="YearManufacture" type="text" id="YearManufacture" class="form-control" value="2020" readonly>
+                <input name="YearManufacture" type="text" id="YearManufacture" class="form-control" value="<%= item.productinformation[0].year%>" readonly>
             </div>
             </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="CurentOdo">Curent Odo</label>
-                  <input name="CurentOdo" type="text" id="CurentOdo" class="form-control" value="1000" readonly>
+                  <input name="CurentOdo" type="text" id="CurentOdo" class="form-control" value="<%= item.productinformation[0].odo%>" readonly>
               </div>
               <div class="form-group col-md-6">
                 <label for="LicensePlate">License plate</label>
-                <input name="LicensePlate" type="text" id="LicensePlate" class="form-control" value="71-H1 123.45" readonly>
+                <input name="LicensePlate" type="text" id="LicensePlate" class="form-control" value="<%= item.productinformation[0].license%>" readonly>
               </div>
                 </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="VIN">VIN</label>
-                      <input name="VIN" type="text" id="VIN" class="form-control" value="1234567890" readonly>
+                      <input name="VIN" type="text" id="VIN" class="form-control" value="<%= item.productinformation[0].frame%>" readonly>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="EngineNumber">Engine mumber</label>
-                        <input name="EngineNumber" type="text" id="EngineNumber" class="form-control" value="ABCDEFGH" readonly>
+                        <input name="EngineNumber" type="text" id="EngineNumber" class="form-control" value="<%= item.productinformation[0].machine%>" readonly>
                     </div>
                   </div>
 
                   <div>
                     <label for="description">Description</label>
                     <div class="form-group">
-                      <input name="description" type="text" id="description" class="form-control" value="some description ..." readonly>
+                      <input name="description" type="text" id="description" class="form-control" value="<%= item.description%>" readonly>
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="CurrentCondition">Current condition</label>
-                      <input name="CurrentCondition" type="text" id="CurrentCondition" class="form-control" value="100%" readonly>
+                      <input name="CurrentCondition" type="text" id="CurrentCondition" class="form-control" value="<%= item.productinformation[0].state%>" readonly>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Price">Price per day</label>
-                        <input name="Price" type="text" id="Price" class="form-control" value="10.000" readonly>
+                        <input name="Price" type="text" id="Price" class="form-control" value="<%= item.price%> VND" readonly>
                     </div>
                   </div>
 
                   <div>
                     <label for="Location">Location</label>
                     <div class="form-group">
-                      <input name="Location" type="text" id="Location" class="form-control" value="123, Linh Trung, Thủ Đức, TP. Hồ Chí Minh" readonly>
+                      <input name="Location" type="text" id="Location" class="form-control" value="<%= item.address[0].street%> <%= item.address[0].ward%> <%= item.address[0].district%> <%= item.address[0].city%>" readonly>
                     </div>
                   </div>
           </div>
-
-            <button type="submit" class="btn btn-primary float-right">Submit General Info</button>
           </div>
+          <a href="/admin/product/all"> <button type="button" class="btn btn-primary float-right">Back to Manage</button></a>
         </div>
-      </form>
+      <div class="col-md-6">
+        <!-- Form 2: Image Display -->
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Images</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <!-- Display uploaded images here -->
+                <label>Thumnail</label>
+                <div class="image-container">
+                    <img src="<%= item.image%>" class="img-fluid">
+                </div><hr>
+  
+                <label>Vehicle images</label>
+                <div class="image-container">
+                    <img src="<%= item.List[0].Image%>" alt="Uploaded Image" class="img-fluid">
+                </div>
+                <div class="image-container">
+                    <img src="<%= item.List[1].Image%>" alt="Uploaded Image" class="img-fluid">
+                </div>
+                <div class="image-container">
+                    <img src="<%= item.List[2].Image%>" alt="Uploaded Image" class="img-fluid">
+                </div><hr>
+  
+                <label>Vehicle registration</label>
+                <div class="image-container">
+                    <img src="<%= item.vrcertificateFront%>" alt="Uploaded Image" class="img-fluid">
+                </div>
+                <div class="image-container">
+                    <img src="<%= item.vrcertificateRear%>" alt="Uploaded Image" class="img-fluid">
+                </div><hr>
+  
+                <label>Vehicle insurance</label>
+                <div class="image-container">
+                    <img src="<%= item.minsurance%>" alt="Uploaded Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <style>
@@ -114,50 +155,7 @@
       }
       </style>
 
-    <div class="col-md-6">
-      <!-- Form 2: Image Display -->
-      <div class="card card-secondary">
-          <div class="card-header">
-              <h3 class="card-title">Images</h3>
-              <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                      <i class="fas fa-minus"></i>
-                  </button>
-              </div>
-          </div>
-          <div class="card-body">
-              <!-- Display uploaded images here -->
-              <label>Thumnail</label>
-              <div class="image-container">
-                  <img src="https://i1-vnexpress.vnecdn.net/2023/11/23/Honda-Wave-RSX-FI-2024-Sport-20.jpg?w=750&h=0&q=100&dpr=1&fit=crop&s=Y3URSNpSgSefTOLd7uj97A" class="img-fluid">
-              </div><hr>
-
-              <label>Vehicle images</label>
-              <div class="image-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ8uQS1iwzrYo3G5lKojNn7r1ZNalwDhiqHJkioczcmQ&s" alt="Uploaded Image" class="img-fluid">
-              </div>
-              <div class="image-container">
-                  <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/433/731/products/waversxcdu-do-den-86ecb7ff-9b54-42a7-a49a-6d74095b1cca-4550ca76-18f9-4508-b084-a0a3c3bd78f8.png?v=1633078431510" alt="Uploaded Image" class="img-fluid">
-              </div>
-              <div class="image-container">
-                  <img src="https://headtuongnguyen.vn/wp-content/uploads/2020/05/V%C3%A0nh-%C4%91%C3%BAc-phanh-%C4%91%C4%A9a-XANH-%C4%90EN.png" alt="Uploaded Image" class="img-fluid">
-              </div><hr>
-
-              <label>Vehicle registration</label>
-              <div class="image-container">
-                  <img src="https://cdn.thuvienphapluat.vn/uploads/tintuc/2023/12/12/lam-lai-ca-vet-xe.jpg" alt="Uploaded Image" class="img-fluid">
-              </div>
-              <div class="image-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw1kKgVJpzAyAGF12PAtxHB0YP8TKusg-dKVN52t_CEg&s" alt="Uploaded Image" class="img-fluid">
-              </div><hr>
-
-              <label>Vehicle insurance</label>
-              <div class="image-container">
-                  <img src="https://ibaohiem.vn/wp-content/uploads/2019/07/bao-hiem-xe-may-bat-buoc-1.jpg" alt="Uploaded Image" class="img-fluid">
-              </div>
-          </div>
-      </div>
-  </div>
+   
 
     
 

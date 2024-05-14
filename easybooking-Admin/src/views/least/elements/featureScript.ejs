@@ -68,7 +68,7 @@
     var trangthai = document.querySelectorAll('input[type="radio"][name="state"]');
     trangthai.forEach(function(radio) {
         radio.addEventListener('change', function() {
-            var percentage = this.nextElementSibling.querySelector('#status').innerText.trim();
+            var percentage = this.nextElementSibling.querySelector('#state').innerText.trim();
             document.getElementById('productinformation[state]').value = percentage;
         });
     });

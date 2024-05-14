@@ -20,9 +20,7 @@ class leastController{
     
     addOrUpdateItem = async (req, res) => {
         try {
-            const productID = await addproduct(req.body);
-            console.log(productID);
-    
+            
             const uploadedFiles = await Promise.all([
                 cloudinary.uploader.upload(req.files['vrcertificateFront'][0].path),
                 cloudinary.uploader.upload(req.files['vrcertificateRear'][0].path),
@@ -38,13 +36,16 @@ class leastController{
             };
             console.log(filePaths);
     
-            await updateproduct(productID, filePaths);
     
-            if (!req.files.filepond || req.files.filepond.length === 0) {
+            if (!req.files.filepond || req.files.filepond.length === 0 || req.files.filepond.length !=3 ) {
                 console.log("error list file");
+                req.flash("warning", "Tạo item thất bại", false);
                 return res.redirect(`${linkprefix}`);
             }
-    
+            const productID = await addproduct(req.body);
+            console.log(productID);
+            await updateproduct(productID, filePaths);
+
             const filepondUploads = await Promise.all(req.files.filepond.map(file => cloudinary.uploader.upload(file.path)));
     
             for (const file of filepondUploads) {
