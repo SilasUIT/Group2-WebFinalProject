@@ -10,7 +10,7 @@ const mainName = 'user';
   const linkprefix = `/admin/${mainName}/`;
   const { imageHelper } = require("../../helper/news.helper");
   const path=require('path');
-
+  const cloudinary = require('cloudinary').v2;
 class usercontroller{
     
     getAll = async (req, res, next) => {
@@ -64,6 +64,25 @@ class usercontroller{
           }
         });
       };
+      cloudinaryImage=async(req,res,next)=>{
+        const { id } = req.params;
+        if (!id) {
+            console.log('id not found');
+            return res.redirect(`${linkprefix}all`);
+        }
+        try {
+            if (!req.file) {
+                console.log('No file uploaded');
+                return res.render("admin/user/form");
+            }
+            const result = await cloudinary.uploader.upload(req.file.path);
+            await updateuser(id, { avatar: result.secure_url });
+            return res.redirect(`${linkprefix}all`);
+        } catch (error) {
+            console.error('Error processing form:', error);
+            return res.render("admin/user/form");
+        }
+      }
     
       addOrUpdateItem = async (req, res) => {
         const { id } = req.body;

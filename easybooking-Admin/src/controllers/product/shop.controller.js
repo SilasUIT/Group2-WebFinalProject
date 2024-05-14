@@ -5,7 +5,9 @@ const {
 const {
     getuserbyid,
 } = require('../../services/admin/user.service');
-
+const {
+    addcontract
+}=require('../../services/admin/contract.service');
 class shopController {
     getAll = async(req, res) => {
         let page = parseInt(req.query.page) || 1; 
@@ -28,6 +30,14 @@ class shopController {
             return res.render('shop/detail', { data, saler });
         }
         return res.redirect('/shop');
+    }
+    addcontract=async(req,res)=>{
+        const data=req.body;
+        console.log(data);
+       const contract= await addcontract(data);
+      const product=await getproductbyid(contract.productID);
+      const saler=await getuserbyid(contract.salerID);
+        return res.render('contract/detail',{product:product, saler:saler,contract:contract});
     }
 }
 

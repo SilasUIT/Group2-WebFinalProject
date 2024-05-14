@@ -20,13 +20,21 @@ const newSchema=new Schema({
         type:Number,
         required:true,
     },
+    price:{
+        type:Number,
+        required:true,
+    },
     createdAt:{
+        type:Date,
+        default:Date.now,
+    },
+    expiresAt:{
         type:Date,
         default:Date.now,
     },
     status:{
         type:String,
-        default:"inactive",
+        default:"active",
         enum:["active","inactive"],
     },
 },

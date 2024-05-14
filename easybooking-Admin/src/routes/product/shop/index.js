@@ -6,4 +6,5 @@ const {catchAsync}=require('../../../apps/utils/catchAsync');
 
 router.get('/', catchAsync(shopController.getAll));
 router.get('/detail/:id/:salerID', catchAsync(shopController.getForm));
+router.post('/addcontract',catchAsync(shopController.addcontract));
 module.exports = router;

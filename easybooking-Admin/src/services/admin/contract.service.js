@@ -2,7 +2,8 @@ const mongoose=require('mongoose');
 const contractmodel=require('../../model/booking/contract.model');
 
 const addcontract=async(body)=>{
-    return await contractmodel.create(body);
+    const contract=await contractmodel.create(body);
+    return contract;
 }
 const getcontract=async()=>{ 
    return await contractmodel.find();

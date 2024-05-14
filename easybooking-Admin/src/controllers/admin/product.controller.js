@@ -8,6 +8,9 @@ const {
   updateproduct,
   getStatusCounts,
 } = require("../../services/admin/product.service");
+const {
+  getuserbyid,
+}=require('../../services/admin/user.service');
 const { imageHelper } = require("../../helper/news.helper");
 const { body, validationResult } = require("express-validator");
 const mainName = 'product';
@@ -39,8 +42,9 @@ class productController {
     if (id == "") {
       res.render("admin/product/form");
     } else {
-      let data = await getproductbyid(id);
-      res.render("admin/product/form", { data });
+      const data = await getproductbyid(id);
+      const saler=await getuserbyid(data.salerID);
+      res.render("admin/product/form", { data:data, saler:saler });
     }
   };
 
