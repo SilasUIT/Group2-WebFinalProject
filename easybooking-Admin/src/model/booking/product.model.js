@@ -84,6 +84,11 @@ const newSchema=new Schema({
         type: [Listimage],
         default:[],
        },
+       hireState:{
+        type:String,
+        default:"rentOut",
+        enum:["rentOut","onHire"],
+    }
 },
 {
     timestamps:true,
