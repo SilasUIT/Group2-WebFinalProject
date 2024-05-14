@@ -2,6 +2,7 @@ const mongoose=require('mongoose');
 const contractmodel=require('../../model/booking/contract.model');
 
 const addcontract=async(body)=>{
+    body.fee=body.charging*0.1;
     const contract=await contractmodel.create(body);
     return contract;
 }
