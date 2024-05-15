@@ -21,6 +21,9 @@ const updatecontract=async(id,body)=>{
         {$set: body},
     );
 }
+const getcontractbysalerID=async(ID)=>{
+    return await contractmodel.find({salerID:ID}).exec();
+}
 const getStatusCounts = async () => {
     const items = await contractmodel.find({});
     const statusCounts = {
@@ -37,4 +40,5 @@ const getStatusCounts = async () => {
         detelecontract,
         updatecontract,
         getStatusCounts,
+        getcontractbysalerID,
   }
