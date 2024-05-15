@@ -39,6 +39,7 @@ class shopController {
        await updateproduct(data.productID,{hireState:'onHire'});
       const product=await getproductbyid(contract.productID);
       const saler=await getuserbyid(contract.salerID);
+      req.flash("warning", "đặt xe thành công, chủ thuê sẽ liên lạc bạn sớm thông qua thông tin liên lạc của bạn!!", false);
         return res.render('contract/detail',{product:product, saler:saler,contract:contract});
     }
 }
