@@ -8,11 +8,9 @@
 %>
   <div class="row">
     <div class="col-md-6">
+
       <!-- Form 1: General Information -->
       <form method="POST" action="/admin/user/form" autocapitalize="true" >
-        <input type="hidden" value="<%= item.username%>" name="username">
-        <input type="hidden" value="<%= item.password%>" name="password">
-        <input type="hidden" value="<%= item._id%>" name="id">
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">General</h3>
@@ -43,6 +41,169 @@
           </div>
         </div>
       </form>
+
+      <!-- Form 2: User Information -->
+      <form method="POST" action="/admin/user/form" autocapitalize="true" >
+        <div class="card card-primary">
+          <div class="card-header" style="background-color: yellowgreen">
+            <h3 class="card-title">User Profile</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <label style="font-size: larger; margin-bottom: -30px;">General Information</label>
+            </div>
+
+            <div class="form-group">
+              <label for="Username">Username</label>
+              <input name="Model" type="text" id="Username" class="form-control" value="username" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="FullName">Full Name</label>
+              <input name="Model" type="text" id="FullName" class="form-control" value="full name" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input name="Model" type="text" id="Email" class="form-control" value="email" readonly>
+            </div><hr>
+
+            <div class="form-group">
+              <label style="font-size: larger; margin-bottom: -30px;">Personal Information</label>
+            </div>
+
+            <div class="form-group">
+              <label for="DOB">Date of Birth</label>
+              <input name="Model" type="text" id="DOB" class="form-control" value="1/1/2021" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="IDNumber">ID Number</label>
+              <input name="Model" type="text" id="IDNumber" class="form-control" value="0123456789" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="DOI">Date of Issue</label>
+              <input name="Model" type="text" id="DOI" class="form-control" value="1/1/2022" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="POI">Place of Issue</label>
+              <input name="Model" type="text" id="POI" class="form-control" value="somewhere" readonly>
+            </div><hr>
+
+            <div class="form-group">
+              <label style="font-size: larger; margin-bottom: -30px;">Address Information</label>
+            </div>
+
+            <div class="form-group">
+              <label for="City">City</label>
+              <input name="Model" type="text" id="City" class="form-control" value="Abcd Efgh" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="Distric">Distric</label>
+              <input name="Model" type="text" id="Distric" class="form-control" value="absjsh" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="Ward">Ward</label>
+              <input name="Model" type="text" id="Ward" class="form-control" value="jhsaddfhisoadhsau" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="Address">Specific Address</label>
+              <input name="Model" type="text" id="Address" class="form-control" value="122 dssjdhas" readonly>
+            </div><hr>
+
+            <div class="form-group">
+              <label style="font-size: larger; margin-bottom: -30px;">Contact Information</label>
+            </div>
+
+            <div class="form-group">
+              <label for="PhoneNumber">Phone Number</label>
+              <input name="Model" type="text" id="PhoneNumber" class="form-control" value="0123456789" readonly>
+            </div><hr>
+
+            <div class="form-group">
+              <label style="font-size: larger; margin-bottom: -30px;">Social Media Connection</label>
+            </div>
+
+            <div class="form-group">
+              <label for="TW">Twitter</label>
+              <input name="Model" type="text" id="TW" class="form-control" value="Twitter.com" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="FB">Facebook</label>
+              <input name="Model" type="text" id="FB" class="form-control" value="Facebook.com" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="IG">Instagram</label>
+              <input name="Model" type="text" id="IG" class="form-control" value="Instagram.com" readonly>
+            </div>
+
+
+            <div class="form-group">
+              <label for="CT">ChoTot</label>
+              <input name="Model" type="text" id="CT" class="form-control" value="ChoTot.com" readonly>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+      
+    </div>
+
+    <div class="col-md-6">
+
+      <!-- Form 3: Image Display -->
+      <form method="POST" action="/admin/user/form" autocapitalize="true" >
+        <div class="card card-secondary">
+          <div class="card-header">
+            <h3 class="card-title">Image Upload</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <label>Avatar</label>
+            <div class="image-container">
+                <img src="https://lh6.googleusercontent.com/proxy/0iujNOfofz71rW-JBf1uLufllv4YQ33MguZrA73oHnX0qM1DZdk0L2-hVeThUsP_AQgvY00H9MQ0p9GWLoLMFkRAVutX7FtiNEEKx8sJ4QLDDvmdUh41dxfu6PaG-1Oy3LzWpXLrt-4LCmVRl_rLNQGFtKS7MhyMv-oQxG7GYXWvBcr6iwEaXmOVxWVhIftgcWtCaQQQdxkEtLxcXERu3paYfw98whiusmuiKw" class="img-fluid">
+            </div><hr>
+
+            <label>ID Card</label>
+            <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEciRaa556lj88v79X__KwQQkd2Xbs-CbaqHe3-QOk3A&s" class="img-fluid">
+            </div>
+
+            <div class="image-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiIhlunU4vvQRMCYXWN2GW6G3xhgTX7h-TGgkDgSjJfg&s" class="img-fluid">
+          </div><hr>
+
+            <label>Driver License</label>
+            <div class="image-container">
+                <img src="https://luatannam.vn/wp-content/uploads/2019/12/truong-hop-60-tuoi-phai-thi-bang-lai-xe-may-khong-.jpg" class="img-fluid">
+            </div>
+
+            <div class="image-container">
+              <img src="https://cdnmedia.baotintuc.vn/Upload/GBzr0rzEkBb6ua36h4mJ9w/files/2020/06/8620gplx.jpg" class="img-fluid">
+
+          </div>
+        </div>
+      </form>
+
     </div>
   </div>
 </section>
