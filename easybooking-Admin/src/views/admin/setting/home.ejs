@@ -1,0 +1,904 @@
+<section class="content">
+    <style>
+      .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    </style>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Form 1: Hero Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Hero Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-body">
+    
+                <div class="form-group">
+                    <label for="HeroTitle">Hero Title</label>
+                    <input name="HeroTitle" id="HeroTitle" class="form-control" rows="4" value="title"></input>
+                </div>
+
+                <div class="form-group">
+                    <label for="HeroContent">Hero Content</label>
+                    <textarea name="HeroContent" id="HeroContent" class="form-control" rows="4">title</textarea>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label for="HeroImage">Upload Hero Image</label>
+                        <input type="file" id="HeroImage" name="HeroImage" class="form-control-file" onchange="previewImage(event)">
+                    </div>
+                    
+                    <div id="imagePreview" style="margin-top: 10px;">
+                    </div>
+                    
+                    <script>
+                    function previewImage(event) {
+                        var reader = new FileReader();
+                        reader.onload = function() {
+                            var output = document.getElementById('imagePreview');
+                            output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
+                        }
+                        reader.readAsDataURL(event.target.files[0]);
+                    }
+                    </script>
+                </div>
+    
+              </div>
+            </div>
+        </form>
+  
+        <!-- Form 2: Product Section -->
+        <form autocapitalize="true">
+          <div class="card card-primary">
+            <div class="card-header" style="background-color: yellowgreen">
+              <h3 class="card-title">Product Section</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="ProductTitle">Product Title</label>
+                    <input name="ProductTitle" id="ProductTitle" class="form-control" rows="4" value="title"></input>
+                </div>
+
+                <div class="form-group">
+                    <label for="ProductContent">Product Content</label>
+                    <textarea name="ProductContent" id="ProductContent" class="form-control" rows="4" >title</textarea>
+                </div><hr>
+
+                <div class="form-group">
+                    <div class="Product1">
+                        <label style="font-size: larger; margin-bottom: 20px;">Product 1</label><br>
+
+                        <label for="Product1Name">Product Name</label>
+                        <input name="Product1Name" id="Product1Name" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product1Price" style="margin-top: 10px;">Product Price</label>
+                        <input name="Product1Price" id="Product1Price" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product1Image" style="margin-top: 10px;">Upload Product 1 Image</label>
+                        <input type="file" id="Product1Image" name="Product1Image" class="form-control-file" onchange="previewImage1(event)">
+                        <div id="imagePreview1" style="margin-top: 10px;"></div>
+
+                        <script>
+                            function previewImage1(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview1');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                </div><hr>
+
+                <div class="form-group">
+                    <div class="Product2">
+                        <label style="font-size: larger; margin-bottom: 20px;">Product 2</label><br>
+
+                        <label for="Product2Name">Product Name</label>
+                        <input name="Product2Name" id="Product2Name" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product2Price" style="margin-top: 10px;">Product Price</label>
+                        <input name="Product2Price" id="Product2Price" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product2Image" style="margin-top: 10px;">Upload Product 2 Image</label>
+                        <input type="file" id="Product2Image" name="Product2Image" class="form-control-file" onchange="previewImage2(event)">
+                        <div id="imagePreview2" style="margin-top: 10px;"></div>
+
+                        <script>
+                            function previewImage2(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview2');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 2 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                </div><hr>
+
+                <div class="form-group">
+                    <div class="Product3">
+                        <label style="font-size: larger; margin-bottom: 20px;">Product 3</label><br>
+
+                        <label for="Product3Name">Product Name</label>
+                        <input name="Product3Name" id="Product3Name" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product3Price" style="margin-top: 10px;">Product Price</label>
+                        <input name="Product3Price" id="Product3Price" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Product3Image" style="margin-top: 10px;">Upload Product 3 Image</label>
+                        <input type="file" id="Product3Image" name="Product3Image" class="form-control-file" onchange="previewImage3(event)">
+                        <div id="imagePreview3" style="margin-top: 10px;"></div>
+
+                        <script>
+                            function previewImage3(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview3');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 3 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                </div>
+  
+            </div>
+          </div>
+        </form>
+
+        <!-- Form 3: Why Choose Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: chocolate">
+                <h3 class="card-title">Why Choose Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-body">
+    
+                <div class="form-group">
+                    <label for="WhyChooseTitle">Why Choose Title</label>
+                    <input name="WhyChooseTitle" id="WhyChooseTitle" class="form-control" rows="4" value="title"></input>
+                </div>
+
+                <div class="form-group">
+                    <label for="WhyChooseContent">Why Choose Content</label>
+                    <textarea name="WhyChooseContent" id="WhyChooseContent" class="form-control" rows="4">title</textarea>
+                </div><hr>
+
+                <div class="form-group">
+                    <label for="WhyChoose1">Why Choose 1</label>
+                    <input name="WhyChoose1" id="WhyChoose1" class="form-control" rows="4" value="title"></input>
+
+                    <label for="WhyChoose1Content" style="margin-top: 10px;">Why Choose 1 Content</label>
+                    <textarea name="WhyChoose1Content" id="WhyChoose1Content" class="form-control" rows="4">title</textarea>
+                </div><hr>
+
+                <div class="form-group">
+                    <label for="WhyChoose2">Why Choose 2</label>
+                    <input name="WhyChoose2" id="WhyChoose2" class="form-control" rows="4" value="title"></input>
+
+                    <label for="WhyChoose2Content" style="margin-top: 10px;">Why Choose 2 Content</label>
+                    <textarea name="WhyChoose2Content" id="WhyChoose2Content" class="form-control" rows="4">title</textarea>    
+                </div><hr>
+
+                <div class="form-group">
+                    <label for="WhyChoose3">Why Choose 3</label>
+                    <input name="WhyChoose3" id="WhyChoose3" class="form-control" rows="4" value="title"></input>
+
+                    <label for="WhyChoose3Content" style="margin-top: 10px;">Why Choose 3 Content</label>
+                    <textarea name="WhyChoose3Content" id="WhyChoose3Content" class="form-control" rows="4">title</textarea>
+                </div><hr>
+                    
+                    <div class="form-group">
+                        <label for="WhyChooseImage">Upload Why Choose Image</label>
+                        <input type="file" id="WhyChooseImage" name="WhyChooseImage" class="form-control-file" onchange="previewImage4(event)">
+                    </div>
+                    
+                    <div id="imagePreview4" style="margin-top: 10px;">
+                    </div>
+                    
+                    <script>
+                    function previewImage4(event) {
+                        var reader = new FileReader();
+                        reader.onload = function() {
+                            var output = document.getElementById('imagePreview4');
+                            output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
+                        }
+                        reader.readAsDataURL(event.target.files[0]);
+                    }
+                    </script>
+                </div>
+            </div>
+        </form>
+
+        <!-- Form 4: Why Help Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: blueviolet;">
+                <h3 class="card-title">We Help Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-body">
+    
+                <div class="form-group">
+                    <label for="WeHelpTitle">We Help Title</label>
+                    <input name="WeHelpTitle" id="WeHelpTitle" class="form-control" rows="4" value="title"></input>
+                </div>
+
+                <div class="form-group">
+                    <label for="WeHelpContent">We Help Content</label>
+                    <textarea name="WeHelpContent" id="WeHelpContent" class="form-control" rows="4">title</textarea>
+                </div><hr>
+
+                <div class="form-group">
+                    <label style="font-size: large;">We Help Detail</label><br>
+
+                    <label for="WeHelp1">We Help 1</label>
+                    <input name="WeHelp1" id="WeHelp1" class="form-control" rows="4" value="title"></input>
+
+                    <label for="WeHelp2" style="margin-top: 10px;">We Help 2</label>
+                    <input name="WeHelp2" id="WeHelp2" class="form-control" rows="4" value="title"></input>
+
+                    <label for="WeHelp3" style="margin-top: 10px;">We Help 3</label>
+                    <input name="WeHelp3" id="WeHelp3" class="form-control" rows="4" value="title"></input>
+                </div><hr>
+
+                <div class="form-group">
+                    <label style="font-size: large;">We Help Image</label><br>
+
+                    <label for="WheHelpImage1">Upload We Help Image 1</label>
+                    <input type="file" id="WheHelpImage1" name="WheHelpImage1" class="form-control-file" onchange="previewImage5(event)">
+                    <div id="imagePreview5" style="margin-top: 10px;"></div>
+                    <script>
+                        function previewImage5(event) {
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                var output = document.getElementById('imagePreview5');
+                                output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
+                            }
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+                    </script>
+
+                    <label for="WheHelpImage2" style="margin-top: 10px;">Upload We Help Image 2</label>
+                    <input type="file" id="WheHelpImage2" name="WheHelpImage2" class="form-control-file" onchange="previewImage6(event)">
+                    <div id="imagePreview6" style="margin-top: 10px;"></div>
+                    <script>
+                        function previewImage6(event) {
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                var output = document.getElementById('imagePreview6');
+                                output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
+                            }
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+                    </script>
+
+                    <label for="WheHelpImage3" style="margin-top: 10px;">Upload We Help Image 3</label>
+                    <input type="file" id="WheHelpImage3" name="WheHelpImage3" class="form-control-file" onchange="previewImage7(event)">
+                    <div id="imagePreview7" style="margin-top: 10px;"></div>
+                    <script>
+                        function previewImage7(event) {
+                            var reader = new FileReader();
+                            reader.onload = function() {
+                                var output = document.getElementById('imagePreview7');
+                                output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
+                            }
+                            reader.readAsDataURL(event.target.files[0]);
+                        }
+                    </script>
+                </div>    
+              </div>
+            </div>
+        </form>
+
+        <!-- Form 5: Popular Product Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: #3b5d50">
+                <h3 class="card-title">Popular Product Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                  <div class="form-group">
+                      <div class="PopularProduct1">
+                          <label style="font-size: larger; margin-bottom: 20px;">Popular Product 1</label><br>
+  
+                          <label for="PopularProduct1Name">Name</label>
+                          <input name="PopularProduct1Name" id="PopularProduct1Name" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="PopularProduct1Detail" style="margin-top: 10px;">Detail</label>
+                          <input name="PopularProduct1Detail" id="PopularProduct1Detail" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="PopularProduct1Image" style="margin-top: 10px;">Upload Product Image</label>
+                          <input type="file" id="Product1Image" name="Product1Image" class="form-control-file" onchange="previewImage8(event)">
+                          <div id="imagePreview8" style="margin-top: 10px;"></div>
+  
+                          <script>
+                              function previewImage8(event) {
+                                  var reader = new FileReader();
+                                  reader.onload = function() {
+                                      var output = document.getElementById('imagePreview8');
+                                      output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                  }
+                                  reader.readAsDataURL(event.target.files[0]);
+                              }
+                          </script>
+                      </div>
+                  </div><hr>
+  
+                  <div class="form-group">
+                        <div class="PopularProduct2">
+                            <label style="font-size: larger; margin-bottom: 20px;">Popular Product 2</label><br>
+    
+                            <label for="PopularProduct2Name">Name</label>
+                            <input name="PopularProduct2Name" id="PopularProduct2Name" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="PopularProduct2Detail" style="margin-top: 10px;">Detail</label>
+                            <input name="PopularProduct2Detail" id="PopularProduct2Detail" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="PopularProduct2Image" style="margin-top: 10px;">Upload Product Image</label>
+                            <input type="file" id="Product2Image" name="Product2Image" class="form-control-file" onchange="previewImage9(event)">
+                            <div id="imagePreview9" style="margin-top: 10px;"></div>
+    
+                            <script>
+                                function previewImage9(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('imagePreview9');
+                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                    }
+                                    reader.readAsDataURL(event.target.files[0]);
+                                }
+                            </script>
+                        </div>
+                  </div><hr>
+
+                <div class="form-group">
+                    <div class="PopularProduct3">
+                        <label style="font-size: larger; margin-bottom: 20px;">Popular Product 3</label><br>
+
+                        <label for="PopularProduct3Name">Name</label>
+                        <input name="PopularProduct3Name" id="PopularProduct3Name" class="form-control" rows="4" value="name"></input>
+
+                        <label for="PopularProduct3Detail" style="margin-top: 10px;">Detail</label>
+                        <input name="PopularProduct3Detail" id="PopularProduct3Detail" class="form-control" rows="4" value="name"></input>
+
+                        <label for="PopularProduct3Image" style="margin-top: 10px;">Upload Product Image</label>
+                        <input type="file" id="Product3Image" name="Product3Image" class="form-control-file" onchange="previewImage10(event)">
+                        <div id="imagePreview10" style="margin-top: 10px;"></div>
+
+                        <script>
+                            function previewImage10(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview10');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </form>
+
+        <!-- Form 6: Testimonial Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: #eeb360">
+                <h3 class="card-title">Testimonial Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                    <label for="TestimonialTitle">Testimonial Title</label>
+                    <input name="TestimonialTitle" id="TestimonialTitle" class="form-control" rows="4" value="title"></input>
+                </div><hr>
+
+                  <div class="form-group">
+                      <div class="Testimonial1">
+                          <label style="font-size: larger; margin-bottom: 20px;">Testimonial 1</label><br>
+  
+                          <label for="Testimonial1Name">Name</label>
+                          <input name="Testimonial1Name" id="Testimonial1Name" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="Testimonial1Detail" style="margin-top: 10px;">Detail</label>
+                          <input name="Testimonial1Detail" id="Testimonial1Detail" class="form-control" rows="4" value="name"></input>
+
+                          <label for="Testimonial1Comment" style="margin-top: 10px;">Comment</label>
+                          <input name="Testimonial1Comment" id="Testimonial1Comment" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="Testimonial1Image" style="margin-top: 10px;">Upload Image</label>
+                          <input type="file" id="Testimonial1Image" name="Testimonial1Image" class="form-control-file" onchange="previewImage11(event)">
+                          <div id="imagePreview11" style="margin-top: 10px;"></div>
+  
+                          <script>
+                              function previewImage11(event) {
+                                  var reader = new FileReader();
+                                  reader.onload = function() {
+                                      var output = document.getElementById('imagePreview11');
+                                      output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                  }
+                                  reader.readAsDataURL(event.target.files[0]);
+                              }
+                          </script>
+                      </div>
+                  </div><hr>
+  
+                  <div class="form-group">
+                        <div class="Testimonial2">
+                            <label style="font-size: larger; margin-bottom: 20px;">Testimonial 2</label><br>
+    
+                            <label for="Testimonial2Name">Name</label>
+                            <input name="Testimonial2Name" id="Testimonial2Name" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial2Detail" style="margin-top: 10px;">Detail</label>
+                            <input name="Testimonial2Detail" id="Testimonial2Detail" class="form-control" rows="4" value="name"></input>
+
+                            <label for="Testimonial2Comment" style="margin-top: 10px;">Comment</label>
+                            <input name="Testimonial2Comment" id="Testimonial2Comment" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial2Image" style="margin-top: 10px;">Upload Image</label>
+                            <input type="file" id="Testimonial2Image" name="Testimonial2Image" class="form-control-file" onchange="previewImage12(event)">
+                            <div id="imagePreview12" style="margin-top: 10px;"></div>
+    
+                            <script>
+                                function previewImage12(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('imagePreview12');
+                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                    }
+                                    reader.readAsDataURL(event.target.files[0]);
+                                }
+                            </script>
+                        </div>
+                  </div><hr>
+
+                  <div class="form-group">
+                        <div class="Testimonial3">
+                            <label style="font-size: larger; margin-bottom: 20px;">Testimonial 3</label><br>
+    
+                            <label for="Testimonial3Name">Name</label>
+                            <input name="Testimonial3Name" id="Testimonial3Name" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial3Detail" style="margin-top: 10px;">Detail</label>
+                            <input name="Testimonial3Detail" id="Testimonial3Detail" class="form-control" rows="4" value="name"></input>
+
+                            <label for="Testimonial3Comment" style="margin-top: 10px;">Comment</label>
+                            <input name="Testimonial3Comment" id="Testimonial3Comment" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial3Image" style="margin-top: 10px;">Upload Image</label>
+                            <input type="file" id="Testimonial3Image" name="Testimonial3Image" class="form-control-file" onchange="previewImage13(event)">
+                            <div id="imagePreview13" style="margin-top: 10px;"></div>
+    
+                            <script>
+                                function previewImage13(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('imagePreview13');
+                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                    }
+                                    reader.readAsDataURL(event.target.files[0]);
+                                }
+                            </script>
+                        </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="Testimonial4">
+                        <label style="font-size: larger; margin-bottom: 20px;">Testimonial 4</label><br>
+  
+                        <label for="Testimonial4Name">Name</label>
+                        <input name="Testimonial4Name" id="Testimonial4Name" class="form-control" rows="4" value="name"></input>
+  
+                        <label for="Testimonial4Detail" style="margin-top: 10px;">Detail</label>
+                        <input name="Testimonial4Detail" id="Testimonial4Detail" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Testimonial4Comment" style="margin-top: 10px;">Comment</label>
+                        <input name="Testimonial4Comment" id="Testimonial4Comment" class="form-control" rows="4" value="name"></input>
+  
+                        <label for="Testimonial4Image" style="margin-top: 10px;">Upload Image</label>
+                        <input type="file" id="Testimonial4Image" name="Testimonial4Image" class="form-control-file" onchange="previewImage17(event)">
+                        <div id="imagePreview17" style="margin-top: 10px;"></div>
+  
+                        <script>
+                            function previewImage17(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview17');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="Testimonial5">
+                        <label style="font-size: larger; margin-bottom: 20px;">Testimonial 5</label><br>
+  
+                        <label for="Testimonial5Name">Name</label>
+                        <input name="Testimonial5Name" id="Testimonial5Name" class="form-control" rows="4" value="name"></input>
+  
+                        <label for="Testimonial5Detail" style="margin-top: 10px;">Detail</label>
+                        <input name="Testimonial5Detail" id="Testimonial5Detail" class="form-control" rows="4" value="name"></input>
+
+                        <label for="Testimonial5Comment" style="margin-top: 10px;">Comment</label>
+                        <input name="Testimonial5Comment" id="Testimonial5Comment" class="form-control" rows="4" value="name"></input>
+  
+                        <label for="Testimonial5Image" style="margin-top: 10px;">Upload Image</label>
+                        <input type="file" id="Testimonial5Image" name="Testimonial5Image" class="form-control-file" onchange="previewImage18(event)">
+                        <div id="imagePreview18" style="margin-top: 10px;"></div>
+  
+                        <script>
+                            function previewImage18(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var output = document.getElementById('imagePreview18');
+                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+        </form>
+
+        <!-- Form 7: Blog Section -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: #d99080">
+                <h3 class="card-title">Blog Section</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                    <label for="BlogTitle">Blog Title</label>
+                    <input name="BlogTitle" id="BlogTitle" class="form-control" rows="4" value="title"></input>
+                </div><hr>
+
+                  <div class="form-group">
+                      <div class="Blog1">
+                          <label style="font-size: larger; margin-bottom: 20px;">Blog 1</label><br>
+  
+                          <label for="Blog1Name">Name</label>
+                          <input name="Blog1Name" id="Blog1Name" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="Blog1Content" style="margin-top: 10px;">Content</label>
+                          <input name="Blog1Content" id="Blog1Content" class="form-control" rows="4" value="name"></input>
+  
+                          <label for="Testimonial1Image" style="margin-top: 10px;">Upload Image</label>
+                          <input type="file" id="Testimonial1Image" name="Testimonial1Image" class="form-control-file" onchange="previewImage14(event)">
+                          <div id="imagePreview14" style="margin-top: 10px;"></div>
+  
+                          <script>
+                              function previewImage14(event) {
+                                  var reader = new FileReader();
+                                  reader.onload = function() {
+                                      var output = document.getElementById('imagePreview14');
+                                      output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                  }
+                                  reader.readAsDataURL(event.target.files[0]);
+                              }
+                          </script>
+                      </div>
+                  </div><hr>
+  
+                    <div class="form-group">
+                        <div class="Blog2">
+                            <label style="font-size: larger; margin-bottom: 20px;">Blog 2</label><br>
+    
+                            <label for="Blog2Name">Name</label>
+                            <input name="Blog2Name" id="Blog2Name" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Blog2Content" style="margin-top: 10px;">Content</label>
+                            <input name="Blog2Content" id="Blog2Content" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial2Image" style="margin-top: 10px;">Upload Image</label>
+                            <input type="file" id="Testimonial2Image" name="Testimonial2Image" class="form-control-file" onchange="previewImage15(event)">
+                            <div id="imagePreview15" style="margin-top: 10px;"></div>
+    
+                            <script>
+                                function previewImage15(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('imagePreview15');
+                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                    }
+                                    reader.readAsDataURL(event.target.files[0]);
+                                }
+                            </script>
+                        </div>
+                    </div><hr>
+
+                    <div class="form-group">
+                        <div class="Blog3">
+                            <label style="font-size: larger; margin-bottom: 20px;">Blog 3</label><br>
+    
+                            <label for="Blog3Name">Name</label>
+                            <input name="Blog3Name" id="Blog3Name" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Blog3Content" style="margin-top: 10px;">Content</label>
+                            <input name="Blog3Content" id="Blog3Content" class="form-control" rows="4" value="name"></input>
+    
+                            <label for="Testimonial3Image" style="margin-top: 10px;">Upload Image</label>
+                            <input type="file" id="Testimonial3Image" name="Testimonial3Image" class="form-control-file" onchange="previewImage16(event)">
+                            <div id="imagePreview16" style="margin-top: 10px;"></div>
+    
+                            <script>
+                                function previewImage16(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('imagePreview16');
+                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
+                                    }
+                                    reader.readAsDataURL(event.target.files[0]);
+                                }
+                            </script>
+                        </div>
+                    </div>
+              </div>
+            </div>
+        </form>
+
+        <a href="#"> <button type="button" class="btn btn-primary float-right">Update</button></a>
+      </div>
+  
+      <div class="col-md-6">
+        <!-- Form 8: Hero Image Upload -->
+        <form autocapitalize="true">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Hero Image Upload</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <label>Hero Image</label>
+              <div class="image-container">
+                <img src="/product/images/product-1.png" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Form 9: Product Image Upload -->
+        <form autocapitalize="true">
+          <div class="card card-primary">
+            <div class="card-header" style="background-color: yellowgreen;">
+              <h3 class="card-title">Product Image Upload</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="card-body">
+                <label>Product 1</label>
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715754914/cpjagrervwpxuhdtrwf5.png" class="img-fluid">
+                </div><hr>
+
+                <label>Product 2</label>
+                <div class="image-container">
+                  <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715658463/rp01qtkbofxikmfghz9v.jpg" class="img-fluid">
+                </div><hr>
+
+                <label>Product 3</label>
+                <div class="image-container">
+                  <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715756610/puo1y7brwe4ikcfuyt37.jpg" class="img-fluid"> 
+                </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Form 10: Why Choose Image Upload -->
+        <form autocapitalize="true">
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: chocolate;">
+                <h3 class="card-title">Why Choose Image Upload</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+  
+              <div class="card-body">
+                  <label>Why Choose Image</label>
+                  <div class="image-container">
+                      <img src="/product/images/why-choose-us-img.jpg" class="img-fluid">
+                  </div>
+              </div>
+            </div>
+        </form>
+
+        <!-- Form 11: We Help Image Upload -->
+        <form autocapitalize="true">
+                <div class="card card-primary">
+                  <div class="card-header" style="background-color: blueviolet;">
+                    <h3 class="card-title">We Help Image Upload</h3>
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+      
+                  <div class="card-body">
+                      <label>We Help Image 1</label>
+                      <div class="image-container">
+                          <img src="/product/images/img-grid-1.jpg" class="img-fluid">
+                      </div><hr>
+
+                      <label>We Help Image 2</label>
+                      <div class="image-container">
+                          <img src="/product/images/img-grid-2.jpg" class="img-fluid">
+                      </div><hr>
+
+                      <label>We Help Image 3</label>
+                      <div class="image-container">
+                          <img src="/product/images/img-grid-3.jpg" class="img-fluid">
+                      </div>
+                  </div>
+                </div>
+        </form>
+
+        <!-- Form 12: Popular Product Image Upload -->
+        <form autocapitalize="true">
+                    <div class="card card-primary">
+                      <div class="card-header" style="background-color: #3b5d50;">
+                        <h3 class="card-title">Popular Product Image Upload</h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                        <div class="card-body">
+                        <label>Popular Product Image 1</label>
+                        <div class="image-container">
+                            <img src="/product/images/product-2.png" class="img-fluid">
+                        </div><hr>
+  
+                        <label>Popular Product Image 2</label>
+                        <div class="image-container">
+                            <img src="/product/images/product-3.png" class="img-fluid">
+                        </div><hr>
+  
+                        <label>Popular Product Image 3</label>
+                        <div class="image-container">
+                            <img src="/product/images/product-4.png" class="img-fluid">
+                        </div>
+                        </div>
+                    </div>
+        </form>
+
+        <!-- Form 13: Testimonial Image Upload -->
+        <form autocapitalize="true">
+                    <div class="card card-primary">
+                      <div class="card-header" style="background-color: #eeb360">
+                        <h3 class="card-title">Testimonial Image Upload</h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <label>Testimonial Image 1</label>
+                        <div class="image-container">
+                            <img src="/product/images/person-1.png" class="img-fluid">
+                        </div><hr>
+  
+                        <label>Testimonial Image 2</label>
+                        <div class="image-container">
+                            <img src="/product/images/person-2.png" class="img-fluid">
+                        </div><hr>
+  
+                        <label>Testimonial Image 3</label>
+                        <div class="image-container">
+                            <img src="/product/images/person-3.png" class="img-fluid">
+                        </div><hr>
+
+                        <label>Testimonial Image 4</label>
+                        <div class="image-container">
+                            <img src="/product/images/person-4.png" class="img-fluid">
+                        </div><hr>
+
+                        <label>Testimonial Image 5</label>
+                        <div class="image-container">
+                            <img src="/product/images/person-4.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+        </form>
+
+        <!-- Form 14: Blog Image Upload -->
+        <form autocapitalize="true">
+                    <div class="card card-primary">
+                        <div class="card-header" style="background-color: #d99080">
+                            <h3 class="card-title">Blog Image Upload</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                      <div class="card-body">
+                        <label>Blog Image 1</label>
+                        <div class="image-container">
+                            <img src="/product/images/test4.jpg" class="img-fluid">
+                        </div><hr>
+
+                        <label>Blog Image 2</label>
+                        <div class="image-container">
+                            <img src="/product/images/test5.jpg" class="img-fluid">
+                        </div><hr>
+
+                        <label>Blog Image 3</label>
+                        <div class="image-container">
+                            <img src="/product/images/test6.jpg" class="img-fluid">
+                        </div>
+                      </div>
+                  </div>
+        </form>
+      </div>
+    </div>
+  </section>
