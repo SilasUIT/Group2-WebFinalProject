@@ -66,6 +66,8 @@ a.more {
   outline: none;
 }
 
+
+
 @media (min-width: 992px) {
   .custom-navbar .custom-navbar-nav li {
     margin-left: 15px;
@@ -941,8 +943,15 @@ a.more {
   font-size: 14px;
 }
 
-.service {
-  line-height: 1.5;
+.service-icon svg {
+  width: 24px; /* Increase the size of the SVG */
+  height: 24px; /* Increase the size of the SVG */
+}
+
+.service-contents p {
+  font-size: 16px; /* Increase the font size of the paragraph */
+  color: #333; /* Change the color of the paragraph */
+  text-align: center; /* Center the text */
 }
 
 .service .service-icon {
