@@ -311,7 +311,7 @@ a.more {
   text-decoration: none;
   display: block;
   position: relative;
-  padding: 0px 0px 50px 20px;
+  padding: 30px 20px 50px 20px;
   border: 1px solid #cce7d0;
   border-radius: 20px;
   margin: 15px 0;
@@ -325,6 +325,8 @@ a.more {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
+  object-fit: cover;
+  object-position: center;
 }
 
 .product-section .product-item h3 {
@@ -388,7 +390,7 @@ a.more {
 }
 
 .product-section .product-item:hover .product-thumbnail {
-  top: -25px;
+  top: -15px;
 }
 
 .product-section .product-item:hover .icon-cross {

@@ -1,3 +1,4 @@
+<%= data%>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!-- Start Product Detail -->
 	<div class="container pt-4">
@@ -59,6 +60,7 @@
 
 					<div>
 						<h2>Chi tiết sản phẩm</h2>
+						
 						<div>
 							<div class="px-2">
 								<i class="fa fa-solid fa-brush text-primary mr-1"></i>
@@ -94,11 +96,13 @@
 								<span class="month-picker" id="month-picker">February</span>
 								<div class="year-picker">
 									<span class="year-change" id="prev-year">
-										<pre><</pre>
+										<span class="prev" data-controls="prev"><span
+											class="fa fa-chevron-left"></span></span>
 									</span>
 									<span id="year">2021</span>
 									<span class="year-change" id="next-year">
-										<pre>></pre>
+										<span class="next" data-controls="next"><span
+											class="fa fa-chevron-right"></span></span>
 									</span>
 								</div>
 							</div>
