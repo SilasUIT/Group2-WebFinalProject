@@ -189,8 +189,8 @@
 										<div class="row">
 											<div class="col-sm-12"><h5>Ngày thuê:</h5></div>
 											<hr>
-											<div class="col-sm-6"><p><strong>Từ:</strong> 1/1/2025</p></div>
-											<div class="col-sm-6"><p><strong>Đến:</strong> 1/2/2025</p></div>
+											<div class="col-sm-6"><p><strong>Từ:</strong> <%= new Date().toISOString().split('T')[0];%></p></div>
+											<div class="col-sm-6"><p><strong>Đến:</strong> <%= new Date().toISOString().split('T')[0];%></p></div>
 											<div class="col-sm-6"><p><strong>Giá:</strong> <%= data.price%></p></div>
 											<div class="col-sm-6"><p><strong>Phí hợp đồng:</strong> <%= data.price%></p></div>
 											<div class="col-sm-6"><p><strong>Tổng cộng:</strong> <%= data.price%></p></div>
@@ -228,7 +228,7 @@
 															modal.style.display = "none";
 														}
 														}
-														const gdate = new Date();
+														const gdate = new Date().toISOString().split('T')[0];
 														 document.getElementById("gdate").innerHTML = gdate;
 														</script>
 														</div>
