@@ -11,12 +11,21 @@ const { imageHelper } = require("../../helper/news.helper");
 const mainName = 'setting';
 const linkprefix = `/admin/${mainName}/`;
 
-
-
 class settingcontroller{
-    getAll = async ( req , res , next) => {
-        let data=await getsetting();
-          res.render('admin/setting',{data});
+    gethome = async ( req , res , next) => {
+          res.render('admin/setting/home');
+      }
+      getabout = async ( req , res , next) => {
+          res.render('admin/setting/about');
+      }
+      getcontact = async ( req , res , next) => {
+          res.render('admin/setting/contact');
+      }
+      getrental = async ( req , res , next) => {
+          res.render('admin/setting/rental');
+      }
+      getblog = async ( req , res , next) => {
+          res.render('admin/setting/blog');
       }
       getForm = async (req, res, next) => {
           let { id } = req.params;

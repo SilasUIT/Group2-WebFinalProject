@@ -43,7 +43,7 @@
       </form>
 
       <!-- Form 2: User Information -->
-      <form method="POST" action="/admin/user/form" autocapitalize="true" >
+      <form autocapitalize="true" >
         <div class="card card-primary">
           <div class="card-header" style="background-color: yellowgreen">
             <h3 class="card-title">User Profile</h3>
@@ -61,17 +61,17 @@
 
             <div class="form-group">
               <label for="Username">Username</label>
-              <input name="Model" type="text" id="Username" class="form-control" value="username" readonly>
+              <input name="Model" type="text" id="Username" class="form-control" value="<%= item.username%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="FullName">Full Name</label>
-              <input name="Model" type="text" id="FullName" class="form-control" value="full name" readonly>
+              <input name="Model" type="text" id="FullName" class="form-control" value="<%= item.userinformation[0].name%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="Email">Email</label>
-              <input name="Model" type="text" id="Email" class="form-control" value="email" readonly>
+              <input name="Model" type="text" id="Email" class="form-control" value="<%= item.userinformation[0].email%>" readonly>
             </div><hr>
 
             <div class="form-group">
@@ -80,22 +80,22 @@
 
             <div class="form-group">
               <label for="DOB">Date of Birth</label>
-              <input name="Model" type="text" id="DOB" class="form-control" value="1/1/2021" readonly>
+              <input name="Model" type="date" id="DOB" class="form-control" value="<%= item.userinformation[0].birthday.toISOString().split('T')[0]%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="IDNumber">ID Number</label>
-              <input name="Model" type="text" id="IDNumber" class="form-control" value="0123456789" readonly>
+              <input name="Model" type="text" id="IDNumber" class="form-control" value="<%= item._id %>" readonly>
             </div>
 
             <div class="form-group">
               <label for="DOI">Date of Issue</label>
-              <input name="Model" type="text" id="DOI" class="form-control" value="1/1/2022" readonly>
+              <input name="Model" type="text" id="DOI" class="form-control" value="<%= item.userinformation[0].date.toISOString().split('T')[0]%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="POI">Place of Issue</label>
-              <input name="Model" type="text" id="POI" class="form-control" value="somewhere" readonly>
+              <input name="Model" type="text" id="POI" class="form-control" value="<%= item.userinformation[0].place%>" readonly>
             </div><hr>
 
             <div class="form-group">
@@ -104,22 +104,22 @@
 
             <div class="form-group">
               <label for="City">City</label>
-              <input name="Model" type="text" id="City" class="form-control" value="Abcd Efgh" readonly>
+              <input name="Model" type="text" id="City" class="form-control" value="<%= item.address[0].city%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="Distric">Distric</label>
-              <input name="Model" type="text" id="Distric" class="form-control" value="absjsh" readonly>
+              <input name="Model" type="text" id="Distric" class="form-control" value="<%= item.address[0].district%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="Ward">Ward</label>
-              <input name="Model" type="text" id="Ward" class="form-control" value="jhsaddfhisoadhsau" readonly>
+              <input name="Model" type="text" id="Ward" class="form-control" value="<%= item.address[0].ward%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="Address">Specific Address</label>
-              <input name="Model" type="text" id="Address" class="form-control" value="122 dssjdhas" readonly>
+              <input name="Model" type="text" id="Address" class="form-control" value="<%= item.address[0].street%>" readonly>
             </div><hr>
 
             <div class="form-group">
@@ -128,7 +128,7 @@
 
             <div class="form-group">
               <label for="PhoneNumber">Phone Number</label>
-              <input name="Model" type="text" id="PhoneNumber" class="form-control" value="0123456789" readonly>
+              <input name="Model" type="text" id="PhoneNumber" class="form-control" value="<%= item.userinformation[0].phone%>" readonly>
             </div><hr>
 
             <div class="form-group">
@@ -137,23 +137,23 @@
 
             <div class="form-group">
               <label for="TW">Twitter</label>
-              <input name="Model" type="text" id="TW" class="form-control" value="Twitter.com" readonly>
+              <input name="Model" type="text" id="TW" class="form-control" value="<%= user.link[0].twitter%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="FB">Facebook</label>
-              <input name="Model" type="text" id="FB" class="form-control" value="Facebook.com" readonly>
+              <input name="Model" type="text" id="FB" class="form-control" value="<%= user.link[0].facebook%>" readonly>
             </div>
 
             <div class="form-group">
               <label for="IG">Instagram</label>
-              <input name="Model" type="text" id="IG" class="form-control" value="Instagram.com" readonly>
+              <input name="Model" type="text" id="IG" class="form-control" value="<%= user.link[0].instagram%>" readonly>
             </div>
 
 
             <div class="form-group">
               <label for="CT">ChoTot</label>
-              <input name="Model" type="text" id="CT" class="form-control" value="ChoTot.com" readonly>
+              <input name="Model" type="text" id="CT" class="form-control" value="<%= user.link[0].chotot%>" readonly>
             </div>
 
           </div>
@@ -166,7 +166,7 @@
     <div class="col-md-6">
 
       <!-- Form 3: Image Display -->
-      <form method="POST" action="/admin/user/form" autocapitalize="true" >
+      <form  autocapitalize="true" >
         <div class="card card-secondary">
           <div class="card-header">
             <h3 class="card-title">Image Upload</h3>
@@ -180,25 +180,25 @@
 
             <label>Avatar</label>
             <div class="image-container">
-                <img src="https://lh6.googleusercontent.com/proxy/0iujNOfofz71rW-JBf1uLufllv4YQ33MguZrA73oHnX0qM1DZdk0L2-hVeThUsP_AQgvY00H9MQ0p9GWLoLMFkRAVutX7FtiNEEKx8sJ4QLDDvmdUh41dxfu6PaG-1Oy3LzWpXLrt-4LCmVRl_rLNQGFtKS7MhyMv-oQxG7GYXWvBcr6iwEaXmOVxWVhIftgcWtCaQQQdxkEtLxcXERu3paYfw98whiusmuiKw" class="img-fluid">
+                <img src="<%= item.avatar%>" class="img-fluid">
             </div><hr>
 
             <label>ID Card</label>
             <div class="image-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEciRaa556lj88v79X__KwQQkd2Xbs-CbaqHe3-QOk3A&s" class="img-fluid">
+                <img src="<%= item.imagecccd[0].Image%>" class="img-fluid">
             </div>
 
             <div class="image-container">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiIhlunU4vvQRMCYXWN2GW6G3xhgTX7h-TGgkDgSjJfg&s" class="img-fluid">
+              <img src="<%= item.imagecccd[1].Image%>" class="img-fluid">
           </div><hr>
 
             <label>Driver License</label>
             <div class="image-container">
-                <img src="https://luatannam.vn/wp-content/uploads/2019/12/truong-hop-60-tuoi-phai-thi-bang-lai-xe-may-khong-.jpg" class="img-fluid">
+                <img src="<%= item.certificate[0].Image%>" class="img-fluid">
             </div>
 
             <div class="image-container">
-              <img src="https://cdnmedia.baotintuc.vn/Upload/GBzr0rzEkBb6ua36h4mJ9w/files/2020/06/8620gplx.jpg" class="img-fluid">
+              <img src="<%= item.certificate[1].Image%>" class="img-fluid">
 
           </div>
         </div>
