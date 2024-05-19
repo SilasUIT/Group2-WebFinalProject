@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   // This connects to your server using Socket.io
+  
     var socket = io();
     var form = document.getElementById('form');
     var input = document.getElementById('input');
@@ -25,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo(0, document.body.scrollHeight);
     });
 
+ // Minimize and expand chat window
+
     chatMinimize.addEventListener('click', function() {
         chatContainer.style.display = 'none';
         chatIcon.style.display = 'block';
@@ -39,9 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var chatIcon = document.getElementById('chatIcon');
 
     // Variables to track drag state
-    var dragged = false;
-    var posX = 0, posY = 0, mouseX = 0, mouseY = 0;
-
+     // Variables to track dragging state
+     var isDragging = false;
+     var startX, startY, initialX, initialY;
+ 
     // Listen for the mouse down event
     chatIcon.addEventListener('mousedown', function(e) {
         dragged = true;
@@ -66,4 +70,35 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('mouseup', function() {
         dragged = false;
     });
+
+ // Dragging logic
+    chatIcon.addEventListener('mousedown', function(e) {
+        isDragging = false;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialX = chatIcon.offsetLeft;
+        initialY = chatIcon.offsetTop;
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+        e.preventDefault(); // Prevent default drag behavior
+    });
+
+    function handleMouseMove(e) {
+        var dx = e.clientX - startX;
+        var dy = e.clientY - startY;
+        if (dx !== 0 || dy !== 0) {
+            isDragging = true;
+            chatIcon.style.left = (initialX + dx) + 'px';
+            chatIcon.style.top = (initialY + dy) + 'px';
+        }
+    }
+
+    function handleMouseUp(e) {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        if (!isDragging) {
+            chatContainer.style.display = 'block';
+            chatIcon.style.display = 'none';
+        }
+    }
 });

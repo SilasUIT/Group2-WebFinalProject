@@ -4,5 +4,6 @@ const router = express.Router();
 
 const {catchAsync}=require('../../../apps/utils/catchAsync');
 
-router.get('/home', catchAsync(chatController.getAll));
+router.get('/', catchAsync(chatController.getAll));
+
 module.exports = router;
