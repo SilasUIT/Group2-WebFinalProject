@@ -1,4 +1,3 @@
-<%= data%>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!-- Start Product Detail -->
 	<div class="container pt-4">
@@ -13,6 +12,7 @@
                     <img src="<%= data.image%>" alt="test" class="img-thumbnail" id="mainImage">
 				</div>
 				<div class="imagelist col-12 col-md-2">
+					<img src="<%= data.image%>" alt="test" class="img-thumbnail" onclick="changeImage(this)">
                     <% if(data && data.List && data.List.length > 0) { %>
                         <% for(let i = 0; i < data.List.length; i++) { %>
                                  <img src="<%= data.List[i].Image %>" alt="test" class="img-thumbnail" onclick="changeImage(this)">
@@ -53,7 +53,7 @@
 
 						<div class="px-2 mb-3">
 							<i class="fa-solid fa-location-dot text-primary mr-1"></i>
-							<span><%= data.address[0].street%>,<%= data.address[0].ward%>,<%= data.address[0].district%>,<%= data.address[0].city%></span>
+							<span class="address"><%= data.address[0].street%>,<%= data.address[0].ward%>,<%= data.address[0].district%>,<%= data.address[0].city%></span>
 						</div>
 					</div>
 					<hr>
@@ -299,11 +299,11 @@ const randomProducts = shuffledProducts.slice(0, 3);
 <% randomProducts.forEach((item) => { %>
 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
     <a class="product-item" href="/shop/detail/<%= item._id%>/<%= item.salerID%>%>">
-        <img src="<%= item.image %>" class="img-fluid product-thumbnail">
+        <img src="<%= item.image %>" class="img-fluid product-thumbnail" style="height: 290px; width: 290px;">
         <h3 class="product-title"><%= item.name %></h3>
         <strong class="product-price"><%= item.price %>₫/ 1 ngày</strong>
         <span class="icon-cross">
-            <img src="images/cross.svg" class="img-fluid">
+            <img src="/product/images/cross.svg" class="img-fluid">
         </span>
     </a>
 </div>
@@ -316,5 +316,3 @@ const randomProducts = shuffledProducts.slice(0, 3);
 		</div>
 	</div>
 	<!-- End Product Related -->
-	
-	

@@ -5,7 +5,7 @@
     }
 
     .imagemain {
-        height: 600px;
+        height: 700px;
         overflow: hidden;
     }
 
@@ -22,7 +22,7 @@
 
     .imagelist .img-thumbnail {
         width: 100%;
-        height: 25%;
+        height: 175px;
         cursor: pointer;
         object-fit: cover;
     }
@@ -221,59 +221,60 @@
     }
 
     @media (max-width: 1400px) {
-    .calendar {
-        padding: 15px;
+        .calendar {
+            padding: 15px;
+        }
+
+        .calendar-header {
+            font-size: 20px;
+        }
+
+        .calendar-week-day,
+        .calendar-days {
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-days div {
+            width: 40px;
+            height: 40px;
+        }
+
+        .year-change {
+            height: 30px;
+            width: 30px;
+        }
+
+        .month-list {
+            grid-template-columns: repeat(2, auto);
+        }
     }
 
-    .calendar-header {
-        font-size: 20px;
-    }
+    @media (max-width: 1200px) {
+        .calendar {
+            padding: 10px;
+        }
 
-    .calendar-week-day,
-    .calendar-days {
-        grid-template-columns: repeat(7, 1fr);
-    }
+        .calendar-header {
+            font-size: 18px;
+        }
 
-    .calendar-days div {
-        width: 40px;
-        height: 40px;
-    }
+        .calendar-week-day,
+        .calendar-days {
+            grid-template-columns: repeat(7, 1fr);
+        }
 
-    .year-change {
-        height: 30px;
-        width: 30px;
-    }
+        .calendar-days div {
+            width: 35px;
+            height: 35px;
+        }
 
-    .month-list {
-        grid-template-columns: repeat(2, auto);
-    }
-}
-@media (max-width: 1200px) {
-    .calendar {
-        padding: 10px;
-    }
+        .year-change {
+            height: 25px;
+            width: 25px;
+        }
 
-    .calendar-header {
-        font-size: 18px;
+        .month-list {
+            grid-template-columns: repeat(2, auto);
+        }
     }
-
-    .calendar-week-day,
-    .calendar-days {
-        grid-template-columns: repeat(7, 1fr);
-    }
-
-    .calendar-days div {
-        width: 35px;
-        height: 35px;
-    }
-
-    .year-change {
-        height: 25px;
-        width: 25px;
-    }
-
-    .month-list {
-        grid-template-columns: repeat(2, auto);
-    }
-}
 </style>
