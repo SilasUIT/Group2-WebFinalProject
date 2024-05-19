@@ -30,13 +30,13 @@
                     <div class="card-body p-0">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item active">
-                                <a href="#" class="nav-link">
+                                <a href="/admin/contact" class="nav-link">
                                     <i class="fas fa-inbox"></i> Inbox
                                     <span class="badge bg-primary float-right">12</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/admin/contact/sent" class="nav-link">
                                     <i class="far fa-envelope"></i> Sent
                                 </a>
                             </li>
@@ -65,7 +65,7 @@
                                     Promotions</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="far fa-circle text-primary"></i> Social</a>
+                                <a class="nav-link" href="#"><i class="far fa-circle text-primary"></i> All</a>
                             </li>
                         </ul>
                     </div>
@@ -80,27 +80,29 @@
                         <h1 class="card-title">Compose New Message</h1>
                     </div>
 
+                   <form action="/admin/contact/sent/<%=data._id%>" method="post">
                     <div class="card-body">
                         <div class="form-group">
-                            <input class="form-control" placeholder="To:">
+                            <input class="form-control" placeholder="To:" name="email" value="<%= data.Email%>">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Subject:">
+                            <input class="form-control" placeholder="Subject:" name="subject">
                         </div>
                         <div class="form-group">
-                            <textarea id="compose-textarea" class="form-control" style="height: 300px;"></textarea>
+                            <textarea id="compose-textarea" class="form-control" style="height: 300px;" name="message"></textarea>
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                                <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i>
-                                    Draft</button>
                                 <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i>
                                     Send</button>
                             </div>
+                           <a href="/admin/contact">
                             <button type="reset" class="btn btn-default"><i class="fas fa-times"></i>
                                 Discard</button>
+                           </a>
                         </div>
                     </div>
+                   </form>
                 </div>
             </div>
         </div>

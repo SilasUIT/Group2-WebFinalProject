@@ -5,5 +5,6 @@ const router = express.Router();
 const {catchAsync}=require('../../../apps/utils/catchAsync');
 
 router.get('/', catchAsync(contactController.getAll));
-router.get('/sent',catchAsync(contactController.getForm));
+router.get('/sent/:id',catchAsync(contactController.getForm));
+router.post('/sent/:id',catchAsync(contactController.reply));
 module.exports = router;
