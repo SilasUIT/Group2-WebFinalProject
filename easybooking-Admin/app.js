@@ -33,6 +33,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
 
 app.use(
   flash(app, {

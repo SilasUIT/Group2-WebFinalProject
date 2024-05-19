@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
+const socketIo = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -86,3 +87,23 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+// Socket.io connection setup
+var io = require('socket.io')(server);
+io.on('connection', function(socket) {
+  console.log('A user connected');
+
+  socket.on('join room', (roomId) => {
+    socket.join(roomId);
+    console.log(`User joined room ${roomId}`);
+  });
+
+  socket.on('chat message', (data) => {
+    io.to(data.roomId).emit('chat message', data.msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+});

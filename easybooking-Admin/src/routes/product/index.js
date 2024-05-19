@@ -51,7 +51,8 @@ const routes = [
     { path: '/profile', layout: 'profile', handler: require('./profile') },
     { path: '/shop', layout: 'shop', handler: require('./shop') },
     { path: '/contract', layout: 'contract', handler: require('./contract') },
-    { path: '/least', layout: 'least', handler: require('./least') }
+    { path: '/least', layout: 'least', handler: require('./least') },
+    { path: '/chat',layout: 'chat',handler: require('./chat') },
 ];
 
 routes.forEach(route => {

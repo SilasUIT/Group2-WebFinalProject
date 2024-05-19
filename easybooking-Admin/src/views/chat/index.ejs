@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="/product/css/chat.css">
+</head>
+<body>
+    <div id="chatContainer">
+        <div id="chatMinimize">-</div>
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            Room ID: <input id="roomInput" autocomplete="off"><br>
+            Message: <input id="input" autocomplete="off"><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div id="chatIcon"></div>
+    <link rel="stylesheet" href="/product/css/chat.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/product/js/chat.js"></script>
+</body>
+</html>
