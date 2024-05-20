@@ -94,18 +94,13 @@ class profileController {
   };
 
   cloudinaryImage=async(req,res,next)=>{
-    const { id } = req.user._id;
-    if (!id) {
-        console.log('id not found');
-        return res.redirect(`/profile`);
-    }
     try {
         if (!req.file) {
             console.log('No file uploaded');
             return res.redirect(`/profile`);
         }
         const result = await cloudinary.uploader.upload(req.file.path);
-        await updateuser(id, { avatar: result.secure_url });
+        await updateuser(req.user._id, { avatar: result.secure_url });
         const account = await getuserbyid(req.user._id);
         return res.render('profile', { account });
     } catch (error) {
