@@ -86,8 +86,7 @@
 
                             <div class="form-group">
                                 <label for="birthdate">Ngày sinh:</label>
-                                <input type="Date" id="userinformation[birthday]" name="userinformation[0].birthday"
-                                    value="<%account.userinformation[0].birthday%> ">
+                                <input type="Date" id="userinformation[birthday]" name="userinformation[0].birthday">
                                 <% let birthday=new Date(user.userinformation[0].birthday); let
                                     formattedBirthday=birthday.getFullYear() + '-' + ('0' + (birthday.getMonth() +
                                     1)).slice(-2) + '-' + ('0' + birthday.getDate()).slice(-2); %>
@@ -103,8 +102,7 @@
 
                             <div class="form-group">
                                 <label class="form-label">Ngày cấp: </label>
-                                <input type="Date" id="userinformation[date]" name="userinformation[0].date"
-                                    value="<% account.userinformation[0].date%>">
+                                <input type="Date" id="userinformation[date]" name="userinformation[0].date">
                                 <% let date=new Date(user.userinformation[0].date); let formatteddate=date.getFullYear()
                                     + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' +
                                     date.getDate()).slice(-2); %>
