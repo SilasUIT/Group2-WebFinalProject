@@ -82,7 +82,7 @@
         gap: 2px;
         place-items: center;
         color: #151426;
-
+        align-items: center;
     }
 
     .calendar-days div {
@@ -91,6 +91,7 @@
         display: flex;
         padding: 5px;
         justify-content: center;
+        align-items: center;
         position: relative;
         cursor: pointer;
     }
@@ -110,10 +111,6 @@
         background-color: orange;
         color: white;
         border-radius: 50%;
-    }
-
-    .calendar-days div.curr-date span {
-        display: none;
     }
 
     .month-picker {
@@ -348,5 +345,16 @@
             width: 35px;
             height: 35px;
         }
+    }
+
+    .dot {
+        height: 5px;
+        width: 5px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        bottom: 2px;
+        left: calc(50% - 2.5px);
     }
 </style>
