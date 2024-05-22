@@ -11,7 +11,6 @@ const testimonial=new Schema({
     name:String,
     detail:String,
     comment:String,
-    Image:String,
 });
 const title=new Schema({
     content:String,
@@ -47,8 +46,10 @@ const newSchema=new Schema({
      },
      testimonialtitle:{
        type:String,
+     },
+     testimonialImage:{
+        type:[listImage]
      }
-
 },
 {
     timestamps:true,
