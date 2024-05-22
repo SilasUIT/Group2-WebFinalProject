@@ -8301,6 +8301,12 @@ fieldset:disabled .btn {
     margin-left: 25% !important
 }
 
+@media (max-width: 1200px){
+    .ms-auto{
+        margin-left: 5% !important;
+    }
+}
+
 .p-0 {
     padding: 0 !important
 }

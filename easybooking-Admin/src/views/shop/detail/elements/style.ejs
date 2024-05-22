@@ -66,35 +66,38 @@
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         font-weight: 600;
+
     }
 
     .calendar-week-day div {
         display: grid;
         place-items: center;
         color: #151426;
+
     }
 
     .calendar-days {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         gap: 2px;
+        place-items: center;
         color: #151426;
+
     }
 
     .calendar-days div {
         width: 50px;
         height: 50px;
         display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 5px;
+        justify-content: center;
         position: relative;
         cursor: pointer;
-        animation: to-top 1s forwards;
     }
 
     .calendar-days div span {
         position: absolute;
+
     }
 
     .calendar-days div:hover {
@@ -220,6 +223,32 @@
         pointer-events: none;
     }
 
+
+    .figures-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .figures i {
+        font-size: 18px;
+    }
+
+    .figures span {
+        font-size: 18px;
+    }
+
+    .more-detail {
+        font-size: 18px;
+    }
+
+    .start {
+        font-size: 18px;
+    }
+
+    .comments {
+        font-size: 18px;
+    }
+
     @media (max-width: 1400px) {
         .calendar {
             padding: 15px;
@@ -261,6 +290,7 @@
         .calendar-week-day,
         .calendar-days {
             grid-template-columns: repeat(7, 1fr);
+            font-size: 12px;
         }
 
         .calendar-days div {
@@ -275,6 +305,48 @@
 
         .month-list {
             grid-template-columns: repeat(2, auto);
+        }
+
+        .figures {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .imagemain {
+            height: 500px;
+        }
+
+        .imagelist .img-thumbnail {
+            height: 125px;
+        }
+
+        .calendar-header {
+            font-size: 25px;
+        }
+
+        .calendar-week-day,
+        .calendar-days {
+            grid-template-columns: repeat(7, 1fr);
+            font-size: 18px;
+        }
+
+        .calendar-days div {
+            width: 50px;
+            height: 50px;
+        }
+
+        .year-change {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    @media (max-width: 500px){
+        .calendar-days div {
+            font-size: 12px;
+            width: 35px;
+            height: 35px;
         }
     }
 </style>
