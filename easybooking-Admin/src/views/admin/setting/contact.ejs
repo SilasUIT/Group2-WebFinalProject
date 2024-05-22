@@ -1,119 +1,42 @@
 <section class="content">
-    <style>
-      .image-container img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    </style>
-  
-    <div class="row">
-      <div class="col-md-6">
-        <!-- Form 1: Hero Section -->
-        <form autocapitalize="true">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Hero Section</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
+  <style>
+    .image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
 
-              <div class="card-body">
-    
-                <div class="form-group">
-                    <label for="HeroTitle">Hero Title</label>
-                    <input name="HeroTitle" id="HeroTitle" class="form-control" rows="4" value="title"></input>
-                </div>
-
-                <div class="form-group">
-                    <label for="HeroContent">Hero Content</label>
-                    <textarea name="HeroContent" id="HeroContent" class="form-control" rows="4">title</textarea>
-                </div>
-
-                <div>
-                    <div class="form-group">
-                        <label for="HeroImage">Upload Hero Image</label>
-                        <input type="file" id="HeroImage" name="HeroImage" class="form-control-file" onchange="previewImage(event)">
-                    </div>
-                    
-                    <div id="imagePreview" style="margin-top: 10px;">
-                    </div>
-                    
-                    <script>
-                    function previewImage(event) {
-                        var reader = new FileReader();
-                        reader.onload = function() {
-                            var output = document.getElementById('imagePreview');
-                            output.innerHTML = '<img src="' + reader.result + '" alt="Hero Image" style="max-width: 100%; height: auto;"/>';
-                        }
-                        reader.readAsDataURL(event.target.files[0]);
-                    }
-                    </script>
-                </div>
-    
-              </div>
-            </div>
-        </form>
-
-        <!-- Form 2: Contact Section -->
-        <form autocapitalize="true">
-            <div class="card card-primary">
-              <div class="card-header" style="background-color: chocolate">
-                <h3 class="card-title">Contact Section</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="card-body">
-                <div class="form-group">
-                    <label for="Address">Address</label>
-                    <textarea name="Address" id="Address" class="form-control" rows="4">title</textarea>
-                </div><hr>
-
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input name="Email" id="Email" class="form-control" rows="4" value="title"></input>
-                </div>
-
-                <div class="form-group">
-                    <label for="Phone">Phone Number</label>
-                    <input name="Phone" id="Phone" class="form-control" rows="4" value="title"></input>
-                </div>
-
-                </div>
-            </div>
-        </form>
-
-        <a href="#"> <button type="button" class="btn btn-primary float-right">Update</button></a>
-      </div>
-  
-      <div class="col-md-6">
-        <!-- Form 3: Hero Image Upload -->
-        <form autocapitalize="true">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Hero Image Upload</h3>
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="card-body">
-              <label>Hero Image</label>
-              <div class="image-container">
-                <img src="/product/images/product-1.png" class="img-fluid">
-              </div>
+<div class="row">
+  <div class="col-md-6">
+    <!-- Form 1: Hero Section -->
+    <form action="/admin/setting/updatehero/contact" autocapitalize="true" method="post">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Hero Section</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
-  </section>
+
+          <div class="card-body">
+
+            <div class="form-group">
+                <label for="HeroTitle">Hero Title</label>
+                <input name="hero[title]" id="HeroTitle" class="form-control" rows="4" value="<%= data.hero[3].title%>" ></input>
+            </div>
+
+            <div class="form-group">
+                <label for="HeroContent">Hero Content</label>
+                <textarea name="hero[content]" id="HeroContent" class="form-control" rows="4">value="<%= data.hero[3].content%>"</textarea>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary float-right">Update</button>
+        </div>
+    </form>
+</div>
+</div>
+</section>
