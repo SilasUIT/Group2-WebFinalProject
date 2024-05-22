@@ -5,4 +5,6 @@ const router = express.Router();
 const {catchAsync}=require('../../../apps/utils/catchAsync');
 
 router.get('/', catchAsync(blogController.getAll));
+router.get('/blognew', catchAsync(blogController.getForm));
+router.get('/blogdetail', catchAsync(blogController.getDetail));
 module.exports = router;

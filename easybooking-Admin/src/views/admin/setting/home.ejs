@@ -8,9 +8,10 @@
     </style>
   
     <div class="row">
+     <!-- <form action="/setting/addsettings" method="post"> -->
       <div class="col-md-6">
         <!-- Form 1: Hero Section -->
-        <form autocapitalize="true">
+        <form action="/setting/addsettings" method="post" autocapitalize="true">
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Hero Section</h3>
@@ -25,18 +26,18 @@
     
                 <div class="form-group">
                     <label for="HeroTitle">Hero Title</label>
-                    <input name="HeroTitle" id="HeroTitle" class="form-control" rows="4" value="title"></input>
+                    <input name="hero[title]" id="HeroTitle" class="form-control" rows="4" value="title"></input>
                 </div>
 
                 <div class="form-group">
                     <label for="HeroContent">Hero Content</label>
-                    <textarea name="HeroContent" id="HeroContent" class="form-control" rows="4">title</textarea>
+                    <textarea name="hero[content]" id="HeroContent" class="form-control" rows="4">title</textarea>
                 </div>
 
                 <div>
                     <div class="form-group">
                         <label for="HeroImage">Upload Hero Image</label>
-                        <input type="file" id="HeroImage" name="HeroImage" class="form-control-file" onchange="previewImage(event)">
+                        <input type="file" id="HeroImage" name="heroimage" class="form-control-file" onchange="previewImage(event)">
                     </div>
                     
                     <div id="imagePreview" style="margin-top: 10px;">
@@ -55,118 +56,12 @@
                 </div>
     
               </div>
+              <button type="submit" class="btn btn-primary float-right">Update</button>
             </div>
-        </form>
-  
+  </form>
         <!-- Form 2: Product Section -->
-        <form autocapitalize="true">
-          <div class="card card-primary">
-            <div class="card-header" style="background-color: yellowgreen">
-              <h3 class="card-title">Product Section</h3>
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="ProductTitle">Product Title</label>
-                    <input name="ProductTitle" id="ProductTitle" class="form-control" rows="4" value="title"></input>
-                </div>
-
-                <div class="form-group">
-                    <label for="ProductContent">Product Content</label>
-                    <textarea name="ProductContent" id="ProductContent" class="form-control" rows="4" >title</textarea>
-                </div><hr>
-
-                <div class="form-group">
-                    <div class="Product1">
-                        <label style="font-size: larger; margin-bottom: 20px;">Product 1</label><br>
-
-                        <label for="Product1Name">Product Name</label>
-                        <input name="Product1Name" id="Product1Name" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product1Price" style="margin-top: 10px;">Product Price</label>
-                        <input name="Product1Price" id="Product1Price" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product1Image" style="margin-top: 10px;">Upload Product 1 Image</label>
-                        <input type="file" id="Product1Image" name="Product1Image" class="form-control-file" onchange="previewImage1(event)">
-                        <div id="imagePreview1" style="margin-top: 10px;"></div>
-
-                        <script>
-                            function previewImage1(event) {
-                                var reader = new FileReader();
-                                reader.onload = function() {
-                                    var output = document.getElementById('imagePreview1');
-                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                }
-                                reader.readAsDataURL(event.target.files[0]);
-                            }
-                        </script>
-                    </div>
-                </div><hr>
-
-                <div class="form-group">
-                    <div class="Product2">
-                        <label style="font-size: larger; margin-bottom: 20px;">Product 2</label><br>
-
-                        <label for="Product2Name">Product Name</label>
-                        <input name="Product2Name" id="Product2Name" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product2Price" style="margin-top: 10px;">Product Price</label>
-                        <input name="Product2Price" id="Product2Price" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product2Image" style="margin-top: 10px;">Upload Product 2 Image</label>
-                        <input type="file" id="Product2Image" name="Product2Image" class="form-control-file" onchange="previewImage2(event)">
-                        <div id="imagePreview2" style="margin-top: 10px;"></div>
-
-                        <script>
-                            function previewImage2(event) {
-                                var reader = new FileReader();
-                                reader.onload = function() {
-                                    var output = document.getElementById('imagePreview2');
-                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 2 Image" style="max-width: 100%; height: auto;"/>';
-                                }
-                                reader.readAsDataURL(event.target.files[0]);
-                            }
-                        </script>
-                    </div>
-                </div><hr>
-
-                <div class="form-group">
-                    <div class="Product3">
-                        <label style="font-size: larger; margin-bottom: 20px;">Product 3</label><br>
-
-                        <label for="Product3Name">Product Name</label>
-                        <input name="Product3Name" id="Product3Name" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product3Price" style="margin-top: 10px;">Product Price</label>
-                        <input name="Product3Price" id="Product3Price" class="form-control" rows="4" value="name"></input>
-
-                        <label for="Product3Image" style="margin-top: 10px;">Upload Product 3 Image</label>
-                        <input type="file" id="Product3Image" name="Product3Image" class="form-control-file" onchange="previewImage3(event)">
-                        <div id="imagePreview3" style="margin-top: 10px;"></div>
-
-                        <script>
-                            function previewImage3(event) {
-                                var reader = new FileReader();
-                                reader.onload = function() {
-                                    var output = document.getElementById('imagePreview3');
-                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 3 Image" style="max-width: 100%; height: auto;"/>';
-                                }
-                                reader.readAsDataURL(event.target.files[0]);
-                            }
-                        </script>
-                    </div>
-                </div>
-  
-            </div>
-          </div>
-        </form>
-
         <!-- Form 3: Why Choose Section -->
-        <form autocapitalize="true">
+        <form action="/setting/addsettings" method="post" autocapitalize="true">
             <div class="card card-primary">
               <div class="card-header" style="background-color: chocolate">
                 <h3 class="card-title">Why Choose Section</h3>
@@ -181,41 +76,41 @@
     
                 <div class="form-group">
                     <label for="WhyChooseTitle">Why Choose Title</label>
-                    <input name="WhyChooseTitle" id="WhyChooseTitle" class="form-control" rows="4" value="title"></input>
+                    <input name="whychoose[0][title]" id="WhyChooseTitle" class="form-control" rows="4" value="title"></input>
                 </div>
 
                 <div class="form-group">
                     <label for="WhyChooseContent">Why Choose Content</label>
-                    <textarea name="WhyChooseContent" id="WhyChooseContent" class="form-control" rows="4">title</textarea>
+                    <textarea name="whychoose[0][content]" id="WhyChooseContent" class="form-control" rows="4">title</textarea>
                 </div><hr>
 
                 <div class="form-group">
                     <label for="WhyChoose1">Why Choose 1</label>
-                    <input name="WhyChoose1" id="WhyChoose1" class="form-control" rows="4" value="title"></input>
+                    <input name="whychoose[1][title]" id="WhyChoose1" class="form-control" rows="4" value="title"></input>
 
                     <label for="WhyChoose1Content" style="margin-top: 10px;">Why Choose 1 Content</label>
-                    <textarea name="WhyChoose1Content" id="WhyChoose1Content" class="form-control" rows="4">title</textarea>
+                    <textarea name="whychoose[1][content]" id="WhyChoose1Content" class="form-control" rows="4">title</textarea>
                 </div><hr>
 
                 <div class="form-group">
                     <label for="WhyChoose2">Why Choose 2</label>
-                    <input name="WhyChoose2" id="WhyChoose2" class="form-control" rows="4" value="title"></input>
+                    <input name="WhyChoose[2][title]" id="WhyChoose2" class="form-control" rows="4" value="title"></input>
 
                     <label for="WhyChoose2Content" style="margin-top: 10px;">Why Choose 2 Content</label>
-                    <textarea name="WhyChoose2Content" id="WhyChoose2Content" class="form-control" rows="4">title</textarea>    
+                    <textarea name="WhyChoose[2][content]" id="WhyChoose2Content" class="form-control" rows="4">title</textarea>    
                 </div><hr>
 
                 <div class="form-group">
                     <label for="WhyChoose3">Why Choose 3</label>
-                    <input name="WhyChoose3" id="WhyChoose3" class="form-control" rows="4" value="title"></input>
+                    <input name="WhyChoose[3][title]" id="WhyChoose3" class="form-control" rows="4" value="title"></input>
 
                     <label for="WhyChoose3Content" style="margin-top: 10px;">Why Choose 3 Content</label>
-                    <textarea name="WhyChoose3Content" id="WhyChoose3Content" class="form-control" rows="4">title</textarea>
+                    <textarea name="WhyChoose[3][content]" id="WhyChoose3Content" class="form-control" rows="4">title</textarea>
                 </div><hr>
                     
                     <div class="form-group">
                         <label for="WhyChooseImage">Upload Why Choose Image</label>
-                        <input type="file" id="WhyChooseImage" name="WhyChooseImage" class="form-control-file" onchange="previewImage4(event)">
+                        <input type="file" id="WhyChooseImage" name="whychooseimage" class="form-control-file" onchange="previewImage4(event)">
                     </div>
                     
                     <div id="imagePreview4" style="margin-top: 10px;">
@@ -232,11 +127,11 @@
                     }
                     </script>
                 </div>
+                <button type="submit" class="btn btn-primary float-right">Update</button>
             </div>
-        </form>
-
+</form>
         <!-- Form 4: Why Help Section -->
-        <form autocapitalize="true">
+        <form action="/setting/addsettings" method="post" autocapitalize="true">
             <div class="card card-primary">
               <div class="card-header" style="background-color: blueviolet;">
                 <h3 class="card-title">We Help Section</h3>
@@ -251,32 +146,32 @@
     
                 <div class="form-group">
                     <label for="WeHelpTitle">We Help Title</label>
-                    <input name="WeHelpTitle" id="WeHelpTitle" class="form-control" rows="4" value="title"></input>
+                    <input name="helpObject[title]" id="WeHelpTitle" class="form-control" rows="4" value="title"></input>
                 </div>
 
                 <div class="form-group">
                     <label for="WeHelpContent">We Help Content</label>
-                    <textarea name="WeHelpContent" id="WeHelpContent" class="form-control" rows="4">title</textarea>
+                    <textarea name="helpObject[content]" id="WeHelpContent" class="form-control" rows="4">title</textarea>
                 </div><hr>
 
                 <div class="form-group">
                     <label style="font-size: large;">We Help Detail</label><br>
 
                     <label for="WeHelp1">We Help 1</label>
-                    <input name="WeHelp1" id="WeHelp1" class="form-control" rows="4" value="title"></input>
+                    <input name="helpDetails[0][content]" id="WeHelp1" class="form-control" rows="4" value="title"></input>
 
                     <label for="WeHelp2" style="margin-top: 10px;">We Help 2</label>
-                    <input name="WeHelp2" id="WeHelp2" class="form-control" rows="4" value="title"></input>
+                    <input name="helpDetails[1][content]" id="WeHelp2" class="form-control" rows="4" value="title"></input>
 
                     <label for="WeHelp3" style="margin-top: 10px;">We Help 3</label>
-                    <input name="WeHelp3" id="WeHelp3" class="form-control" rows="4" value="title"></input>
+                    <input name="helpDetails[2][content]" id="WeHelp3" class="form-control" rows="4" value="title"></input>
                 </div><hr>
 
                 <div class="form-group">
                     <label style="font-size: large;">We Help Image</label><br>
 
                     <label for="WheHelpImage1">Upload We Help Image 1</label>
-                    <input type="file" id="WheHelpImage1" name="WheHelpImage1" class="form-control-file" onchange="previewImage5(event)">
+                    <input type="file" id="WheHelpImage1" name="helpImage[0][Image]" class="form-control-file" onchange="previewImage5(event)">
                     <div id="imagePreview5" style="margin-top: 10px;"></div>
                     <script>
                         function previewImage5(event) {
@@ -290,7 +185,7 @@
                     </script>
 
                     <label for="WheHelpImage2" style="margin-top: 10px;">Upload We Help Image 2</label>
-                    <input type="file" id="WheHelpImage2" name="WheHelpImage2" class="form-control-file" onchange="previewImage6(event)">
+                    <input type="file" id="WheHelpImage2" name="helpImage[1][Image]" class="form-control-file" onchange="previewImage6(event)">
                     <div id="imagePreview6" style="margin-top: 10px;"></div>
                     <script>
                         function previewImage6(event) {
@@ -304,7 +199,7 @@
                     </script>
 
                     <label for="WheHelpImage3" style="margin-top: 10px;">Upload We Help Image 3</label>
-                    <input type="file" id="WheHelpImage3" name="WheHelpImage3" class="form-control-file" onchange="previewImage7(event)">
+                    <input type="file" id="WheHelpImage3" name="helpImage[2][Image]" class="form-control-file" onchange="previewImage7(event)">
                     <div id="imagePreview7" style="margin-top: 10px;"></div>
                     <script>
                         function previewImage7(event) {
@@ -318,107 +213,13 @@
                     </script>
                 </div>    
               </div>
+              <button type="submit" class="btn btn-primary float-right">Update</button>
             </div>
         </form>
-
         <!-- Form 5: Popular Product Section -->
-        <form autocapitalize="true">
-            <div class="card card-primary">
-              <div class="card-header" style="background-color: #3b5d50">
-                <h3 class="card-title">Popular Product Section</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                  <div class="form-group">
-                      <div class="PopularProduct1">
-                          <label style="font-size: larger; margin-bottom: 20px;">Popular Product 1</label><br>
-  
-                          <label for="PopularProduct1Name">Name</label>
-                          <input name="PopularProduct1Name" id="PopularProduct1Name" class="form-control" rows="4" value="name"></input>
-  
-                          <label for="PopularProduct1Detail" style="margin-top: 10px;">Detail</label>
-                          <input name="PopularProduct1Detail" id="PopularProduct1Detail" class="form-control" rows="4" value="name"></input>
-  
-                          <label for="PopularProduct1Image" style="margin-top: 10px;">Upload Product Image</label>
-                          <input type="file" id="Product1Image" name="Product1Image" class="form-control-file" onchange="previewImage8(event)">
-                          <div id="imagePreview8" style="margin-top: 10px;"></div>
-  
-                          <script>
-                              function previewImage8(event) {
-                                  var reader = new FileReader();
-                                  reader.onload = function() {
-                                      var output = document.getElementById('imagePreview8');
-                                      output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                  }
-                                  reader.readAsDataURL(event.target.files[0]);
-                              }
-                          </script>
-                      </div>
-                  </div><hr>
-  
-                  <div class="form-group">
-                        <div class="PopularProduct2">
-                            <label style="font-size: larger; margin-bottom: 20px;">Popular Product 2</label><br>
-    
-                            <label for="PopularProduct2Name">Name</label>
-                            <input name="PopularProduct2Name" id="PopularProduct2Name" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="PopularProduct2Detail" style="margin-top: 10px;">Detail</label>
-                            <input name="PopularProduct2Detail" id="PopularProduct2Detail" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="PopularProduct2Image" style="margin-top: 10px;">Upload Product Image</label>
-                            <input type="file" id="Product2Image" name="Product2Image" class="form-control-file" onchange="previewImage9(event)">
-                            <div id="imagePreview9" style="margin-top: 10px;"></div>
-    
-                            <script>
-                                function previewImage9(event) {
-                                    var reader = new FileReader();
-                                    reader.onload = function() {
-                                        var output = document.getElementById('imagePreview9');
-                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                    }
-                                    reader.readAsDataURL(event.target.files[0]);
-                                }
-                            </script>
-                        </div>
-                  </div><hr>
-
-                <div class="form-group">
-                    <div class="PopularProduct3">
-                        <label style="font-size: larger; margin-bottom: 20px;">Popular Product 3</label><br>
-
-                        <label for="PopularProduct3Name">Name</label>
-                        <input name="PopularProduct3Name" id="PopularProduct3Name" class="form-control" rows="4" value="name"></input>
-
-                        <label for="PopularProduct3Detail" style="margin-top: 10px;">Detail</label>
-                        <input name="PopularProduct3Detail" id="PopularProduct3Detail" class="form-control" rows="4" value="name"></input>
-
-                        <label for="PopularProduct3Image" style="margin-top: 10px;">Upload Product Image</label>
-                        <input type="file" id="Product3Image" name="Product3Image" class="form-control-file" onchange="previewImage10(event)">
-                        <div id="imagePreview10" style="margin-top: 10px;"></div>
-
-                        <script>
-                            function previewImage10(event) {
-                                var reader = new FileReader();
-                                reader.onload = function() {
-                                    var output = document.getElementById('imagePreview10');
-                                    output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                }
-                                reader.readAsDataURL(event.target.files[0]);
-                            }
-                        </script>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </form>
 
         <!-- Form 6: Testimonial Section -->
-        <form autocapitalize="true">
+        <form action="/setting/addsettings" method="post" autocapitalize="true">
             <div class="card card-primary">
               <div class="card-header" style="background-color: #eeb360">
                 <h3 class="card-title">Testimonial Section</h3>
@@ -431,7 +232,7 @@
               <div class="card-body">
                 <div class="form-group">
                     <label for="TestimonialTitle">Testimonial Title</label>
-                    <input name="TestimonialTitle" id="TestimonialTitle" class="form-control" rows="4" value="title"></input>
+                    <input name="testimonialtitle" id="TestimonialTitle" class="form-control" rows="4" value="title"></input>
                 </div><hr>
 
                   <div class="form-group">
@@ -439,16 +240,16 @@
                           <label style="font-size: larger; margin-bottom: 20px;">Testimonial 1</label><br>
   
                           <label for="Testimonial1Name">Name</label>
-                          <input name="Testimonial1Name" id="Testimonial1Name" class="form-control" rows="4" value="name"></input>
+                          <input name="testimonial[0][name]" id="Testimonial1Name" class="form-control" rows="4" value="name"></input>
   
                           <label for="Testimonial1Detail" style="margin-top: 10px;">Detail</label>
-                          <input name="Testimonial1Detail" id="Testimonial1Detail" class="form-control" rows="4" value="name"></input>
+                          <input name="testimonial[0][detail]" id="Testimonial1Detail" class="form-control" rows="4" value="name"></input>
 
                           <label for="Testimonial1Comment" style="margin-top: 10px;">Comment</label>
-                          <input name="Testimonial1Comment" id="Testimonial1Comment" class="form-control" rows="4" value="name"></input>
+                          <input name="testimonial[0][comment]" id="Testimonial1Comment" class="form-control" rows="4" value="name"></input>
   
                           <label for="Testimonial1Image" style="margin-top: 10px;">Upload Image</label>
-                          <input type="file" id="Testimonial1Image" name="Testimonial1Image" class="form-control-file" onchange="previewImage11(event)">
+                          <input type="file" id="Testimonial1Image" name="testimonial[0][Image]" class="form-control-file" onchange="previewImage11(event)">
                           <div id="imagePreview11" style="margin-top: 10px;"></div>
   
                           <script>
@@ -469,16 +270,16 @@
                             <label style="font-size: larger; margin-bottom: 20px;">Testimonial 2</label><br>
     
                             <label for="Testimonial2Name">Name</label>
-                            <input name="Testimonial2Name" id="Testimonial2Name" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[1][name]" id="Testimonial2Name" class="form-control" rows="4" value="name"></input>
     
                             <label for="Testimonial2Detail" style="margin-top: 10px;">Detail</label>
-                            <input name="Testimonial2Detail" id="Testimonial2Detail" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[1][detail]" id="Testimonial2Detail" class="form-control" rows="4" value="name"></input>
 
                             <label for="Testimonial2Comment" style="margin-top: 10px;">Comment</label>
-                            <input name="Testimonial2Comment" id="Testimonial2Comment" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[1][comment]" id="Testimonial2Comment" class="form-control" rows="4" value="name"></input>
     
                             <label for="Testimonial2Image" style="margin-top: 10px;">Upload Image</label>
-                            <input type="file" id="Testimonial2Image" name="Testimonial2Image" class="form-control-file" onchange="previewImage12(event)">
+                            <input type="file" id="Testimonial2Image" name="testimonial[1][Image]" class="form-control-file" onchange="previewImage12(event)">
                             <div id="imagePreview12" style="margin-top: 10px;"></div>
     
                             <script>
@@ -499,16 +300,16 @@
                             <label style="font-size: larger; margin-bottom: 20px;">Testimonial 3</label><br>
     
                             <label for="Testimonial3Name">Name</label>
-                            <input name="Testimonial3Name" id="Testimonial3Name" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[2][name]" id="Testimonial3Name" class="form-control" rows="4" value="name"></input>
     
                             <label for="Testimonial3Detail" style="margin-top: 10px;">Detail</label>
-                            <input name="Testimonial3Detail" id="Testimonial3Detail" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[2][detail]" id="Testimonial3Detail" class="form-control" rows="4" value="name"></input>
 
                             <label for="Testimonial3Comment" style="margin-top: 10px;">Comment</label>
-                            <input name="Testimonial3Comment" id="Testimonial3Comment" class="form-control" rows="4" value="name"></input>
+                            <input name="testimonial[2][comment]" id="Testimonial3Comment" class="form-control" rows="4" value="name"></input>
     
                             <label for="Testimonial3Image" style="margin-top: 10px;">Upload Image</label>
-                            <input type="file" id="Testimonial3Image" name="Testimonial3Image" class="form-control-file" onchange="previewImage13(event)">
+                            <input type="file" id="Testimonial3Image" name="testimonial[2][Image]" class="form-control-file" onchange="previewImage13(event)">
                             <div id="imagePreview13" style="margin-top: 10px;"></div>
     
                             <script>
@@ -529,16 +330,16 @@
                         <label style="font-size: larger; margin-bottom: 20px;">Testimonial 4</label><br>
   
                         <label for="Testimonial4Name">Name</label>
-                        <input name="Testimonial4Name" id="Testimonial4Name" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[3][name]" id="Testimonial4Name" class="form-control" rows="4" value="name"></input>
   
                         <label for="Testimonial4Detail" style="margin-top: 10px;">Detail</label>
-                        <input name="Testimonial4Detail" id="Testimonial4Detail" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[3][detail]" id="Testimonial4Detail" class="form-control" rows="4" value="name"></input>
 
                         <label for="Testimonial4Comment" style="margin-top: 10px;">Comment</label>
-                        <input name="Testimonial4Comment" id="Testimonial4Comment" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[3][comment]" id="Testimonial4Comment" class="form-control" rows="4" value="name"></input>
   
                         <label for="Testimonial4Image" style="margin-top: 10px;">Upload Image</label>
-                        <input type="file" id="Testimonial4Image" name="Testimonial4Image" class="form-control-file" onchange="previewImage17(event)">
+                        <input type="file" id="Testimonial4Image" name="testimonial[3][Image]" class="form-control-file" onchange="previewImage17(event)">
                         <div id="imagePreview17" style="margin-top: 10px;"></div>
   
                         <script>
@@ -559,16 +360,16 @@
                         <label style="font-size: larger; margin-bottom: 20px;">Testimonial 5</label><br>
   
                         <label for="Testimonial5Name">Name</label>
-                        <input name="Testimonial5Name" id="Testimonial5Name" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[4][name]" id="Testimonial5Name" class="form-control" rows="4" value="name"></input>
   
                         <label for="Testimonial5Detail" style="margin-top: 10px;">Detail</label>
-                        <input name="Testimonial5Detail" id="Testimonial5Detail" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[4][detail]" id="Testimonial5Detail" class="form-control" rows="4" value="name"></input>
 
                         <label for="Testimonial5Comment" style="margin-top: 10px;">Comment</label>
-                        <input name="Testimonial5Comment" id="Testimonial5Comment" class="form-control" rows="4" value="name"></input>
+                        <input name="testimonial[4][comment]" id="Testimonial5Comment" class="form-control" rows="4" value="name"></input>
   
                         <label for="Testimonial5Image" style="margin-top: 10px;">Upload Image</label>
-                        <input type="file" id="Testimonial5Image" name="Testimonial5Image" class="form-control-file" onchange="previewImage18(event)">
+                        <input type="file" id="Testimonial5Image" name="testimonial[4][Image]" class="form-control-file" onchange="previewImage18(event)">
                         <div id="imagePreview18" style="margin-top: 10px;"></div>
   
                         <script>
@@ -585,116 +386,15 @@
                   </div>
 
               </div>
+              <button type="submit" class="btn btn-primary float-right">Update</button>
             </div>
         </form>
-
         <!-- Form 7: Blog Section -->
-        <form autocapitalize="true">
-            <div class="card card-primary">
-              <div class="card-header" style="background-color: #d99080">
-                <h3 class="card-title">Blog Section</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="form-group">
-                    <label for="BlogTitle">Blog Title</label>
-                    <input name="BlogTitle" id="BlogTitle" class="form-control" rows="4" value="title"></input>
-                </div><hr>
-
-                  <div class="form-group">
-                      <div class="Blog1">
-                          <label style="font-size: larger; margin-bottom: 20px;">Blog 1</label><br>
-  
-                          <label for="Blog1Name">Name</label>
-                          <input name="Blog1Name" id="Blog1Name" class="form-control" rows="4" value="name"></input>
-  
-                          <label for="Blog1Content" style="margin-top: 10px;">Content</label>
-                          <input name="Blog1Content" id="Blog1Content" class="form-control" rows="4" value="name"></input>
-  
-                          <label for="Testimonial1Image" style="margin-top: 10px;">Upload Image</label>
-                          <input type="file" id="Testimonial1Image" name="Testimonial1Image" class="form-control-file" onchange="previewImage14(event)">
-                          <div id="imagePreview14" style="margin-top: 10px;"></div>
-  
-                          <script>
-                              function previewImage14(event) {
-                                  var reader = new FileReader();
-                                  reader.onload = function() {
-                                      var output = document.getElementById('imagePreview14');
-                                      output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                  }
-                                  reader.readAsDataURL(event.target.files[0]);
-                              }
-                          </script>
-                      </div>
-                  </div><hr>
-  
-                    <div class="form-group">
-                        <div class="Blog2">
-                            <label style="font-size: larger; margin-bottom: 20px;">Blog 2</label><br>
-    
-                            <label for="Blog2Name">Name</label>
-                            <input name="Blog2Name" id="Blog2Name" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="Blog2Content" style="margin-top: 10px;">Content</label>
-                            <input name="Blog2Content" id="Blog2Content" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="Testimonial2Image" style="margin-top: 10px;">Upload Image</label>
-                            <input type="file" id="Testimonial2Image" name="Testimonial2Image" class="form-control-file" onchange="previewImage15(event)">
-                            <div id="imagePreview15" style="margin-top: 10px;"></div>
-    
-                            <script>
-                                function previewImage15(event) {
-                                    var reader = new FileReader();
-                                    reader.onload = function() {
-                                        var output = document.getElementById('imagePreview15');
-                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                    }
-                                    reader.readAsDataURL(event.target.files[0]);
-                                }
-                            </script>
-                        </div>
-                    </div><hr>
-
-                    <div class="form-group">
-                        <div class="Blog3">
-                            <label style="font-size: larger; margin-bottom: 20px;">Blog 3</label><br>
-    
-                            <label for="Blog3Name">Name</label>
-                            <input name="Blog3Name" id="Blog3Name" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="Blog3Content" style="margin-top: 10px;">Content</label>
-                            <input name="Blog3Content" id="Blog3Content" class="form-control" rows="4" value="name"></input>
-    
-                            <label for="Testimonial3Image" style="margin-top: 10px;">Upload Image</label>
-                            <input type="file" id="Testimonial3Image" name="Testimonial3Image" class="form-control-file" onchange="previewImage16(event)">
-                            <div id="imagePreview16" style="margin-top: 10px;"></div>
-    
-                            <script>
-                                function previewImage16(event) {
-                                    var reader = new FileReader();
-                                    reader.onload = function() {
-                                        var output = document.getElementById('imagePreview16');
-                                        output.innerHTML = '<img src="' + reader.result + '" alt="Product 1 Image" style="max-width: 100%; height: auto;"/>';
-                                    }
-                                    reader.readAsDataURL(event.target.files[0]);
-                                }
-                            </script>
-                        </div>
-                    </div>
-              </div>
-            </div>
-        </form>
-
-        <a href="#"> <button type="button" class="btn btn-primary float-right">Update</button></a>
       </div>
+     <!-- </form> -->
   
       <div class="col-md-6">
         <!-- Form 8: Hero Image Upload -->
-        <form autocapitalize="true">
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Hero Image Upload</h3>
@@ -712,41 +412,9 @@
               </div>
             </div>
           </div>
-        </form>
 
         <!-- Form 9: Product Image Upload -->
-        <form autocapitalize="true">
-          <div class="card card-primary">
-            <div class="card-header" style="background-color: yellowgreen;">
-              <h3 class="card-title">Product Image Upload</h3>
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
-            </div>
-
-            <div class="card-body">
-                <label>Product 1</label>
-                <div class="image-container">
-                    <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715754914/cpjagrervwpxuhdtrwf5.png" class="img-fluid">
-                </div><hr>
-
-                <label>Product 2</label>
-                <div class="image-container">
-                  <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715658463/rp01qtkbofxikmfghz9v.jpg" class="img-fluid">
-                </div><hr>
-
-                <label>Product 3</label>
-                <div class="image-container">
-                  <img src="https://res.cloudinary.com/dbonwxmgl/image/upload/v1715756610/puo1y7brwe4ikcfuyt37.jpg" class="img-fluid"> 
-                </div>
-            </div>
-          </div>
-        </form>
-
         <!-- Form 10: Why Choose Image Upload -->
-        <form autocapitalize="true">
             <div class="card card-primary">
               <div class="card-header" style="background-color: chocolate;">
                 <h3 class="card-title">Why Choose Image Upload</h3>
@@ -764,10 +432,8 @@
                   </div>
               </div>
             </div>
-        </form>
 
         <!-- Form 11: We Help Image Upload -->
-        <form autocapitalize="true">
                 <div class="card card-primary">
                   <div class="card-header" style="background-color: blueviolet;">
                     <h3 class="card-title">We Help Image Upload</h3>
@@ -795,41 +461,10 @@
                       </div>
                   </div>
                 </div>
-        </form>
 
         <!-- Form 12: Popular Product Image Upload -->
-        <form autocapitalize="true">
-                    <div class="card card-primary">
-                      <div class="card-header" style="background-color: #3b5d50;">
-                        <h3 class="card-title">Popular Product Image Upload</h3>
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                          </button>
-                        </div>
-                      </div>
-
-                        <div class="card-body">
-                        <label>Popular Product Image 1</label>
-                        <div class="image-container">
-                            <img src="/product/images/product-2.png" class="img-fluid">
-                        </div><hr>
-  
-                        <label>Popular Product Image 2</label>
-                        <div class="image-container">
-                            <img src="/product/images/product-3.png" class="img-fluid">
-                        </div><hr>
-  
-                        <label>Popular Product Image 3</label>
-                        <div class="image-container">
-                            <img src="/product/images/product-4.png" class="img-fluid">
-                        </div>
-                        </div>
-                    </div>
-        </form>
 
         <!-- Form 13: Testimonial Image Upload -->
-        <form autocapitalize="true">
                     <div class="card card-primary">
                       <div class="card-header" style="background-color: #eeb360">
                         <h3 class="card-title">Testimonial Image Upload</h3>
@@ -867,38 +502,8 @@
                         </div>
                     </div>
                 </div>
-        </form>
 
         <!-- Form 14: Blog Image Upload -->
-        <form autocapitalize="true">
-                    <div class="card card-primary">
-                        <div class="card-header" style="background-color: #d99080">
-                            <h3 class="card-title">Blog Image Upload</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                      <div class="card-body">
-                        <label>Blog Image 1</label>
-                        <div class="image-container">
-                            <img src="/product/images/test4.jpg" class="img-fluid">
-                        </div><hr>
-
-                        <label>Blog Image 2</label>
-                        <div class="image-container">
-                            <img src="/product/images/test5.jpg" class="img-fluid">
-                        </div><hr>
-
-                        <label>Blog Image 3</label>
-                        <div class="image-container">
-                            <img src="/product/images/test6.jpg" class="img-fluid">
-                        </div>
-                      </div>
-                  </div>
-        </form>
       </div>
     </div>
   </section>

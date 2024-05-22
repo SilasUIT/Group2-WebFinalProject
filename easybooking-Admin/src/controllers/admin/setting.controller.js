@@ -38,6 +38,7 @@ class settingcontroller{
       }
       addOrUpdateItem = async (req, res) => {
         console.log(req.body);
+       return;
         const { id } = req.params;
         try {
           if (id) {
