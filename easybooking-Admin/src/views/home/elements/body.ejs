@@ -4,10 +4,8 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Thuê xe dễ dàng hơn <span clsas="d-block">với Ezbooking</span></h1>
-                    <p class="mb-4">Chúng tôi tự hào là địa chỉ đáng tin cậy cho những ai đang tìm kiếm sự thuận
-                        tiện và dễ dàng khi cần một phương tiện di chuyển linh hoạt trong thành phố hoặc khám phá
-                        vùng đất mới.</p>
+                    <h1><%= listsetting[0].hero[0].title%> <span clsas="d-block">với Ezbooking</span></h1>
+                    <p class="mb-4"><%= listsetting[0].hero[0].content%></p>
                     <p>
                         <a href="/shop" class="btn btn-secondary me-2">Thuê ngay</a>
                         <a href="/least" class="btn btn-white-outline">Cho thuê</a>
@@ -16,14 +14,13 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="/product/images/product-1.png" class="img-fluid">
+                    <img src="<%= listsetting[0].heroimage%>" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- End Hero Section -->
-
 <!-- Start Product Section -->
 <div class="product-section">
     <div class="container">
@@ -81,52 +78,23 @@
                     Thử nghĩ xem, khi đi chơi đông người bạn muốn muốn tự mình lái một con xe máy hơn hay phải chen
                     lấn chật chội trên một con xe ô tô?</p>
                 <div class="row my-5">
+                    <% listsetting[0].whychoose.forEach((item) => { %>
                     <div class="col-6 col-md-6">
                         <div class="feature">
                             <div class="icon">
                                 <img src="/product/images/truck.svg" alt="Image" class="imf-fluid">
                             </div>
-                            <h3>Giao xe nhanh chóng &amp; tận nơi</h3>
-                            <p>Có ai nói với bạn chúng tôi sẽ đến chính xác sau 15p chưa.</p>
+                            <h3><%= item.title%></h3>
+                            <p><%= item.content%></p>
                         </div>
                     </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="/product/images/bag.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Dễ dàng để đặt xe</h3>
-                            <p>Đặt xe qua web, lựa chọn hàng đầu cho người hướng nội.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="/product/images/support.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Hỗ trợ 24/7</h3>
-                            <p>Đừng gọi vào lúc nửa đêm, tâm linh lắm.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src="/product/images/return.svg" alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Hỗ trợ đổi xe</h3>
-                            <p>Chỉ trong bán kính 5 km.</p>
-                        </div>
-                    </div>
-
+                    <% }); %>
                 </div>
             </div>
 
             <div class="col-lg-5">
                 <div class="img-wrap">
-                    <img src="/product/images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
+                    <img src="<%= listsetting[0].whychooseimage%>" alt="Image" class="img-fluid">
                 </div>
             </div>
 
@@ -141,23 +109,22 @@
         <div class="row justify-content-between">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <div class="imgs-grid">
-                    <div class="grid grid-1"><img src="/product/images/img-grid-1.jpg" alt="Image"></div>
-                    <div class="grid grid-2"><img src="/product/images/img-grid-2.jpg" alt="Image"></div>
-                    <div class="grid grid-3"><img src="/product/images/img-grid-3.jpg" alt="Image"></div>
+                    <div class="grid grid-2"><img src="<%= listsetting[0].helpImage[0].Image%>" alt="Image"></div>
+                    <div class="grid grid-3"><img src="<%= listsetting[0].helpImage[1].Image%>" alt="Image"></div>
+                    <div class="grid grid-1"><img src="<%= listsetting[0].helpImage[2].Image%>" alt="Image"></div>
                 </div>
             </div>
             <div class="col-lg-5 ps-lg-5">
-                <h2 class="section-title mb-4">Chúng tôi giúp bạn dễ dàng tiếp cận với con xe mà bạn mong muốn thuê
+                <h2 class="section-title mb-4"><%= listsetting[0].helpObject[0].title%>
                 </h2>
-                <p>Các tiêu chí của chúng tôi</p>
+                <p><%= listsetting[0].helpObject[0].content%></p>
 
                 <ul class="list-unstyled custom-list my-4">
-                    <li>Không để khách hàng chờ</li>
-                    <li>Không để xe ngoài đường</li>
-                    <li>Không để tiền trong két</li>
-                    <li>Không để ai thiệt thòi</li>
+                    <% listsetting[0].helpDetails.forEach((item) => { %>
+                    <li><%= item.content%></li>
+                    <% }); %>
                 </ul>
-                <p><a href="lease.html" class="btn btn-white-outline">Xem thêm</a></p>
+                <p><a href="/about" class="btn btn-white-outline">Xem thêm</a></p>
             </div>
         </div>
     </div>
@@ -217,7 +184,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
-                <h2 class="section-title">Một vài đánh giá từ khách hàng</h2>
+                <h2 class="section-title"><%= listsetting[0].testimonialtitle%></h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -230,124 +197,30 @@
                     </div>
 
                     <div class="testimonial-slider">
+                        <% listsetting[0].testimonial.forEach((item,index=0) => { %>
                         <div class="item">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 mx-auto">
 
                                     <div class="testimonial-block text-center">
                                         <blockquote class="mb-5">
-                                            <p>&ldquo;Tất cả đều tuyệt vời.&rdquo;</p>
+                                            <p><%= item.comment%></p>
                                         </blockquote>
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src="/product/images/person-1.png" alt="Dương Phan Hiếu Nghĩa"
+                                                <img src="<%= listsetting[0].testimonialImage[index].Image%>" alt="<%= item.name%>"
                                                     class="img-fluid">
                                             </div>
-                                            <h3 class="font-weight-bold">Dương Phan Hiếu Nghĩa</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông tin</span>
+                                            <h3 class="font-weight-bold"><%= item.name%></h3>
+                                            <span class="position d-block mb-3"><%= item.detail%></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi không thuê và họ không lấy tiền của tôi, tôi hạnh phúc vì điều này.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-2.png" alt="Lê Thanh Tài" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Lê Thanh Tài</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông tin</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi thuê xe mặc dù có xe máy riêng.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-3.png" alt="Đặng Quốc Hưng"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Đặng Quốc Hưng</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi đánh giá vì thấy mọi người đều làm vậy.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-4.png" alt="Trần Tiến Đạt"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Trần Tiến Đạt</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Đừng đặt xe của họ, nghiện đấy.&rdquo;</p>
-                                        </blockquote>
-            
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-5.png" alt="Vũ Vinh Hiển"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Vũ Vinh Hiển</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        
+                        <!-- END item -->   
+                        <% }); %>                     
                     </div>
                 </div>
             </div>

@@ -5,11 +5,8 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="intro-excerpt">
-                    <h1>Bài đăng</h1>
-                    <p class="mb-4">Tại đây, chúng tôi chia sẻ những kinh nghiệm thuê và cho thuê xe, 
-                        mẹo lái xe an toàn, câu chuyện từ người dùng và cập nhật xu hướng ngành xe. 
-                        Hy vọng bạn sẽ tìm thấy những thông tin hữu ích và thú vị. 
-                        Cảm ơn bạn đã ghé thăm!</p>
+                    <h1><%= listsetting[0].hero[2].title%></h1>
+                    <p class="mb-4"><%= listsetting[0].hero[2].content%></p>
                     <p><a href="/home" class="btn btn-secondary me-2">Khám phá</a>
                         <a href="/blog/blognew" class="btn btn-white-outline">Viết bài</a>
                     </p>
@@ -17,7 +14,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src="/product/images/product-1.png" class="img-fluid">
+                    <img src="<%= listsetting[0].heroimage%>" class="img-fluid">
                 </div>
             </div>
         </div>

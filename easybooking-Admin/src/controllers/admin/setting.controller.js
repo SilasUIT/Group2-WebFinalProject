@@ -79,7 +79,9 @@ switch(page) {
 
       addOrUpdateItemhero = async (req, res) => {
         try {
-        await updatesetting(res.locals.settingid[0]._id,req.body);
+          const item = await getsettingbyid(res.locals.settingid[0]._id);
+          (!item.hero[0])?item.hero.push(req.body.hero):item.hero[0]=req.body.hero;
+          await item.save();
           const uploadedFiles = await Promise.all([
               cloudinary.uploader.upload(req.files['heroimage'][0].path),
           ]);

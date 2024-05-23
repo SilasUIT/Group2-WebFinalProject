@@ -4,10 +4,8 @@
       <div class="row justify-content-between">
           <div class="col-lg-5">
               <div class="intro-excerpt">
-                  <h1>Thuê xe dễ dàng hơn <span clsas="d-block">với Ezbooking</span></h1>
-                  <p class="mb-4">Chúng tôi tự hào là địa chỉ đáng tin cậy cho những ai đang tìm kiếm sự thuận
-                      tiện và dễ dàng khi cần một phương tiện di chuyển linh hoạt trong thành phố hoặc khám phá
-                      vùng đất mới.</p>
+                  <h1><%= listsetting[0].hero[3].title %></h1>
+                  <p class="mb-4"><%= listsetting[0].hero[3].content%></p>
                   <p>
                       <a href="/shop" class="btn btn-secondary me-2">Thuê ngay</a>
                       <a href="/least" class="btn btn-white-outline">Cho thuê</a>
@@ -16,7 +14,7 @@
           </div>
           <div class="col-lg-7">
               <div class="hero-img-wrap">
-                  <img src="/product/images/product-1.png" class="img-fluid">
+                  <img src="<%= listsetting[0].heroimage%>" class="img-fluid">
               </div>
           </div>
       </div>
