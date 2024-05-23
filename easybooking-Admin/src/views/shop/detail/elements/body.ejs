@@ -50,7 +50,7 @@
 							<div>
 								<i class="fa fa-road text-primary mr-1"></i>
 								<span> Đã đi được
-									<%= data.productinformation[0].odo%> km
+									<%= data.productinformation[0].odo.toLocaleString('vi-VN')%> km
 								</span>
 							</div>
 							<div>
@@ -90,7 +90,7 @@
 				<div class="col-lg-4 mt-3">
 					<div class="calendar" style="background-color: #f3f8fe;">
 						<div class="flex flex-row items-center gap-1 b" style="color: orange;">
-							<h4><%= data.price%>₫/ 1 ngày</h4>
+							<h4><%= data.price.toLocaleString('vi-VN')%>₫/ 1 ngày</h4>
 						</div>
 						<hr>
 
@@ -196,10 +196,10 @@
 										<div class="row">
 											<div class="col-sm-12"><h5>Ngày thuê:</h5></div>
 											<hr>
-											<div class="col-sm-6"><p><strong>Từ:</strong> <%= new Date().toISOString().split('T')[0];%></p></div>
-											<div class="col-sm-6"><p><strong>Đến:</strong> <%= new Date().toISOString().split('T')[0];%></p></div>
-											<div class="col-sm-6"><p><strong>Giá:</strong> <%= data.price%></p></div>
-											<div class="col-sm-6"><p><strong>Phí hợp đồng:</strong> <%= data.price%></p></div>
+											<div class="col-sm-6" id="start-date-input"><strong>Từ: </strong></div>
+											<div class="col-sm-6" id="end-date-input"><strong>Đến:  </strong></div>
+											<div class="col-sm-6"><p><strong>Giá:</strong> <%= data.price.toLocaleString('vi-VN')%> ₫/ngày</p></div>
+											<div class="col-sm-6"><p><strong>Phí hợp đồng:</strong> <%= (data.price * 0.1).toLocaleString('vi-VN')%> ₫</p></div>
 											<div class="col-sm-6"><p><strong>Tổng cộng:</strong> <%= data.price%></p></div>
 										</div>
 										</div>
@@ -209,35 +209,7 @@
 															  </div>
 	
 	
-													<script>
-														// Get the modal
-														var modal = document.getElementById("myModal");
-														
-														// Get the button that opens the modal
-														var btn = document.getElementById("myBtn");
-														
-														// Get the <span> element that closes the modal
-														var span = document.getElementsByClassName("close")[0];
-														
-														// When the user clicks the button, open the modal 
-														btn.onclick = function() {
-														modal.style.display = "block";
-														}
-														
-														// When the user clicks on <span> (x), close the modal
-														span.onclick = function() {
-														modal.style.display = "none";
-														}
-														
-														// When the user clicks anywhere outside of the modal, close it
-														window.onclick = function(event) {
-														if (event.target == modal) {
-															modal.style.display = "none";
-														}
-														}
-														const gdate = new Date().toISOString().split('T')[0];
-														 document.getElementById("gdate").innerHTML = gdate;
-														</script>
+													
 														</div>
 														</div>
 							</div>
