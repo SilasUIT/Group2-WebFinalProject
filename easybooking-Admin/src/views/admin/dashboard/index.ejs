@@ -55,7 +55,7 @@
                 <div class="card-header ui-sortable-handle">
                     <h3 class="card-title">Inbox</h3>
                     <div class="card-tools">
-                        <span title="3 New Messages" class="badge badge-primary">3</span>
+                        <span title="3 New Messages" class="badge badge-primary"><%= listfeedback.length%></span>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -71,7 +71,7 @@
                                 <% listfeedback.slice(0, 4).forEach((item) => { %>
                                     <tr>
                                         <td><a href=""><span class="badge <%= item.status === 'active' ? 'badge-success' : 'badge-danger' %>"><%= item.status ==='active'?'seen':'unread'%></span></a></td>
-                                        <td class="mailbox-name"><a href="/admin"><%= item.Name%></a></td>
+                                        <td class="mailbox-name"><a href="/admin/contact"><%= item.Name%></a></td>
                                         <td class="mailbox-subject"><b><%= item.Email%></b></td>
                                         <td class="mailbox-attachment"></td>
                                         <td class="mailbox-date"><%= item.createdAt.toISOString().split('T')[0]%></td>

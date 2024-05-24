@@ -36,6 +36,17 @@ const updateproduct = async (id, body) => {
     { $set: body },
   );
 }
+const updateState = async (id, state) => {
+  try {
+  return await productmodel.findByIdAndUpdate(
+    id,
+    { $set: { hireState: state } },
+    { new: true },
+  );
+} catch (error) {
+  console.error(error);
+}
+}
 const getStatusCounts = async () => {
   const items = await productmodel.find({});
   const statusCounts = {
@@ -55,4 +66,5 @@ module.exports = {
   updateproduct,
   getStatusCounts,
   getproductbysalerID,
+  updateState,
 }

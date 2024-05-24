@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const role = require('../../middleware/role');
 const middleware=require('../../middleware/admin.middleware');
+const checkContract=require('../../middleware/checkingcontract.helper');
 const {
     verifyToken,
 } = require('../../helper/jwt.helper');
@@ -34,6 +35,7 @@ router.use((req,res,next)=>{
     middleware(req,res,next);
 })
 
+router.use(checkContract.checkContract);
 
 router.use('/',require('./dashboard'));
 router.use('/dashboard',require('./dashboard'));

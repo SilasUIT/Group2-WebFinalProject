@@ -1,4 +1,4 @@
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 	<!-- Start Product Detail -->
 	<div class="container pt-4">
 		<div class="mb-4">
@@ -130,7 +130,15 @@
 						<hr>
 						
 						<div class="p-4">
-							<div id="myBtn" class="btn btn-block">Đặt xe ngay</div>
+							<% if (data.hireState === 'onHire') { %>
+								<div class="btn btn-secondary me-2">Xe đang được thuê</div>
+							  <% } else if (!user || user.status === 'inactive') { %>
+								<a href="javascript:SweetAlert('/profile')">
+								  <div class="btn btn-secondary me-2">Đặt xe ngay</div>
+								</a>
+							  <% } else { %>
+								<div id="myBtn" class="btn btn-block">Đặt xe ngay</div>
+							  <% } %>
 						  </div>
 						<div>
 							<!-- The Modal -->

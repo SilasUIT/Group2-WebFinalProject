@@ -192,6 +192,9 @@
                                                     <strong class="product-price btn btn-primary px-3">
                                                         <%= item.price.toLocaleString('vi-VN')%>₫/ 1 ngày
                                                     </strong>
+                                                    <% if(item.hireState === 'onHire') { %>
+                                                        <label class="product-price btn btn-primary px-3">On Hired</label>
+                                                      <% } %>                                      
                                                 </div>
                                             </a>
                                         </div>

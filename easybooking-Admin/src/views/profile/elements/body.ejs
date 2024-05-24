@@ -2,7 +2,7 @@
     <h4 class="font-weight-bold py-3 mb-4">
         Quản lí tài khoản
     </h4>
-
+    <%- locals.flash %>
     <div class="card overflow-hidden">
         <div class="row no-gutters row-bordered row-border-light">
             <div class="col-md-3 pt-0">
@@ -34,6 +34,15 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="form-group">
+                            <label class="btn btn-secondary me-2">
+                                <% if (account.status == 'active') { %>
+                                    Đã chứng nhận giấy tờ thuê xe
+                                <% } else { %>
+                                    Chưa được chứng nhận giấy tờ xe
+                                <% } %>
+                            </label>       
+                        </div>
                         <form action="/profile/update" method="post" enctype="multipart/form-data">
                             <hr class="border-light m-0">
                             <div class="card-body">
@@ -46,7 +55,7 @@
                                 <div class="form-group">
                                     <label class="form-label">Họ và tên: </label>
                                     <input type="text" class="form-control" name="userinformation[name]"
-                                        value="<%=account.userinformation[0].name%>">
+                                        value="<%=account.userinformation[0].name%>" >
                                 </div>
 
                                 <div class="form-group">
@@ -86,33 +95,31 @@
 
                             <div class="form-group">
                                 <label for="birthdate">Ngày sinh:</label>
-                                <input type="Date" id="userinformation[birthday]" name="userinformation[0].birthday">
                                 <% let birthday=new Date(user.userinformation[0].birthday); let
-                                    formattedBirthday=birthday.getFullYear() + '-' + ('0' + (birthday.getMonth() +
-                                    1)).slice(-2) + '-' + ('0' + birthday.getDate()).slice(-2); %>
-                                    <input value="<%= formattedBirthday %>">
+                                formattedBirthday=birthday.getFullYear() + '-' + ('0' + (birthday.getMonth() +
+                                1)).slice(-2) + '-' + ('0' + birthday.getDate()).slice(-2); %>
+                                <input type="Date" id="userinformation[birthday]" name="userinformation[birthday]" value="<%= formattedBirthday %>">
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Số CCCD: </label>
                                 <input type="text" class="form-control" placeholder="Nhập cccd"
-                                    id="userinformation[cccd]" name="userinformation[0].cccd"
+                                    id="userinformation[cccd]" name="userinformation[cccd]"
                                     value="<%=account.userinformation[0].cccd%>">
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Ngày cấp: </label>
-                                <input type="Date" id="userinformation[date]" name="userinformation[0].date">
                                 <% let date=new Date(user.userinformation[0].date); let formatteddate=date.getFullYear()
-                                    + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' +
-                                    date.getDate()).slice(-2); %>
-                                    <input value="<%= formatteddate %>">
+                                + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' +
+                                date.getDate()).slice(-2); %>
+                                <input type="Date" id="userinformation[date]" name="userinformation[date]" value="<%= formatteddate %>">
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Nơi cấp: </label>
                                 <input type="text" class="form-control" placeholder="Nhập nơi cấp CCCD"
-                                    id="userinformation[place]" name="userinformation[0].place"
+                                    id="userinformation[place]" name="userinformation[place]"
                                     value="<%= account.userinformation[0].place%>">
                             </div>
 

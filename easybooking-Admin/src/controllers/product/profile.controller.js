@@ -24,17 +24,18 @@ class profileController {
   updateprofile = async (req, res) => {
     try {
             const id= req.user._id;
-      if (!req.files.imagecccd || req.files.imagecccd.length === 0 || req.files.imagecccd.length !=2 ) {
-          console.log("error list file");
-          req.flash("warning", "Tạo item thất bại", false);
-          return res.redirect(`${linkprefix}`);
-      }
-      else if(!req.files.certificate || req.files.certificate.length === 0 || req.files.certificate.length !=2 ) {
-        console.log("error list file");
-        req.flash("warning", "Tạo item thất bại", false);
+       await updateuser(id,req.body);
+
+       if (!req.files.imagecccd || req.files.imagecccd.length === 0 || req.files.imagecccd.length !=2 ) {
+        console.log("you need update enough files to upload images!");
+        req.flash("warning", "you need update enough files to upload images!", false);
         return res.redirect(`${linkprefix}`);
     }
-       await updateuser(id,req.body);
+    else if(!req.files.certificate || req.files.certificate.length === 0 || req.files.certificate.length !=2 ) {
+      console.log("you need update enough files to upload images!");
+      req.flash("warning", "you need update enough files to upload images!", false);
+      return res.redirect(`${linkprefix}`);
+  }
       const imagecccdUploads = await Promise.all(req.files.imagecccd.map(file => cloudinary.uploader.upload(file.path)));
       const itemcccd = await getuserbyid(id);
       for (const image of itemcccd.imagecccd) {
