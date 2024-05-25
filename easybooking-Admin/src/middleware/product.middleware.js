@@ -3,11 +3,15 @@ module.exports= async(req,res,next)=>{
     Promise.all([
         productservice.getproducts(),
         productservice.getsetting(),
-    ]).then(([listProducts,listsetting])=>{
+        productservice.getcategory(),
+        productservice.getnews(),
+    ]).then(([listProducts,listsetting,listcategory,listnews])=>{
         res.locals.listProducts = listProducts;
-         //console.log(listProducts.length);
          res.locals.listsetting = listsetting;
-         //console.log(listsetting.length);
+         res.locals.listcategory = listcategory;
+         res.locals.listnews = listnews;
+         //console.log(listcategory);
+        // console.log(listnews.length);
         next();
     }).catch((err)=>{
         next(err);
