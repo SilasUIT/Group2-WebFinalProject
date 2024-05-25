@@ -237,55 +237,26 @@
                 <h2 class="section-title">Một số bài đăng gần đây</h2>
             </div>
             <div class="col-md-6 text-start text-md-end">
-                <a href="blog.html" class="more">Xem toàn bộ bài đăng</a>
+                <a href="/blog" class="more">Xem toàn bộ bài đăng</a>
             </div>
         </div>
 
         <div class="row">
-
+            <% listnews.slice(0, 3).forEach((item) => { %>
             <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
                 <div class="post-entry">
-                    <a href="blog.html" class="post-thumbnail"><img src="/product/images/test4.jpg" alt="Image"
+                    <a href="/blog/blogdetail/<%= item._id%>" class="post-thumbnail"><img src="<%= item.avatar%>" alt="Image"
                             class="img-fluid"></a>
                     <div class="post-content-entry">
-                        <h3><a href="blog.html">Lần đầu tiên trải nghiệm dịch vụ</a></h3>
+                        <h3><a href="/blog/blogdetail/<%= item._id%>">Lần đầu tiên trải nghiệm dịch vụ</a></h3>
                         <div class="meta">
-                            <span>được đăng bởi <a href="blog.html">Dương Phan Hiếu Nghĩa</a></span> <span>vào lúc
-                                7:00 pm
-                                <a href="blog.html">19/12/2023</a></span>
+                            <span><%= item.author%></span> <span>vào lúc
+                                <%= item.createdAt.toISOString().split('T')[0] %></span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-                <div class="post-entry">
-                    <a href="blog.html" class="post-thumbnail"><img src="/product/images/test5.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="post-content-entry">
-                        <h3><a href="blog.html">Làm sao để lấy được nhiều mã giảm giá nhất</a></h3>
-                        <div class="meta">
-                            <span>được đăng bởi <a href="blog.html">Đặng Quốc Hưng</a></span> <span>vào lúc 6:00 pm
-                                <a href="blog.html">1/2/2024</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-                <div class="post-entry">
-                    <a href="blog.html" class="post-thumbnail"><img src="/product/images/test6.jpg" alt="Image"
-                            class="img-fluid"></a>
-                    <div class="post-content-entry">
-                        <h3><a href="blog.html">Cách để thuê xe giá 300.000₫ chỉ còn 1₫</a></h3>
-                        <div class="meta">
-                            <span>được đăng bởi <a href="blog.html">Lê Thanh Tài</a></span> <span>vào lúc 5:00 pm <a
-                                    href="blog.html">9/3/2024</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <% }); %>
         </div>
     </div>
 </div>

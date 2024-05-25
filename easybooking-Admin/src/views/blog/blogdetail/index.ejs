@@ -167,7 +167,7 @@
 
 	<div class="sidebar-widget latest-post card border-1 p-4 mb-3">
 		<h5>Các bài đăng liên quan</h5>
-		<% listnews.forEach((item) => { %>
+		<% listnews.slice(0, 3).forEach((item) => { %>
         <div class="media border-bottom py-3">
             <a href="/blog/blogdetail/<%= item._id%>">
                 <img class="mr-4 rounded" src="<%= item.avatar%>" alt="" style="width: 75px; height: 100px; object-fit: cover;">

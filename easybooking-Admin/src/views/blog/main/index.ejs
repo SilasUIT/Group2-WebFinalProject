@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
-                <h2 class="section-title">Một vài đánh giá từ khách hàng</h2>
+                <h2 class="section-title"><%= listsetting[0].testimonialtitle%></h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -59,135 +59,35 @@
                 <div class="testimonial-slider-wrap text-center">
 
                     <div id="testimonial-nav">
-                        <span style="padding-top: 20px;" class="prev" data-controls="prev"><span
-                                class="fa fa-chevron-left"></span></span>
-                        <span style="padding-top: 20px;" class="next" data-controls="next"><span
-                                class="fa fa-chevron-right"></span></span>
+                        <span style="padding-top: 20px;" class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span style="padding-top: 20px;" class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
                     </div>
 
                     <div class="testimonial-slider">
+                        <% listsetting[0].testimonial.forEach((item,index=0) => { %>
                         <div class="item">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 mx-auto">
 
                                     <div class="testimonial-block text-center">
                                         <blockquote class="mb-5">
-                                            <p>&ldquo;Tất cả đều tuyệt vời.&rdquo;</p>
+                                            <p><%= item.comment%></p>
                                         </blockquote>
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src="/product/images/person-1.png" alt="Dương Phan Hiếu Nghĩa"
+                                                <img src="<%= listsetting[0].testimonialImage[index].Image%>" alt="<%= item.name%>"
                                                     class="img-fluid">
                                             </div>
-                                            <h3 class="font-weight-bold">Dương Phan Hiếu Nghĩa</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
+                                            <h3 class="font-weight-bold"><%= item.name%></h3>
+                                            <span class="position d-block mb-3"><%= item.detail%></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi không thuê và họ không lấy tiền của tôi, tôi hạnh phúc vì điều
-                                                này.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-2.png" alt="Lê Thanh Tài"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Lê Thanh Tài</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi thuê xe mặc dù có xe máy riêng.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-3.png" alt="Đặng Quốc Hưng"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Đặng Quốc Hưng</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Tôi đánh giá vì thấy mọi người đều làm vậy.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-4.png" alt="Trần Tiến Đạt"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Trần Tiến Đạt</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Đừng đặt xe của họ, nghiện đấy.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="/product/images/person-5.png" alt="Vũ Vinh Hiển"
-                                                    class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Vũ Vinh Hiển</h3>
-                                            <span class="position d-block mb-3">Sinh viên đại học công nghệ thông
-                                                tin</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        <!-- END item -->   
+                        <% }); %>                     
                     </div>
                 </div>
             </div>
