@@ -7,7 +7,7 @@ const addproduct = async (body) => {
 }
 const getproduct = (status, keyword) => {
   let query = {};
-  console.log(keyword);
+  //console.log(keyword);
   if (status === 'all') {
     query = {};
   } else if (status) {

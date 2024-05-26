@@ -10,18 +10,26 @@
                 </button>
             </div>
             <div class="sortby col-auto">
-                <!-- Adjust this value based on your design -->
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                <%if(state!='all') {%>
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px;">
                     <span class="button-text">Sắp xếp </span>
                     <i class="fa-solid fa-arrow-down-short-wide"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Giá</a></li>
-                    <li><a class="dropdown-item" href="#">Hãng xe</a></li>
-                    <li><a class="dropdown-item" href="#">Loại xe</a></li>
+                    <li><a class="dropdown-item sort-option" href="#" data-sort="price" data-order="asc">Giá: Thấp đến Cao</a></li>
+                    <li><a class="dropdown-item sort-option" href="#" data-sort="price" data-order="desc">Giá: Cao đến Thấp</a></li>
+                    <li><a class="dropdown-item sort-option" href="#" data-sort="productinformation.0.brand" data-order="asc">Hãng xe: A-Z</a></li>
+                    <li><a class="dropdown-item sort-option" href="#" data-sort="category" data-order="asc">Loại xe: A-Z</a></li>
                 </ul>
+                    <%}%>
+                <% if(state==='all') {%>
+                      <a href="/shop"><span class="btn btn-secondary me-2">Mode Sort</span></a>
+                    <%} else {%>
+                        <a href="/shop/all"><span class="btn btn-secondary me-2">View All</span></a>
+                        <%}%>
             </div>
+            
         </div>
     </div>
 </div>
@@ -139,7 +147,7 @@
                         <% let itemsPerPage=9; %>
                             <% let startIdx=(currentPage - 1) * itemsPerPage; %>
                                 <% let endIdx=startIdx + itemsPerPage; %>
-                                    <% listProducts.slice(startIdx, endIdx).forEach((item)=> { %>
+                                    <% data.slice(startIdx, endIdx).forEach((item)=> { %>
                                         <div class="col-12 col-lg-4 col-lg-4 mb-5">
                                             <a class="product-item"
                                                 href="/shop/detail/<%= item._id%>/<%= item.salerID%>">
@@ -228,3 +236,19 @@
     </div>
 </div>
 <!-- End Pagination -->
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    const sortOptions = document.querySelectorAll('.sort-option');
+    sortOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sortField = this.getAttribute('data-sort');
+            const sortOrder = this.getAttribute('data-order');
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('sort', sortField);
+            urlParams.set('order', sortOrder);
+            window.location.search = urlParams.toString();
+        });
+    });
+});
+</script>

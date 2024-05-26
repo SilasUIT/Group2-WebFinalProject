@@ -10,18 +10,54 @@ const {
     addcontract
 }=require('../../services/admin/contract.service');
 class shopController {
-    getAll = async(req, res) => {
-        let page = parseInt(req.query.page) || 1; 
-        let limit = 9; 
-        let skip = (page - 1) * limit; 
+     getAll = async (req, res) => {
+     const {state}=req.params;
+        let page = parseInt(req.query.page) || 1;
+        let limit = 9;
+        let skip = (page - 1) * limit;
     
-        let data = await getproduct('active').skip(skip).limit(limit).exec(); 
+        let sortField = req.query.sort || 'createdAt'; // Default sort field
+        let sortOrder = req.query.order === 'desc' ? -1 : 1; // Default sort order is ascending
     
-        let totalProducts = await getproduct('active').countDocuments(); 
-        let pages = Math.ceil(totalProducts / limit); 
+        try {
+            if(state==='all'){
+                let data = await getproduct('active')
+                let totalProducts = await getproduct('active').countDocuments();
+                let pages = Math.ceil(totalProducts / limit);
+                return res.render('shop/view', {
+                    data,
+                    page: page,
+                    limit: limit,
+                    pages: pages,
+                    currentPage: page,
+                    state: state,
+                });
+            }
+            let data = await getproduct('active')
+                .sort({ [sortField]: sortOrder })
+                .skip(skip)
+                .limit(limit)
+                .exec();
     
-        return res.render('shop/view', { data, page: page, limit: limit, pages: pages, currentPage: page });
-    }
+            let totalProducts = await getproduct('active').countDocuments();
+            let pages = Math.ceil(totalProducts / limit);
+    
+            return res.render('shop/view', {
+                data,
+                page: page,
+                limit: limit,
+                pages: pages,
+                currentPage: page,
+                sortField: sortField,
+                sortOrder: req.query.order || 'asc',
+                state: '',
+            });
+        } catch (error) {
+            console.error('Error fetching products:', error);
+            res.status(500).send('Server Error');
+        }
+    };
+    
 
     getForm = async(req, res) => {
         const { id, salerID } = req.params;

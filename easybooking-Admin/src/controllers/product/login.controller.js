@@ -12,7 +12,7 @@ class loginController{
     }
     register = async (req, res, next) => {
         try {
-            console.table(req.body);
+          //  console.table(req.body);
             
            const user= await registerService(req.body);
            req.login(user, (err) => {
