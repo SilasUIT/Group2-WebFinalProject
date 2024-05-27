@@ -8,9 +8,11 @@ const session = require("express-session");
 const passport=require('./src/helper/passport');
 var expressLayouts = require("express-ejs-layouts");
 const { connect } = require("./src/config/db");
-
-
+const http = require('http');
+const socketIo = require('socket.io');
 var app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
 connect();
 
 // view engine setup
@@ -62,3 +64,23 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+// chat service
+app.use(express.static('public'));
+app.get('/', (req, res) => {
+  if (!req.session.userId) {
+      // Assumption: req.session.userId is assigned upon user authentication
+      req.session.userId = Date.now().toString(); // Example assignment
+  }
+  res.render('index', { user: { _id: req.session.userId } });
+});
+io.on('connection', (socket) => {
+  socket.on('join room', (roomId) => {
+      socket.join(roomId);
+      console.log('User joined room: ' + roomId);
+  });
+
+  socket.on('chat message', ({ roomId, msg }) => {
+      io.to(roomId).emit('chat message', msg);
+  });
+});
+

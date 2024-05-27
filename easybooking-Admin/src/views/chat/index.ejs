@@ -10,8 +10,7 @@
         <div id="chatMinimize">-</div>
         <ul id="messages"></ul>
         <form id="form" action="">
-            <!Room ID: <input id="roomInput" autocomplete="off"><br>
-            <input type="hidden" id="roomInput" value="roomid">
+            <input type="hidden" id="roomInput" value="<%= user._id %>"> <!-- Here we are setting the room ID -->
             Message: <input id="input" autocomplete="off"><br>
             <button type="submit">Send</button>
         </form>

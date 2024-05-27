@@ -39,20 +39,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    var chatIcon = document.getElementById('chatIcon');
+    var socket = io();
+    var form = document.getElementById('form');
+    var input = document.getElementById('input');
+    var roomInput = document.getElementById('roomInput');
+    var messages = document.getElementById('messages');
 
-    // Variables to track drag state
-     // Variables to track dragging state
-     var isDragging = false;
-     var startX, startY, initialX, initialY;
- 
-    // Listen for the mouse down event
-    chatIcon.addEventListener('mousedown', function(e) {
-        dragged = true;
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        e.preventDefault(); // Prevent default drag behavior
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value && roomInput.value) {
+            socket.emit('join room', roomInput.value);
+            socket.emit('chat message', { roomId: roomInput.value, msg: input.value });
+            input.value = '';
+        }
     });
+
+    socket.on('chat message', function(msg) {
+        var item = document.createElement('li');
+        item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+});
+
 
     // Listen for mouse move event on the document
     document.addEventListener('mousemove', function(e) {
@@ -101,4 +110,4 @@ document.addEventListener('DOMContentLoaded', function() {
             chatIcon.style.display = 'none';
         }
     }
-});
+;
