@@ -34,36 +34,4 @@ var $jq = jQuery.noConflict();
 <script src="/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    const socket = io();
-  
-    socket.on('connect', () => {
-      console.log('Connected to server');
-    });
-  
-    $('form').submit(function(e) {
-      e.preventDefault(); // prevents page reloading
-      const room = $('#room').val();
-      const message = $('#m').val();
-  
-      if (!room || !message) {
-        console.log('room or message is undefined');
-        return false;
-      }
-  
-      socket.emit('join room', room);
-      socket.emit('chat message', { room, message }); // Emit a single object with room and message properties
-      $('#m').val('');
-      return false;
-    });
-  
-    socket.on('chat message', function(data) {
-      $('#messages').append($('<li>').text(data.message + ' ' + data.room)); // Append the message and room to the #messages list
-    });
-    
-   socket.on('updateUserCount', function(userCount) {
-    $('#userCount').text('Current user:' + userCount);
-});
-  </script>
 <script src="/admin/js/custom.js"></script>
