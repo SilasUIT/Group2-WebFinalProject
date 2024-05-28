@@ -11,6 +11,7 @@ const {
 const {
    getItemById:getnewsbyid,
 }=require('../../services/admin/news.service')
+const commentmodel=require('../../model/booking/comment.model');
 const cloudinary = require('cloudinary').v2;
 class blogController{
     getAll=async(req,res)=>{
@@ -35,7 +36,9 @@ class blogController{
             console.log('author not found');
               return res.redirect('/blog');
           }
-          return res.render('blog/blogdetail', { data, author });
+          const comments=await commentmodel.find({auth:id}).exec();
+          //console.log(comments);
+          return res.render('blog/blogdetail', { data, author,comments });
       } catch (error) {
           console.error(error);
           return res.redirect('/blog');
@@ -58,7 +61,13 @@ class blogController{
       //res.status(500).send('Error processing form');
       return res.redirect('/blog');
   }
-      return;
+     
      }
+     comment=async(req,res)=>{
+        console.log(req.body);
+        await commentmodel.create(req.body);
+        const auth=req.body.auth;
+        return res.redirect(`/blog/blogdetail/${auth}`);
+      }
 }
 module.exports=new blogController();

@@ -52,91 +52,40 @@
 		</div>
 	</div>
 
-
-	<div class="col-lg-12 mb-5 border-1">
-		<div class="posts-nav bg-white p-5 d-lg-flex d-md-flex justify-content-between ">
-			<a class="post-prev align-items-center" href="#">
-				<div class="posts-prev-item mb-4 mb-lg-0">
-					<span class="nav-posts-desc text-color">- Bài đăng trước</span>
-					<h6 class="nav-posts-title mt-1">
-						Cách bẻ khóa xe.
-					</h6>
-				</div>
-			</a>
-			<div class="border"></div>
-			<a class="posts-next" href="#">
-				<div class="posts-next-item pt-4 pt-lg-0">
-					<span class="nav-posts-desc text-lg-right text-md-right text-color d-block">- Bài đăng kế</span>
-					<h6 class="nav-posts-title mt-1">
-						Cách cầm xe không cần giấy tờ.
-					</h6>
-				</div>
-			</a>
-		</div>
-	</div>
-
 	<div class="col-lg-12 mb-5 border-1" >
 		<div class="comment-area card border-0 p-5">
-			<h4 class="mb-4">2 Bình luận</h4>
+			<h4 class="mb-4">Số lượt bình luận: <%= comments.length%></h4>
 			<ul class="comment-tree list-unstyled">
-				<li class="mb-5">
+				<% comments.forEach((item) => { %>
+				<li >
 					<div class="comment-area-box">
-						<img alt="" src="https://vcdn-vnexpress.vnecdn.net/2016/04/22/BuiDuyThong1-6407-1461294888.jpg" 
+						<img alt="auth" src="<%= item.avatar%>" 
                         class="img-fluid rounded-circle float-left mr-3 mt-2" style="width: 50px; height: 50px; object-fit: cover;">
-						<h5 class="mb-1">Đạt Trần</h5>
-						<span>Đà Lạt</span>
+						<h5 class="mb-1"><%= item.name%></h5>
+						<span>SomeWhere</span>
 
 						<div class="comment-meta mt-4 mt-lg-0 mt-md-0 float-lg-right float-md-right">
-							<span class="date-comm">Đã đăng tháng 7, 2023 </span>
+							<span class="date-comm">Đã đăng <%= item.createdAt.toISOString().split('T')[0]%> </span>
 						</div>
 
 						<div class="comment-content mt-3">
-							<p>Á đù hay dữ. Mai tao thử mới được.</p>
+							<p><%= item.comment%></p>
 						</div>
 					</div>
 				</li>
-
-				<li>
-					<div class="comment-area-box">
-						<img alt="" src="https://didongviet.vn/dchannel/wp-content/uploads/2023/07/bao-doi-la-gi-bao-thu-la-gi-didongviet.jpg" 
-                        class="img-fluid rounded-circle float-left mr-3 mt-2" style="width: 50px; height: 50px; object-fit: cover;">
-
-						<h5 class="mb-1">Tài Lê</h5>
-						<span>Đâu Đó</span>
-
-						<div class="comment-meta mt-4 mt-lg-0 mt-md-0 float-lg-right float-md-right">
-							<span class="date-comm">Đã đăng tháng 7, 2018</span>
-						</div>
-
-						<div class="comment-content mt-3">
-							<p>Mấy thằng bất dạy suốt ngày đua xe phá làng phá xóm. Tao bắt được thì cho bạt tay cho bỏ tật.</p>
-						</div>
-					</div>
-				</li>
+				<% }); %>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-12">
-		<form class="contact-form bg-white rounded p-5 border-1" id="comment-form">
+		<form action="/blog/comment" class="contact-form bg-white rounded p-5 border-1" id="comment-form" method="post">
 			<h4 class="mb-4">Viết bình luận</h4>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<input class="form-control" type="text" name="name" id="name" placeholder="Tên:">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<input class="form-control" type="text" name="mail" id="mail" placeholder="Email:">
-					</div>
-				</div>
-			</div>
-
-
 			<textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5" placeholder="Nội dung"></textarea>
-
-			<input class="btn btn-main btn-round-full" type="submit" name="submit-contact" id="submit_contact" value="Đăng bình luận">
+             <input type="hidden" name="name" value="<%= user.userinformation[0].name%>">
+			 <input type="hidden" name="auth" value="<%= data._id%>">
+			 <input type="hidden" name="avatar" value="<%= user.avatar%>">
+			<button class="btn btn-main btn-round-full" type="submit">Đăng bình luận</button>
 		</form>
 	</div>
 </div>
