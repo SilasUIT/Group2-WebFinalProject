@@ -39,8 +39,8 @@
                 <div class="info-box mb-3">
                     <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Tài khoản đã đăng ký</span>
-                        <span class="info-box-number"><%= numUser.length%></span>
+                        <span class="info-box-text">Tài khoản đã đăng ký: <%= numUser.length%></span>
+                        <span id="userCount" class="info-box-number"></span>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <div class="card-header ui-sortable-handle">
                     <h3 class="card-title">Direct Chat</h3>
                     <div class="card-tools">
-                        <span title="3 New Messages" class="badge badge-primary">3</span>
+                        <span title="3 New Messages" class="badge badge-primary">ADMIN</span>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
                         </button>

@@ -61,5 +61,9 @@ var $jq = jQuery.noConflict();
     socket.on('chat message', function(data) {
       $('#messages').append($('<li>').text(data.message + ' ' + data.room)); // Append the message and room to the #messages list
     });
+    
+   socket.on('updateUserCount', function(userCount) {
+    $('#userCount').text('Current user:' + userCount);
+});
   </script>
 <script src="/admin/js/custom.js"></script>

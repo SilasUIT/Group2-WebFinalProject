@@ -6,7 +6,6 @@
     <title>Chat App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Basic styles for the chat interface */
         .card {
             max-width: 600px;
             margin: 50px auto;
@@ -61,6 +60,9 @@
     <div class="card-body">
         <div class="direct-chat-messages">
             <ul class="contacts-list" id="messages">
+                <% messages.forEach(msg => { %>
+                    <li><%= msg.message %> (Room: <%= msg.room %>)</li>
+                <% }); %>
             </ul>
         </div>
     </div>
@@ -88,7 +90,7 @@
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault(); // prevents page reloading
         const room = document.getElementById('room').value;
-        const message = document.getElementById('m').value +' by <%= user.userinformation[0].name%>';
+        const message = document.getElementById('m').value + ' by <%= user.userinformation[0].name%>';
 
         if (!room || !message) {
             console.log('room or message is undefined');
@@ -99,6 +101,16 @@
         socket.emit('chat message', { room, message }); // Emit a single object with room and message properties
         document.getElementById('m').value = '';
         return false;
+    });
+
+    socket.on('load messages', function(messages) {
+        const messagesList = document.getElementById('messages');
+        messagesList.innerHTML = ''; // Clear current messages
+        messages.forEach((msg) => {
+            const item = document.createElement('li');
+            item.textContent = `${msg.message} (Room: ${msg.room})`;
+            messagesList.appendChild(item);
+        });
     });
 
     socket.on('chat message', function(data) {
