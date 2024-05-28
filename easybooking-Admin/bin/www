@@ -21,6 +21,10 @@ app.set('port', port);
 
 var server = http.createServer(app);
 const io = require('socket.io')(server);
+
+//app.locals.io=io;
+
+
 const messageModel=require('../src/model/chat/chat.model');
 let number=0;
 io.on('connection', (socket) => {

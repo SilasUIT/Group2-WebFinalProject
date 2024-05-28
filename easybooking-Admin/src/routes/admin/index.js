@@ -26,6 +26,7 @@ router.use((req, res, next) => {
 // Set user information to locals
 router.use((req, res, next) => {
     res.locals.user = req.user || null;
+   // res.locals.rooms = Object.keys(req.app.locals.io.sockets.adapter.rooms);
     next();
 });
 

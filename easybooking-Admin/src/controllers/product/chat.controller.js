@@ -5,7 +5,7 @@ const {
 }=require('../../services/chat.service');
 class chatController{
     getAll=async(req,res)=>{
-       return res.render('chat');
+       return res.render('chat/room');
     }
     // getMessage=async(req,res)=>{
     //     const {id}=req.params.id;
