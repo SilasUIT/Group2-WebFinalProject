@@ -39,11 +39,11 @@
             display: flex;
         }
         .received-message {
-        background-color: rgb(203, 193, 172); 
-    }
-    .sent-message {
-        background-color: whitesmoke; 
-    }
+            background-color: rgb(203, 193, 172);
+        }
+        .sent-message {
+            background-color: whitesmoke;
+        }
     </style>
 </head>
 <body>
@@ -58,7 +58,7 @@
     <div class="card-footer">
         <form action="#" method="post">
             <div class="input-group">
-                <input id="room" autocomplete="off" type="text" name="room" placeholder="Enter room code ..." class="form-control" value="<%= user._id%>" readonly>
+                <input id="room" autocomplete="off" type="text" name="room" placeholder="Enter room code ..." class="form-control" value="<%= user._id %>" readonly>
                 <input id="m" autocomplete="off" type="text" name="message" placeholder="Type Message ..." class="form-control">
                 <span class="input-group-append">
                     <button type="submit" class="btn btn-secondary me-2">Send</button>
@@ -73,36 +73,38 @@
     const socket = io();
 
     socket.on('connect', () => {
+        const userId = '<%= user._id %>';
+        socket.emit('user joined', userId);
         console.log('Connected to server');
     });
 
     document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    const room = document.getElementById('room').value;
-    const message = document.getElementById('m').value +' : <%= user.userinformation[0].name%>';
+        e.preventDefault();
+        const room = document.getElementById('room').value;
+        const message = document.getElementById('m').value + ' : <%= user.userinformation[0].name %>';
 
-    if (!room || !message) {
-        console.log('room or message is undefined');
+        if (!room || !message) {
+            console.log('room or message is undefined');
+            return false;
+        }
+
+        socket.emit('join room', room);
+        socket.emit('chat message', { room, message, userId: '<%= user._id %>' });
+
+        document.getElementById('m').value = '';
         return false;
-    }
+    });
 
-    socket.emit('join room', room);
-    socket.emit('chat message', { room, message }); 
-
-    document.getElementById('m').value = '';
-    return false;
-});
-
-socket.on('chat message', function(data) {
-    const item = document.createElement('li');
-    if (data.message.includes('<%= user.userinformation[0].name%>')) {
-        item.classList.add('sent-message');
-    } else {
-        item.classList.add('received-message');
-    }
-    item.textContent = `${data.message} (Room: ${data.room})`;
-    document.getElementById('messages').appendChild(item);
-});
+    socket.on('chat message', function(data) {
+        const item = document.createElement('li');
+        if (data.message.includes('<%= user.userinformation[0].name %>')) {
+            item.classList.add('sent-message');
+        } else {
+            item.classList.add('received-message');
+        }
+        item.textContent = `${data.message} (Room: ${data.room})`;
+        document.getElementById('messages').appendChild(item);
+    });
 </script>
 
 </body>

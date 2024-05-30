@@ -141,7 +141,9 @@
                 <div class="card-footer">
                     <form action="#" method="post">
                         <div class="input-group">
-                            <input id="room" autocomplete="off" type="text" name="room" placeholder="Enter room code ..." class="form-control">
+                            <select id="room" name="room" class="form-control custom-select">
+                                <option selected disabled="">Select one</option>
+                            </select>
                             <input id="m" autocomplete="off" type="text" name="message" placeholder="Type Message ..." class="form-control">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary">Send</button>
@@ -295,7 +297,7 @@
     });
   
     $('form').submit(function(e) {
-      e.preventDefault(); // prevents page reloading
+      e.preventDefault(); 
       const room = $('#room').val();
       const message = $('#m').val();
   
@@ -305,16 +307,24 @@
       }
   
       socket.emit('join room', room);
-      socket.emit('chat message', { room, message }); // Emit a single object with room and message properties
+      socket.emit('chat message', { room, message }); 
       $('#m').val('');
       return false;
     });
   
     socket.on('chat message', function(data) {
-      $('#messages').append($('<li>').text(data.message + ' ' + data.room)); // Append the message and room to the #messages list
+      $('#messages').append($('<li>').text(data.message + ' ' + data.room)); 
     });
     
    socket.on('updateUserCount', function(userCount) {
     $('#userCount').text('Current user:' + userCount);
 });
+socket.on('userList', function(users) {
+  const userListElement = $('#room');
+  userListElement.empty(); 
+  users.forEach(user => {
+    userListElement.append($('<option>').val(user.userId).text(user.userId));
+  });
+});
+
   </script>
