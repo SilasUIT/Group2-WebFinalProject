@@ -43,18 +43,18 @@
                 <div class="card-body p-0">
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/contact" class="nav-link">
                                 <i class="far fa-circle text-danger"></i>
                                 Unread
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle text-warning"></i> Seen
+                            <a href="/admin/contact" class="nav-link">
+                                <i class="far fa-circle text-warning"></i> replied
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/contact" class="nav-link">
                                 <i class="far fa-circle text-primary"></i>
                                 All
                             </a>
@@ -131,7 +131,7 @@
                                     >
                                         <td><a href=""><span
                                                     class="badge <%= item.status === 'active' ? 'badge-success' : 'badge-danger' %>">
-                                                    <%= item.status==='active' ?'seen':'unread'%>
+                                                    <%= item.status==='active' ?'replied':'unread'%>
                                                 </span></a></td>
                                         <td class="mailbox-name"><a href="/admin">
                                                 <%= item.Name%>
