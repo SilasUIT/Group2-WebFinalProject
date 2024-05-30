@@ -16,7 +16,8 @@ const getproduct = (status, keyword) => {
   if (keyword) {
     query.$or = [
       { name: new RegExp(keyword, 'i') },
-      { description: new RegExp(keyword, 'i') }
+      { description: new RegExp(keyword, 'i') },
+      { 'productinformation.brand': new RegExp(keyword, 'i') },
     ];
   }
   return productmodel.find(query); // remove the await here
