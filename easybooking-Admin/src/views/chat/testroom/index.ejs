@@ -53,19 +53,36 @@
             padding: 5px;
             border-radius: 5px;
             margin-bottom: 10px;
-            background-color: #000;
             color: whitesmoke;
+            border-radius: 5px;
+            display: block;
+            
         }
         .sent-message {
             text-align: right;
             padding: 5px;
             border-radius: 5px;
             margin-bottom: 10px;
-            background-color: #314d43;
             color: #fff;
+            border-radius: 10px;
+            display: block;
         }
 
-    
+        .received-message span {
+            background-color: #000;
+            color: whitesmoke;
+            padding: 5px;
+            border-radius: 10px;
+            display: inline;
+        }
+
+        .sent-message span {
+            background-color: #314d43;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline;
+        }
     </style>
 </head>
 <body>
@@ -74,13 +91,19 @@
     <div class="card-body">
         <div class="direct-chat-messages">
             <div>
-                
+                <div class="received-message">
+                    <span>Your text goes here</span>
+                </div>
+                <div class="sent-message">
+                    <span>Your text goes here</span>
+                </div>
             </div>
         </div>
     </div>
     <div class="card-footer">
         <form action="#" method="post">
             <div class="input-group">
+                <input id="room" autocomplete="off" type="hidden" name="room" placeholder="Enter room code ..." class="form-control" value="<%= user._id %>" readonly>
                 <input id="m" autocomplete="off" type="text" name="message" placeholder="Nhập tin nhắn ..." class="form-control">
                 <span class="input-group-append">
                     <button type="submit" class="btn btn-primary me-2"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
@@ -101,7 +124,7 @@
 
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const room = '<%= user._id%>';
+        const room = document.getElementById('room').value;
         const message = document.getElementById('m').value + ' : <%= user.userinformation[0].name %>';
 
         if (!room || !message) {
@@ -117,14 +140,18 @@
     });
 
     socket.on('chat message', function(data) {
-        // Create a new div for the message
+    // Create a new div for the message
         const item = document.createElement('div');
+        const span = document.createElement('span');
+
         if (data.message.includes('<%= user.userinformation[0].name %>')) {
             item.classList.add('sent-message');
         } else {
             item.classList.add('received-message');
         }
-        item.textContent = `${data.message}`;
+
+        span.textContent = `${data.message} (Room: ${data.room})`;
+        item.appendChild(span);
 
         // Append the new message div to the 'direct-chat-messages' div
         const chatMessagesDiv = document.querySelector('.direct-chat-messages');
