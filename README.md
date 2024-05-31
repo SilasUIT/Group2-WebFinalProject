@@ -63,13 +63,13 @@ Chúc bạn có trải nghiệm tuyệt vời khi sử dụng trang web Ezbookin
 2. **Clone dự án từ GitHub**: Sử dụng lệnh `git clone` để clone dự án từ GitHub về máy tính của bạn.
 
     ```bash
-    git clone <url-repository>
+    git clone https://github.com/SilasUIT/Group2-WebFinalProject.git
     ```
 
 3. **Cài đặt các gói phụ thuộc**: Chuyển đến thư mục dự án và cài đặt các gói phụ thuộc bằng npm.
 
     ```bash
-    cd <project-directory>
+    cd Group2-WebFinalProject
     npm install
     ```
 
@@ -79,7 +79,7 @@ Chúc bạn có trải nghiệm tuyệt vời khi sử dụng trang web Ezbookin
     npm install ejs
     ```
 
-5. **Chạy dự án**: Cuối cùng, bạn có thể chạy dự án bằng cách sử dụng lệnh `npm start`.
+5. **Chạy dự án**: Cuối cùng, bạn có thể chạy dự án bằng cách sử dụng lệnh.
 
     ```bash
     npm start
