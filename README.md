@@ -55,3 +55,34 @@ Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ cho
 - Hãy đảm bảo rằng bạn đã đọc và hiểu các điều khoản và điều kiện trước khi thuê xe.
 
 Chúc bạn có trải nghiệm tuyệt vời khi sử dụng trang web Ezbooking!
+
+## Cách setup môi trường
+
+1. **Cài đặt Node.js và npm**: Trước tiên, bạn cần cài đặt Node.js và npm (Node Package Manager) trên máy tính của bạn. Bạn có thể tải Node.js và npm từ [trang chủ của Node.js](https://nodejs.org/).
+
+2. **Clone dự án từ GitHub**: Sử dụng lệnh `git clone` để clone dự án từ GitHub về máy tính của bạn.
+
+    ```bash
+    git clone <url-repository>
+    ```
+
+3. **Cài đặt các gói phụ thuộc**: Chuyển đến thư mục dự án và cài đặt các gói phụ thuộc bằng npm.
+
+    ```bash
+    cd <project-directory>
+    npm install
+    ```
+
+4. **Cài đặt EJS**: Nếu EJS chưa được cài đặt, bạn có thể cài đặt nó bằng npm.
+
+    ```bash
+    npm install ejs
+    ```
+
+5. **Chạy dự án**: Cuối cùng, bạn có thể chạy dự án bằng cách sử dụng lệnh `npm start`.
+
+    ```bash
+    npm start
+    ```
+
+Lưu ý: Các bước trên giả định rằng bạn đã cài đặt Git trên máy tính của bạn. Nếu chưa, bạn có thể tải và cài đặt nó từ [trang chủ của Git](https://git-scm.com/).
