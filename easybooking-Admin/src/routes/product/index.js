@@ -36,12 +36,12 @@ router.use((req, res, next) => {
 });
 
 // Flash messages setup
-router.use('/vehicle', (req, res, next) => {
-    req.app.set('layout', 'vehicle');
-    // Uncomment if flash messages are to be used
-    // req.app.use(flash(app, { viewName: "vehicle/elements/notify" }));
-    next();
-}, require('./vehicle'));
+// router.use('/vehicle', (req, res, next) => {
+//     req.app.set('layout', 'vehicle');
+//     // Uncomment if flash messages are to be used
+//     // req.app.use(flash(app, { viewName: "vehicle/elements/notify" }));
+//     next();
+// }, require('./vehicle'));
 
 // Setting layout and handling routes
 const routes = [
@@ -54,6 +54,7 @@ const routes = [
     { path: '/contract', layout: 'contract', handler: require('./contract') },
     { path: '/least', layout: 'least', handler: require('./least') },
     { path: '/blog', layout: 'blog', handler: require('./blog') },
+    { path: '/vehicle', layout: 'vehicle', handler: require('./vehicle') },
     {path:'/chat',layout: 'chat', handler: require('./chat')}
 ];
 
