@@ -55,7 +55,7 @@
                 <a class="product-item" href="/shop/detail/<%= item._id%>/<%= item.salerID%>%>">
                     <img src="<%= item.image %>" class="img-fluid product-thumbnail" style="height: 290px; width: 290px;">
                     <h3 class="product-title"><%= item.name %></h3>
-                    <strong class="product-price"><%= item.price %>₫/ 1 ngày</strong>
+                    <strong class="product-price"><%= item.price.toLocaleString('vi-VN')  %>₫/ 1 ngày</strong>
                     <span class="icon-cross">
                         <img src="/product/images/cross.svg" class="img-fluid">
                     </span>
