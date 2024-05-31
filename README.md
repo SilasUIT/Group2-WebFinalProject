@@ -79,7 +79,7 @@ Chúc bạn có trải nghiệm tuyệt vời khi sử dụng trang web Ezbookin
     npm install ejs
     ```
 
-5. **Chạy dự án**: Cuối cùng, bạn có thể chạy dự án bằng cách sử dụng lệnh.
+5. **Chạy dự án**: Cuối cùng, bạn có thể chạy dự án với câu lệnh sau và truy cập vào web bằng url http://localhost:5000 (cổng mặc định của nhóm mình là 5000).
 
     ```bash
     npm start
