@@ -101,8 +101,7 @@ document.querySelector('#next-year').onclick = () => {
     ++curr_year.value
     generateCalendar(curr_month.value, curr_year.value)
 }
-document.querySelector('#start-date-input').value = startDate;
-document.querySelector('#end-date-input').value = endDate;
+
 
 
 // Get the modal
@@ -115,11 +114,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-    let startDate = selectionStart ? selectionStart.textContent : '';
-    let endDate = selectionEnd ? selectionEnd.textContent : '';
-}
+
 
 span.onclick = function () {
     modal.style.display = "none";
