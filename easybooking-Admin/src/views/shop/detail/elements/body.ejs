@@ -30,7 +30,7 @@
 							style="width: 40px; height: 40px; border-radius: 50%;">
                             <div>
                                 <b><span><%= saler.userinformation[0].name%></span></b> <br>
-                                <span><%= data.createdAt.toISOString().split('T')[0]%></span>
+                                <span><%= data.createdAt.toISOString().split('T')[0].split('-').reverse().join('-') %></span>
                             </div>
 					</div>
 					<div class="figures d-flex mt-3 mb-3">
@@ -293,7 +293,7 @@ const randomProducts = shuffledProducts.slice(0, 3);
     <a class="product-item" href="/shop/detail/<%= item._id%>/<%= item.salerID%>%>">
         <img src="<%= item.image %>" class="img-fluid product-thumbnail">
         <h3 class="product-title"><%= item.name %></h3>
-        <strong class="product-price"><%= item.price %>₫/ 1 ngày</strong>
+        <strong class="product-price"><%= item.price.toLocaleString('vi-VN') %>₫/ 1 ngày</strong>
         <span class="icon-cross">
             <img src="/product/images/cross.svg" class="img-fluid">
         </span>
