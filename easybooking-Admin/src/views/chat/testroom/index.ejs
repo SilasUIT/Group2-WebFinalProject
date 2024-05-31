@@ -81,7 +81,6 @@
     <div class="card-footer">
         <form action="#" method="post">
             <div class="input-group">
-                <input id="room" autocomplete="off" type="text" name="room" placeholder="Enter room code ..." class="form-control" value="<%= user._id %>" readonly>
                 <input id="m" autocomplete="off" type="text" name="message" placeholder="Nhập tin nhắn ..." class="form-control">
                 <span class="input-group-append">
                     <button type="submit" class="btn btn-primary me-2"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
@@ -102,7 +101,7 @@
 
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const room = document.getElementById('room').value;
+        const room = '<%= user._id%>';
         const message = document.getElementById('m').value + ' : <%= user.userinformation[0].name %>';
 
         if (!room || !message) {
@@ -125,7 +124,7 @@
         } else {
             item.classList.add('received-message');
         }
-        item.textContent = `${data.message} (Room: ${data.room})`;
+        item.textContent = `${data.message}`;
 
         // Append the new message div to the 'direct-chat-messages' div
         const chatMessagesDiv = document.querySelector('.direct-chat-messages');
