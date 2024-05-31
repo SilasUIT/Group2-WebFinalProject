@@ -91,12 +91,7 @@
     <div class="card-body">
         <div class="direct-chat-messages">
             <div>
-                <div class="received-message">
-                    <span>Your text goes here</span>
-                </div>
-                <div class="sent-message">
-                    <span>Your text goes here</span>
-                </div>
+            
             </div>
         </div>
     </div>
@@ -150,7 +145,7 @@
             item.classList.add('received-message');
         }
 
-        span.textContent = `${data.message} (Room: ${data.room})`;
+        span.textContent = `${data.message}`;
         item.appendChild(span);
 
         // Append the new message div to the 'direct-chat-messages' div
