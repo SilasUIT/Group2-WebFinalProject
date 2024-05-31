@@ -53,12 +53,16 @@
             padding: 5px;
             border-radius: 5px;
             margin-bottom: 10px;
+            background-color: #000;
+            color: whitesmoke;
         }
         .sent-message {
             text-align: right;
             padding: 5px;
             border-radius: 5px;
             margin-bottom: 10px;
+            background-color: #314d43;
+            color: #fff;
         }
 
     
@@ -70,12 +74,7 @@
     <div class="card-body">
         <div class="direct-chat-messages">
             <div>
-                <div class="received-message">
-                    <span class="contacts-list btn btn-primary">hellothere</span>
-                </div>
-                <div class="sent-message">
-                    <span class="contacts-list btn">hellothere</span>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -91,3 +90,45 @@
         </form>
     </div>
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    socket.on('connect', () => {
+        const userId = '<%= user._id %>';
+        socket.emit('user joined', userId);
+        console.log('Connected to server');
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const room = document.getElementById('room').value;
+        const message = document.getElementById('m').value + ' : <%= user.userinformation[0].name %>';
+
+        if (!room || !message) {
+            console.log('room or message is undefined');
+            return false;
+        }
+
+        socket.emit('join room', room);
+        socket.emit('chat message', { room, message, userId: '<%= user._id %>' });
+
+        document.getElementById('m').value = '';
+        return false;
+    });
+
+    socket.on('chat message', function(data) {
+        // Create a new div for the message
+        const item = document.createElement('div');
+        if (data.message.includes('<%= user.userinformation[0].name %>')) {
+            item.classList.add('sent-message');
+        } else {
+            item.classList.add('received-message');
+        }
+        item.textContent = `${data.message} (Room: ${data.room})`;
+
+        // Append the new message div to the 'direct-chat-messages' div
+        const chatMessagesDiv = document.querySelector('.direct-chat-messages');
+        chatMessagesDiv.appendChild(item);
+    });
+</script>
