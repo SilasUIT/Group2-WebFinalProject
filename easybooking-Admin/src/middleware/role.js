@@ -5,8 +5,9 @@ const ensureadmin =async (req, res, next) => {
     }
     if (req.user.role !== 'admin') {
         const message='you do not have permission to access this page';
+        const url='/home'
         req.app.set('layout','errorPage');
-       return res.render('errorPage',{message});
+       return res.render('errorPage',{message,url});
     }
     next();
 }

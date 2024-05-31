@@ -6,7 +6,9 @@ const middleware = require('../../middleware/product.middleware');
 const {
     verifyToken,
 } = require('../../helper/jwt.helper');
-
+const {
+    loginrequire
+}=require('../../middleware/loginrequire.middleware');
 // Token verification middleware
 router.use((req, res, next) => {
     const token = req.cookies.jwt;
@@ -35,17 +37,16 @@ router.use((req, res, next) => {
     }
 });
 
-// Flash messages setup
-// router.use('/vehicle', (req, res, next) => {
-//     req.app.set('layout', 'vehicle');
-//     // Uncomment if flash messages are to be used
-//     // req.app.use(flash(app, { viewName: "vehicle/elements/notify" }));
-//     next();
-// }, require('./vehicle'));
+// // Flash messages setup
+router.use('/login', (req, res, next) => {
+    req.app.set('layout', 'login');
+    next();
+}, require('./login'));
+
+router.use(loginrequire);
 
 // Setting layout and handling routes
 const routes = [
-    { path: '/login', layout: 'login', handler: require('./login') },
     { path: '/home', layout: 'home', handler: require('./home') },
     { path: '/about', layout: 'about', handler: require('./about') },
     { path: '/contact', layout: 'contact', handler: require('./contact') },
