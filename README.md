@@ -20,6 +20,30 @@ Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ cho
 
 7. **In hợp đồng:** Cho phép in hợp đồng giữa người cho thuê và người thuê để bảo đảm sự minh bạch và công bằng trong giao dịch.
 
+8. **Đăng Bài Trải Nghiệm:** Chia sẻ những trải nghiệm và câu chuyện cá nhân của bạn.
+
+9. **Gợi Ý Sản Phẩm Phù Hợp:** Nhận đề xuất về các sản phẩm phù hợp với nhu cầu của bạn.
+
+10. **Quản Lý Xe Cho Thuê:** Theo dõi các xe đang có sẵn để cho thuê.
+
+11. **Quản Lý Hợp Đồng Thuê Và Cho Thuê:** Quản lý các hợp đồng thuê và cho thuê.
+
+12. **Quản Lý Dữ Liệu Cá Nhân:** Kiểm soát thông tin cá nhân và cách sử dụng nó.
+
+13. **Gửi Đánh Giá Phản Hồi:** Gửi đánh giá và phản hồi của bạn qua email hoặc nhận hỗ trợ trực tiếp qua hộp chat.
+
+14. **Trang dành riêng cho quản trị viên (admin):** 
+ a) Trò chuyện với người dùng thông qua socket 
+ b) Bảng điều khiển: thống kê dữ liệu (xe đăng ký, xe cho thuê, ...)
+ c) Xem được trạng thái hoạt động của người dùng
+ d) Quản lý máy chủ thư điện tử (mail) thông qua google mail
+ e) Quản trị người dùng (phân quyền, xác thực thông tin người dùng)
+ f) Quản lý hợp đồng cho thuê
+ g) Quản lý bài đăng, duyệt bài 
+ h) Quản lý sản phẩm, duyệt sản phẩm
+ i) Quản lý cài đặt (dữ liệu hiển thị phía người dùng)
+
+
 ## Các mô hình sử dụng
 
 1. Frontend: HTML, CSS
