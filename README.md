@@ -33,15 +33,15 @@ Ezbooking là một trang web cho thuê xe máy, cung cấp các dịch vụ cho
 13. **Gửi Đánh Giá Phản Hồi:** Gửi đánh giá và phản hồi của bạn qua email hoặc nhận hỗ trợ trực tiếp qua hộp chat.
 
 14. **Trang dành riêng cho quản trị viên (admin):** 
- a) Trò chuyện với người dùng thông qua socket 
- b) Bảng điều khiển: thống kê dữ liệu (xe đăng ký, xe cho thuê, ...)
- c) Xem được trạng thái hoạt động của người dùng
- d) Quản lý máy chủ thư điện tử (mail) thông qua google mail
- e) Quản trị người dùng (phân quyền, xác thực thông tin người dùng)
- f) Quản lý hợp đồng cho thuê
- g) Quản lý bài đăng, duyệt bài 
- h) Quản lý sản phẩm, duyệt sản phẩm
- i) Quản lý cài đặt (dữ liệu hiển thị phía người dùng)
+ -a) Trò chuyện với người dùng thông qua socket 
+ -b) Bảng điều khiển: thống kê dữ liệu (xe đăng ký, xe cho thuê, ...)
+ -c) Xem được trạng thái hoạt động của người dùng
+ -d) Quản lý máy chủ thư điện tử (mail) thông qua google mail
+ -e) Quản trị người dùng (phân quyền, xác thực thông tin người dùng)
+ -f) Quản lý hợp đồng cho thuê
+ =g) Quản lý bài đăng, duyệt bài 
+ -h) Quản lý sản phẩm, duyệt sản phẩm
+ -i) Quản lý cài đặt (dữ liệu hiển thị phía người dùng)
 
 
 ## Các mô hình sử dụng
@@ -110,3 +110,6 @@ Chúc bạn có trải nghiệm tuyệt vời khi sử dụng trang web Ezbookin
     ```
 
 Lưu ý: Các bước trên giả định rằng bạn đã cài đặt Git trên máy tính của bạn. Nếu chưa, bạn có thể tải và cài đặt nó từ [trang chủ của Git](https://git-scm.com/).
+
+## Thông tin thêm về chủ đề seminar của nhóm: Framework NextJS (ReactJS / JavaScript)
+[Github link](https://github.com/SilasUIT/NT208.O21.ANTT-Group02-MidtermSeminar)
